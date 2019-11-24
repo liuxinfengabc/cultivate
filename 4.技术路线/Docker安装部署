@@ -1,0 +1,22 @@
+
+
+镜像安装：
+docker pull tomcat
+docker pull nginx
+
+启动容器
+docker run -it --name webdemo -p 80:8080 tomcat /bin/bash
+启动一个交互式的容器，名字是webdemo，-p 80:8080表示将容器的8080端口映射到主机的80端口，这样我们只要访问主机的80端口就可以访问到容器的服务了。
+
+如何将文件从主机复制到容器中：
+从主机复制到容器 sudo docker cp host_path containerID:container_path
+从容器复制到主机 sudo docker cp containerID:container_path host_path
+
+长的字符串是容器的id
+ 
+ 
+ docker 下修改参数：
+ docker cp 3c8d188f7fb48:/etc/mysql/mysql.conf.d/mysqld.cnf /home/
+修改文件内容，添加参数行 log_bin=on
+docker cp /home/mysqld.cnf 3c8d188f7fb48:/etc/mysql/mysql.conf.d/mysqld.cnf
+docker reload 3c8d188f7fb48
