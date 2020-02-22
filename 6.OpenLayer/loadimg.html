@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<head >
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="./openlayer3/ol.css" type="text/css" />
+    <style>
+        .map {
+            height: 98%;
+            width: 100%;
+        }
+    </style>
+    <script src="./openlayer3/ol.js" type="text/javascript"></script>
+    <title>OpenLayers example</title>
+</head>
+<body>
+<div id="map" class="map"></div>
+<script type="text/javascript">
+
+    // 参考： https://blog.csdn.net/qq_35732147/article/details/81386253?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task
+    var extent = [0, 0, 418, 600];
+    var projection = new ol.proj.Projection({
+        code: 'xkcd-image',
+        units: 'pixels',
+        extent: extent
+    });
+    var map = new ol.Map({
+        layers: [
+            new ol.layer.Image({
+                source: new ol.source.ImageStatic({
+                    url: './img/pandaBase.png',//这里添加静态图片的地址
+                    projection: projection,
+                    imageExtent: extent
+                })
+            })
+        ],
+        target: 'map',
+        view: new ol.View({
+            projection: projection,
+            center: ol.extent.getCenter(extent),
+            zoom: 2,
+            maxZoom: 8
+        })
+    });
+</script>
+</body>
+</html>
