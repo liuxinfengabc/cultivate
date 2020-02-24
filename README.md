@@ -17,6 +17,7 @@
    + PostGre
    + ShapeFile
    + Hadoop+Hive+Hbase
+   
 ###二、CSAE工具
 1. 设计工具
    + 数据库设计ERStudio 
