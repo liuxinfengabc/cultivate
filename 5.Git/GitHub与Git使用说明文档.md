@@ -287,11 +287,11 @@ git rm 文件名
 
 第二步：修改了文件后，右键选择commit，输入Message后，点Commit提交到本地仓库。
 
-![img](file:///C:\Users\RHHR1314\AppData\Local\Temp\ksohtml18700\wps3.png) 
+![img](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/wps3.png) 
 
 第三步：拉取服务器文件，git pull，点击OK，后点击close
 
-![img](file:///C:\Users\RHHR1314\AppData\Local\Temp\ksohtml18700\wps4.png) 
+![img](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/wps4.png) 
 
 如果文件出现感叹号则表示有冲突，必须先解决冲突。
 
@@ -303,13 +303,13 @@ git rm 文件名
 
 3.冲突解决完之后，删除在目录下生成出的多余文件，再次commit。
 
-![img](file:///C:\Users\RHHR1314\AppData\Local\Temp\ksohtml18700\wps5.png) 
+![img](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/wps5.png) 
 
  
 
 第四步：提交代表到服务器， git push
 
-![img](file:///C:\Users\RHHR1314\AppData\Local\Temp\ksohtml18700\wps6.png) 
+![img](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/wps6.png) 
 
  
 
