@@ -57,9 +57,9 @@ CASE工具设置的软件应用程序。这使用为自动的SDLC活动。 CASE�
    + MarkDown
    + 有道笔记本
 7. 画图工具
-  + Photoshop
-  + 思维导图 MindMaster
-  + EDraw
+   + Photoshop
+   + 思维导图 MindMaster
+   + EDraw
 ### 三、 开发技术
 1. 后端框架
 2. 前端框架
