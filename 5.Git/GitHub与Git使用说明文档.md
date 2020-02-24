@@ -6,7 +6,7 @@ github是通过Git进行版本控制的软件源代码托管服务平台。githu
 
 ### 1.1、工作原理 / 流程
 
-![image-20200223111840767](C:\Users\RHHR1314\AppData\Roaming\Typora\typora-user-images\image-20200223111840767.png)
+![image-20200223111840767](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/image-20200223111840767.png)
 
 上图展示了git的整体架构，以及和各部分相关的主要命令，其中涉及的各部分。
 
@@ -44,7 +44,7 @@ l Remote：远程仓库（Github上建的仓库就相当于远程仓库）
 2. 安装完成后打开根目录，找到Git文件夹，右键git-bash.exe可执行文件将其固定的工具栏，点击git-bash.exe运行。
 3. 输入指令 ls 查看文件目录。
 
-![image-20200222201309260](C:\Users\RHHR1314\AppData\Roaming\Typora\typora-user-images\image-20200222201309260.png)
+![image-20200222201309260](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/image-20200222201309260.png)
 
 **此为运行正常安装完成！**
 
@@ -86,7 +86,7 @@ l Remote：远程仓库（Github上建的仓库就相当于远程仓库）
 
 ## 2.栏目介绍
 
-![image-20200222194828116](C:\Users\RHHR1314\AppData\Roaming\Typora\typora-user-images\image-20200222194828116.png)
+![image-20200222194828116](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/image-20200222194828116.png)
 
 - code：代码所在地
 - issues：讨论、bug跟踪
@@ -101,9 +101,9 @@ l Remote：远程仓库（Github上建的仓库就相当于远程仓库）
 
 #### 3.1、创建新库
 
-![image-20200218144737464](C:\Users\RHHR1314\AppData\Roaming\Typora\typora-user-images\image-20200218144737464.png)
+![image-20200218144737464](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/image-20200218144737464.png)
 
-![image-20200218144913586](C:\Users\RHHR1314\AppData\Roaming\Typora\typora-user-images\image-20200218144913586.png)
+![image-20200218144913586](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/image-20200218144913586.png)
 
 
 
@@ -111,23 +111,23 @@ l Remote：远程仓库（Github上建的仓库就相当于远程仓库）
 
 ​		**创建好的仓库**
 
-![image-20200222203649960](C:\Users\RHHR1314\AppData\Roaming\Typora\typora-user-images\image-20200222203649960.png)
+![image-20200222203649960](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/image-20200222203649960.png)
 
 #### 3.2初始化一个新的Git仓库
 
 本地创建一个文件夹用来存放从GitHub上clone下来的文件
 
-![image-20200222204147521](C:\Users\RHHR1314\AppData\Roaming\Typora\typora-user-images\image-20200222204147521.png)
+![image-20200222204147521](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/image-20200222204147521.png)
 
 
 
 **1、创建文件夹**
 
-![image-20200222204345996](C:\Users\RHHR1314\AppData\Roaming\Typora\typora-user-images\image-20200222204345996.png)
+![image-20200222204345996](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/image-20200222204345996.png)
 
 **2、在文件夹内初始化Git（创建Git仓库）**
 
-![image-20200222204804904](C:\Users\RHHR1314\AppData\Roaming\Typora\typora-user-images\image-20200222204804904.png)
+![image-20200222204804904](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/image-20200222204804904.png)
 
 
 
@@ -141,49 +141,49 @@ l Remote：远程仓库（Github上建的仓库就相当于远程仓库）
 
 ##### 从自己的工作区-->自己的远程仓库
 
-![image-20200222212731019](C:\Users\RHHR1314\AppData\Roaming\Typora\typora-user-images\image-20200222212731019.png)
+![image-20200222212731019](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/image-20200222212731019.png)
 
-![image-20200222212851246](C:\Users\RHHR1314\AppData\Roaming\Typora\typora-user-images\image-20200222212851246.png)
+![image-20200222212851246](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/image-20200222212851246.png)
 
 **接下来进行Git操作**
 
-![image-20200222213035974](C:\Users\RHHR1314\AppData\Roaming\Typora\typora-user-images\image-20200222213035974.png)
+![image-20200222213035974](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/image-20200222213035974.png)
 
-![image-20200222213134871](C:\Users\RHHR1314\AppData\Roaming\Typora\typora-user-images\image-20200222213134871.png)
+![image-20200222213134871](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/image-20200222213134871.png)
 
-![image-20200222213327307](C:\Users\RHHR1314\AppData\Roaming\Typora\typora-user-images\image-20200222213327307.png)
+![image-20200222213327307](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/image-20200222213327307.png)
 
 **接下来会用一些Linux命令进行操作，也可以使用界面直接进行操作**
 
-![image-20200222213622335](C:\Users\RHHR1314\AppData\Roaming\Typora\typora-user-images\image-20200222213622335.png)
+![image-20200222213622335](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/image-20200222213622335.png)
 
-![image-20200222213753878](C:\Users\RHHR1314\AppData\Roaming\Typora\typora-user-images\image-20200222213753878.png)
+![image-20200222213753878](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/image-20200222213753878.png)
 
 
 
-![image-20200222213952828](C:\Users\RHHR1314\AppData\Roaming\Typora\typora-user-images\image-20200222213952828.png)
+![image-20200222213952828](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/image-20200222213952828.png)
 
-![image-20200222214931817](C:\Users\RHHR1314\AppData\Roaming\Typora\typora-user-images\image-20200222214931817.png)
+![image-20200222214931817](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/image-20200222214931817.png)
 
 **这时候只是在自己的GitHub仓库，还没有到主程序员的GitHub仓库**
 
-![image-20200222214957505](C:\Users\RHHR1314\AppData\Roaming\Typora\typora-user-images\image-20200222214957505.png)
+![image-20200222214957505](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/image-20200222214957505.png)
 
 ##### 开发人员GitHub仓库-->主程序员GitHub仓库
 
-![image-20200222221153506](C:\Users\RHHR1314\AppData\Roaming\Typora\typora-user-images\image-20200222221153506.png)
+![image-20200222221153506](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/image-20200222221153506.png)
 
-![image-20200222221419183](C:\Users\RHHR1314\AppData\Roaming\Typora\typora-user-images\image-20200222221419183.png)
+![image-20200222221419183](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/image-20200222221419183.png)
 
 **这时候已经提交给主程序员了，可以通知他让他同意**
 
-![image-20200222221858863](C:\Users\RHHR1314\AppData\Roaming\Typora\typora-user-images\image-20200222221858863.png)
+![image-20200222221858863](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/image-20200222221858863.png)
 
-![image-20200222221943789](C:\Users\RHHR1314\AppData\Roaming\Typora\typora-user-images\image-20200222221943789.png)
+![image-20200222221943789](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/image-20200222221943789.png)
 
-![image-20200222222059393](C:\Users\RHHR1314\AppData\Roaming\Typora\typora-user-images\image-20200222222059393.png)
+![image-20200222222059393](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/image-20200222222059393.png)
 
-![image-20200222222146329](C:\Users\RHHR1314\AppData\Roaming\Typora\typora-user-images\image-20200222222146329.png)
+![image-20200222222146329](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/image-20200222222146329.png)
 
 **这样就从开发人员的GitHub中更新到自己原来fork的仓库主程序员中了**
 
@@ -195,25 +195,25 @@ l Remote：远程仓库（Github上建的仓库就相当于远程仓库）
 
 ##### 主程序员仓库
 
-![image-20200222222735438](C:\Users\RHHR1314\AppData\Roaming\Typora\typora-user-images\image-20200222222735438.png)
+![image-20200222222735438](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/image-20200222222735438.png)
 
 ##### 开发人员的仓库
 
-![image-20200222222927007](C:\Users\RHHR1314\AppData\Roaming\Typora\typora-user-images\image-20200222222927007.png)
+![image-20200222222927007](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/image-20200222222927007.png)
 
 可以看出这时候开发人员的仓库还没更新
 
-![image-20200222225834676](C:\Users\RHHR1314\AppData\Roaming\Typora\typora-user-images\image-20200222225834676.png)
+![image-20200222225834676](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/image-20200222225834676.png)
 
-![image-20200222224752723](C:\Users\RHHR1314\AppData\Roaming\Typora\typora-user-images\image-20200222224752723.png)
+![image-20200222224752723](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/image-20200222224752723.png)
 
 **此时，开发人员本地库已经和主程序员的原仓库已经完全同步了。但是注意，此时只是你电脑上的本地库和远程的github原仓库同步了，你自己的github仓库还没有同步，此时需要使用“git push”命令把你本地的仓库提交到github中。**
 
-![image-20200222225149051](C:\Users\RHHR1314\AppData\Roaming\Typora\typora-user-images\image-20200222225149051.png)
+![image-20200222225149051](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/image-20200222225149051.png)
 
-![image-20200222225407661](C:\Users\RHHR1314\AppData\Roaming\Typora\typora-user-images\image-20200222225407661.png)
+![image-20200222225407661](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/image-20200222225407661.png)
 
-![image-20200222225429532](C:\Users\RHHR1314\AppData\Roaming\Typora\typora-user-images\image-20200222225429532.png)
+![image-20200222225429532](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/image-20200222225429532.png)
 
 **开发人员仓库中更新了**
 
@@ -221,15 +221,15 @@ l Remote：远程仓库（Github上建的仓库就相当于远程仓库）
 
 **说明：如果发现某次的版本提交完毕后有错误，需要回退，可以用下面的方法**
 
-![image-20200222231335512](C:\Users\RHHR1314\AppData\Roaming\Typora\typora-user-images\image-20200222231335512.png)
+![image-20200222231335512](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/image-20200222231335512.png)
 
-![image-20200222231719188](C:\Users\RHHR1314\AppData\Roaming\Typora\typora-user-images\image-20200222231719188.png)
+![image-20200222231719188](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/image-20200222231719188.png)
 
-![image-20200222231733144](C:\Users\RHHR1314\AppData\Roaming\Typora\typora-user-images\image-20200222231733144.png)
+![image-20200222231733144](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/image-20200222231733144.png)
 
-![image-20200222232302058](C:\Users\RHHR1314\AppData\Roaming\Typora\typora-user-images\image-20200222232302058.png)
+![image-20200222232302058](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/image-20200222232302058.png)
 
-![image-20200222232320868](C:\Users\RHHR1314\AppData\Roaming\Typora\typora-user-images\image-20200222232320868.png)
+![image-20200222232320868](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/image-20200222232320868.png)
 
 **此时回退版本已经完毕**
 
@@ -267,13 +267,13 @@ git rm 文件名
 
 #### 3.6、GitHub中提交文件
 
-![image-20200218164434616](C:\Users\RHHR1314\AppData\Roaming\Typora\typora-user-images\image-20200218164434616.png)
+![image-20200218164434616](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/image-20200218164434616.png)
 
-![image-20200218164930448](C:\Users\RHHR1314\AppData\Roaming\Typora\typora-user-images\image-20200218164930448.png)
+![image-20200218164930448](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/image-20200218164930448.png)
 
-![image-20200218165053615](C:\Users\RHHR1314\AppData\Roaming\Typora\typora-user-images\image-20200218165053615.png)
+![image-20200218165053615](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/image-20200218165053615.png)
 
-![image-20200218165226798](C:\Users\RHHR1314\AppData\Roaming\Typora\typora-user-images\image-20200218165226798.png)
+![image-20200218165226798](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/image-20200218165226798.png)
 
 随后需要的步骤pull request和后面一样
 
@@ -344,61 +344,61 @@ git rm 文件名
 
 File-->Settings-->Verdion Control-->Git/GitHub
 
-![image-20200222235204939](C:\Users\RHHR1314\AppData\Roaming\Typora\typora-user-images\image-20200222235204939.png)
+![image-20200222235204939](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/image-20200222235204939.png)
 
-![image-20200222235239154](C:\Users\RHHR1314\AppData\Roaming\Typora\typora-user-images\image-20200222235239154.png)
+![image-20200222235239154](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/image-20200222235239154.png)
 
 
 
 **将项目传到github上**
 
-![image-20200222234240245](C:\Users\RHHR1314\AppData\Roaming\Typora\typora-user-images\image-20200222234240245.png)
+![image-20200222234240245](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/image-20200222234240245.png)
 
-![image-20200222234341314](C:\Users\RHHR1314\AppData\Roaming\Typora\typora-user-images\image-20200222234341314.png)
+![image-20200222234341314](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/image-20200222234341314.png)
 
 **点击Share**
 
-![image-20200222234527903](C:\Users\RHHR1314\AppData\Roaming\Typora\typora-user-images\image-20200222234527903.png)
+![image-20200222234527903](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/image-20200222234527903.png)
 
 **点击Add，就可以将项目传到GitHub上了，不存在仓库就会创建一个名字为testJava的仓库**
 
-![image-20200222234621484](C:\Users\RHHR1314\AppData\Roaming\Typora\typora-user-images\image-20200222234621484.png)
+![image-20200222234621484](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/image-20200222234621484.png)
 
 **看到Successfully，表示创建成功**
 
-![image-20200222234750674](C:\Users\RHHR1314\AppData\Roaming\Typora\typora-user-images\image-20200222234750674.png)
+![image-20200222234750674](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/image-20200222234750674.png)
 
 **现在我讲本地的testJava项目删除，咱们试一下怎么在idea中直接从GitHub上clone项目**
 
 **前提，当然是idea中已经配置好了Git和GitHub**
 
-![image-20200222234926629](C:\Users\RHHR1314\AppData\Roaming\Typora\typora-user-images\image-20200222234926629.png)
+![image-20200222234926629](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/image-20200222234926629.png)
 
-![image-20200222235447325](C:\Users\RHHR1314\AppData\Roaming\Typora\typora-user-images\image-20200222235447325.png)
+![image-20200222235447325](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/image-20200222235447325.png)
 
 **点击Clone就行了**
 
-![image-20200222235614107](C:\Users\RHHR1314\AppData\Roaming\Typora\typora-user-images\image-20200222235614107.png)
+![image-20200222235614107](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/image-20200222235614107.png)
 
 **已经克隆完毕**
 
-![image-20200223000755898](C:\Users\RHHR1314\AppData\Roaming\Typora\typora-user-images\image-20200223000755898.png)
+![image-20200223000755898](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/image-20200223000755898.png)
 
 VCS-->Git-->Commit Changes
 
-![image-20200223000919666](C:\Users\RHHR1314\AppData\Roaming\Typora\typora-user-images\image-20200223000919666.png)
+![image-20200223000919666](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/image-20200223000919666.png)
 
-![image-20200223001043046](C:\Users\RHHR1314\AppData\Roaming\Typora\typora-user-images\image-20200223001043046.png)
+![image-20200223001043046](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/image-20200223001043046.png)
 
-![image-20200223001108163](C:\Users\RHHR1314\AppData\Roaming\Typora\typora-user-images\image-20200223001108163.png)
+![image-20200223001108163](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/image-20200223001108163.png)
 
-![image-20200223001158304](C:\Users\RHHR1314\AppData\Roaming\Typora\typora-user-images\image-20200223001158304.png)
+![image-20200223001158304](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/image-20200223001158304.png)
 
-![image-20200223001227742](C:\Users\RHHR1314\AppData\Roaming\Typora\typora-user-images\image-20200223001227742.png)
+![image-20200223001227742](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/image-20200223001227742.png)
 
 **看到这个说明已经push成功**
 
-![image-20200223001340225](C:\Users\RHHR1314\AppData\Roaming\Typora\typora-user-images\image-20200223001340225.png)
+![image-20200223001340225](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/image-20200223001340225.png)
 
 **如果往主程序员的仓库更新，就参考前面讲的pull request**
 
@@ -406,16 +406,16 @@ VCS-->Git-->Commit Changes
 
 **若别人更新了仓库，在idea中怎么办呢？**
 
-![image-20200223001756484](C:\Users\RHHR1314\AppData\Roaming\Typora\typora-user-images\image-20200223001756484.png)
+![image-20200223001756484](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/image-20200223001756484.png)
 
-![image-20200223001855840](C:\Users\RHHR1314\AppData\Roaming\Typora\typora-user-images\image-20200223001855840.png)
+![image-20200223001855840](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/image-20200223001855840.png)
 
 **这三个地方都可以**
 
-![](C:\Users\RHHR1314\AppData\Roaming\Typora\typora-user-images\image-20200223001948419.png)
+![](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/image-20200223001948419.png)
 
 ## 4.4、idea中使用Git命令
 
 **File-->Settings-->**
 
-![image-20200223002248860](C:\Users\RHHR1314\AppData\Roaming\Typora\typora-user-images\image-20200223002248860.png)
+![image-20200223002248860](https://github.com/CHonghaozmr/cultivate/blob/master/5.Git/img/GitHub%E4%B8%8EGit%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/image-20200223002248860.png)
