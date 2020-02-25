@@ -1,5 +1,11 @@
 # cultivate
 技术框架培训资料，包含系统环境、CASE工具、开发技术、系统组件、机器学习5大部分。
+针对提交培训的要求 
+1. 提交题目名字与所属分类：参考github.com/liuxinfengabc/cultivate/readme.md 
+2. 提交录制视频，使用工具Camsa studio进行录制，提交格式mp4 
+3. 讲解时间20-40分钟为宜 
+4. 准备好markdown文档，或者讲解时进行编辑。最好同时提供ppt 5.视频提交，md文档提交到github.com/liuxinfengabc/cultivate相应文件夹（按照readme要求 
+6. 为了不影响大家工作时间，培训后续将改成7:30-8:30,时间一般位45分钟，请各位讲者提前做好准备（电脑硬件，开发环境，录屏软件，讲解工具），控制好时间。
 
 
 ### 一、 系统环境   
