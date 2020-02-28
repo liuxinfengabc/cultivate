@@ -99,13 +99,9 @@ aa
 
 ## 3.操作
 
-#### 3.1、创建新库
+#### 3.1 创建新库
 
 ![image-20200218144737464](img/GitHub与Git使用说明文档/image-20200218144737464.png)
-
-![image-20200218144913586](img/GitHub与Git使用说明文档/image-20200218144913586.png)
-
-
 
 
 
@@ -113,15 +109,15 @@ aa
 
 ![image-20200222203649960](img/GitHub与Git使用说明文档/image-20200222203649960.png)
 
-#### 3.2初始化一个新的Git仓库
+#### 3.2 初始化新的Git仓库
 
 本地创建一个文件夹用来存放从GitHub上clone下来的文件
 
-![image-20200222204147521](img/GitHub与Git使用说明文档/image-20200222204147521.png)
+**1、创建文件夹GitData**
+
+右键菜单Git bash
 
 
-
-**1、创建文件夹**
 
 ![image-20200222204345996](img/GitHub与Git使用说明文档/image-20200222204345996.png)
 
@@ -131,22 +127,29 @@ aa
 
 
 
-#### 3.3向远程仓库添加文件
+#### 3.3 主程序员Github->开发Github
 
 主程序员GitHub地址：https://github.com/2116354540/test
 
 我的（开发人员）GitHub地址：
 
-说明：先从主程序员GitHub中fork，然后再clone到自己的Github中，并进行添加文件
+说明：先从GitHub（主程序员）中fork到自己的（Github（开发人员））中。
 
-##### 从自己的工作区-->自己的远程仓库
+##### 从主程序员远程仓库-->开发人员远程仓库
 
 ![image-20200222212731019](img/GitHub与Git使用说明文档/image-20200222212731019.png)
+
+
+
+
+
+![1582872733607](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1582872733607.png)
 
 ![image-20200222212851246](img/GitHub与Git使用说明文档/image-20200222212851246.png)
 
 **接下来进行Git操作**
 
+创建git文件夹，右键Git bash
 ![image-20200222213035974](img/GitHub与Git使用说明文档/image-20200222213035974.png)
 
 ![image-20200222213134871](img/GitHub与Git使用说明文档/image-20200222213134871.png)
@@ -191,8 +194,6 @@ aa
 
 **说明：开发人员仓库和主程序员的仓库是两个独立的仓库，主程序员仓库更新后不会自动更新到开发人员仓库中**
 
-
-
 ##### 主程序员仓库
 
 ![image-20200222222735438](img/GitHub与Git使用说明文档/image-20200222222735438.png)
@@ -202,6 +203,14 @@ aa
 ![image-20200222222927007](img/GitHub与Git使用说明文档/image-20200222222927007.png)
 
 可以看出这时候开发人员的仓库还没更新
+
+   * git remote -v  查看远程仓库地址   
+   * git remote add upstream github.com/wangshuo25/zup-bis.git #添加主程序员仓库作为自己的upstream
+   * git fetch upstream   #获取原始仓库
+   * git merge upstream/master  #合并远程的master分支
+   * git push   #推送到开发人员远程仓库。
+
+
 
 ![image-20200222225834676](img/GitHub与Git使用说明文档/image-20200222225834676.png)
 
