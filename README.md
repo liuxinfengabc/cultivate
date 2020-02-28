@@ -1,5 +1,12 @@
 # cultivate
 技术框架培训资料，包含系统环境、CASE工具、开发技术、系统组件、机器学习5大部分。
+针对提交培训的要求 
+1. 提交题目名字与所属分类：参考github.com/liuxinfengabc/cultivate/readme.md 
+2. 提交录制视频，使用工具Camtasia Studio 8进行录制，提交格式mp4 
+3. 讲解时间20-40分钟为宜 
+4. 准备好markdown文档，或者讲解时进行编辑。最好同时提供ppt 
+5. 视频提交，md文档提交到github.com/liuxinfengabc/cultivate相应文件夹（按照readme要求 
+6. 为了不影响大家工作时间，培训19:30-20:30,请各位讲者提前做好准备（电脑硬件，开发环境，录屏软件，讲解工具），控制好时间。
 
 
 ### 一、 系统环境   
@@ -22,12 +29,12 @@
 CASE工具设置的软件应用程序。这使用为自动的SDLC活动。 CASE工具所使用的软件项目经理，分析师和工程师开发的软件系统.
 有许多CASE工具做软件开发生命周期的各个阶段，如工具，设计工具，项目管理工具，数据库管理工具，文档工具分析.
 1. 设计工具
+   + UML建模 Enterprise Architect  
    + 数据库设计ERStudio 
    + 页面服务函数Excel
    + 流程设计Viso
    + 接口工具
-   + 原型设计 Axure
-   + UML建模 Enterprise Architect   
+   + 原型设计 Axure    
 2. 项目管理工具
    + Project
    + 禅道

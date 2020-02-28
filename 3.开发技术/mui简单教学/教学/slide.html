@@ -1,0 +1,93 @@
+<!--轮播-->
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">标题</h1>
+		</header>
+		<!--无循环轮播-->
+		<div class="mui-content">
+			<div class="mui-slider">
+				<div class="mui-slider-group">
+					<div class="mui-slider-item">
+						<a href="#"><img src="images/1.jpg" /></a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#"><img src="images/2.jpg" /></a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#"><img src="images/3.jpg" /></a>
+					</div>
+				</div>
+				<div class="mui-slider-indicator">
+					<div class="mui-indicator mui-active"></div>
+					<div class="mui-indicator"></div>
+					<div class="mui-indicator"></div>
+				</div>
+
+			<!--有循环轮播-->
+				<div class="mui-slider loop">
+					<div class="mui-slider-group mui-slider-loop">
+						<!--支持循环，需要重复图片节点-->
+						<div class="mui-slider-item mui-slider-item-duplicate">
+							<a href="#"><img src="images/3.jpg" /></a>
+						</div>
+
+						<div class="mui-slider-item">
+							<a href="#"><img src="images/1.jpg" /></a>
+						</div>
+						<div class="mui-slider-item">
+							<a href="#"><img src="images/2.jpg" /></a>
+						</div>
+						<div class="mui-slider-item">
+							<a href="#"><img src="images/3.jpg" /></a>
+						</div>
+
+						<!--支持循环，需要重复图片节点-->
+						<div class="mui-slider-item mui-slider-item-duplicate">
+							<a href="#"><img src="images/1.jpg" /></a>
+						</div>
+
+					</div>
+					<div class="mui-slider-indicator">
+						<div class="mui-indicator mui-active" onclick="MygoToItem(0)" style="cursor: pointer;"></div>
+						<div class="mui-indicator" onclick="MygoToItem(1)" style="cursor: pointer;"></div>
+						<div class="mui-indicator" onclick="MygoToItem(2)" style="cursor: pointer;"></div>
+					</div>
+				</div>
+
+			</div>
+			<script src="js/mui.min.js"></script>
+			<script type="text/javascript">
+				mui.init();
+				mui.plusReady(function() {
+					//获得slider插件对象
+					var gallery = mui('.loop');
+					gallery.slider({
+						interval: 1000 //自动轮播周期，若为0则不自动播放，默认为0；
+					});
+
+					document.querySelector('.loop').addEventListener('slide',function(e){
+						document.querySelector('.mui-title').innerHTML=e.detail.slideNumber; 
+					})
+				})
+
+				//手动跳转
+				function MygoToItem(i) {
+					var gallery = mui('.loop');
+					gallery.slider().gotoItem(i);
+
+				}
+			</script>
+	</body>
+
+</html>
