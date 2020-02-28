@@ -61,7 +61,7 @@ l Remote：远程仓库（Github上建的仓库就相当于远程仓库）
 2. 输入 $ git init 启动Git。
 
 #### 四、在GitHub上设置公钥
-
+aa
 1. .新建/连接主存储库。
 2. 输入 $ ssh-keygen -t rsa -C "[email@example.com](mailto:"13963639551@163.com")" 生成公钥，在C:/Users/Administrator/.ssh下找到id_rsa.pub文件，记事本打开复制公钥。
 3. 在GitHub上新建密钥，自定义标题（title）将公钥粘贴保存。
