@@ -29,12 +29,12 @@
 CASE工具设置的软件应用程序。这使用为自动的SDLC活动。 CASE工具所使用的软件项目经理，分析师和工程师开发的软件系统.
 有许多CASE工具做软件开发生命周期的各个阶段，如工具，设计工具，项目管理工具，数据库管理工具，文档工具分析.
 1. 设计工具
+   + UML建模 Enterprise Architect  
    + 数据库设计ERStudio 
    + 页面服务函数Excel
    + 流程设计Viso
    + 接口工具
-   + 原型设计 Axure
-   + UML建模 Enterprise Architect   
+   + 原型设计 Axure    
 2. 项目管理工具
    + Project
    + 禅道

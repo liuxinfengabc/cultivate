@@ -1,0 +1,265 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/mui.picker.min.css" />
+	</head>
+
+	<body>
+		<!--头部-->
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">标题</h1>
+		</header>
+		<!--主体-->
+		<div class="mui-content">
+
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell mui-collapse">
+					<a class="mui-navigate-right" href="#">表单</a>
+					<div class="mui-collapse-content">
+
+						<form class="mui-input-group">
+							<div class="mui-input-row">
+								<label>用户名</label>
+								<input type="text" class="mui-input-clear" placeholder="请输入用户名">
+							</div>
+							<div class="mui-input-row">
+								<label>密码</label>
+								<input type="password" class="mui-input-password" placeholder="请输入密码">
+							</div>
+							<div class="mui-button-row">
+								<button type="button" class="mui-btn mui-btn-primary">确认</button>
+								<button type="button" class="mui-btn mui-btn-danger">取消</button>
+							</div>
+						</form>
+
+					</div>
+				</li>
+				<li class="mui-table-view-cell mui-collapse">
+					<a class="mui-navigate-right" href="#">时间选择器</a>
+					<div class="mui-collapse-content">
+						<div class="mui-content-padded">
+							<h5 class="mui-content-padded">日期示例</h5>
+							<button id='pickDateBtn' type="button" class="mui-btn mui-btn-block">选择日期</button>
+							<h5 class="mui-content-padded">时间示例</h5>
+							<button id='pickTimeBtn' type="button" class="mui-btn mui-btn-block">选择时间</button>
+							<div id="info"></div>
+						</div>
+					</div>
+				</li>
+			</ul>
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell mui-collapse">
+					<a class="mui-navigate-right" href="#">面板3</a>
+					<div class="mui-collapse-content">
+						<p>面板3子内容</p>
+					</div>
+				</li>
+				<li class="mui-table-view-cell mui-collapse">
+					<a class="mui-navigate-right" href="#">面板4</a>
+					<div class="mui-collapse-content">
+						<p>面板4子内容</p>
+					</div>
+				</li>
+			</ul>
+			<button type="button" class="mui-btn mui-btn-primary" onclick="showTable()">蓝色</button>
+
+			<button type="button" data-loading-icon="mui-spinner mui-spinner-custom" class="mui-btn mui-btn-primary">确认</button>
+
+			<h5 class="mui-content-padded">常规示例</h5>
+			<button id='demo1' data-options='{}' class="btn mui-btn mui-btn-block">选择日期时间 ...</button>
+
+			<button type="button" class="mui-btn mui-btn-primary" id="openNewWebpage">打开new页面</button>
+
+			<!--操作表-->
+			<div id="sheet1" class="mui-popover 
+mui-popover-bottom mui-popover-action ">
+				<!-- 可选择菜单 -->
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell">
+						<a href="#">fff</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a href="#">dddd</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a href="#">dddd</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a href="#">dddd</a>
+					</li>
+				</ul>
+				<!-- 取消菜单 -->
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell">
+						<a href="#" onclick="hideTable()"><b>取消</b></a>
+					</li>
+				</ul>
+			</div>
+
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript" src="js/mui.picker.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+
+			//按钮变loading
+			mui(document.body).on('tap', '.mui-btn', function(e) {
+				mui(this).button('loading');
+				setTimeout(function() {
+					mui(this).button('reset');
+				}.bind(this), 2000);
+
+			});
+
+			mui.plusReady(function() {
+				//绑定事件，打开新页面并传值
+				mui('#openNewWebpage')[0].addEventListener('tap', function(event) {
+					mui.toast('打开新页面');
+					mui.openWindow({
+						id: 'receive', //页面的标识
+						url: 'receive.html', //页面的地址
+						show: {
+							aniShow: 'pop-in'
+						},
+						styles: {
+							popGesture: 'hide'
+						},
+						waiting: {
+							autoShow: false //等待
+						},
+						extras: { //传值
+							name: 'Mike', //键值对
+							lastwebid: plus.webview.currentWebview().id
+						}
+					});
+				})
+			});
+
+			//自定义一个事件，接收触发该事件页面传回的值
+			window.addEventListener('getReturnData', function(event) {
+
+				var name = event.detail.name; //触发页面传来的值
+				mui.toast('名字是' + name);
+			})
+
+			//操作表js控制
+			function showTable() {
+				mui("#sheet1").popover("show");
+
+			}
+
+			function hideTable() {
+				mui("#sheet1").popover("hide");
+			}
+			
+			
+			
+			//时间选择器（原生版本）
+			var info = document.getElementById("info");
+			document.getElementById("pickDateBtn").addEventListener('tap', function() {
+				var dDate = new Date();
+				dDate.setFullYear(2014, 7, 16);
+				var minDate = new Date();
+				minDate.setFullYear(2010, 0, 1);
+				var maxDate = new Date();
+				maxDate.setFullYear(2016, 11, 31);
+				plus.nativeUI.pickDate(
+					function(e) {//选择时间之后的回调
+						var d = e.date;
+						info.innerText = '您选择的日期是:' + d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate();
+					}, 
+					function(e) {//没有选择时间的回调
+						info.innerText = "您没有选择日期";
+					}, 
+					{//样式设置
+						title: "请选择日期",
+						date: dDate,//默认时间
+						minDate: minDate,//最小可选时间
+						maxDate: maxDate//最大可选时间
+					}
+					);
+			})
+			 document.getElementById("pickTimeBtn").addEventListener('tap', function() {
+				var dTime = new Date();
+				dTime.setHours(6, 0);
+				plus.nativeUI.pickTime(function(e) {
+					var d = e.date;
+					info.innerText = "您选择的时间是：" + d.getHours() + ":" + d.getMinutes();
+				}, function(e) {
+					info.innerText = "您没有选择时间"
+				}, {
+					title: "请选择时间",
+					is24Hour: true,
+					time: dTime
+				});
+			});
+			
+			
+			
+			
+			
+			
+
+			//时间选择框H5版本
+			(function($) {
+				$.init();
+				var result = $('#result')[0];
+				var btns = $('.btn');
+				btns.each(function(i, btn) {
+					btn.addEventListener('tap', function() {
+						var _self = this;
+						if(_self.picker) {
+							_self.picker.show(function(rs) {
+								result.innerText = '选择结果: ' + rs.text;
+								_self.picker.dispose();
+								_self.picker = null;
+							});
+						} else {
+							var optionsJson = this.getAttribute('data-options') || '{}';
+							var options = JSON.parse(optionsJson);
+							var id = this.getAttribute('id');
+							/*
+							 * 首次显示时实例化组件
+							 * 示例为了简洁，将 options 放在了按钮的 dom 上
+							 * 也可以直接通过代码声明 optinos 用于实例化 DtPicker
+							 */
+							_self.picker = new $.DtPicker(options);
+							_self.picker.show(function(rs) {
+								/*
+								 * rs.value 拼合后的 value
+								 * rs.text 拼合后的 text
+								 * rs.y 年，可以通过 rs.y.vaue 和 rs.y.text 获取值和文本
+								 * rs.m 月，用法同年
+								 * rs.d 日，用法同年
+								 * rs.h 时，用法同年
+								 * rs.i 分（minutes 的第二个字母），用法同年
+								 */
+								result.innerText = '选择结果: ' + rs.text; //所选的时间
+								/* 
+								 * 返回 false 可以阻止选择框的关闭
+								 * return false;
+								 */
+								/*
+								 * 释放组件资源，释放后将将不能再操作组件
+								 * 通常情况下，不需要示放组件，new DtPicker(options) 后，可以一直使用。
+								 * 当前示例，因为内容较多，如不进行资原释放，在某些设备上会较慢。
+								 * 所以每次用完便立即调用 dispose 进行释放，下次用时再创建新实例。
+								 */
+								_self.picker.dispose();
+								_self.picker = null;
+							});
+						}
+
+					}, false);
+				});
+			})(mui);
+		</script>
+	</body>
+
+</html>
