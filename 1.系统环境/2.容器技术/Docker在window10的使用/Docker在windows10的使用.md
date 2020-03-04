@@ -1,6 +1,6 @@
 ### 1. Docker 的基本操作步骤
 
-1. docker  linux/windows上的一个应用软件
+1. docker  linux/windows上的一个应用软件,可以认为是一个VMware软件
 
    - docker desktop for windows
    - 要求win10 专业版、教育版，家庭版请安装docker toolbox.
