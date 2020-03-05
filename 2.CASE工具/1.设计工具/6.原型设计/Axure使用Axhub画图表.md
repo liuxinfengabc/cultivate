@@ -30,7 +30,11 @@
 
 每个图表元件，都有一个对应的data中继器，更改该中继器的数据，即可更改生成图表的数据。
 
+![image-20200305210304983](Axure使用Axhub画图表.assets/image-20200305210304983.png)
 
+预览效果
+
+![img](Axure使用Axhub画图表.assets/AI]WYI}D0V405TXZPJ$]]II.png)
 
 #### **更改图表的背景：**
 
