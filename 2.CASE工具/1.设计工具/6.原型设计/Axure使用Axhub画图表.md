@@ -36,6 +36,10 @@
 
 ![img](Axure使用Axhub画图表.assets/AI]WYI}D0V405TXZPJ$]]II.png)
 
+
+
+![image-20200305211813562](Axure使用Axhub画图表.assets/image-20200305211813562.png)
+
 #### **更改图表的背景：**
 
 图表元件的背景是透明的，您可以自由为图表增加一层背景。此外，还可以通过图表对应的config中继器更改主题，目前提供了default主题适合亮色背景，dark主题时候暗色背景。
