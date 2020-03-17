@@ -48,7 +48,7 @@ l Remote：远程仓库（Github上建的仓库就相当于远程仓库）
 
 **此为运行正常安装完成！**
 
-#### 三、运行Git
+#### 三、运行Git，注册用过户
 
 1. 设置用户名和邮箱。
 
@@ -56,35 +56,45 @@ l Remote：远程仓库（Github上建的仓库就相当于远程仓库）
 
    设置邮箱：  $ git config --globaluser,email "email@example.com"。
 
-   设置用户名和邮箱，修改后提交到远程仓库能够看到是谁提交的
+   设置用户名和邮箱，修改后提交到远程仓库能够看到是提交者，用于在团队合作开发中，表明代码作者。　
 
 2. 输入 $ git init 启动Git。
 
-#### 四、在GitHub上设置公钥
+#### 四、GitHub设置公钥，免密码提交
 
 1. .新建/连接主存储库。
-2. 输入 $ ssh-keygen -t rsa -C "[email@example.com](mailto:"13963639551@163.com")" 生成公钥，在C:\Users\Administrator\.ssh下找到id_rsa.pub文件，记事本打开复制公钥。
+
+2. 输入 $ ssh-keygen -t rsa -C "[email@example.com](mailto:"13963639551@163.com")" 生成公钥，在C:\Users\Administrator\.ssh下找到id_rsa.pub文件，记事本打开复制公钥。或则
+
+   ![image-20200317164409192](GitHub与Git使用说明文档.assets/image-20200317164409192.png)
+
 3. 在GitHub上新建密钥，自定义标题（title）将公钥粘贴保存。
 
-#### 五、创建git库
+   1. 选择设置
 
-　　git init  #在当前目录中生成一个.git 目录（含有.git目录的目录即是git仓库）
+      
 
-#### 六、注册git用户
+      ![image-20200317170425788](GitHub与Git使用说明文档.assets/image-20200317170425788.png)
 
---->用于在团队合作开发中，表明代码作者。
+   2. 知道到SSH and GPS keys 菜单，点击 New SSH key
 
-　　git config --global user.name XXX  #用户名
+   
 
-　　git config --global user.email XXX  #用户邮箱
+   ![image-20200317170729077](GitHub与Git使用说明文档.assets/image-20200317170729077.png)
 
-　　git config --list  #查看用户信息
+4. 复制生成的key![image-20200317170812465](GitHub与Git使用说明文档.assets/image-20200317170812465.png)
 
-​			注：加--global，全局设置。
+5. 收到邮件
+
+   ![image-20200317170928135](GitHub与Git使用说明文档.assets/image-20200317170928135.png)
 
 
 
-## 2.栏目介绍
+
+
+## 2.Github简介
+
+#### 2.1栏目介绍
 
 ![image-20200222194828116](img/GitHub与Git使用说明文档/image-20200222194828116.png)
 
@@ -97,45 +107,29 @@ l Remote：远程仓库（Github上建的仓库就相当于远程仓库）
   3. Done：已完成的
 - Wiki：项目介绍，资料存放处（可放md格式）
 
-## 3.操作
-
-#### 3.1、创建新库
+#### 2.2 GIThub创建新库
 
 ![image-20200218144737464](img/GitHub与Git使用说明文档/image-20200218144737464.png)
 
-![image-20200218144913586](img/GitHub与Git使用说明文档/image-20200218144913586.png)
 
 
 
 
-
-​		**创建好的仓库**
-
-![image-20200222203649960](img/GitHub与Git使用说明文档/image-20200222203649960.png)
-
-#### 3.2初始化一个新的Git仓库
-
-本地创建一个文件夹用来存放从GitHub上clone下来的文件
-
-![image-20200222204147521](img/GitHub与Git使用说明文档/image-20200222204147521.png)
+## 3. 仓库操作步骤
 
 
 
-**1、创建文件夹**
+#### 3.1、创建本地库
 
-![image-20200222204345996](img/GitHub与Git使用说明文档/image-20200222204345996.png)
+　　git init  #在当前目录中生成一个.git 目录（含有.git目录的目录即是git仓库）
 
-**2、在文件夹内初始化Git（创建Git仓库）**
+​	
 
-![image-20200222204804904](img/GitHub与Git使用说明文档/image-20200222204804904.png)
-
-
-
-#### 3.3向远程仓库添加文件
+#### 3.2 向远程仓库添加文件
 
 主程序员GitHub地址：https://github.com/2116354540/test
 
-我的（开发人员）GitHub地址：
+我（开发人员）GitHub地址：
 
 说明：先从主程序员GitHub中fork，然后再clone到自己的Github中，并进行添加文件
 
@@ -146,21 +140,7 @@ l Remote：远程仓库（Github上建的仓库就相当于远程仓库）
 3. git commit -m "注释信息
 4. git push
 
-##### 从自己的工作区-->自己的远程仓库
-
-![image-20200222212731019](img/GitHub与Git使用说明文档/image-20200222212731019.png)
-
-![image-20200222212851246](img/GitHub与Git使用说明文档/image-20200222212851246.png)
-
-**接下来进行Git操作**
-
-![image-20200222213035974](img/GitHub与Git使用说明文档/image-20200222213035974.png)
-
-![image-20200222213134871](img/GitHub与Git使用说明文档/image-20200222213134871.png)
-
-![image-20200222213327307](img/GitHub与Git使用说明文档/image-20200222213327307.png)
-
-**接下来会用一些Linux命令进行操作，也可以使用界面直接进行操作**
+##### 3.3.1 开发者工作区-->开发者远程仓库
 
 ![image-20200222213622335](img/GitHub与Git使用说明文档/image-20200222213622335.png)
 
@@ -176,7 +156,7 @@ l Remote：远程仓库（Github上建的仓库就相当于远程仓库）
 
 ![image-20200222214957505](img/GitHub与Git使用说明文档\image-20200222214957505.png)
 
-##### 开发人员GitHub仓库-->主程序员GitHub仓库
+##### 3.3.2 开发人员GitHub仓库-->主程序员GitHub仓库
 
 ![image-20200222221153506](img/GitHub与Git使用说明文档/image-20200222221153506.png)
 
@@ -194,7 +174,7 @@ l Remote：远程仓库（Github上建的仓库就相当于远程仓库）
 
 **这样就从开发人员的GitHub中更新到自己原来fork的仓库主程序员中了**
 
-#### 3.4、同步主程序员仓库中的更新
+#### 3.3 同步主程序员仓库中的更新
 
 **说明：开发人员仓库和主程序员的仓库是两个独立的仓库，主程序员仓库更新后不会自动更新到开发人员仓库中**
 
@@ -207,11 +187,11 @@ l Remote：远程仓库（Github上建的仓库就相当于远程仓库）
 5. git merge upstream/master
 6. git push
 
-##### 主程序员仓库
+##### 3.41 主程序员仓库
 
 ![image-20200222222735438](img/GitHub与Git使用说明文档/image-20200222222735438.png)
 
-##### 开发人员的仓库
+##### 3.4.2 开发人员的仓库
 
 ![image-20200222222927007](img/GitHub与Git使用说明文档/image-20200222222927007.png)
 
@@ -231,7 +211,7 @@ l Remote：远程仓库（Github上建的仓库就相当于远程仓库）
 
 **开发人员仓库中更新了**
 
-#### 3.5、版本回退
+#### 3.3 版本回退
 
 **说明：如果发现某次的版本提交完毕后有错误，需要回退，可以用下面的方法**
 
@@ -290,7 +270,7 @@ git rm 文件名
 - git push origin master
 - git push -f origin master
 
-#### 3.6、GitHub中提交文件
+#### 3.4 GitHub中提交文件
 
 ![image-20200218164434616](img/GitHub与Git使用说明文档/image-20200218164434616.png)
 
@@ -306,7 +286,7 @@ git rm 文件名
 
 ## 4、开发环境中使用
 
-## 4.1、tortoiseGit使用（windows操作）
+### 4.1 tortoiseGit使用（windows操作）
 
 第一步：详细见（Git本地仓库创建及操作）
 
@@ -346,7 +326,7 @@ git rm 文件名
 
 第三步：push文件
 
-## 4.2、eclipse中使用Git导入工程
+### 4.2 eclipse中使用Git导入工程
 
 1. 打开Git Repositories窗口，点击右上角Add an existing local Git Repository to this view图标
 2. 在Directory中选择你本地Git总仓库，在下方选择你想导入的Git仓库目录
@@ -354,7 +334,7 @@ git rm 文件名
 4. 调整选项，导入工程
 5. 右键已导入工程->Gradle->Refresh Gradle Project
 
-## 4.3、eclipse中使用Git同步工程
+### 4.3 eclipse中使用Git同步工程
 
 1. 右键工程->Team->Synchronize Workspace进入同步窗口
 2. 对双向红箭头文件，打开，进行代码合并操作，操作完成后 右键->Mark asMerged
@@ -363,7 +343,7 @@ git rm 文件名
 5. Pull拉取服务器上更新文件
 6. 最后Push至服务器
 
-## 4.3、idea中使用Git/GitHub
+### 4.4 idea中使用Git/GitHub
 
 **配置Git和GitHub**
 
@@ -439,8 +419,11 @@ VCS-->Git-->Commit Changes
 
 ![](img/GitHub与Git使用说明文档/image-20200223001948419.png)
 
-## 4.4、idea中使用Git命令
+### 4.5 idea中使用Git命令
 
 **File-->Settings-->**
 
 ![image-20200223002248860](img/GitHub与Git使用说明文档/image-20200223002248860.png)
+
+Alt +F12 打开命令窗口，进行命令操作。
+
