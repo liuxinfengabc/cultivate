@@ -1,34 +1,48 @@
 # GitHub与Git使用
 
-## 1、Git简介
+## 1、GitHub原理与流程
 
 github是通过Git进行版本控制的软件源代码托管服务平台。github除了Git代码仓库托管及基本的Web管理界面以外，它还提供了一些方便社会化共同软件开发的功能，即一般人口中的社群功能，包括允许用户追踪其他用户、组织、软件库的动态，对[软件代码](https://baike.sogou.com/lemma/ShowInnerLink.htm?lemmaId=4196027&ss_c=ssc.citiao.link)的改动和bug提出评论等。
 
-### 1.1、工作原理 / 流程
+### 1.1 工作原理 / 流程
 
 ![image-20200223111840767](img/GitHub与Git使用说明文档/image-20200223111840767.png)
 
 上图展示了git的整体架构，以及和各部分相关的主要命令，其中涉及的各部分。
 
-l Workspace：工作区
+1. ***工作区(working directory)，***简言之就是你工作的区域。对于git而言，就是本地工作目录。工作区的内容会包含提交到暂存区和版本库(当前提交点)的内容，同时也包含自己的修改内容。
 
-l Index / Stage：暂存区
+   git add 【文件名】或者【 . (全部)】：将文件从工作去提交到暂存区
 
-l Repository：或本地仓库
+   git pull：将远程仓库的改动更新到本地工作区
 
-l Remote：远程仓库（Github上建的仓库就相当于远程仓库）
+2. ***暂存区(stage area, 又称为索引区index)，***是git中一个非常重要的概念。是我们把修改提交版本库前的一个过渡阶段。查看GIT自带帮助手册的时候，通常以index来表示暂存区。在工作目录下有一个.git的目录，里面有个index文件，存储着关于暂存区的内容。git add命令将工作区内容添加到暂存区。
 
-***\*工作区(working directory)，\****简言之就是你工作的区域。对于git而言，就是的本地工作目录。工作区的内容会包含提交到暂存区和版本库(当前提交点)的内容，同时也包含自己的修改内容。
+   git commit -m "提交描述"：将暂存区提交到本地仓库
 
-***\*暂存区(stage area, 又称为索引区index)，\****是git中一个非常重要的概念。是我们把修改提交版本库前的一个过渡阶段。查看GIT自带帮助手册的时候，通常以index来表示暂存区。在工作目录下有一个.git的目录，里面有个index文件，存储着关于暂存区的内容。git add命令将工作区内容添加到暂存区。
+3. ***本地仓库(local repository)，***版本控制系统的仓库，存在于本地。当执行git commit命令后，会将暂存区内容提交到仓库之中。在工作区下面有.git的目录，这个目录下的内容不属于工作区，里面便是仓库的数据信息，暂存区相关内容也在其中。这里也可以使用merge或rebase将***远程仓库副本***合并到本地仓库。图中的只有merge，注意这里也可以使用rebase。
 
-***\*本地仓库(local repository)，\****版本控制系统的仓库，存在于本地。当执行git commit命令后，会将暂存区内容提交到仓库之中。在工作区下面有.git的目录，这个目录下的内容不属于工作区，里面便是仓库的数据信息，暂存区相关内容也在其中。这里也可以使用merge或rebase将***\*远程仓库副本\****合并到本地仓库。图中的只有merge，注意这里也可以使用rebase。
+   git push：将本地仓库提交到远程仓库
 
-***\*远程版本库(remote repository)，\****与本地仓库概念基本一致，不同之处在于一个存在远程，可用于远程协作，一个却是存在于本地。通过push/pull可实现本地与远程的交互；
+4. ***远程库(remote repository)***与本地仓库概念基本一致，不同之处在于一个存在远程，可用于远程协作，一个却是存在于本地。通过push/pull可实现本地与远程的交互；
 
-***\*远程仓库副本，\****可以理解为存在于本地的远程仓库缓存。如需更新，可通过git fetch/pull命令获取远程仓库内容。使用fech获取时，并未合并到本地仓库，此时可使用git merge实现远程仓库副本与本地仓库的合并。git pull 根据配置的不同，可为git fetch + git merge 或 git fetch + git rebase。rebase和merge的区别可以自己去网上找些资料了解下。
+   git pull：将远程仓库的改动更新到本地工作区
 
-### 1.2、Git安装与基本配置
+   
+
+   其他命令：
+
+   git remote -v：查看origin和upstream源
+
+   git remote add origin/upstream git地址：添加origin/upstream源
+
+   git fetch upstream：获取upstream源仓库的提交和改变
+
+   git checkout master：切换到master
+
+   git merge upstream/master：合并远程的master
+
+### 1.2 Git安装与基本配置
 
 ####  一、准备工作
 
@@ -38,17 +52,15 @@ l Remote：远程仓库（Github上建的仓库就相当于远程仓库）
 
 #### 二、安装Git
 
-
-
 1. 点击安装，选择目录为根目录，文件夹为Git，然后Next->默认安装。
 2. 安装完成后打开根目录，找到Git文件夹，右键git-bash.exe可执行文件将其固定的工具栏，点击git-bash.exe运行。
 3. 输入指令 ls 查看文件目录。
 
 ![image-20200222201309260](img/GitHub与Git使用说明文档/image-20200222201309260.png)
 
-**此为运行正常安装完成！**
+**正常安装完成！**
 
-#### 三、运行Git，注册用过户
+#### 三、运行Git注册用户
 
 1. 设置用户名和邮箱。
 
@@ -60,7 +72,7 @@ l Remote：远程仓库（Github上建的仓库就相当于远程仓库）
 
 2. 输入 $ git init 启动Git。
 
-#### 四、GitHub设置公钥，免密码提交
+#### 四、GitHub设置公钥免密提交
 
 1. .新建/连接主存储库。
 
@@ -72,9 +84,7 @@ l Remote：远程仓库（Github上建的仓库就相当于远程仓库）
 
    1. 选择设置
 
-      
-
-      ![image-20200317170425788](GitHub与Git使用说明文档.assets/image-20200317170425788.png)
+      ![image-20200317182418527](GitHub与Git使用说明文档.assets/image-20200317182418527.png)
 
    2. 知道到SSH and GPS keys 菜单，点击 New SSH key
 
@@ -82,158 +92,14 @@ l Remote：远程仓库（Github上建的仓库就相当于远程仓库）
 
    ![image-20200317170729077](GitHub与Git使用说明文档.assets/image-20200317170729077.png)
 
-4. 复制生成的key![image-20200317170812465](GitHub与Git使用说明文档.assets/image-20200317170812465.png)
-
-5. 收到邮件
+   3. 复制生成的key![image-20200317170812465](GitHub与Git使用说明文档.assets/image-20200317170812465.png)
+   4. 收到邮件
 
    ![image-20200317170928135](GitHub与Git使用说明文档.assets/image-20200317170928135.png)
 
 
 
-
-
-## 2.Github简介
-
-#### 2.1栏目介绍
-
-![image-20200222194828116](img/GitHub与Git使用说明文档/image-20200222194828116.png)
-
-- code：代码所在地
-- issues：讨论、bug跟踪
-- pull request：提交请求，进行code view
-- project：项目管理、工作计划
-  1. To Do：待完成任务
-  2. Doing：正在进行中
-  3. Done：已完成的
-- Wiki：项目介绍，资料存放处（可放md格式）
-
-#### 2.2 GIThub创建新库
-
-![image-20200218144737464](img/GitHub与Git使用说明文档/image-20200218144737464.png)
-
-
-
-
-
-## 3. 仓库操作步骤
-
-
-
-#### 3.1、创建本地库
-
-　　git init  #在当前目录中生成一个.git 目录（含有.git目录的目录即是git仓库）
-
-​	
-
-#### 3.2 向远程仓库添加文件
-
-主程序员GitHub地址：https://github.com/2116354540/test
-
-我（开发人员）GitHub地址：
-
-说明：先从主程序员GitHub中fork，然后再clone到自己的Github中，并进行添加文件
-
-==步骤：==
-
-1. 进入要操作的文件夹内
-2. git add .
-3. git commit -m "注释信息
-4. git push
-
-##### 3.3.1 开发者工作区-->开发者远程仓库
-
-![image-20200222213622335](img/GitHub与Git使用说明文档/image-20200222213622335.png)
-
-![image-20200222213753878](img/GitHub与Git使用说明文档/image-20200222213753878.png)
-
-
-
-![image-20200222213952828](img/GitHub与Git使用说明文档/image-20200222213952828.png)
-
-![image-20200222214931817](img/GitHub与Git使用说明文档/image-20200222214931817.png)
-
-**这时候只是在自己的GitHub仓库，还没有到主程序员的GitHub仓库**
-
-![image-20200222214957505](img/GitHub与Git使用说明文档\image-20200222214957505.png)
-
-##### 3.3.2 开发人员GitHub仓库-->主程序员GitHub仓库
-
-![image-20200222221153506](img/GitHub与Git使用说明文档/image-20200222221153506.png)
-
-![image-20200222221419183](img/GitHub与Git使用说明文档/image-20200222221419183.png)
-
-**这时候已经提交给主程序员了，可以通知他让他同意**
-
-![image-20200222221858863](img/GitHub与Git使用说明文档/image-20200222221858863.png)
-
-![image-20200222221943789](img/GitHub与Git使用说明文档/image-20200222221943789.png)
-
-![image-20200222222059393](img/GitHub与Git使用说明文档/image-20200222222059393.png)
-
-![image-20200222222146329](img/GitHub与Git使用说明文档/image-20200222222146329.png)
-
-**这样就从开发人员的GitHub中更新到自己原来fork的仓库主程序员中了**
-
-#### 3.3 同步主程序员仓库中的更新
-
-**说明：开发人员仓库和主程序员的仓库是两个独立的仓库，主程序员仓库更新后不会自动更新到开发人员仓库中**
-
-==步骤：==
-
-1. git remote -v：查看origin和upstream源
-2. git remote add origin/upstream git地址：添加origin/upstream源
-3. git fetch upstream
-4. git checked master
-5. git merge upstream/master
-6. git push
-
-##### 3.41 主程序员仓库
-
-![image-20200222222735438](img/GitHub与Git使用说明文档/image-20200222222735438.png)
-
-##### 3.4.2 开发人员的仓库
-
-![image-20200222222927007](img/GitHub与Git使用说明文档/image-20200222222927007.png)
-
-可以看出这时候开发人员的仓库还没更新
-
-![image-20200222225834676](img/GitHub与Git使用说明文档/image-20200222225834676.png)
-
-![image-20200222224752723](img/GitHub与Git使用说明文档/image-20200222224752723.png)
-
-**此时，开发人员本地库已经和主程序员的原仓库已经完全同步了。但是注意，此时只是你电脑上的本地库和远程的github原仓库同步了，你自己的github仓库还没有同步，此时需要使用“git push”命令把你本地的仓库提交到github中。**
-
-![image-20200222225149051](img/GitHub与Git使用说明文档/image-20200222225149051.png)
-
-![image-20200222225407661](img/GitHub与Git使用说明文档/image-20200222225407661.png)
-
-![image-20200222225429532](img/GitHub与Git使用说明文档/image-20200222225429532.png)
-
-**开发人员仓库中更新了**
-
-#### 3.3 版本回退
-
-**说明：如果发现某次的版本提交完毕后有错误，需要回退，可以用下面的方法**
-
-==步骤：==
-
-1. git log
-2. git reset --hard 版本号
-3. git push -f
-
-![image-20200222231335512](img/GitHub与Git使用说明文档/image-20200222231335512.png)
-
-![image-20200222231719188](img/GitHub与Git使用说明文档/image-20200222231719188.png)
-
-![image-20200222231733144](img/GitHub与Git使用说明文档/image-20200222231733144.png)
-
-![image-20200222232302058](img/GitHub与Git使用说明文档/image-20200222232302058.png)
-
-![image-20200222232320868](img/GitHub与Git使用说明文档/image-20200222232320868.png)
-
-**此时回退版本已经完毕**
-
-命令总结：
+### 1.3 常用git命令
 
 mkdir 文件名：创建文件夹
 
@@ -265,24 +131,210 @@ git merge upstream/master：合并远程的master
 
 git rm 文件名
 
+## 2.GitHub使用
+
+#### 2.1 栏目介绍
+
+![image-20200222194828116](img/GitHub与Git使用说明文档/image-20200222194828116.png)
+
+- code：代码所在地
+- issues：讨论、bug跟踪
+- pull request：提交请求，进行code view
+- project：项目管理、工作计划
+  1. To Do：待完成任务
+  2. Doing：正在进行中
+  3. Done：已完成的
+- Wiki：项目介绍，资料存放处（可放md格式）
+
+#### 2.2 GitHub创建主程序仓库
+
+1. 创建主程序仓库helloworld，账户liuxinfengabc,属性为public
+
+![image-20200317182619515](GitHub与Git使用说明文档.assets/image-20200317182619515.png)
+
+2. 仓库名字helloworld,属性public，任何人可见，初始化一个readme文件。
+
+   ![image-20200317183038029](GitHub与Git使用说明文档.assets/image-20200317183038029.png)
+
+3. 创建成功 https://github.com/liuxinfengabc/helloworld
+
+   ![image-20200317184000460](GitHub与Git使用说明文档.assets/image-20200317184000460.png)
+
+#### 2.3  Github 创建开发仓库
+
+1. 创建开发人员账号  
+
+![image-20200317184258156](GitHub与Git使用说明文档.assets/image-20200317184258156.png)
+
+2. 创建开发账户 ，申请新的QQ邮箱 1871418434@qq.com进行账户的创建。
+
+3. 登录Github进行邮箱验证
+
+4. 前往 https://github.com/liuxinfengabc/helloworld，点击Fork，复制代码到自己的开发者仓库
+
+   ![image-20200317185838626](GitHub与Git使用说明文档.assets/image-20200317185838626.png)
+
+5. Fork成功
+
+   ![image-20200317190840670](GitHub与Git使用说明文档.assets/image-20200317190840670.png)
+
+6. 回到自己的界面github.com,看到自己Fork的代码
+
+![image-20200317191034972](GitHub与Git使用说明文档.assets/image-20200317191034972.png)
+
+#### 2.4 GitHub中提交文件
+
+​    在github中可以进行简单操作，创建文件，提交文件，如何复杂的操作，需要在本地仓库进行操作，提交。
+
+
+
+![image-20200317191347282](GitHub与Git使用说明文档.assets/image-20200317191347282.png)
+
+
+
+## 3. Git本地操作步骤
+
+​		本文假定：
+
+​       主程序员GitHub地址：https://github.com/liuxinfengabc/helloworld
+
+​		开发人员GitHub地址：https://github.com/github-develop/helloworld
+
+​		说明：先从主程序员GitHub中fork，然后再clone到自己的Github中，并进行添加文件。
+
+#### 3.1 创建本地库
+
+　　**git init**  主要用来初始化一个空的`git`本地仓库。执行完上面的命令，当前目录下会自动生成`.git`隐藏文件夹，该隐藏文件夹就是`git`版本库。
+
+​	   使用方法：进入某个空的文件夹下，打开`Git Bash`命令窗口输入`git init。`
+
+
+
+#### 3.2  向远程仓库添加文件
+
+==步骤：==
+
+1. 进入要操作的文件夹内
+2. git add .
+3. git commit -m "注释信息
+4. git push
+
+##### 3.2.1 开发者工作区-->开发者远程仓库
+
+  命令操作，打开 git bash 命令：
+
+- cd test   #进入文件夹
+- touch one.js   
+- git add one.js  #添加需要提交的文件
+- git status  #查看状态
+- git commit    -m "修改XXXXXX"  #提交到本地仓库
+- git push  #从本地仓库推送到远程仓库
+
+**这时候只是在自己的GitHub仓库，还没有到主程序员的GitHub仓库**
+
+
+
+##### 3.2.2 开发者GitHub仓库-->主程序员GitHub仓库
+
+![image-20200222221153506](img/GitHub与Git使用说明文档/image-20200222221153506.png)
+
+![image-20200222221419183](img/GitHub与Git使用说明文档/image-20200222221419183.png)
+
+**这时候已经提交给主程序员了，可以通知他让他同意**
+
+![image-20200222221858863](img/GitHub与Git使用说明文档/image-20200222221858863.png)
+
+
+
+##### 3.2.3主程序员合并request
+
+1.  查看pull request 
+
+![image-20200222221943789](img/GitHub与Git使用说明文档/image-20200222221943789.png)
+
+2. 点击FileChanged 查看修改内容，进行审核，并进行合并
+
+![image-20200222222059393](img/GitHub与Git使用说明文档/image-20200222222059393.png)
+
+
+
+**这样就从开发人员的GitHub中更新到自己原来fork的仓库主程序员中了**
+
+#### 3.3 同步主程序员仓库中的更新
+
+**说明：开发人员仓库和主程序员的仓库是两个独立的仓库，主程序员仓库更新后不会自动更新到开发人员仓库中**。
+
+##### 3.3.1 基本步骤
+
+1. git remote -v：查看origin和upstream源
+2. git remote add origin/upstream git地址：添加origin/upstream源
+3. git fetch upstream
+4. git checked master
+5. git merge upstream/master
+6. git push
+
+##### 3.3.2 开发人员的仓库
+
+可以看出这时候开发人员的仓库还没更新。
+
+
+
+1. git remote -v：查看origin和upstream源
+
+2. 添加主程序仓库地址
+
+   git remote add origin/upstream https://github.com
+
+3. git fetch upstream  # 获取远程主程序仓库（upstream)代码
+
+4. git checked master   #切换到本地Master
+
+5. git merge upstream/master  #合并远程分支  
+
+6. git push  #推送到开发人员远程仓库。
+
+   **此时，开发人员本地库已经和主程序员的原仓库已经完全同步了。但是注意，此时只是你电脑上的本地库和远程的github原仓库同步了，你自己的github仓库还没有同步，此时需要使用“git push”命令把你本地的仓库提交到github中。**
+
+![image-20200222225834676](img/GitHub与Git使用说明文档/image-20200222225834676.png)
+
+![image-20200222224752723](img/GitHub与Git使用说明文档/image-20200222224752723.png)
+
+
+
+#### 3.3 版本回退
+
+**说明：如果发现某次的版本提交完毕后有错误，需要回退，可以用下面的方法**
+
+==步骤：==
+
+1. git log  #查看版本
+
+2. git reset --hard 版本号   #回退版本（本地）
+
+3. git push -f   #push到远程仓库
+
+   
+
+![image-20200222231335512](img/GitHub与Git使用说明文档/image-20200222231335512.png)
+
+![image-20200222231719188](img/GitHub与Git使用说明文档/image-20200222231719188.png)
+
+![image-20200222231733144](img/GitHub与Git使用说明文档/image-20200222231733144.png)
+
+![image-20200222232302058](img/GitHub与Git使用说明文档/image-20200222232302058.png)
+
+![image-20200222232320868](img/GitHub与Git使用说明文档/image-20200222232320868.png)
+
+**此时回退版本已经完毕**
+
+
+
 **==当push出错时可以尝试下面的命令==**
 
 - git push origin master
 - git push -f origin master
 
-#### 3.4 GitHub中提交文件
 
-![image-20200218164434616](img/GitHub与Git使用说明文档/image-20200218164434616.png)
-
-![image-20200218164930448](img/GitHub与Git使用说明文档/image-20200218164930448.png)
-
-![image-20200218165053615](img/GitHub与Git使用说明文档/image-20200218165053615.png)
-
-![image-20200218165226798](img/GitHub与Git使用说明文档/image-20200218165226798.png)
-
-随后需要的步骤pull request和后面一样
-
-用git还是github上直接操作二者选其一
 
 ## 4、开发环境中使用
 
@@ -292,11 +344,11 @@ git rm 文件名
 
 第二步：修改了文件后，右键选择commit，输入Message后，点Commit提交到本地仓库。
 
-![img](img/GitHub与Git使用说明文档\wps3.png) 
+![img](img/GitHub与Git使用说明文档/wps3.png) 
 
 第三步：拉取服务器文件，git pull，点击OK，后点击close
 
-![img](img/GitHub与Git使用说明文档\wps4.png) 
+![img](img/GitHub与Git使用说明文档/wps4.png) 
 
 如果文件出现感叹号则表示有冲突，必须先解决冲突。
 
@@ -308,13 +360,13 @@ git rm 文件名
 
 3.冲突解决完之后，删除在目录下生成出的多余文件，再次commit。
 
-![img](img/GitHub与Git使用说明文档\wps5.png) 
+![img](img/GitHub与Git使用说明文档/wps5.png) 
 
  
 
 第四步：提交代表到服务器， git push
 
-![img](img/GitHub与Git使用说明文档\wps6.png) 
+![img](img/GitHub与Git使用说明文档/wps6.png) 
 
  
 
@@ -373,9 +425,7 @@ File-->Settings-->Verdion Control-->Git/GitHub
 
 ![image-20200222234750674](img/GitHub与Git使用说明文档/image-20200222234750674.png)
 
-**现在我讲本地的testJava项目删除，咱们试一下怎么在idea中直接从GitHub上clone项目**
-
-**前提，当然是idea中已经配置好了Git和GitHub**
+本地的testJava项目删除，怎么在idea中直接从GitHub上clone项目**，**前提idea中已经配置好了Git和GitHub
 
 ![image-20200222234926629](img/GitHub与Git使用说明文档/image-20200222234926629.png)
 
@@ -419,7 +469,7 @@ VCS-->Git-->Commit Changes
 
 ![](img/GitHub与Git使用说明文档/image-20200223001948419.png)
 
-### 4.5 idea中使用Git命令
+### 4.5 idea在终端中使用Git命令
 
 **File-->Settings-->**
 
