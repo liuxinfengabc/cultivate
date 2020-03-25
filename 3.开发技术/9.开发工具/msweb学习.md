@@ -212,6 +212,8 @@
 
 object obj = 1;   整型常量1赋给object类型的变量obj；
 
+int i=(int)obj; 拆箱。
+
 常量1是值类型，值类型是要放在栈上的，而object是引用类型，它需要放在堆上；要把值类型放在堆上就需要执行一次装箱操作。
 
 ```
@@ -251,7 +253,7 @@ IL代码
 
 
 
-原始代码：
+原始代码（装箱）：
 
 ```
 using System;
@@ -462,7 +464,7 @@ class Test<T>
 
 
 
-过**类型参数**解决了代码重复的问题，如何**解决装箱、拆箱以及类型安全**的问题：
+**类型参数**解决了代码重复的问题，如何**解决装箱、拆箱以及类型安全**的问题：
 
 ```cpp
  //示例5
@@ -472,13 +474,15 @@ class Test<T>
        int num = list[0];//无需拆箱  
 ```
 
-声明泛型类型时，因为确定了**类型实参**，所以操作泛型类型不需要装箱、拆箱，而且泛型将大量安全检查**从运行时转移到了编译时**进行，保证了类型安全。
+声明泛型类型时，因为确定了**类型实参**，所以操作泛型类型不需要装箱、拆箱，而且泛型将安全检查**从【运行时检查】变成了【编译时检查】**进行，保证了类型安全。
 
+![image-20200320141616085](msweb学习.assets/image-20200320141616085.png)
 
-
-在示例4中，自定义泛型集合只是添加和获取类型参数的实例，除此之外，没有对类型参数实例的成员做任何操作。C#的所有类型都继承自Object类型，也就是说，我们目前只能操作Object中的成员(Equals,GetType,ToString等)。但是，我自定义的泛型很多时候是需要操作类型更多的成员
+在示例4中，自定义泛型集合只是添加和获取类型参数的实例，除此之外，没有对**类型参数实例的成员**做任何操作。C#的所有类型都继承自Object类型，也就是说，我们目前只能操作Object中的成员(Equals,GetType,ToString等)。但是，我自定义的泛型很多时候是需要操作类型更多的成员
 
 新需求，打印员工的信息
+
+![image-20200320141955913](msweb学习.assets/image-20200320141955913.png)
 
 ```cpp
 示例6
@@ -523,7 +527,83 @@ class Test<T>
 
 
 
-
-
 ### 6.HTML基础
 
+#### 6.1 HTML 参考资料
+
+W3C--万维网联盟，是Web技术领域最具权威和影响力的国际中立性技术标准机构。
+
+1. WEB三项组成：结构、表现、行为
+
+    结构标准：HTML。 骨架
+
+    表现标准：CSS 。外表
+
+    行为标准：JavaScript。行为。
+
+2. 参考网站
+
+   https://www.w3school.com.cn/html/html_jianjie.asp
+
+   [http://](http://www.w3school.com.cn/css/index.asp)[www.w3school.com.cn/css/index.asp](http://www.w3school.com.cn/css/index.asp)
+
+   [http://](http://www.w3school.com.cn/js/index.asp)[www.w3school.com.cn/js/index.asp](http://www.w3school.com.cn/js/index.asp)
+
+   https://www.runoob.com/ 菜鸟编程
+
+3. 推荐工具
+
+    webStrom / vscode /idea/hbuilder/vs2008/2017
+
+#### 6.2 XHMTL
+
+XML 是一种必须正确标记且格式良好的标记语言。
+
+如果希望学习 XML，请阅读我们的 [XML 教程](https://www.w3school.com.cn/xml/index.asp)。
+
+今日的科技界存在一些不同的浏览器技术。其中一些在计算机上运行，而另一些可能在移动电话或其他小型设备上运行。小型设备往往缺乏解释“糟糕”的标记语言的资源和能力。
+
+所以 - 通过结合 XML 和 HTML 的长处，开发出了 XHTML。XHTML 是作为 XML 被重新设计的 HTML。
+
+与 HTML 相比最重要的区别：
+
+##### 文档结构
+
+- XHTML DOCTYPE 是*强制性的*
+- <html> 中的 XML namespace 属性是*强制性的*
+- <html>、<head>、<title> 以及 <body> 也是*强制性的*
+
+##### 元素语法
+
+- XHTML 元素必须*正确嵌套*
+- XHTML 元素必须始终*关闭*<HTML></HTML>
+- XHTML 元素必须*小写*
+- XHTML 文档必须有*一个根元素*
+
+##### 属性语法
+
+- XHTML 属性必须使用*小写*
+- XHTML 属性值必须用*引号包围*
+- XHTML 属性最小化也是*禁止的*
+
+建议大家用XHTML的风格去写HTML5.
+
+变量定义
+
+#### 6.3前端框架
+
+**1***、****Bootstrap**
+
+ [http://www.bootcss.com](http://www.bootcss.com/)[/](http://www.bootcss.com/)
+
+
+
+**2****、****layui**
+
+ [http://www](http://www.layui.com/)[.](http://www.layui.com/)[layui](http://www.layui.com/)[.](http://www.layui.com/)[com/](http://www.layui.com/)
+
+
+
+**3****、****Mui**
+
+ [http://dev.dcloud.net.cn/mui/ui](http://dev.dcloud.net.cn/mui/ui/)[/](http://dev.dcloud.net.cn/mui/ui/)
