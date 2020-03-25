@@ -1,3 +1,7 @@
+
+
+
+
 ## 1.HTML基础
 
 #### 1.1 概述
@@ -376,7 +380,7 @@ Page-Enter与Page-Exit例子：
 CSS，Cascading style sheet，层叠样式表，是为了弥补HTML在布局和样式方面的不足而产生的。
 在XHTML网页中，通常用CSS对页面整体布局和样式控制
 
-### 2.1 CSC布局应运而生
+### 2.1 CSS布局应运而生
 
 表格最初的目的是：显示表格状的数据。后来，表格被用于网页布局时，设置其 border=“0” ，使得网页设计师可以将图片和文本放在这无形的网格中。表格布局的主要弊端如下：
 
@@ -386,11 +390,11 @@ CSS，Cascading style sheet，层叠样式表，是为了弥补HTML在布局和�
 3. 极难保持整个站点的视觉的一致性，花费也极高。
 ```
 
-为了避免表格网页布局与生俱来的弊端，CSS布局应运而生。利用CSS布局，网页设计者可使页面的实际内容与呈现格式的逻辑分离。 CSS布局的主要优势如下：
+为了避免表格网页布局与生俱来的弊端，CSS布局应运而生。Cascading style sheet，层叠样式表。利用CSS布局，网页设计者可使页面的实际内容与呈现格式的逻辑分离。 CSS布局的主要优势如下：
 
 ```
 1.一次编写，重复使用。
-2.把样式和内容分离，内容简单规范，方便代码维护。
+2.把样式和内容分离，内容简单规范，方便代码维护。只要修改网站的CSS样式表，就可以改变整个站点的整体表现形式，大大减少了重复劳动。
 3.缩小文件体积，CSS文件无需重复下载，增快网络访问速度。
 4.在不改变HTML的情况下，可快速修改和切换网站的整体设计和风格。
 5.帮助网站保持视觉的一致性。
@@ -398,4 +402,450 @@ CSS，Cascading style sheet，层叠样式表，是为了弥补HTML在布局和�
 ```
 
 
+
+
+
+### 2.2 div标记和span标记
+
+#### 1） div
+
+div标记是一个块状元素，其实就是一个大容器，可以包含任何标记，如段落、标题、文本、表格等，也可以嵌套使用。div的一般使用方法如下：
+
+```
+<div  id=“id名称”>
+     <h2>div标记</h2>
+     <p>div标记是一个块状元素。</p>
+     <img src=“url”/>
+</div>
+```
+
+div可以多层进行嵌套使用。嵌套的目的是为了实现更多复杂的页面排版。例如，当设计一个网页时，首先需要有整体布局，需要产生头部、中部和底部，代码如下：
+
+```
+<div id="all">
+  <div id="top">顶部</div>
+  <div id="mid">
+      <div id="list">列表</div>
+	<div id="content"> 内容</div>	  
+  </div>
+  <div id="bt">底部</div>
+</div>
+```
+
+#### 2） span
+
+span标记是内联元素，只能容纳文本和其它内联元素，可与其它内联元素位于同一行，宽度和高度不起作用。一行内可以被span划分成好几个区域，从而实现某种特定效果。
+
+#### 3）div 与span区别
+
+1. div是一个块级元素(大容器)，可以包含段落、标题、表格等其他元素，有固定的宽度和高度。
+
+2. span是一个内联元素(小容器)，一行内的内容可以被span划分成好几个区域，span 没有固定的格式表现。当对它应用样式时，它才会产生视觉上的变化。
+
+   ```
+   <div id=“content”>
+      <p>This is <span class=“body”>crazy</span></p>
+   </div>
+   
+   ```
+
+   
+
+### 2.2 CSS提供的样式
+
+```
+字体样式
+文字样式
+背景样式
+区域样式
+分类样式
+```
+
+
+
+#### 2.2.1字体样式
+
+字体样式用于设置HTML元素的字体、大小、粗细、常规/斜体等样式。如：
+
+```
+font-family：字体。
+font-size：大小。
+font-weight：粗细。
+font-style：常规/斜体。
+line-height: 行高，用于设定行间距,单位为px(像素)或em(相对于文本的字体尺寸的倍数)。
+font：font-family、font-size、font-weight、font-style等样式的综合表示法。
+
+```
+
+#### 2.2.2文字样式
+
+文字样式用于设置字符间距、文字间距、文字的对齐方式、文字效果等。如：
+
+```
+letter-spacing:字符间距
+word-spacing:文字间距
+text-decoration:指定下划线、顶线、删除线等文字效果。
+```
+
+
+
+#### 2.2.3背景样式
+
+背景样式用于设置背景颜色、背景图片、背景图片是否重复排列等。如：
+
+```
+backgroud-color：背景颜色
+backgroud-image：背景图片
+backgroud-repeat：背景图片是否重复排列
+backgroud:背景颜色、背景图片、是否重复等背景样式的综合表示法
+```
+
+
+
+#### 2.2.4区域样式
+
+用于设置区域的高度、宽度、内外边距大小、边框样式等。如：
+
+```
+margin:用于指定区域的外边距大小。
+height:用于指定区域的高度。
+width:用于指定区域的宽度。
+border:指定区域四周的边框粗细、样式及颜色。
+padding：指定区域文字与区域边界的间距（即内边距）的大小。
+```
+
+#### 2.2.5分类样式
+
+用于指定HTML元素的显示方式、列表项图片的相关属性等。如：
+
+```
+display：用于指定HTML元素的显示方式。
+list-style-image：用于指定列表项图片的文件路径及名称。
+list-style-type：用于指定列表项符号或编号
+```
+
+
+
+### 2.3 CSS布局与表格布局
+
+在传统网页中，常用表格对页面整体进行布局。 
+
+示例：table.html
+
+```
+<html>
+<head>
+<title>简单表格布局</title>
+</head>
+<body>
+<table width="400" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="20" valign="top" bgcolor="#cccccc">
+            <font color="#0000ff"><b>顶部</b></font>
+    </td>
+  </tr>
+  <tr>
+    <td>
+       <table width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td width="25%" height="120" valign="top" bgcolor="#eeeeee">
+             <font color="#ff0000">列表</font>
+        </td>
+        <td width="75%" height="120" valign="top" bgcolor="#f7f7f7">
+        <font color="#ff0000">内容</font>
+         </td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+     <td height="20" valign="top" bgcolor="#cccccc">
+         <font color="#0000ff"><b>底部</b></font>
+     </td>
+  </tr>
+</table>
+</body>
+</html>
+```
+
+![image-20200325122026294](HTML基础.assets/image-20200325122026294.png)
+
+css.html
+
+```
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>XHTML+CSS简单布局</title>
+<style type="text/css">
+  #all{width:400px;	   margin:0px auto;	   color:#f00;	   }
+  #top,#bt{height:20px;width:100%;background-color:#ccc;color:#00f;font-weight:bold;}
+  #mid{width:100%;       height:120px;    }
+  #list{width:25%;height:100%; float:left;background-color:#eee;}
+  #content{width:75%;height:100%;float:left;background-color:#f7f7f7;}
+  #bt{ float:left;}
+</style>
+</head>
+<body>
+<div id="all">
+  <div id="top">顶部</div>
+  <div id="mid">
+      <div id="list">列表</div>
+      <div id="content"> 内容</div>	  
+  </div>
+  <div id="bt">底部</div>
+</div>
+</body>
+</html>
+```
+
+![image-20200325122008651](HTML基础.assets/image-20200325122008651.png)
+
+### 2.4 CSS声明方法
+
+声明CSS通常有3种方法，并且这3种方法可以混合使用。
+(1)行间样式表
+(2)内部样式表
+(3)外部样式表
+
+优先级比较：
+
+XHTML元素被多种CSS声明样式时，采取就近原则。
+内部样式表的优先性高于外部样式表。
+行间样式表的优先性又高于内部样式表。
+
+### 2.5 CSS基本语法
+
+2.5.1 三个核心
+
+```
+选择符。选择符指CSS这段代码所控制的对象，比如id、class、标签等。
+
+属性。属性则是CSS所控制对象的各项样式属性，类型非常多，例如文本颜色、对齐、宽度、高度等。
+
+值。值即为属性所对应的量化或描述设置。例如font-size属性值为12px、14px、16px等。
+CSS代码实质上就是选择符、属性和值的代码段组合而成。
+
+
+```
+
+CSS代码编写的格式为：
+
+```
+选择符{ 属性1：值1；
+              属性2：值2；
+               ……
+               属性n：值n;
+}
+```
+
+2. 
+
+#### 2.5.1 CSS选择符
+
+1. CSS选择符有5种，分别是：
+
+```
+标签选择符
+id选择符
+class选择符
+伪类选择符
+通配选择符
+```
+
+##### 标签选择符
+
+```
+标签选择符，对XHTML中已有的标签作选择符进行样式定义，例如：
+p{color:blue;}
+h1{color:red;}
+示例：id_class.htm
+
+```
+
+##### id选择符
+
+```
+标签设置了id属性(唯一标识)后，就可以通过id名称给该标签设置独一无二的样式。
+id名称可自定义，但不能以数字开头，CSS代码中引用id名称，前面须加上”#”符号。
+例如，id名称为hello的div标签，在CSS代码中引用的形式如下：
+#hello{color:#ff0000;}
+示例：id_class.htm
+
+```
+
+##### class 选择符
+
+```
+多个标签可使用同一个class属性名称，使多个标签拥有统一的样式。
+class名称可自定义，但不能以数字开头，CSS代码中引用class名称前面须加上点号“.”。
+例如，class名称为reader的CSS代码：
+.reader{color:#ff0000;}
+示例：id_class.htm
+
+```
+
+例子：
+
+```
+<html>
+  <head>   <title>css样式演示</title>
+   <style>    
+     h1{color:red;}
+     p{color:blue;}
+     #hello{background-color:#ccffff; 
+                  width:400px;height:80px;line-height:2em}
+     .reader{font-weight:bold; color:#ff00ff; }
+   </style>
+</head>
+<body>
+<h1>这是1号标题的新样式</h1>
+<p>这是段落的新样式</p>
+<div id="hello">
+    <span class="reader">这是class为reader的字体样式</span>
+    <br/>这是id为hello的div的样式
+</div>
+</body>
+</html>
+
+```
+
+效果图：
+
+![image-20200325130026530](HTML基础.assets/image-20200325130026530.png)
+
+##### 伪类选择符
+
+```
+伪类及伪对象选择符是一组CSS预定义好的类和对象，不需要进行id和class属性的声明。以超级链接为例：
+a:visited{color:#ff0000;}
+以上代码代表页面中的超级链接被访问过后，其样式设置为红色文本。
+
+```
+
+| **伪类选择符** | **用途**                   |
+| -------------- | -------------------------- |
+| **a:link**     | **未访问的超级链接**       |
+| **a:hover**    | **鼠标悬浮在上的超级链接** |
+| **a:active**   | **选定激活的超级链接**     |
+| **a:visited**  | **已访问的超级链接**       |
+
+
+
+```
+<html>
+<head>
+<title>CSS超链接伪类</title>
+<style>
+a:link {color: #FF0000;text-decoration: none}     /* 未被访问的链接为红色 */
+a:visited {color: #00FF00;text-decoration: none}  /* 已被访问过的链接为绿色 */
+a:hover {color: #FFCC00;text-decoration: underline} /* 鼠标悬浮在上的链接为橙色 */
+a:active {color: #0000FF;text-decoration: underline} /* 鼠标点中激活的链接为蓝色 */
+</style>
+</head>
+<body>
+<p><a href = "first.htm">我的第一个网页</a></p>
+<p><a href = "font_color.htm">字体颜色</a></p>
+<p><a href = "font_face.htm">字体字型的设置</a></p>
+</body>
+</html>
+
+```
+
+![image-20200325130329259](HTML基础.assets/image-20200325130329259.png)
+
+##### 通配选择符
+
+```
+在DOS操作系统中有一个*通配符，如*.*代表任何文件、*.mp3代表所有的mp3文件。
+CSS中也有*通配选择符，代表所有对象，例如：
+*{margin:0px;}
+以上CSS代码代表所有对象的外边距为0像素。
+
+```
+
+##### 组合选择符
+
+```
+选择符还可以互相进行组合，形成新的选择符类型，常用的有4种组合方式：
+群组选择符
+包含选择符
+标签指定式选择符
+自由组合选择符
+
+```
+
+#### 2.5.2 属性
+
+```
+CSS代码中的颜色值和HTML中设置略有区别，特殊情况下CSS代码中的颜色值可以缩写。
+颜色值一般采用16进制代码，即#abcdef，当a=b,c=d,e=f时，#abcdef可缩写为#ace，如#f00代表红色。
+颜色值另一种表示方法为rgb方法，红绿蓝三色使用十进制表示或百分比表示，例如：
+p#hello{color:rgb(255,0,0);}
+p#hello{color:rgb(100%,0,0);}
+
+```
+
+#### 2.5.3常用数字单位
+
+| **单位** | **说明**                                                     | **示例**         |
+| -------- | ------------------------------------------------------------ | ---------------- |
+| **px**   | pixel，像素。屏幕上显示的最小单位，直观方便。像素是相对于显示器屏幕分辨率而言的。 | height:500px;    |
+| **em**   | 即％，在CSS中，1em＝100％，是一个比率，指相对当前元素内文本高度的倍数。 | font-size:1.2em; |
+| **pt**   | pt，点，又名“磅”，是一个标准的用于印刷的长度单位，1pt=1/72英寸=0.03527厘米。 | font-size:12pt;  |
+
+#### 2.5.3 id和class的区别
+
+#### 2.6 div+css布局
+
+
+
+
+
+```
+<html >
+<head>
+<title>设置div样式</title>
+<style type="text/css">
+html,body{height:100%; }
+#fst {	background-color: #eee;
+	border:1px solid #000;
+	width:300px;height:200px;}
+#sec {background-color: #eee;
+	border:1px solid #000;
+	width:50%;height:25%;}
+</style></head>
+<body>
+<div id="fst">
+这是固定尺寸的宽度和高度
+</div><hr />
+<div id="sec">这是自适应尺寸的宽度(50%)和高度(25%)</div>
+</body>
+</html>
+
+```
+
+#### 2.7 css盒模型
+
+CSS盒模型是从CSS诞生之时便产生的一个概念。
+对于网页中的大部分对象(不论块状元素还是内联元素)，实际呈现的形式都是一个盒子形状对象，即块状对象。
+在CSS设计过程中，要做的就是安排一个个盒子的内容。
+
+```
+
+CSS的margin、border和padding均可拆分上、下、左、右4部分。
+margin：margin-top、margin-bottom、margin-left、margin-right。
+border：border-top、border-bottom、 border-left、border-right。
+padding：padding-top、padding-bottom、padding-left、padding-right
+```
+
+![image-20200325131332476](HTML基础.assets/image-20200325131332476.png)
+
+```
+盒子实际占据的宽度= margin-left + padding-left + border-left 
+                         + width + padding-right + border-right + margin-right
+盒子实际占据的高度= margin-top + border-top + padding-top+ height 
+                         + padding-bottom + border-bottom + margin-bottom
+
+```
 
