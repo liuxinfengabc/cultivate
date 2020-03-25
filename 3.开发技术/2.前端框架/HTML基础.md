@@ -76,8 +76,8 @@ HTML文档中，分为单标记和双标记。双标记都是按“<标记>和</
    - 单标签要结束用 />来结束
 
      ```
-     This  is a break<br>错误。
-     This is a break<br/>正确。
+     This  is a break  <br>错误。
+     This is a break  <br/>  正确。
      
      ```
 
@@ -100,6 +100,7 @@ HTML文档中，分为单标记和双标记。双标记都是按“<标记>和</
 
 ##### 1 base
 
+```
 <base> 标签为页面上的所有链接规定默认URL相对地址。
 通常情况下，浏览器会从当前文档的 URL 中获取URL相对地址。
 使用 <base> 标签可以手动改变URL相对地址，这其中包括 <a>、<img>、<link>等标签中的 URL相对地址。
@@ -110,6 +111,9 @@ _self，自我覆盖、默认。
 _blank，创建新窗口打开新页面。
 _top，在浏览器的整个窗口打开，将会忽略所有的框架结构。
 _parent， 指向父框架文档。
+```
+
+
 
 ```
 <html>
@@ -167,20 +171,25 @@ author:标注网页的作者。例如：
 copyright:标注版权。 例如：
 <meta name="copyright" content="版权声明">
 
+
+```
+
 http-equiv属性主要有以下几种可选值：
-content-type：指定网页的类型和字符集。 例如：
+
+```
+1. content-type：指定网页的类型和字符集。 例如：
 <meta http-equiv="content-type" content="text/html" charset="gb2312">  
-refresh，指定自动刷新或跳转的开始时间与跳转的网址。例如：
-<meta http-epuiv="refresh" content="3">
-网页3秒自动刷新一次。
+2. refresh，指定自动刷新或跳转的开始时间与跳转的网址。例如：
+<meta http-epuiv="refresh" content="3"> 网页3秒自动刷新一次。
 <meta http-epuiv=" refresh" content=" 3";url=http//www.baidu.com>
 网页3秒后自动跳转到百度网站。
-Explres指定网页在缓存中的过期时间。例如：
+3.Expires指定网页在缓存中的过期时间。例如：
 <meta http-epuiv= " explres "  content= " Wed,26 Feb 1997 08:21:57 GMT " >。
 page-enter和page-exit它是用于指定进入和退出的缓存效果，共有0-23种显示效果，例如（盒状收缩）：
 <meta http-equiv="page-enter" content=" revealTrans(duration=1,transition=0)"/>
-
 ```
+
+
 
 Page-Enter与Page-Exit例子：
 
@@ -390,7 +399,7 @@ CSS，Cascading style sheet，层叠样式表，是为了弥补HTML在布局和�
 3. 极难保持整个站点的视觉的一致性，花费也极高。
 ```
 
-为了避免表格网页布局与生俱来的弊端，CSS布局应运而生。Cascading style sheet，层叠样式表。利用CSS布局，网页设计者可使页面的实际内容与呈现格式的逻辑分离。 CSS布局的主要优势如下：
+为了避免表格网页布局与生俱来的弊端，CSS布局应运而生。Cascading style sheet，层叠样式表。利用CSS布局，网页设计者可使页面的**实际内容与呈现格式**的逻辑分离。 CSS布局的主要优势如下：
 
 ```
 1.一次编写，重复使用。
@@ -398,12 +407,11 @@ CSS，Cascading style sheet，层叠样式表，是为了弥补HTML在布局和�
 3.缩小文件体积，CSS文件无需重复下载，增快网络访问速度。
 4.在不改变HTML的情况下，可快速修改和切换网站的整体设计和风格。
 5.帮助网站保持视觉的一致性。
-
 ```
 
+如何查看样式：（按F12,查看Elements）
 
-
-
+![image-20200325143835622](HTML基础.assets/image-20200325143835622.png)
 
 ### 2.2 div标记和span标记
 
@@ -614,6 +622,135 @@ XHTML元素被多种CSS声明样式时，采取就近原则。
 内部样式表的优先性高于外部样式表。
 行间样式表的优先性又高于内部样式表。
 
+#### 2.4.1行间样式表
+
+行间样式表指CSS编写在XHTML标签的style属性中。一般格式为：
+
+```
+
+<标记 style=“属性1:值1;属性2:值2…”>信息内容</标记>
+例如：
+<p style=“font-size:20;color:black”>信息内容</p>
+这种方式比较灵活，但样式和内容没有分离，一般不推荐使用。
+示例：行间样式表.htm
+
+```
+
+
+
+#### 2.4.2内部样式表
+
+ 这种方式把CSS代码集中编写在头部信息的<style></style>标签内，很好地做到了样式与内容的分离，使用最为广泛。
+
+```
+
+一般格式为：
+<style>
+     选择符1{属性1:值1;属性2:值2…}
+     选择符2{属性1:值1;属性2:值2…}
+     ……
+</style>
+例如：
+<style>
+          p{   font-family:隶书;font-size:30 ;color:blue }  
+          .note1 {color:green}
+          .note2 {color:blue} 
+</style>
+
+```
+
+示例：内部样式表.htm
+
+```
+<html>
+    <head>
+        <title>内部样式表</title>
+        <style>             
+            p{   font-family:隶书}  
+            p.title{font-size:30 ;color:blue }
+            p.content{font-size:20;color:olive }
+            p.author{font-size:20;color:black }
+            .note1 {color:green}
+            .note2 {color:red}             
+        </style>    
+    </head>
+    <body>
+        <p  class="title">蝶恋花</p>
+        <p  class="content">&nbsp;&nbsp; &nbsp;&nbsp;庭院深深深几许？杨柳堆烟，帘幕无重数。玉勒雕鞍游冶处，楼高不见章台路。 雨横风狂三月暮，门掩黄昏，无计留春住。泪眼问花花不语，乱红飞过秋千去。
+        </p>
+        <p  class="author">宋&nbsp;&nbsp;欧阳修</p>
+        <div class="note1">注释1: 章台路意指歌妓聚居之所。<br></div>
+        注释2:<span class="note2">[冶游生春露]，</span>冶游即春游。
+    </body> 
+</html>
+```
+
+
+
+#### 2.4.3外部样式表
+
+外部样式表是把CSS样式编码单独编写在一个独立的css文件中，由网页进行调用。只要修改网站的外部样式表，就可以改变整个站点的整体表现形式，大大减少了重复劳动。**这种方式是CSS应用中最好的一种形式，尤其在大型网站比较多见**。
+
+```
+外部样式表中的css样式的一般格式为：
+选择符1{
+               属性1:值1;
+               属性2:值2
+               …
+               }
+选择符2{
+                属性1:值1;
+                属性2:值2
+                …
+                }
+…
+
+```
+
+在网页中调用外部样式表有两种格式：
+
+```
+(1) @import url(外部样式表名.css);
+(2)<link   rel=“stylesheet”  href=“外部样式表名.css”   type=“text/css” />
+如，假设样式表为“style.css”,有以下两种设置格式：
+(1) @import url(style.css);
+(2)<link   rel=“stylesheet”  href=“style.css”   type=“text/css” />
+示例：style.css、外部样式表1.htm
+```
+
+例子stytle.css
+
+```
+p{ font-family:隶书}  
+p.title{font-size:30 ;color:blue }
+p.content{font-size:20 ;color:olive }
+p.author{font-size:20 ;color:black }
+.note1 {color:green}
+.note2 {color:red} 
+
+
+```
+
+外部样式表2.html
+
+```
+<html>
+    <head>
+        <title>外部样式表2</title>
+        <link rel="stylesheet" href="style.css" type="text/css">
+    </head>
+    <body>
+        <p  class="title">蝶恋花</p>
+        <p  class="content">&nbsp;&nbsp; &nbsp;&nbsp;庭院深深深几许？杨柳堆烟，帘幕无重数。玉勒雕鞍游冶处，楼高不见章台路。 雨横风狂三月暮，门掩黄昏，无计留春住。泪眼问花花不语，乱红飞过秋千去。</p>
+        <p  class="author">宋&nbsp;&nbsp;欧阳修</p>
+        <div class="note1">注释1: 章台路意指歌妓聚居之所。<br></div>
+        注释2:<span class="note2">[冶游生春露]，</span>冶游即春游。
+    </body> 
+</html>
+```
+
+
+
 ### 2.5 CSS基本语法
 
 2.5.1 三个核心
@@ -674,7 +811,7 @@ id名称可自定义，但不能以数字开头，CSS代码中引用id名称，�
 
 ```
 
-##### class 选择符
+##### 3. class 选择符
 
 ```
 多个标签可使用同一个class属性名称，使多个标签拥有统一的样式。
@@ -714,7 +851,7 @@ class名称可自定义，但不能以数字开头，CSS代码中引用class名�
 
 ![image-20200325130026530](HTML基础.assets/image-20200325130026530.png)
 
-##### 伪类选择符
+##### 4.伪类选择符
 
 ```
 伪类及伪对象选择符是一组CSS预定义好的类和对象，不需要进行id和class属性的声明。以超级链接为例：
@@ -754,7 +891,7 @@ a:active {color: #0000FF;text-decoration: underline} /* 鼠标点中激活的链
 
 ![image-20200325130329259](HTML基础.assets/image-20200325130329259.png)
 
-##### 通配选择符
+##### 5.通配选择符
 
 ```
 在DOS操作系统中有一个*通配符，如*.*代表任何文件、*.mp3代表所有的mp3文件。
@@ -764,7 +901,7 @@ CSS中也有*通配选择符，代表所有对象，例如：
 
 ```
 
-##### 组合选择符
+##### 6.组合选择符
 
 ```
 选择符还可以互相进行组合，形成新的选择符类型，常用的有4种组合方式：
@@ -775,7 +912,7 @@ CSS中也有*通配选择符，代表所有对象，例如：
 
 ```
 
-###### 群组选择符
+###### 6.1群组选择符
 
 ```
 即当需要对多个选择符进行相同的样式设置时，可以把多个选择符写在一起，并用逗号分隔，例如：
@@ -783,7 +920,7 @@ p,span,div,li{color:#ff0000;}
 
 ```
 
-###### 包含选择符
+###### 6.2包含选择符
 
 ```
 即通过标签的嵌套包含关系组合选择符，包含关系的2个选择符用空格分隔，例如：
@@ -792,7 +929,7 @@ p span{color:#ff0000;}
 
 ```
 
-###### 标签指定式选择符
+###### 6.3标签指定式选择符
 
 ```
 即标签选择符和id或class的组合，两者之间不须分隔，例如：
@@ -843,7 +980,7 @@ p#hello span{color:#ff0000;}
 
 ![image-20200325133153705](HTML基础.assets/image-20200325133153705.png)
 
-##### id与class的区别
+##### 7.id与class的区别
 
 同样的id名称在页面中只使用一次，可用于页面的布局等应用。
 同样的class名称可在页面中多次使用，作用于多个对象，以达到统一样式设置的目的，可用于文本颜色等应用。
