@@ -2,6 +2,8 @@
 
 
 
+
+
 ## 1.HTML基础
 
 #### 1.1 概述
@@ -384,7 +386,7 @@ Page-Enter与Page-Exit例子：
 
 ##### 9. 表格标记
 
-## 2.网页布局与样式
+## 2.CSS样式
 
 CSS，Cascading style sheet，层叠样式表，是为了弥补HTML在布局和样式方面的不足而产生的。
 在XHTML网页中，通常用CSS对页面整体布局和样式控制
@@ -1011,8 +1013,6 @@ p#hello{color:rgb(100%,0,0);}
 
 
 
-
-
 ```
 <html >
 <head>
@@ -1094,23 +1094,515 @@ padding：padding-top、padding-bottom、padding-left、padding-right
 ![image-20200325131332476](HTML基础.assets/image-20200325131332476.png)
 
 ```
-盒子实际占据的宽度= margin-left + padding-left + border-left 
-                         + width + padding-right + border-right + margin-right
-盒子实际占据的高度= margin-top + border-top + padding-top+ height 
-                         + padding-bottom + border-bottom + margin-bottom
+盒子实际占据的宽度= margin-left + 
+				  padding-left +
+                  border-left  + 
+                  width + 
+                  padding-right + 
+                  border-right +
+                  margin-right
+                  
+盒子实际占据的高度= 	  margin-top + 
+					border-top + 
+					padding-top+ 
+					height + 
+					padding-bottom + 
+					border-bottom + 
+					margin-bottom
+```
+
+### 2.6CSS布局页面
+
+#### 2.6.1使用CSS布局页面顶部内容
+
+#### 2.6.2使用CSS制作网站导航
+
+#### 2.6.3使用CSS制作列表
+
+#### 2.6.4使用CSS制作内容的版式
+
+#### 2.6.5解析“CSS禅意花园”经典案例
+
+
+
+```
+
 
 ```
 
 
 
-
-
-## 3.JavaScript基础
+## 3. 网页制作实战
 
 
 
-## 4.photoshop的基本使用
+```
+正式网页制作前，要使用photoshop先设计出页面的效果图，然后再根据效果图设计HTML页面。       
+以如左图所示的效果图为例，介绍利用DIV+CSS技术进行网页制作的全过程。
+```
+
+![image-20200327103025271](HTML基础.assets/image-20200327103025271.png)
+
+
+
+### 3.1 页面分析
+
+```
+在进行页面代码制作之前，首先来对网站的整体进行构思，对设计的页面进行分析。
+(1)页面整体布局
+(2)寻找实现这种框架结构的方法
+(3)确定各个div的id名
+```
+
+1. 页面整体布局
+
+   ```
+   从整体上说，页面是上、中、下3行布局，从中间部分的划分来说，是二列式的左右布局。
+   
+   
+   ```
+
+   ![image-20200327103143312](HTML基础.assets/image-20200327103143312.png)
+
+
+
+具体页面布局：
+
+![image-20200327103202336](HTML基础.assets/image-20200327103202336.png)
+
+2. 寻找实现框架的方法
+
+   ```
+   对于整体来说，把一个容器分成3份，上、中、下，分别都使用div标签定义空间。
+   对于中间部分来说，又分为中上、中下两部分。
+   对于中上部分来说，又分为中上左、中上右两部分。
+   ```
+
+3. 确定各个div的id名字
+
+   ```
+   确定父div 的id名为container。
+   从上到下确定各子div的id名分别为header、content和footer。
+   确定在CSS代码中，仅设置父div container的宽度，其他子div在container中通过外边距定位或浮动定位即可
+   ```
+
+   ![image-20200327103533088](HTML基础.assets/image-20200327103533088.png)
+
+### 3.2 框架制作
+
+#### 3.2.1 代码制作
+
+打开VS.NET2008，新建一个ASP.NET网站，添加一个HTML文件。
+首先编写XHTML代码，在XHTML格式文件的主体<body></body>内添加XHTML代码，如下：
+
+```
+<div id=“container”>
+   <div id=“header”></div>
+   <div id=“content”></div>
+   <div id=“footer”></div>
+</div>
+```
+
+#### 3.3.3 css样式制作
+
+现在来添加CSS样式，在XHTML格式文件的<head></head>中添加如下代码：
+<style></style>
+然后，使用CSS选择符为定义了id的XHTML标签进行样式设置。
+
+添加CSS的过程中，要经常参照UI界面的设计图，并且使用Photoshop软件打开设计图，利用参考线精确确定坐标和页面中每个模块的位置关系。使用参考线将这个页面的框架结构进行划分。
+**在参考线的帮助下，可以掌握页面中每个模块的位置，以及长度、宽度，是CSS样式编写的重要辅助方法。**
+
+使用photoshop中标尺与参考线，确定网页效果图中的网页的整体CSS代码如下：
+
+```
+*{margin:0px; padding:0px;}
+body { font-size: 12px;	font-family: "宋体";   }
+#container { width: 800px; margin: 0px auto;  }
+#content{  height: 714px;   }
+#footer {   height: 155px;    }
+```
+
+注：以上像素值都是在效果图中利用标尺和参考线精确测量得来的
+
+### 3.3 页面设计
+
+#### 3.3.1 页面顶部设计
+
+##### 1.页面分析
+
+![image-20200327110526969](HTML基础.assets/image-20200327110526969.png)
+
+##### 2.草图：
+
+![image-20200327110605489](HTML基础.assets/image-20200327110605489.png)
+
+
+
+```
+logo部分与快速导航部分(nav)可以视为二列式布局，使用浮动定位方法实现布局设计，并且二者放在同一个div容器top中。
+中间的banner部分和下面的”面包屑”部分(crumbs)分别使用一个div容器。
+top部分、banner部分和crumbs部分各占据一行，宽度都设置为与页面一样的宽度。
+
+```
+
+![image-20200327110746662](HTML基础.assets/image-20200327110746662.png)
+
+##### 3.容器命名
+
+![image-20200327110816348](HTML基础.assets/image-20200327110816348.png)
+
+##### 4.页面顶部代码
+
+```
+<div id="header">
+     <div id="top">
+             <div id="logo">
+                 <img  src="images/logo.jpg" />
+             </div>
+	      <div id="nav"></div>
+          </div>
+     <div id="banner"><img src="images/banner.jpg" /></div>
+     <div id="crumbs">
+       <div id="crumbscontent"></div>
+       <div id="crumbsline >
+            <img src="images/crumbsline.jpg" />
+       </div>
+     </div>
+</div>
+```
+
+logo的定位是使用了id选择符#logo设置上、下、左外边距来实现的。
+logo部分浮动向左，nav部分浮动向右，实现左右二列式布局。
+
+```
+#top{ width:100%; }
+#logo{ margin-left:6px; margin-top:24px; 
+                margin-bottom:14px;float:left; }
+#nav{ float:right; margin-top:33px; }
+```
+
+#### 3.3.2 页面中上部布局设计
+
+##### 1. 页面分析
+
+```
+页面中上部的页面分析分为以下几个步骤：
+（1）根据页面中上部的设计图，构思草图。
+（2）左侧图片和右列内容使用浮动定位实现二列式布局，并且设置宽度和高度。
+（3）为每个区域的div的id或者class命名。
+注：在此，若不给左侧图片和右列内容设置高度，会出现下面图片浮动上来的情况。
+```
+
+![image-20200327111403153](HTML基础.assets/image-20200327111403153.png)
+
+##### 2.构思草图
+
+![image-20200327111448915](HTML基础.assets/image-20200327111448915.png)
+
+
+
+##### 3.两列式布局
+
+```
+左侧图片和右列内容使用浮动定位实现二列式布局，并且设置固定宽度。
+```
+
+![image-20200327111646759](HTML基础.assets/image-20200327111646759.png)
+
+##### 4.为每个区域的div的id或者class命名
+
+![image-20200327111740060](HTML基础.assets/image-20200327111740060.png)
+
+##### 5.代码制作
+
+(1)添加制作页面中上部的HTML结构代码。
+
+```
+<div id="info">
+    <div id="productshow">
+        <img src="images/productshow.jpg" />
+    </div>
+    <div id="intro_info">
+      <h1>联想ThinkPad T400(2767MG1)</h1>
+      <div id="bgtable"></div>
+      <div id="notable"></div>
+      <div id="threeBtn></div>
+    </div>
+  </div>
+```
+
+(2)为页面中上部的每个部分的布局添加CSS代码。
+
+```
+#info{ height:550px; width:100%;}
+#productshow{ margin-top:88px; margin-left:80px; width:276px; float:left; height:460px;}
+#intr_info{margin-left:30px; float:right; width:400px; height:100%; line-height:20px;}
+#intr_info h1{ font-size:20px; margin-top:37px; margin-bottom:50px;}
+#threeBtn{ margin-left:20px;}
+#threeBtn img{ margin-right:20px;}
+```
+
+在以上代码中，为左列和右列设置浮动定位，实现二列式布局。
+为图片按钮定义了外边距，实现定位。
+
+#### 3.3.3页面中下部布局
+
+##### 1.页面分析
+
+```
+（1）根据页面中下部的设计图，构思草图。
+（2）确定每部分都使用div容器浮动定位，并设置每个div的宽度。
+（3）为每个区域的div的id或者class命名。
+```
+
+##### 2.构思草图
+
+![image-20200327123742321](HTML基础.assets/image-20200327123742321.png)
+
+
+
+![image-20200327123752074](HTML基础.assets/image-20200327123752074.png)
+
+
+
+```
+确定使用div容器浮动定位，设置每个div的宽度。
+为div的id或者class命名。图片按钮(#function_channel)
+```
+
+
+
+##### 3.代码制作
+
+（1）制作页面中下部的XHTML结构代码。
+
+```
+<div id="function_channel">
+    <div><a href="#"><img src="images/functionBtn01.jpg" /></a></div>
+    <div><a href="#"><img src="images/functionBtn02.jpg" /></a></div>
+    <div><a href="#"><img src="images/functionBtn03.jpg" /></a></div>
+    <div><a href="#"><img src="images/functionBtn04.jpg" /></a></div>
+    <div><a href="#"><img src="images/functionBtn05.jpg" /></a></div>
+    <div><a href="#"><img src="images/functionBtn06.jpg" /></a></div>
+    <div><a href="#"><img src="images/functionBtn07.jpg" /></a></div>
+    <div><a href="#"><img src="images/functionBtn08.jpg" /></a></div>
+</div>
+```
+
+
+
+（2）为实现每个部分的布局添加CSS代码。
+
+```
+#function_channel{ margin-left:12px;}
+#function_channel div{ float:left; margin-left:3px;}
+#function_channel img{ border-style:none;}
+
+```
+
+#### 3.3.4 页面底部的布局设计
+
+##### 1.页面分析
+
+
+
+![image-20200327125903638](HTML基础.assets/image-20200327125903638.png)
+
+
+
+##### 2.构思草图
+
+![image-20200327125917921](HTML基础.assets/image-20200327125917921.png)
+
+
+
+##### 3.代码制作
+
+（1）制作页面底部的结构XHTML代码
+
+```
+<div id="footer">
+    <div id="logob">
+       <img src="images/logo.jpg" />
+    </div>
+    <div id="copyright">
+      <ul>……</ul>
+      <p id="contact">……</p>
+      <p id="copyrightinfo">
+         copyright 2000-2003 ……
+     </p>
+    </div>
+  </div>
+```
+
+（2）为实现每个部分的布局添加CSS代码
+
+```
+#logob{ margin-top:70px; margin-left:20px; float:left;}
+#copyright{ float:right; margin-top:25px;}
+#contact{ margin-top:15px; text-align:right;     line-height:20px; color:#ACACAC;  }
+#copyrightinfo{ margin-top:15px; text-align:right;    line-height:20px;}
+
+```
+
+### 3.4 模块设计
+
+模块设计，就是对页面中的具体的内容进行布局实现，例如导航的制作、数据列表的制作、图片按钮的排版、文本的排版等。下面将分别对网页中的每一个内容模块进行CSS布局设计。
+
+#### 3.4.1快速导航制作
+
+这个页面有两个位置使用了导航形式：页面顶部的右上角和页面底部的右上角。
+为了页面代码的多样化，针对这两个导航系统，使用了不同的实现方法。
+页面顶部右上角的导航使用了普通的文字链接并列的方法，整个导航放在div容器中控制位置。
+页面底部右上角的导航使用了无序列表的形式，导航项使用<li></li>标签来控制，整个导航通过ul控制位置。
+
+##### 1）页面顶部的导航
+
+![image-20200327130831759](HTML基础.assets/image-20200327130831759.png)
+
+（1）页面顶部的导航模块的具体XHTML代码如下：
+
+```
+
+<div id="nav">
+   <a href="#">站点地图</a>|
+   <a href="#">关于我们</a>|
+   <a href="#">收藏本页</a>
+</div>
+
+
+```
+
+（2）为超链接添加CSS样式，代码如下：
+
+```
+a{ text-decoration:none; color:#000000; }
+a:hover{ text-decoration:none; color:#210EC0;}
+```
+
+
+
+##### 2）页面底部的导航
+
+页面底部的导航模块的HTML代码如下：
+
+![image-20200327131914143](HTML基础.assets/image-20200327131914143.png)
+
+```
+
+<div id="copyright">
+      <ul>
+        <li><a href="#">网站简介</a></li>
+        &nbsp;&nbsp;|&nbsp;&nbsp;
+        <li><a href="#">About Us</a></li>
+        &nbsp;&nbsp;|&nbsp;&nbsp;
+        <li><a href="#">广告服务</a></li>
+        &nbsp;&nbsp;|&nbsp;&nbsp;
+        <li><a href="#">联系我们</a></li>
+        &nbsp;&nbsp;|&nbsp;&nbsp;
+        <li><a href="#">招聘英才</a></li>
+        &nbsp;&nbsp;|&nbsp;&nbsp;
+        <li><a href="#">客户服务</a></li>
+      </ul>
+</div>
+
+```
+
+为页面底部的导航添加CSS样式，代码如下：
+
+```
+#copyright ul{ list-style-type:none;}
+#copyright ul li{ display:inline;}
+```
+
+
+
+#### 3.4.2”面包屑”制作
+
+制作“面包屑”的主要任务是设计文字链接样式。
+
+![image-20200327132117532](HTML基础.assets/image-20200327132117532.png)带有背景的“面包屑”，需要注意的是设置好文本的背景图中的显示位置，通过CSS的行高属性，能够控制文本在背景中的显示位置。
+
+“面包屑”中连接文字之间使用”>”分隔，表示子属关系，后者是前者的分支。
+（1）添加“面包屑”的XHTML代码如
+
+```
+<div id="crumbscontent">
+   ><a href="#">首页</a>
+   ><a href="#">联想ThinkPad T400</a>
+</div>
+```
+
+（2）为“面包屑”的添加CSS样式，代码如下：
+
+```
+
+ #crumbscontent{ 
+    background-image:url(images/crumbs_bg.jpg);    
+    background-repeat:repeat-x; 
+    height:40px; 
+    line-height:40px;
+    }
+
+```
+
+注意：以上“面包屑”的背景是通过背景图片横向平铺来实现的。
+
+
+
+#### 3.4.3数据表格制作
+
+在页面中上部分别使用了有背景的数据表格和无背景的数据表格。
+注意：div和table混排时，div和table的margin无效,只需要将该div的display属性设置为inline-table，即可使该div和table的margin有效。
+
+有背景的数据表格的id为“bgtable”。
+无背景的数据表格的id为“notable”
+其CSS代码如下：
+
+```
+#bgtable{ height:110px; background-color:#EAEADE; display:inline-table; width:100%;}
+#notable{ height:110px; display:inline-table;width:100%;  }
+#bgtable table,#notable table{margin-top:25px; margin-left:15px; line-height:20px;}
+table th{ width:115px; text-align:left; color:#8D8D85;}
+```
+
+
+
+## 4.JavaScript基础
+
+
+
+## 5.photoshop的基本使用
+
+### 5.1快捷键使用
 
 1. 放大缩小： 视图->放大缩小 CTRL +  ++      CTRL +  --
 2. 标尺 ： 视图->标尺   CTRL + R
 
+### 5.2 标尺和参考线
+
+使用Photoshop软件打开设计图源文件，使用“视图->标尺”（**CTRL + R**）菜单打开标尺工具。
+右单击标尺区域，在弹出的快捷菜单中选择“像素”项，标尺变为以像素为单位。
+使用光标从标尺区域可以拖出参考线到任意位置，并可任意移动参考线。
+
+### 
+
+```
+
+```
+
+1. 引言和相关工作分开写 
+
+2. 这个领域的算法和自己的算法分开来写
+
+   - 目前有几类算法，算法存在的问题。已有算法的问题
+
+   - 讲解你们的算法，算法的有点。算法的优点说的比较简单。
+
+3. 三种特征融合起来，进行熔池的重建设。没有特别完全不一样的方法。
+4. 校准的工作是大家都知道的工作。
+5. 第四部分，图像预处理。图像处理的算法。只是引用了一篇文献，没有写自己如何处理的。直接给出了处理结果。（处理过程要写清楚）
+6. 实验部分。没有说明实验的参数、实验数据和环境；数据来源说清楚。
+7. 重建结果，需要进行验证。只用某一种特征点，效果如何，两种如何；和三特征融合进行比较，好在哪里。
+8. 是否有公开数据集，是否通过公开数据集进行比较。
+9. 和其他现成的检测算法进行比较
