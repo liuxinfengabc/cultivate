@@ -1,10 +1,10 @@
 # GitHub与Git使用
 
-## 1. GitHub原理与流程
+### 1. GitHub流程与使用
 
 github是通过Git进行版本控制的软件源代码托管服务平台。github除了Git代码仓库托管及基本的Web管理界面以外，它还提供了一些方便社会化共同软件开发的功能，即一般人口中的社群功能，包括允许用户追踪其他用户、组织、软件库的动态，对[软件代码](https://baike.sogou.com/lemma/ShowInnerLink.htm?lemmaId=4196027&ss_c=ssc.citiao.link)的改动和bug提出评论等。
 
-### 1.1 工作原理 / 流程
+#### 1.1 工作流程
 
 ![image-20200223111840767](img/GitHub与Git使用说明文档/image-20200223111840767.png)
 
@@ -42,15 +42,74 @@ github是通过Git进行版本控制的软件源代码托管服务平台。githu
 
    git merge upstream/master：合并远程的master
 
-### 1.2 Git安装与基本配置
+#### 1.2 栏目介绍
 
-####  1.2.1 准备工作
+![image-20200222194828116](img/GitHub与Git使用说明文档/image-20200222194828116.png)
+
+- code：代码所在地
+- issues：讨论、bug跟踪
+- pull request：提交请求，进行code view
+- project：项目管理、工作计划
+  1. To Do：待完成任务
+  2. Doing：正在进行中
+  3. Done：已完成的
+- Wiki：项目介绍，资料存放处（可放md格式）
+
+#### 1.3 GitHub创建主程序仓库
+
+1. 创建主程序仓库helloworld，账户liuxinfengabc,属性为public
+
+![image-20200317182619515](GitHub与Git使用说明文档.assets/image-20200317182619515.png)
+
+2. 仓库名字helloworld,属性public，任何人可见，初始化一个readme文件。
+
+   ![image-20200317183038029](GitHub与Git使用说明文档.assets/image-20200317183038029.png)
+
+3. 创建成功 https://github.com/liuxinfengabc/helloworld
+
+   ![image-20200317184000460](GitHub与Git使用说明文档.assets/image-20200317184000460.png)
+
+#### 1.4  Github 创建开发者仓库
+
+1. 创建开发人员账号  
+
+![image-20200317184258156](GitHub与Git使用说明文档.assets/image-20200317184258156.png)
+
+2. 创建开发账户 ，申请新的QQ邮箱 1871418434@qq.com进行账户的创建。
+
+3. 登录Github进行邮箱验证
+
+4. 前往 https://github.com/liuxinfengabc/helloworld，点击Fork，复制代码到自己的开发者仓库
+
+   ![image-20200317185838626](GitHub与Git使用说明文档.assets/image-20200317185838626.png)
+
+5. Fork成功
+
+   ![image-20200317190840670](GitHub与Git使用说明文档.assets/image-20200317190840670.png)
+
+6. 回到自己的界面github.com,看到自己Fork的代码
+
+![image-20200317191034972](GitHub与Git使用说明文档.assets/image-20200317191034972.png)
+
+#### 1.5 GitHub中提交文件
+
+​    在github中可以进行简单操作，创建文件，提交文件，如何复杂的操作，需要在本地仓库进行操作，提交。
+
+
+
+![image-20200317191347282](GitHub与Git使用说明文档.assets/image-20200317191347282.png)
+
+
+
+### 2. Git安装与配置
+
+####  2.1  准备工作
 
 1. Git官网（https://git-scm.com/）下载Git。
 2. GitHub官网（https://github.com/）注册账号。
 3. 测试仓库 https://github.com/liuxinfengabc/cultivate.git 
 
-#### 1.2.2 安装Git
+#### 2.2 安装Git
 
 1. 点击安装，选择目录为根目录，文件夹为Git，然后Next->默认安装。
 2. 安装完成后打开根目录，找到Git文件夹，右键git-bash.exe可执行文件将其固定的工具栏，点击git-bash.exe运行。
@@ -60,7 +119,7 @@ github是通过Git进行版本控制的软件源代码托管服务平台。githu
 
 **正常安装完成！**
 
-#### 1.2.3 运行Git注册用户
+#### 2.3 运行Git注册用户
 
 1. 设置用户名和邮箱。
 
@@ -68,11 +127,23 @@ github是通过Git进行版本控制的软件源代码托管服务平台。githu
 
    设置邮箱：  $ git config --globaluser,email "email@example.com"。
 
-   设置用户名和邮箱，修改后提交到远程仓库能够看到是提交者，用于在团队合作开发中，表明代码作者。　
+   设置用户名和邮箱，修改后提交到远程仓库能够看到是提交者，用于在团队合作开发中，表明代码作者。
+
+   ```
+   1. 查看当前登录账号：
+   git config user.name
+   2. 查看当前登录邮箱：
+   git config user.email
+   3. 修改用户名和邮箱：
+   git config --global user.name "Your_username"
+   git config --global user.email "Your_email"
+   ```
+
+   
 
 2. 输入 $ git init 启动Git。
 
-#### 1.2.4 GitHub设置公钥免密提交
+#### 2.4 GitHub设置公钥免密提交
 
 1. .新建/连接主存储库。
 
@@ -99,7 +170,7 @@ github是通过Git进行版本控制的软件源代码托管服务平台。githu
 
 
 
-### 1.3 常用git命令
+#### 2.5 常用git命令
 
 1. 文件操作
    - mkdir 文件名：创建文件夹
@@ -112,10 +183,33 @@ github是通过Git进行版本控制的软件源代码托管服务平台。githu
    - git status：查看当前状态
 
 3. 提交信息
+
    - git add 【文件名】或者【 . (全部)】：将文件从工作去提交到暂存区
+
    - git commit -m "提交描述"：将暂存区提交到本地仓库
+
    - git push：将本地仓库提交到远程仓库
+
+     ```
+     在使用git commit命令将修改从暂存区提交到本地版本库后，只剩下最后一步将本地版本库的分支推送到远程服务器上对应的分支了
+      git push的一般形式为 git push <远程主机名> <本地分支名> <远程分支名> ，
+      
+      例如 git push origin master：refs/for/master ，即是将本地的master分支推送到远程主机origin上的对应master分支， origin 是远程主机名。第一个master是本地分支名，第二个master是远程分支名。
+     
+     git push origin master
+     如果远程分支被省略，如上则表示将本地分支推送到与之存在追踪关系的远程分支（通常两者同名），如果该远程分支不存在，则会被新建
+     git push origin ：refs/for/master
+     如果省略本地分支名，则表示删除指定的远程分支，因为这等同于推送一个空的本地分支到远程分支，等同于 git push origin –delete master
+     git push origin
+     如果当前分支与远程分支存在追踪关系，则本地分支和远程分支都可以省略，将当前分支推送到origin主机的对应分支
+     git push
+     如果当前分支只有一个远程分支，那么主机名都可以省略，形如 git push，可以使用git branch -r ，查看远程的分支名
+     ```
+
+     
+
 4. 更新仓库信息
+
    - git pull：将远程仓库的改动更新到本地工作区
    - git remote -v：查看origin和upstream源
    - git remote add origin/upstream git地址：添加origin/upstream源
@@ -123,68 +217,9 @@ github是通过Git进行版本控制的软件源代码托管服务平台。githu
    - git checkout master：切换到master
    - git merge upstream/master：合并远程的master
 
-## 2. GitHub使用
-
-#### 2.1 栏目介绍
-
-![image-20200222194828116](img/GitHub与Git使用说明文档/image-20200222194828116.png)
-
-- code：代码所在地
-- issues：讨论、bug跟踪
-- pull request：提交请求，进行code view
-- project：项目管理、工作计划
-  1. To Do：待完成任务
-  2. Doing：正在进行中
-  3. Done：已完成的
-- Wiki：项目介绍，资料存放处（可放md格式）
-
-#### 2.2 GitHub创建主程序仓库
-
-1. 创建主程序仓库helloworld，账户liuxinfengabc,属性为public
-
-![image-20200317182619515](GitHub与Git使用说明文档.assets/image-20200317182619515.png)
-
-2. 仓库名字helloworld,属性public，任何人可见，初始化一个readme文件。
-
-   ![image-20200317183038029](GitHub与Git使用说明文档.assets/image-20200317183038029.png)
-
-3. 创建成功 https://github.com/liuxinfengabc/helloworld
-
-   ![image-20200317184000460](GitHub与Git使用说明文档.assets/image-20200317184000460.png)
-
-#### 2.3  Github 创建开发仓库
-
-1. 创建开发人员账号  
-
-![image-20200317184258156](GitHub与Git使用说明文档.assets/image-20200317184258156.png)
-
-2. 创建开发账户 ，申请新的QQ邮箱 1871418434@qq.com进行账户的创建。
-
-3. 登录Github进行邮箱验证
-
-4. 前往 https://github.com/liuxinfengabc/helloworld，点击Fork，复制代码到自己的开发者仓库
-
-   ![image-20200317185838626](GitHub与Git使用说明文档.assets/image-20200317185838626.png)
-
-5. Fork成功
-
-   ![image-20200317190840670](GitHub与Git使用说明文档.assets/image-20200317190840670.png)
-
-6. 回到自己的界面github.com,看到自己Fork的代码
-
-![image-20200317191034972](GitHub与Git使用说明文档.assets/image-20200317191034972.png)
-
-#### 2.4 GitHub中提交文件
-
-​    在github中可以进行简单操作，创建文件，提交文件，如何复杂的操作，需要在本地仓库进行操作，提交。
 
 
-
-![image-20200317191347282](GitHub与Git使用说明文档.assets/image-20200317191347282.png)
-
-
-
-## 3. Git本地操作步骤
+### 3. Git本地仓库操作
 
 ​	1. 本文假定：主程序员GitHub地址：https://github.com/liuxinfengabc/helloworld
 
@@ -225,8 +260,6 @@ github是通过Git进行版本控制的软件源代码托管服务平台。githu
 
 ##### 3.2.1 开发者工作区-->开发者远程仓库
 
-
-
   命令操作，打开 git bash 命令：
 
 - cd test   #进入文件夹
@@ -238,11 +271,7 @@ github是通过Git进行版本控制的软件源代码托管服务平台。githu
 
 **这时候只是在自己的GitHub仓库，还没有到主程序员的GitHub仓库**
 
-
-
 ##### 3.2.2 开发者GitHub仓库-->主程序员GitHub仓库
-
-
 
 1. 登录Github,进入项目，点击New pull request 命令，
 
@@ -296,11 +325,23 @@ github-develop](https://github.com/github-develop) wants to merge 1 commit into 
 
 可以看出这时候开发人员的仓库还没更新。
 
-1. git remote -v：查看origin和upstream源
+1. git remote -v：查看origin和upstream源。
+
+   - origin 表示远程主机（开发人员仓库），upstream表示（主程序员仓库）
+
+   - liuxinfengabc账户登录（主程序员账户）
+
+     ```
+     D:\idea-work\zup-boot-org>git remote -v
+     origin  https://github.com/zonedaylab/zup-boot.git (fetch)
+     origin  https://github.com/zonedaylab/zup-boot.git (push)
+     ```
+
+     
 
 2. 添加主程序仓库地址
 
-   git remote add origin/upstream https://github.com/liuxinfengabc/helloworld
+   git remote add upstream https://github.com/liuxinfengabc/helloworld
 
 3. git fetch upstream  # 获取远程主程序仓库（upstream)代码
 
@@ -318,7 +359,7 @@ github-develop](https://github.com/github-develop) wants to merge 1 commit into 
 
 
 
-#### 3.3 版本回退
+#### 3.4 版本回退
 
 **说明：如果发现某次的版本提交完毕后有错误，需要回退，可以用下面的方法**
 
@@ -353,9 +394,9 @@ github-develop](https://github.com/github-develop) wants to merge 1 commit into 
 
 
 
-## 4. 开发环境中使用
+### 4. 开发环境中使用Git
 
-### 4.1 tortoiseGit(windows)简化操作
+#### 4.1 tortoiseGit(windows)简化操作
 
 tortoiseGit是一个开放的git版本控制系统的源客户端，支持Winxp/vista/win7.该软件功能和git一样,不同的是：git是命令行操作模式，tortoiseGit界面化操作模式，不用记git相关命令就可以直接操作，可根据自己情况选择安装.
 
@@ -390,9 +431,9 @@ tortoiseGit下载地址：https://download.tortoisegit.org/tgit/
 
 
 
-### 4.2 idea中使用Git/GitHub
+#### 4.2 idea中使用Git/GitHub
 
-#### 4.2.1 配置Git和GitHub
+##### 4.2.1 配置Git和GitHub
 
 1. 设置git.exe路径
 
@@ -406,7 +447,7 @@ File-->Settings-->Verdion Control-->Git/GitHub
 
 
 
-#### 4.2.2 从GitHub上clone项
+##### 4.2.2 从GitHub上clone项
 
 1. File ->New->Project from Version Control
 
@@ -424,7 +465,7 @@ File-->Settings-->Verdion Control-->Git/GitHub
 
 
 
-#### 4.2.3 提交项目到本地仓库/远程仓库
+##### 4.2.3 提交项目到本地仓库/远程仓库
 
 1. 添加新增文件(git add)
 
@@ -448,7 +489,7 @@ File-->Settings-->Verdion Control-->Git/GitHub
 
 **如果往主程序员的仓库更新，就参考前面讲的pull request**
 
-#### 4.2.4 更新项目到本地仓库
+##### 4.2.4 更新项目到本地仓库
 
 **若别人更新了仓库，在idea中怎么办呢？**
 
@@ -460,7 +501,7 @@ File-->Settings-->Verdion Control-->Git/GitHub
 
 ![](img/GitHub与Git使用说明文档/image-20200223001948419.png)
 
-#### 4.2.5 在终端中使用Git命令
+##### 4.2.5 在终端中使用Git命令
 
 **File-->Settings-->Tools-->Terminal-->Shell path**
 
@@ -484,7 +525,7 @@ Alt +F12 打开命令窗口，进行命令操作,与在Git bash下使用一样�
 
    
 
-#### 4.2.6 创建项目并上传github
+##### 4.2.6 创建项目并上传github
 
 ![image-20200222234240245](img/GitHub与Git使用说明文档/image-20200222234240245.png)
 
@@ -502,9 +543,9 @@ Alt +F12 打开命令窗口，进行命令操作,与在Git bash下使用一样�
 
 ![image-20200222234750674](img/GitHub与Git使用说明文档/image-20200222234750674.png)
 
-### 4.3 eclipse中使用Git/Github
+#### 4.3 eclipse中使用Git/Github
 
-#### 4.3.1 eclipse中使用Git导入工程
+##### 4.3.1 eclipse中使用Git导入工程
 
 1. 打开Git Repositories窗口，点击右上角Add an existing local Git Repository to this view图标
 2. 在Directory中选择你本地Git总仓库，在下方选择你想导入的Git仓库目录
@@ -512,7 +553,7 @@ Alt +F12 打开命令窗口，进行命令操作,与在Git bash下使用一样�
 4. 调整选项，导入工程
 5. 右键已导入工程->Gradle->Refresh Gradle Project
 
-#### 4.3.2 eclipse中使用Git同步工程
+##### 4.3.2 eclipse中使用Git同步工程
 
 1. 右键工程->Team->Synchronize Workspace进入同步窗口
 2. 对双向红箭头文件，打开，进行代码合并操作，操作完成后 右键->Mark asMerged
