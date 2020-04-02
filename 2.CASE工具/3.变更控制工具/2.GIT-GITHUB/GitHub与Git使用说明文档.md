@@ -1,6 +1,6 @@
 # GitHub与Git使用
 
-## 1、GitHub原理与流程
+## 1. GitHub原理与流程
 
 github是通过Git进行版本控制的软件源代码托管服务平台。github除了Git代码仓库托管及基本的Web管理界面以外，它还提供了一些方便社会化共同软件开发的功能，即一般人口中的社群功能，包括允许用户追踪其他用户、组织、软件库的动态，对[软件代码](https://baike.sogou.com/lemma/ShowInnerLink.htm?lemmaId=4196027&ss_c=ssc.citiao.link)的改动和bug提出评论等。
 
@@ -44,13 +44,13 @@ github是通过Git进行版本控制的软件源代码托管服务平台。githu
 
 ### 1.2 Git安装与基本配置
 
-####  一、准备工作
+####  1.2.1 准备工作
 
 1. Git官网（https://git-scm.com/）下载Git。
 2. GitHub官网（https://github.com/）注册账号。
 3. 测试仓库 https://github.com/liuxinfengabc/cultivate.git 
 
-#### 二、安装Git
+#### 1.2.2 安装Git
 
 1. 点击安装，选择目录为根目录，文件夹为Git，然后Next->默认安装。
 2. 安装完成后打开根目录，找到Git文件夹，右键git-bash.exe可执行文件将其固定的工具栏，点击git-bash.exe运行。
@@ -60,7 +60,7 @@ github是通过Git进行版本控制的软件源代码托管服务平台。githu
 
 **正常安装完成！**
 
-#### 三、运行Git注册用户
+#### 1.2.3 运行Git注册用户
 
 1. 设置用户名和邮箱。
 
@@ -72,7 +72,7 @@ github是通过Git进行版本控制的软件源代码托管服务平台。githu
 
 2. 输入 $ git init 启动Git。
 
-#### 四、GitHub设置公钥免密提交
+#### 1.2.4 GitHub设置公钥免密提交
 
 1. .新建/连接主存储库。
 
@@ -101,37 +101,29 @@ github是通过Git进行版本控制的软件源代码托管服务平台。githu
 
 ### 1.3 常用git命令
 
-mkdir 文件名：创建文件夹
+1. 文件操作
+   - mkdir 文件名：创建文件夹
+   - cd 文件夹名：进入文件夹
+   - touch 文件名：创建文件
+   - git rm 文件名
+2. 复制仓库
+   - git init：在本地初始化，创建Git仓库
+   - git clone：  复制仓库到本地仓库。
+   - git status：查看当前状态
 
-cd 文件夹名：进入文件夹
+3. 提交信息
+   - git add 【文件名】或者【 . (全部)】：将文件从工作去提交到暂存区
+   - git commit -m "提交描述"：将暂存区提交到本地仓库
+   - git push：将本地仓库提交到远程仓库
+4. 更新仓库信息
+   - git pull：将远程仓库的改动更新到本地工作区
+   - git remote -v：查看origin和upstream源
+   - git remote add origin/upstream git地址：添加origin/upstream源
+   - git fetch upstream：获取upstream源仓库的提交和改变
+   - git checkout master：切换到master
+   - git merge upstream/master：合并远程的master
 
-touch 文件名：创建文件
-
-git init：在本地初始化，创建Git仓库
-
-git status：查看当前状态
-
-git add 【文件名】或者【 . (全部)】：将文件从工作去提交到暂存区
-
-git commit -m "提交描述"：将暂存区提交到本地仓库
-
-git push：将本地仓库提交到远程仓库
-
-git pull：将远程仓库的改动更新到本地工作区
-
-git remote -v：查看origin和upstream源
-
-git remote add origin/upstream git地址：添加origin/upstream源
-
-git fetch upstream：获取upstream源仓库的提交和改变
-
-git checkout master：切换到master
-
-git merge upstream/master：合并远程的master
-
-git rm 文件名
-
-## 2.GitHub使用
+## 2. GitHub使用
 
 #### 2.1 栏目介绍
 
@@ -194,32 +186,46 @@ git rm 文件名
 
 ## 3. Git本地操作步骤
 
-​		本文假定：
+​	1. 本文假定：主程序员GitHub地址：https://github.com/liuxinfengabc/helloworld
 
-​       主程序员GitHub地址：https://github.com/liuxinfengabc/helloworld
+​	2.  开发人员登录，先从主程序员GitHub（https://github.com/liuxinfengabc/helloworld）中进行fork，然后再clone到自己的Github中：
 
-​		开发人员GitHub地址：https://github.com/github-develop/helloworld
+​	开发人员GitHub地址：https://github.com/github-develop/helloworld
 
-​		说明：先从主程序员GitHub中fork，然后再clone到自己的Github中，并进行添加文件。
+3.  获取项目地址
+
+   https://github.com/github-develop/helloworld.git
+
+   ![image-20200402100120361](GitHub与Git使用说明文档.assets/image-20200402100120361.png)
+
+
 
 #### 3.1 创建本地库
 
 　　**git init**  主要用来初始化一个空的`git`本地仓库。执行完上面的命令，当前目录下会自动生成`.git`隐藏文件夹，该隐藏文件夹就是`git`版本库。
 
-​	   使用方法：进入某个空的文件夹下，打开`Git Bash`命令窗口输入`git init。`
+​	   使用方法：进入某个空的文件夹下，打开`Git Bash`命令窗口输入
 
+1. git init  
 
+	2. git clone https://github.com/github-develop/helloworld.git
+
+![image-20200402102435432](GitHub与Git使用说明文档.assets/image-20200402102435432.png)
+
+3. 下载结果
+
+   ![image-20200402103110234](GitHub与Git使用说明文档.assets/image-20200402103110234.png)
 
 #### 3.2  向远程仓库添加文件
 
-==步骤：==
-
-1. 进入要操作的文件夹内
-2. git add .
-3. git commit -m "注释信息
-4. git push
+开发者在本地修改内容后，需要进入要操作的文件夹内进行体骄傲
+2. git add .  #    .   表示当前文件夹
+2. git commit -m "注释信息
+3. git push  #推送到开发者仓库
 
 ##### 3.2.1 开发者工作区-->开发者远程仓库
+
+
 
   命令操作，打开 git bash 命令：
 
@@ -236,21 +242,34 @@ git rm 文件名
 
 ##### 3.2.2 开发者GitHub仓库-->主程序员GitHub仓库
 
-![image-20200222221153506](img/GitHub与Git使用说明文档/image-20200222221153506.png)
-
-![image-20200222221419183](img/GitHub与Git使用说明文档/image-20200222221419183.png)
-
-**这时候已经提交给主程序员了，可以通知他让他同意**
-
-![image-20200222221858863](img/GitHub与Git使用说明文档/image-20200222221858863.png)
 
 
+1. 登录Github,进入项目，点击New pull request 命令，
+
+   ![image-20200402104035230](GitHub与Git使用说明文档.assets/image-20200402104035230.png)
+
+2. 通过Create pull request 进行提交，**提交给主程序员了，通知审核**
+
+![image-20200402104419033](GitHub与Git使用说明文档.assets/image-20200402104419033.png)
+
+
+
+![image-20200402104556523](GitHub与Git使用说明文档.assets/image-20200402104556523.png)
+
+```
+[
+github-develop](https://github.com/github-develop) wants to merge 1 commit into [liuxinfengabc:master](https://github.com/liuxinfengabc/helloworld) from [github-develop:master](https://github.com/github-develop/helloworld)
+```
+
+
+
+![image-20200402104616149](GitHub与Git使用说明文档.assets/image-20200402104616149.png)
 
 ##### 3.2.3主程序员合并request
 
-1.  查看pull request 
+1. 主程序员登录Github ，查看pull request 
 
-![image-20200222221943789](img/GitHub与Git使用说明文档/image-20200222221943789.png)
+   ![image-20200402105008810](GitHub与Git使用说明文档.assets/image-20200402105008810.png)
 
 2. 点击FileChanged 查看修改内容，进行审核，并进行合并
 
@@ -262,7 +281,7 @@ git rm 文件名
 
 #### 3.3 同步主程序员仓库中的更新
 
-**说明：开发人员仓库和主程序员的仓库是两个独立的仓库，主程序员仓库更新后不会自动更新到开发人员仓库中**。
+**说明：开发人员仓库和主程序员的仓库是两个独立的仓库，主程序员仓库更新后不会自动更新到开发人员仓库中**。需要主动进行更新。
 
 ##### 3.3.1 基本步骤
 
@@ -277,13 +296,11 @@ git rm 文件名
 
 可以看出这时候开发人员的仓库还没更新。
 
-
-
 1. git remote -v：查看origin和upstream源
 
 2. 添加主程序仓库地址
 
-   git remote add origin/upstream https://github.com
+   git remote add origin/upstream https://github.com/liuxinfengabc/helloworld
 
 3. git fetch upstream  # 获取远程主程序仓库（upstream)代码
 
@@ -336,39 +353,32 @@ git rm 文件名
 
 
 
-## 4、开发环境中使用
+## 4. 开发环境中使用
 
-### 4.1 tortoiseGit使用（windows操作）
+### 4.1 tortoiseGit(windows)简化操作
 
-第一步：详细见（Git本地仓库创建及操作）
+tortoiseGit是一个开放的git版本控制系统的源客户端，支持Winxp/vista/win7.该软件功能和git一样,不同的是：git是命令行操作模式，tortoiseGit界面化操作模式，不用记git相关命令就可以直接操作，可根据自己情况选择安装.
 
-第二步：修改了文件后，右键选择commit，输入Message后，点Commit提交到本地仓库。
+tortoiseGit下载地址：https://download.tortoisegit.org/tgit/
+
+1. git commit 操作。 修改了文件后，右键选择commit，输入Message后，点Commit提交到本地仓库。
 
 ![img](img/GitHub与Git使用说明文档/wps3.png) 
 
-第三步：拉取服务器文件，git pull，点击OK，后点击close
+2. git pull 拉取服务器文件。在项目文件夹下右键菜单，选择TortoiseGit->Pull，点击OK.
+3. git push 提交代表到服务器，TortoiseGit-> git push
 
 ![img](img/GitHub与Git使用说明文档/wps4.png) 
 
-如果文件出现感叹号则表示有冲突，必须先解决冲突。
+如果文件出现感叹号则表示有冲突，必须先解决冲突：
 
-冲突解决方法：
-
+```
 1.在点击close后可以直接在弹出的窗口中点击yes来查看冲突，也可以通过点击Diff看本地仓库文件和服务器上面的文件哪里冲突了。
-
 2.在弹出的窗口中双击打开冲突文件，解决冲突问题。
-
 3.冲突解决完之后，删除在目录下生成出的多余文件，再次commit。
+```
 
-![img](img/GitHub与Git使用说明文档/wps5.png) 
 
- 
-
-第四步：提交代表到服务器， git push
-
-![img](img/GitHub与Git使用说明文档/wps6.png) 
-
- 
 
 新增篇：
 
@@ -378,68 +388,49 @@ git rm 文件名
 
 第三步：push文件
 
-### 4.2 eclipse中使用Git导入工程
 
-1. 打开Git Repositories窗口，点击右上角Add an existing local Git Repository to this view图标
-2. 在Directory中选择你本地Git总仓库，在下方选择你想导入的Git仓库目录
-3. 打开你导入的仓库->Working Tree，选择你想导入的工程，右键->Import Projects...
-4. 调整选项，导入工程
-5. 右键已导入工程->Gradle->Refresh Gradle Project
 
-### 4.3 eclipse中使用Git同步工程
+### 4.2 idea中使用Git/GitHub
 
-1. 右键工程->Team->Synchronize Workspace进入同步窗口
-2. 对双向红箭头文件，打开，进行代码合并操作，操作完成后 右键->Mark asMerged
-3. 3.选择要上传的文件，右键->Add to Index/在Unstaged Changes中右键->Add to Index
-4. 在Staged Changes中可以查看要提交的文件，在Commit Message中输入提交内容备注，以及作者相关，点击commit至本地
-5. Pull拉取服务器上更新文件
-6. 最后Push至服务器
+#### 4.2.1 配置Git和GitHub
 
-### 4.4 idea中使用Git/GitHub
-
-**配置Git和GitHub**
+1. 设置git.exe路径
 
 File-->Settings-->Verdion Control-->Git/GitHub
 
 ![image-20200222235204939](img/GitHub与Git使用说明文档/image-20200222235204939.png)
 
+2. 登录Github账户
+
 ![image-20200222235239154](img/GitHub与Git使用说明文档/image-20200222235239154.png)
 
 
 
-**将项目传到github上**
+#### 4.2.2 从GitHub上clone项
 
-![image-20200222234240245](img/GitHub与Git使用说明文档/image-20200222234240245.png)
-
-![image-20200222234341314](img/GitHub与Git使用说明文档/image-20200222234341314.png)
-
-**点击Share**
-
-![image-20200222234527903](img/GitHub与Git使用说明文档/image-20200222234527903.png)
-
-**点击Add，就可以将项目传到GitHub上了，不存在仓库就会创建一个名字为testJava的仓库**
-
-![image-20200222234621484](img/GitHub与Git使用说明文档/image-20200222234621484.png)
-
-**看到Successfully，表示创建成功**
-
-![image-20200222234750674](img/GitHub与Git使用说明文档/image-20200222234750674.png)
-
-本地的testJava项目删除，怎么在idea中直接从GitHub上clone项目**，**前提idea中已经配置好了Git和GitHub
+1. File ->New->Project from Version Control
 
 ![image-20200222234926629](img/GitHub与Git使用说明文档/image-20200222234926629.png)
 
+2. 设置GitHub地址以及存储路径
+
 ![image-20200222235447325](img/GitHub与Git使用说明文档/image-20200222235447325.png)
 
-**点击Clone就行了**
+3. 点击Clone
 
 ![image-20200222235614107](img/GitHub与Git使用说明文档/image-20200222235614107.png)
 
-**已经克隆完毕**
+**4. 克隆完毕**
 
-![image-20200223000755898](img/GitHub与Git使用说明文档/image-20200223000755898.png)
 
-VCS-->Git-->Commit Changes
+
+#### 4.2.3 提交项目到本地仓库/远程仓库
+
+1. 添加新增文件(git add)
+
+![image-20200223000755898](GitHub与Git使用说明文档.assets/image-20200223000755898.png)
+
+2. 提交文件按 VCS-->Git-->Commit Changes
 
 ![image-20200223000919666](img/GitHub与Git使用说明文档/image-20200223000919666.png)
 
@@ -457,7 +448,7 @@ VCS-->Git-->Commit Changes
 
 **如果往主程序员的仓库更新，就参考前面讲的pull request**
 
-
+#### 4.2.4 更新项目到本地仓库
 
 **若别人更新了仓库，在idea中怎么办呢？**
 
@@ -469,11 +460,63 @@ VCS-->Git-->Commit Changes
 
 ![](img/GitHub与Git使用说明文档/image-20200223001948419.png)
 
-### 4.5 idea在终端中使用Git命令
+#### 4.2.5 在终端中使用Git命令
 
-**File-->Settings-->**
+**File-->Settings-->Tools-->Terminal-->Shell path**
 
 ![image-20200223002248860](img/GitHub与Git使用说明文档/image-20200223002248860.png)
 
-Alt +F12 打开命令窗口，进行命令操作。
+Alt +F12 打开命令窗口，进行命令操作,与在Git bash下使用一样的效果，可以执行以下命令。
 
+1. git remote -v：查看origin和upstream源
+
+   ![image-20200402110905149](GitHub与Git使用说明文档.assets/image-20200402110905149.png)
+
+2. git remote add origin/upstream git地址：添加origin/upstream源
+
+3. git fetch upstream
+
+4. git checked master
+
+5. git merge upstream/master
+
+6. git push
+
+   
+
+#### 4.2.6 创建项目并上传github
+
+![image-20200222234240245](img/GitHub与Git使用说明文档/image-20200222234240245.png)
+
+![image-20200222234341314](img/GitHub与Git使用说明文档/image-20200222234341314.png)
+
+**点击Share**
+
+![image-20200222234527903](img/GitHub与Git使用说明文档/image-20200222234527903.png)
+
+**点击Add，就可以将项目传到GitHub上了，不存在仓库就会创建一个名字为testJava的仓库**
+
+![image-20200222234621484](img/GitHub与Git使用说明文档/image-20200222234621484.png)
+
+**看到Successfully，表示创建成功**
+
+![image-20200222234750674](img/GitHub与Git使用说明文档/image-20200222234750674.png)
+
+### 4.3 eclipse中使用Git/Github
+
+#### 4.3.1 eclipse中使用Git导入工程
+
+1. 打开Git Repositories窗口，点击右上角Add an existing local Git Repository to this view图标
+2. 在Directory中选择你本地Git总仓库，在下方选择你想导入的Git仓库目录
+3. 打开你导入的仓库->Working Tree，选择你想导入的工程，右键->Import Projects...
+4. 调整选项，导入工程
+5. 右键已导入工程->Gradle->Refresh Gradle Project
+
+#### 4.3.2 eclipse中使用Git同步工程
+
+1. 右键工程->Team->Synchronize Workspace进入同步窗口
+2. 对双向红箭头文件，打开，进行代码合并操作，操作完成后 右键->Mark asMerged
+3. 选择要上传的文件，右键->Add to Index/在Unstaged Changes中右键->Add to Index
+4. 在Staged Changes中可以查看要提交的文件，在Commit Message中输入提交内容备注，以及作者相关，点击commit至本地
+5. Pull拉取服务器上更新文件
+6. 最后Push至服务器
