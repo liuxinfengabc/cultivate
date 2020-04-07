@@ -192,6 +192,10 @@
 
 
 
+
+
+
+
 ### 5.面向对象程序设计
 
 人：
@@ -527,83 +531,164 @@ class Test<T>
 
 
 
-### 6.HTML基础
-
-#### 6.1 HTML 参考资料
-
-W3C--万维网联盟，是Web技术领域最具权威和影响力的国际中立性技术标准机构。
-
-1. WEB三项组成：结构、表现、行为
-
-    结构标准：HTML。 骨架
-
-    表现标准：CSS 。外表
-
-    行为标准：JavaScript。行为。
-
-2. 参考网站
-
-   https://www.w3school.com.cn/html/html_jianjie.asp
-
-   [http://](http://www.w3school.com.cn/css/index.asp)[www.w3school.com.cn/css/index.asp](http://www.w3school.com.cn/css/index.asp)
-
-   [http://](http://www.w3school.com.cn/js/index.asp)[www.w3school.com.cn/js/index.asp](http://www.w3school.com.cn/js/index.asp)
-
-   https://www.runoob.com/ 菜鸟编程
-
-3. 推荐工具
-
-    webStrom / vscode /idea/hbuilder/vs2008/2017
-
-#### 6.2 XHMTL
-
-XML 是一种必须正确标记且格式良好的标记语言。
-
-如果希望学习 XML，请阅读我们的 [XML 教程](https://www.w3school.com.cn/xml/index.asp)。
-
-今日的科技界存在一些不同的浏览器技术。其中一些在计算机上运行，而另一些可能在移动电话或其他小型设备上运行。小型设备往往缺乏解释“糟糕”的标记语言的资源和能力。
-
-所以 - 通过结合 XML 和 HTML 的长处，开发出了 XHTML。XHTML 是作为 XML 被重新设计的 HTML。
-
-与 HTML 相比最重要的区别：
-
-##### 文档结构
-
-- XHTML DOCTYPE 是*强制性的*
-- <html> 中的 XML namespace 属性是*强制性的*
-- <html>、<head>、<title> 以及 <body> 也是*强制性的*
-
-##### 元素语法
-
-- XHTML 元素必须*正确嵌套*
-- XHTML 元素必须始终*关闭*<HTML></HTML>
-- XHTML 元素必须*小写*
-- XHTML 文档必须有*一个根元素*
-
-##### 属性语法
-
-- XHTML 属性必须使用*小写*
-- XHTML 属性值必须用*引号包围*
-- XHTML 属性最小化也是*禁止的*
-
-建议大家用XHTML的风格去写HTML5.
-
-变量定义
-
-#### 6.3前端框架
-
-**1***、****Bootstrap**
-
- [http://www.bootcss.com](http://www.bootcss.com/)[/](http://www.bootcss.com/)
+### 6.内置对象
 
 
 
-**2****、****layui**
+```
+1. CS编程中 UI与代码是一体化，C#代码表示属性、行为，窗体表示外观。有状态的[不涉及提交]。
 
- [http://www](http://www.layui.com/)[.](http://www.layui.com/)[layui](http://www.layui.com/)[.](http://www.layui.com/)[com/](http://www.layui.com/)
+2. BS编程中，前端是HTML+JS+CSS,后端 是服务器，采用C#/Java进行编写，二者通过http通信。无状态[客户端提交到服务端，客户端页面使命完成，服务端重新生成HTML页面，发送到客户端(response)] <飞向月球>
+
+3. MS web封装了代码，增加了![img](file:///C:\Users\Administrator\AppData\Roaming\Tencent\QQTempSys\%W@GJ$ACOF(TYDYECOKVDYB.png)asp.net服务端控件， <asp:Button ID="btnHello" runat="server" 
+           OnClick="Button1_Click" OnCommand="Button1_Command" Text="myFirstButton" />，可以直接进行类CS编程。
+```
+
+ASP.NET webForm优缺点：
+
+  优点：消息、方法、属性，可以进行可视化编程。提升了开发效率。
+
+  缺点：封装了大量的细节，前后端整合到了一块。
+
+坏处：出了问题难于调试。重量级客户端，不适用于手机平板；分工不清晰。（美工 前端 后台服务）。
 
 
 
-**3****、****Mui**
+#### 6.2 Request对象
 
- [http://dev.dcloud.net.cn/mui/ui](http://dev.dcloud.net.cn/mui/ui/)[/](http://dev.dcloud.net.cn/mui/ui/)
+
+
+Request对象派生自HttpRequest类。Request对象与HTTP协议的请求消息相对应。该对象主要是用来获取客户端在提交一个页面请求时提供的信息，如：
+
+```
+
+
+```
+
+1. 能够标识浏览器和用户的信息。
+
+2. 读取存储在客户端的Cookie信息。
+
+3. 附在URL后面的查询字符串。 
+
+   ?VNK=fbd9ec46 
+
+   ```
+   https://hikeh5.zhihuishu.com/meetingClass.html#/meetClassList/10180918?VNK=fbd9ec46
+   
+   Request.QueryString属性
+   
+   ```
+
+4. ![image-20200303142052081](msweb学习.assets/image-20200303142052081.png)
+
+5. 页面中<Form>段中的HTML控件内的值
+
+```
+Reqeust.Form属性
+
+```
+
+6.3 Server
+
+```
+Server对象在.NET中对应的类是HttpServerUtility。
+Server对象提供对服务器访问的方法和属性，其中大多数方法和属性是作为实用程序的功能提供的。
+
+原始数据：
+https://github.com/liuxinfengabc/cultivate/blob/master/1.性能调优与规范/MySQL插入测试/Mysql数据插入测试.md
+
+编码：
+https://github.com/liuxinfengabc/cultivate/blob/master/1.%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98%E4%B8%8E%E8%A7%84%E8%8C%83/MySQL%E6%8F%92%E5%85%A5%E6%B5%8B%E8%AF%95/Mysql%E6%95%B0%E6%8D%AE%E6%8F%92%E5%85%A5%E6%B5%8B%E8%AF%95.md
+```
+
+
+
+
+
+Response.Redirect和Server.Transfer方法均可以在代码中切换（跳转）到新的网页，主要不同点在于：
+
+```
+1）Response.Redirect方法不限于.aspx网页，只要是存在的文件都可以。Server.Transfer方法只能切换到同一个应用程序的 .aspx网页。
+2）Response.Redirect方法切换到新网页之后，浏览器的地址栏将显示新的网址，Server.Transfer方法切换到新的网页后，浏览器的地址栏仍然显示原来的地址，相对来说保密性好一些。 
+在要求安全保密性较高的情况下，当切换到同一个应用程序的另一个网页时，使用Server.Transfer方法
+```
+
+
+
+```
+
+```
+
+#### 6.3 Application对象
+
+```
+Application对象在.NET中对应HttpApplicationState类。
+Application对象在给定的应用程序的多个用户之间共享信息，并在服务器运行期间持久地保存数据。
+由于在整个We应用程序生存周期中，Application对象都有效，所以在不同的页面中都可以对它进行存取，就像使用全局变量一样方便。
+Application对象在实际网络开发中的用途就是记录整个网络的信息，如上线人数、在线名单、点击率和网上选举等
+```
+
+
+
+使用方法
+
+```
+1.获取Application对象的值的方法有三个： 
+（1）变量名 = Application[“键名”] 
+（2）变量名 = Application.Item(“键名”) 
+（3）变量名 = Application.Get(“键名”) 
+2.更新Application对象的值的方法有两个：
+（1）Application.Set(“键名”, 值)
+（2）Application[“键名”] =值 
+3.增加一个Application对象的方法有两个：
+（1）Application.Add(“新键名”, 值)
+（2）Application[“新键名”]=值 
+4.删除一个Application对象
+Application.Remove(“键名”) 
+
+```
+
+生命周期
+
+1. 网站生命周期 从系统启动到系统结束  Application
+2. 页面生命周期，从加载页面到提交页面。
+3. session生命周期  ，存储用户登录信息，从用户登录到用户退出
+
+#### 6.4 Session对象
+
+```
+Session，即会话，是指一个用户在一段时间内对某一个站点的一次访问。  
+Session对象在.NET中对应HttpSessionState类，表示“会话状态”，可以保存与当前用户会话相关的信息。 
+Session对象用于存储从一个用户开始访问某站点某个aspx页面起，到用户离开该站点为止，特定的用户会话所需要的信息。
+用户在Web应用程序的页面切换时，Session对象的变量不会被清除。
+
+对于一个Web应用程序而言，每一个网页浏览者都有自己的Session对象变量，即Session对象具有唯一性。
+在网络环境下Session对象的变量有生命周期，如果在规定的时间（由属性TimeOut设定，默认值为20分钟）没有对Session对象的变量刷新，系统会终止这些变量
+```
+
+
+
+
+
+```
+（1）创建一个网站应用程序，新建一个Web窗体并命名为SessionExample.aspx，在其Page_Load事件处理程序中编写如下代码： 
+protected void Page_Load(object sender, EventArgs e)
+ {      if (!this.Page.IsPostBack)
+        {  string username = "yound";
+            string userPw = "useryound";
+            Session["username"] = username;
+            Session["userPw"] = userPw;
+            Session.Timeout = 1;        
+        }
+}
+
+一个页面会多次加载。
+1. 第一次加载  ，初始化变量。 被微软给你存起来了。 postBack=false.  第一次加载，肯定不是页面回传。
+2. 第二次加载，不用再初始化变量。postBack=true.
+
+注： IsPostBack是否为页面回传，当第一次打开页面时，该值为false, 则!this.Page.IsPostBack表示的是，是否页面第一次打开，当页面第一次打开时，其值为true，当页面回传过（即不是第一次打开页面）时，其值为false。
+
+```
+
+![image-20200303150607547](msweb学习.assets/image-20200303150607547.png)

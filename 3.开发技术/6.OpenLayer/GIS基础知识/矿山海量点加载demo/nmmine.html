@@ -1,0 +1,1546 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<base href="<%=basePath%>">
+	<meta charset="UTF-8" />
+	<title>内蒙古自治区矿山地质环境业务平台</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+	<link rel="stylesheet" href="plug-in/nmmine/css/reset.css" />
+	<link rel="stylesheet" href="plug-in/nmmine/css/index.css" />
+	<script src="plug-in/nmmine/js/jquery.min.js" type="text/javascript"></script>
+	<script src="plug-in/nmmine/js/Scrollbar/jquery.mCustomScrollbar.concat.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="plug-in/nmmine/js/DiZhiYun.js" type="text/javascript"></script>
+	<script src="plug-in/nmmine/js/ol.js" type="text/javascript"></script>
+	<script src="plug-in/nmmine/js/ol-debug.js" type="text/javascript"></script>
+	<script src="plug-in/nmmine/js/mineralsVariety.js" type="text/javascript"></script>
+	<link rel="stylesheet" type="text/css" href="plug-in/nmmine/js/Scrollbar/jquery.mCustomScrollbar.min.css"/>
+	<link rel="stylesheet" type="text/css" href="plug-in/nmmine/css/ol.css"/>
+	<script src="plug-in/nmmine/js/echarts.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript" src="plug-in/nmmine/js/slide.js"></script>
+	<script src="plug-in/nmmine/js/index.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="header">
+	<a href="" class="logo fl" title="内蒙古自治区"></a>
+	<div class="head-right">
+		<ul>
+			<li>
+				<a href="System/signOut?url=nmmine/nmmineLogin">
+					<div class="icon"><img src="plug-in/nmmine/images/icon-out.png"/><p>安全退出</p></div>
+				</a>
+			</li>
+
+			<li>
+				<a href="rest/nmmine/nmmineGreenController">
+					<div class="icon"><img src="plug-in/nmmine/images/icon-admin.png"/><p>${ usersession.realName}</p></div>
+				</a>
+			</li>
+			<li>
+				<a href="rest/nmmine/nmmineHomeController">
+					<div class="icon"><img src="plug-in/nmmine/images/icon-houtai.png"/><p>系统后台</p></div>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>
+<div class="leftbar">
+
+	<ul class="nav-bar">
+		<li class="on">
+			<a href="" class="handle">
+				<div class="icon"><img src="plug-in/nmmine/images/icon-nav1.png"/></div>
+				<p>遥感展示</p>
+			</a>
+		</li>
+		<li><a href="javascript:;" class="handle" id = "test">
+			<div class="icon"><img src="plug-in/nmmine/images/icon-nav2.png"/></div>
+			<p>生产矿山</p>
+		</a></li>
+		<li><a href="" class="handle">
+			<div class="icon"><img src="plug-in/nmmine/images/icon-nav3.png"/></div>
+			<p>绿色矿山</p>
+		</a></li>
+		<li><a href="" class="handle">
+			<div class="icon"><img src="plug-in/nmmine/images/icon-nav4.png"/></div>
+			<p>废弃矿山</p>
+		</a></li>
+		<li><a href="" class="handle">
+			<div class="icon"><img src="plug-in/nmmine/images/icon-nav5.png"/></div>
+			<p>政府投资</p>
+		</a></li>
+		<li><a href="" class="handle">
+			<div class="icon"><img src="plug-in/nmmine/images/icon-nav6.png"/></div>
+			<p>矿山查询</p>
+		</a></li>
+	</ul>
+</div>
+<div class="rightbar">
+	<div class="hd">
+		<ul>
+			<li class="on">总体信息</li>
+			<li>详细情况</li>
+		</ul>
+	</div>
+	<div class="bd">
+		<div style="display: none;">
+			<div class="main-box1">
+				<div class="ScrollBox">
+					<div class="box1">
+						<ul>
+							<li>
+								<div class="txt">
+									<h4>
+										3060个
+									</h4>
+									<p>
+										生产矿山
+									</p>
+								</div>
+							</li>
+							<li>
+								<div class="txt">
+									<h4>
+										3060个
+									</h4>
+									<p>
+										地质灾害
+									</p>
+								</div>
+							</li>
+							<li>
+								<div class="txt">
+									<h4>
+										3060个
+									</h4>
+									<p>
+										年度新增损毁面积
+									</p>
+								</div>
+							</li>
+
+							<li>
+								<div class="txt">
+									<h4>
+										3060公顷
+									</h4>
+									<p>
+										损毁面积
+									</p>
+								</div>
+							</li>
+							<li>
+								<div class="txt">
+									<h4>
+										3060公顷
+									</h4>
+									<p>
+										治理面积
+									</p>
+								</div>
+							</li>
+							<li>
+								<div class="txt">
+									<h4>
+										3060公顷
+									</h4>
+									<p>
+										年度治理面积
+									</p>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="box2">
+						<div class="line-row">
+							<div class="line">
+								<div class="progress" style="width: 50%;"></div>
+							</div>
+							<div class="txt">总治理率</div>
+							<div class="number">50%</div>
+						</div>
+						<div class="line-row">
+							<div class="line">
+								<div class="progress" style="width: 89%;"></div>
+							</div>
+							<div class="txt">年度治理面积与新增损毁面积比</div>
+							<div class="number">89%</div>
+						</div>
+					</div>
+					<div class="box3 box-a">
+						<div class="title">
+							<h3>
+								损毁土地占比（按地类）
+							</h3>
+							<span>单位：公顷</span>
+						</div>
+						<div class="chart-box">
+							<div class="th">
+								<div id="chart-box1" style="height:135px"></div>
+							</div>
+							<div class="td">
+								<table border="0" cellspacing="0" cellpadding="0">
+									<tr>
+										<th>
+											<label class="chart-color1"></label>
+											<span>采场</span>
+										</th>
+										<td>
+											<b>335</b>
+										</td>
+										<td>
+											<strong>33.04%</strong>
+										</td>
+									</tr>
+									<tr>
+										<th>
+											<label class="chart-color2"></label>
+											<span>排土场</span>
+										</th>
+										<td>
+											<b>310</b>
+										</td>
+										<td>
+											<strong>33.57%</strong>
+										</td>
+									</tr>
+									<tr>
+										<th>
+											<label class="chart-color3"></label>
+											<span>工业广场</span>
+										</th>
+										<td>
+											<b>234</b>
+										</td>
+										<td>
+											<strong>23.08%</strong>
+										</td>
+									</tr>
+									<tr>
+										<th>
+											<label class="chart-color4"></label>
+											<span>尾矿库</span>
+										</th>
+										<td>
+											<b>135</b>
+										</td>
+										<td>
+											<strong>13.31%</strong>
+										</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+					</div>
+
+					<div class="box3 box-b">
+						<div class="title">
+							<h3>
+								地质灾害占比
+							</h3>
+							<span>单位：公顷</span>
+						</div>
+						<div class="chart-box">
+							<div class="th">
+								<div id="chart-box2" style="height:135px"></div>
+							</div>
+							<div class="td">
+								<table border="0" cellspacing="0" cellpadding="0">
+									<tr>
+										<th>
+											<label class="chart-color1"></label>
+											<span>崩塌</span>
+										</th>
+										<td>
+											<b>335</b>
+										</td>
+										<td>
+											<strong>26.07%</strong>
+										</td>
+									</tr>
+									<tr>
+										<th>
+											<label class="chart-color2"></label>
+											<span>滑坡</span>
+										</th>
+										<td>
+											<b>310</b>
+										</td>
+										<td>
+											<strong>24.12%</strong>
+										</td>
+									</tr>
+									<tr>
+										<th>
+											<label class="chart-color3"></label>
+											<span>泥石流</span>
+										</th>
+										<td>
+											<b>234</b>
+										</td>
+										<td>
+											<strong>18.21%</strong>
+										</td>
+									</tr>
+									<tr>
+										<th>
+											<label class="chart-color4"></label>
+											<span>地面坍塌</span>
+										</th>
+										<td>
+											<b>271.2</b>
+										</td>
+										<td>
+											<strong>21.10%</strong>
+										</td>
+									</tr>
+									<tr>
+										<th>
+											<label class="chart-color4"></label>
+											<span>地裂缝</span>
+										</th>
+										<td>
+											<b>135</b>
+										</td>
+										<td>
+											<strong>10.50%</strong>
+										</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="box3 box-c">
+						<div class="title">
+							<h3>
+								治理面积占比（按治理对象）
+							</h3>
+							<span>单位：公顷</span>
+						</div>
+						<div class="chart-box">
+							<div class="th">
+								<div id="chart-box3" style="height:135px"></div>
+							</div>
+							<div class="td">
+								<table border="0" cellspacing="0" cellpadding="0">
+									<tr>
+										<th>
+											<label class="chart-color1"></label>
+											<span>崩塌</span>
+										</th>
+										<td>
+											<b>335</b>
+										</td>
+										<td>
+											<strong>26.07%</strong>
+										</td>
+									</tr>
+									<tr>
+										<th>
+											<label class="chart-color2"></label>
+											<span>滑坡</span>
+										</th>
+										<td>
+											<b>310</b>
+										</td>
+										<td>
+											<strong>24.12%</strong>
+										</td>
+									</tr>
+									<tr>
+										<th>
+											<label class="chart-color3"></label>
+											<span>泥石流</span>
+										</th>
+										<td>
+											<b>234</b>
+										</td>
+										<td>
+											<strong>18.21%</strong>
+										</td>
+									</tr>
+									<tr>
+										<th>
+											<label class="chart-color4"></label>
+											<span>地面坍塌</span>
+										</th>
+										<td>
+											<b>271.2</b>
+										</td>
+										<td>
+											<strong>21.10%</strong>
+										</td>
+									</tr>
+									<tr>
+										<th>
+											<label class="chart-color4"></label>
+											<span>地裂缝</span>
+										</th>
+										<td>
+											<b>135</b>
+										</td>
+										<td>
+											<strong>10.50%</strong>
+										</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+
+			</div>
+		</div>
+		<div  style="display: none;">
+			<div class="main-box2">
+				<div class="box-hd">
+					<div class="search-box">
+						<input type="text" placeholder="请输入要搜索的内容"/>
+						<button type="button" class="btn-search">
+							<span>筛选</span>
+						</button>
+					</div>
+					<div class="tab-row">
+						<ul>
+							<li class="on"><a href="">关闭未治理</a></li>
+							<li><a href="">规划阶段</a></li>
+							<li><a href="">实施阶段</a></li>
+							<li><a href="">竣工阶段</a></li>
+							<li><a href="">其他部门实施</a></li>
+							<li><a href="">自然恢复</a></li>
+							<li><a href="">矿山再利用</a></li>
+							<li><a href="">已销号</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="box-bd">
+					<div class="ScrollBox">
+						<div class="list-list">
+							<ul>
+								<li>
+										<span class="num">
+											1
+										</span>
+									<h3>
+										<strong>统景镇元景村三社，一社 </strong>
+										<em>5001120518</em>
+									</h3>
+									<p>回民区 规划阶段 露天开采 其他</p>
+									<p>
+										损毁面积：<b>0.64公顷 </b>
+									</p>
+								</li>
+								<li>
+										<span class="num">
+											2
+										</span>
+									<h3>
+										<strong>统景镇元景村三社，一社 </strong>
+										<em>5001120518</em>
+									</h3>
+									<p>回民区 规划阶段 露天开采 其他</p>
+									<p>
+										损毁面积：<b>0.64公顷 </b>
+									</p>
+								</li>
+								<li>
+										<span class="num">
+											3
+										</span>
+									<h3>
+										<strong>统景镇元景村三社，一社 </strong>
+										<em>5001120518</em>
+									</h3>
+									<p>回民区 规划阶段 露天开采 其他</p>
+									<p>
+										损毁面积：<b>0.64公顷 </b>
+									</p>
+								</li>
+								<li>
+										<span class="num">
+											4
+										</span>
+									<h3>
+										<strong>统景镇元景村三社，一社 </strong>
+										<em>5001120518</em>
+									</h3>
+									<p>回民区 规划阶段 露天开采 其他</p>
+									<p>
+										损毁面积：<b>0.64公顷 </b>
+									</p>
+								</li>
+								<li>
+										<span class="num">
+											5
+										</span>
+									<h3>
+										<strong>统景镇元景村三社，一社 </strong>
+										<em>5001120518</em>
+									</h3>
+									<p>回民区 规划阶段 露天开采 其他</p>
+									<p>
+										损毁面积：<b>0.64公顷 </b>
+									</p>
+								</li>
+								<li>
+										<span class="num">
+											6
+										</span>
+									<h3>
+										<strong>统景镇元景村三社，一社 </strong>
+										<em>5001120518</em>
+									</h3>
+									<p>回民区 规划阶段 露天开采 其他</p>
+									<p>
+										损毁面积：<b>0.64公顷 </b>
+									</p>
+								</li>
+								<li>
+										<span class="num">
+											7
+										</span>
+									<h3>
+										<strong>统景镇元景村三社，一社 </strong>
+										<em>5001120518</em>
+									</h3>
+									<p>回民区 规划阶段 露天开采 其他</p>
+									<p>
+										损毁面积：<b>0.64公顷 </b>
+									</p>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="box-ft">
+					<div class="page-row">
+						<ul>
+							<li class="prev">
+								<a href="">首页</a>
+							</li>
+							<li>
+								<a href=""><</a>
+							</li>
+							<li class="on">
+								<a>1</a>
+							</li>
+							<li>
+								<a href="">2</a>
+							</li>
+							<li>
+								...
+							</li>
+							<li>
+								<a href="">150</a>
+							</li>
+							<li>
+								<a href="">151</a>
+							</li>
+							<li>
+								<a href="">></a>
+							</li>
+							<li class="next">
+								<a href="">尾页</a>
+							</li>
+
+						</ul>
+					</div>
+					<div class="page-total">
+						共1000条
+					</div>
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+
+</div>
+
+<script type="text/javascript">
+	$(".rightbar").slide({
+		titCell:".hd li",
+		mainCell:".bd",
+		delayTime:0
+	})
+</script>
+
+
+
+<div class="mainbox">
+
+	<div class="popover show" id="popover" style="top: -55px;transform: translateX(-50%); max-width: none;">
+		<div class="arrow" ></div>
+		<div class="popover-content">
+			<b id="popover-close" style="position: absolute;right: 4px; top: -5px;cursor: pointer;font-size:12px;font-weight:bold;">x</b>
+			<span style="white-space: nowrap;" id="popover-content"></span>
+		</div>
+	</div>
+
+	<div id="map"  class="mapEg1" style="height: 100%;width: 100%;float: left">
+		<div id="mouse-position">当前坐标：
+			<div id="mouse-position-text"></div>
+		</div>
+	</div>
+	<!--换成地质地图over-->
+	<div class="nav-list" style="background-color:#fff;border-radius:6px;">
+
+			<a href="">
+				<div class="ico"><img src="plug-in/nmmine/images/ico-nav1.png"/></div>
+				<p>查询</p>
+			</a>
+			<a href="">
+				<div class="ico"><img src="plug-in/nmmine/images/ico-nav2.png"/></div>
+				<p>地图操作</p>
+			</a>
+			<a href="javascript:;">
+			<div >
+					<div id="layerSelect" style="display:block">
+						<div class="ico"><img src="plug-in/nmmine/images/ico-nav3.png"/></div>
+						<p>图层选择</p></div>
+					</div>
+					 <div id="layerSelectContent" class="layerSelectContent">
+							  <div>
+									<h2>【底图】</h2>
+							  </div>
+
+							  <div>
+									<input type="checkbox" name="tianImg" id="tianImg">
+									<span>天地图卫星影像</span>
+									<input type="checkbox" name="googleMap" id="googleMap">
+									<span>google地图</span>
+							  </div>
+
+							   <div>
+									 <h2>【地质云】</h2>
+							   </div>
+
+							   <div>
+									  <input type="checkbox" name="diZhiYunLayer" id="diZhiYunLayer">
+									  <span>地质图</span>
+									  <input type="checkbox" name="diZhiYunLayerWater" id="diZhiYunLayerWater">
+									  <span>水资源分布图</span>
+									  <input type="checkbox" name="desertification" id="desertification">
+									  <span>中部地区荒漠化</span>
+									  <input type="checkbox" name="plantLayer" id="plantLayer">
+									  <span>中部地区植被图</span>
+							   </div>
+					  </div>
+			</a>
+			<a href="javascript:;" id="lineString">
+				<div class="ico"><img src="plug-in/nmmine/images/ico-nav4.png"/></div>
+				<p>长度</p>
+			</a>
+			<a href="javascript:;" id="polygon">
+				<div class="ico"><img src="plug-in/nmmine/images/ico-nav5.png"/></div>
+				<p>面积</p>
+			</a>
+			<a href="javascript:;" id="clearDraw">
+				<div class="ico"><img src="plug-in/nmmine/images/ico-nav6.png"/></div>
+				<p>清除</p>
+			</a>
+			<a href="javascript:;" id="model2">
+				<div class="ico"><img src="plug-in/nmmine/images/ico-nav7.png"/></div>
+				<p>指北</p>
+			</a>
+			<a href="javascript:;" id="model">
+				<div class="ico"><img src="plug-in/nmmine/images/ico-nav8.png"/></div>
+				<p>模式</p>
+			</a>
+
+	</div>
+
+
+
+	<div class="year-tab-bar">
+		<div class="prev"></div>
+		<div class="bds">
+			<div class="bd-x">
+				<div class="bd">
+					<ul>
+						<li class="on" onclick="selectYear(2016,this)">
+							<a>2016年</a>
+						</li>
+						<li onclick="selectYear(2017,this)">
+							<a>2017年</a>
+						</li>
+						<li onclick="selectYear(2018,this)">
+							<a>2018年</a>
+						</li>
+						<li onclick="selectYear(2019,this)">
+							<a>2019年</a>
+						</li>
+						<li onclick="selectYear(2020,this)">
+							<a>2020年</a>
+						</li>
+						<li onclick="selectYear(2021,this)">
+							<a>2021年</a>
+						</li>
+						<li onclick="selectYear(2022,this)">
+							<a>2022年</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="next"></div>
+	</div>
+
+</div>
+
+<script src="plug-in/nmmine/js/neimenggusheng.js" type="text/javascript" charset="utf-8"></script>
+
+
+<script type="text/javascript">
+	;(function($){
+		var dom = document.getElementById("chart-box1");
+		var myChart = echarts.init(dom);
+		var app = {};
+		option = null;
+		option = {
+
+			color:["#FFC000","#10BF3E","#10bf3e","#00CCFF","#D8FF00"],
+			series: [
+				{
+					name: '占比',
+					type: 'pie',
+					radius: ['80%', '100%'],
+					avoidLabelOverlap: false,
+					label: {
+						normal: {
+							show: false,
+							position: 'center'
+						},
+						emphasis: {
+							show: false,
+							textStyle: {
+								fontSize: '15'
+
+							}
+						}
+					},
+					hoverAnimation:false,
+					labelLine: {
+						normal: {
+							show: false
+						}
+					},
+					data: [
+						{value: 335, name: '采场'},
+						{value: 310, name: '排土场'},
+						{value: 234, name: '工业广场'},
+						{value: 135, name: '尾矿库'}
+					]
+				}
+			]
+		};
+		;
+		if (option && typeof option === "object") {
+			myChart.setOption(option, true);
+		}
+	})(jQuery);
+</script>
+
+
+<script type="text/javascript">
+	;(function($){
+		var dom = document.getElementById("chart-box2");
+		var myChart = echarts.init(dom);
+		var app = {};
+		option = null;
+		option = {
+
+			color:["#FFC000","#10BF3E","#10bf3e","#00CCFF","#D8FF00"],
+			series: [
+				{
+					name: '占比',
+					type: 'pie',
+					radius: ['80%', '100%'],
+					avoidLabelOverlap: false,
+					label: {
+						normal: {
+							show: false,
+							position: 'center'
+						},
+						emphasis: {
+							show: false,
+							textStyle: {
+								fontSize: '15'
+
+							}
+						}
+					},
+					hoverAnimation:false,
+					labelLine: {
+						normal: {
+							show: false
+						}
+					},
+					data: [
+						{value: 335, name: '崩塌'},
+						{value: 310, name: '滑坡'},
+						{value: 234, name: '泥石流'},
+						{value: 271.2, name: '地面坍塌'},
+						{value: 135, name: '地裂缝'}
+					]
+				}
+			]
+		};
+		;
+		if (option && typeof option === "object") {
+			myChart.setOption(option, true);
+		}
+	})(jQuery);
+</script>
+
+
+<script type="text/javascript">
+	;(function($){
+		var dom = document.getElementById("chart-box3");
+		var myChart = echarts.init(dom);
+		var app = {};
+		option = null;
+		option = {
+
+			color:["#FFC000","#10BF3E","#10bf3e","#00CCFF","#D8FF00"],
+			series: [
+				{
+					name: '占比',
+					type: 'pie',
+					radius: ['80%', '100%'],
+					avoidLabelOverlap: false,
+					label: {
+						normal: {
+							show: false,
+							position: 'center'
+						},
+						emphasis: {
+							show: false,
+							textStyle: {
+								fontSize: '15'
+
+							}
+						}
+					},
+					hoverAnimation:false,
+					labelLine: {
+						normal: {
+							show: false
+						}
+					},
+					data: [
+						{value: 335, name: '崩塌'},
+						{value: 310, name: '滑坡'},
+						{value: 234, name: '泥石流'},
+						{value: 271.2, name: '地面坍塌'},
+						{value: 135, name: '地裂缝'}
+					]
+				}
+			]
+		};
+		;
+		if (option && typeof option === "object") {
+			myChart.setOption(option, true);
+		}
+	})(jQuery);
+</script>
+
+
+<script type="text/javascript">
+	function selectYear (year,obj) {
+		$(obj).addClass("on").siblings().removeClass("on")
+		console.log("年："+year)
+	}
+	jQuery(".year-tab-bar").slide({ mainCell:".bd ul",effect:"left", vis:5, scroll:1, autoPage:true, pnLoop:false });
+</script>
+<script type="text/javascript">
+
+	// 创建一个视图
+	var view= new ol.View({
+		center: ol.proj.transform([104, 35], 'EPSG:4326', 'EPSG:3857'),
+		zoom:4,
+	});
+
+	// 实例化鼠标位置控件
+	var mousePositionControl = new ol.control.MousePosition({
+		coordinateFormat: ol.coordinate.createStringXY(5), //坐标格式
+		projection: 'EPSG:4326', //地图投影坐标系
+		className: 'custom-mouse-position', //坐标信息显示样式
+		// 显示鼠标位置信息的目标容器
+		target: document.getElementById('mouse-position-text'),
+		undefinedHTML: '-' //未定义坐标的标记
+	});
+
+	//实例化比例尺控件（ScaleLine）
+	var scaleLineControl = new ol.control.ScaleLine({
+		//设置比例尺单位，degrees、imperial、us、nautical、metric（度量单位）
+		units: "metric"
+	});
+
+	var tian_di_tu_1 = new ol.layer.Tile({
+		title: "天地图路网",
+		visible: true,
+		source: new ol.source.XYZ({
+			crossOrigin: 'anonymous',
+			url: "http://t4.tianditu.gov.cn/DataServer?T=img_w&x={x}&y={y}&l={z}&tk=b94206595710101f05d5d4f8d2723541"
+		})
+	});
+
+	var googleMapLayer = new ol.layer.Tile({
+		title: "谷歌平面图",
+		visible: true,
+		source: new ol.source.XYZ({
+			url:'http://www.google.cn/maps/vt/pb=!1m4!1m3!1i{z}!2i{x}!3i{y}!2m3!1e0!2sm!3i380072576!3m8!2szh-CN!3scn!5e1105!12m4!1e68!2m2!1sset!2sRoadmap!4e0!5m1!1e0',
+		})
+	});
+
+	//创建feature
+	//要素，即图形。一个source下含多个Feature。Feature是所有图形的一个封装，具体代表什么图形由内部的geometry参数决定。
+	//var labelCoords_org=[120,40];
+	//var labelCoords=ol.proj.transform(labelCoords_org,"EPSG:4326","EPSG:3857")
+	//var line_org=[[120,40],[122,51]];
+	//var geomPolyline= new ol.geom.LineString(line_org);  //线
+	//geomPolyline.transform("EPSG:4326","EPSG:3857");
+
+	//var polygon_org=[[[120,40],[122,50],[111,45]]];
+	//polygon_org三角形
+
+	//polygon_org在哪里定义的？
+	var geomPolygon=new ol.geom.Polygon(polygon_org);
+	geomPolygon.transform("EPSG:4326","EPSG:3857");
+
+	////////////////////////////////////
+	var featurepolygon= new ol.Feature({
+		geometry:geomPolygon
+	});
+
+
+
+
+	//创建style，添加source、style到layer
+	var fill = new ol.style.Fill({  //填充样式
+		color: 'rgba(255,255,255,0.2)'
+	});
+	var stroke = new ol.style.Stroke({   //边界线条
+		color: 'black',
+		width: 1.25
+	});
+
+	var polygonVectorSource = new ol.source.Vector({
+		features:[featurepolygon]
+	});
+	var stylePolygon = [
+		new ol.style.Style({
+			fill: fill,
+			stroke: stroke
+		})
+	];
+
+
+	//内蒙轮廓图层
+	var polygonVectorLayer = new ol.layer.Vector({
+		title:"面",
+		source: polygonVectorSource,
+		style:stylePolygon,
+		renderMode:'image'
+	});
+	polygonVectorLayer.setZIndex(100);
+
+
+	function styleFunction(feature) {
+		var height=feature.get("name");
+
+		return new ol.style.Style({
+			image:new ol.style.Circle({
+				radius: 5,
+				fill: new ol.style.Fill({
+					color: "#389BCD",
+					opacity: 0.5
+				})
+			}),
+			text:new ol.style.Text({
+				text:height,
+				textAlign:"left",
+				offsetX:5,
+				fill: new ol.style.Fill({
+					color: "#cd0500",
+					opacity:1
+				}),
+				stroke:new ol.style.Stroke({
+					color:"#dd942e",
+					width:1
+				}),
+				font:" 14px SimHei"
+			})
+		});
+	}
+
+	//获取基础图层
+	function getArcGis()
+	{
+		var url = "http://124.130.192.24:9052/arcgis/rest/services/MyMapService4/MapServer?f=jsapi";
+		return  new ol.layer.Image({
+			title: "layerId24",
+			visible: false,
+			source: new ol.source.ImageArcGISRest({
+				crossOrigin: 'anonymous',
+				ratio: 1,
+				params: {},
+				url: url
+			})
+		});
+	}
+
+
+	var dataLayer = getDiZhiYun("TAS10B520000NM");
+	var dataLayerWater = getDiZhiYun("TAS40A52200008");
+	var desertification = getDiZhiYun("TAS10A52200032");
+	var plantLayer = getDiZhiYun("TAS10A52200014");
+	var dataLayer1 =getArcGis();
+
+
+	//创建地图map
+	var map = new ol.Map({
+		layers: [
+			tian_di_tu_1,
+			polygonVectorLayer,
+		],
+		target: 'map',
+		view: view,
+		controls: ol.control.defaults().extend([mousePositionControl, scaleLineControl]),
+	});
+
+	//map.addLayer(dataLayer);
+	$("[name='tianImg']").attr("checked",'true');
+	
+	$('#tianImg').click(function(){
+		if($('#tianImg').is(':checked')){
+			map.addLayer(tian_di_tu_1);
+
+		}else{
+		  map.removeLayer(tian_di_tu_1)
+
+		}
+	});
+
+	$('#googleMap').click(function(){
+			if($('#googleMap').is(':checked')){
+				map.addLayer(googleMapLayer);
+
+			}else{
+				map.removeLayer(googleMapLayer);
+
+			}
+		});
+
+	$('#diZhiYunLayer').click(function(){
+			if($('#diZhiYunLayer').is(':checked')){
+				map.addLayer(dataLayer);
+			}else{
+				map.removeLayer(dataLayer);
+			}
+	});
+	$('#diZhiYunLayerWater').click(function(){
+			if($('#diZhiYunLayerWater').is(':checked')){
+				map.addLayer(dataLayerWater);
+			}else{
+				map.removeLayer(dataLayerWater);
+			}
+	});
+	$('#desertification').click(function(){
+			if($('#desertification').is(':checked')){
+				map.addLayer(desertification);
+			}else{
+				map.removeLayer(desertification)
+			}
+	});
+	$('#plantLayer').click(function(){
+			 if($('#plantLayer').is(':checked')){
+				map.addLayer(plantLayer);
+			}else{
+				map.removeLayer(plantLayer)
+			}
+	})
+	$('#layerSelect').click(function(){
+		if($('#layerSelectContent').is(':visible')){
+			$('#layerSelectContent').hide();
+		}else{
+		   $('#layerSelectContent').show();
+		}
+	})
+
+
+
+
+
+
+
+	//距离和面积的测量
+	//创建一个WGS84球体对象
+	 var wgs84Sphere = new ol.Sphere(6378137);
+	 var source = new ol.source.Vector();
+	 var vector = new ol.layer.Vector({
+		 title: "draw",
+		 source: source,
+		 style: new ol.style.Style({
+			 fill: new ol.style.Fill({
+					 color: 'rgba(255, 255, 255, 0.9)'
+			 }),
+			 stroke: new ol.style.Stroke({
+				 color: '#ffcc33',
+				 width: 2
+			 }),
+
+		 })
+	});
+
+	var sketch; //创建一个当前要绘制的对象
+	var helpTooltipElement; //创建一个帮助提示框对象
+	var helpTooltip;//创建一个帮助提示信息对象
+	var measureTooltipElement;//创建一个测量提示框对象
+	var measureTooltip;//创建一个测量提示信息对象
+
+	var draw;//定义一个交互式绘图对象
+	var continueLineMsg = '单击可继续绘制线条，双击完成绘制。';
+	var continuePolygonMsg = '单击可继续绘制多边形，双击完成绘制';
+	var coords = []; //存放画区域查询时的区域经纬度
+	//格式化测量长度
+	var formatLength = function (line) {
+			var coordinates = line.getCoordinates();//获取坐标串
+			var length = 0;//定义长度变量
+			var sourceProj = map.getView().getProjection(); //获取源数据的坐标系
+			for (var i = 0, ii = coordinates.length - 1; i < ii; ++i) {
+				var c1 = ol.proj.transform(coordinates[i], sourceProj, 'EPSG:4326');//第一个点
+				var c2 = ol.proj.transform(coordinates[i + 1], sourceProj, 'EPSG:4326');//第二个点
+				length += wgs84Sphere.haversineDistance(c1, c2);//获取转换后的球面距离
+			}
+			var output;
+			if (length > 100) {
+				output = (Math.round(length / 1000 * 100) / 100) +
+					' ' + 'km';
+			} else {
+				output = (Math.round(length * 100) / 100) +
+					' ' + 'm';
+			}
+			return output;
+	};
+	var formatArea = function (polygon) {
+			var sourceProj = map.getView().getProjection(); //获取初始坐标系
+			var geom = /** @type {ol.geom.Polygon} */(polygon.clone().transform(
+				sourceProj, 'EPSG:4326'));
+			var coordinates = geom.getLinearRing(0).getCoordinates();
+			coords = coordinates;
+			var area = Math.abs(wgs84Sphere.geodesicArea(coordinates));
+			var output;
+			if (area > 10000) {
+				output = (Math.round(area / 1000000 * 100) / 100) +
+					' ' + 'km<sup>2</sup>';
+			} else {
+				output = (Math.round(area * 100) / 100) +
+					' ' + 'm<sup>2</sup>';
+			}
+			return output;
+	 };
+	//添加交互式绘图对象的函数
+	function addInteraction(type) {
+			//创建一个交互式绘图对象
+			draw = new ol.interaction.Draw({
+				//绘制的数据源
+				source: source,
+				//绘制类型
+				type: (type),
+				//样式
+				style: new ol.style.Style({
+					fill: new ol.style.Fill({
+						color: 'yellow'
+					}),
+					stroke: new ol.style.Stroke({
+						color: 'rgb(0,0,255)',
+						lineDash: [10, 10],
+						width: 2
+					}),
+					image: new ol.style.Circle({
+						radius: 5,
+						stroke: new ol.style.Stroke({
+							color: 'red '
+						}),
+						fill: new ol.style.Fill({
+							color: 'rgba(255, 255, 255, 1)'
+						})
+					})
+				})
+			});
+			//将交互绘图对象添加到地图中
+			map.addInteraction(draw);
+			//创建测量提示框
+			createMeasureTooltip();
+			//创建帮助提示框
+			createHelpTooltip();
+		   //触发pointermove事件
+			map.on('pointermove', function (evt) {
+				 //如果是平移地图则直接结束
+				if (evt.dragging) {
+					return;
+				}
+				var helpMsg = '点击开始绘图';
+
+				if (sketch) {
+					//获取绘图对象的几何要素
+					var geom = (sketch.getGeometry());
+					//如果当前绘制的几何要素是多边形，则将绘制提示信息设置为多边形绘制提示信息
+					//如果当前绘制的几何要素是多线段，则将绘制提示信息设置为多线段绘制提示信息
+					if (geom instanceof ol.geom.Polygon) {
+						helpMsg = continuePolygonMsg;
+					} else if (geom instanceof ol.geom.LineString) {
+						helpMsg = continueLineMsg;
+					}
+				}
+				//设置帮助提示要素的内标签为帮助提示信息
+				helpTooltipElement.innerHTML = helpMsg;
+				//设置测量提示信息的位置坐标
+				helpTooltip.setPosition(evt.coordinate);
+
+			});
+
+			//定义一个事件监听
+			var listener;
+			 //绘制开始事件
+			draw.on('drawstart', function (evt) {
+				//清除绘制的线条，保证每次只能画一个
+				vector.getSource().clear();
+				//清除标记的绘制点
+				$(".ol-overlay-container").hide();
+
+				sketch = evt.feature;
+				//提示框的坐标
+				var tooltipCoord = evt.coordinate;
+				//监听几何要素的change事件
+				listener = sketch.getGeometry().on('change', function (evt) {
+					//获取绘制的几何对象
+					var geom = evt.target;
+					//定义一个输出对象，用于记录面积和长度
+					var output;
+					if (geom instanceof ol.geom.Polygon) {
+						output = formatArea(geom);
+						tooltipCoord = geom.getInteriorPoint().getCoordinates();
+					} else if (geom instanceof ol.geom.LineString) {
+						output = formatLength(geom);
+						tooltipCoord = geom.getLastCoordinate();
+					}
+					//设置测量提示框的内标签为最终输出结果
+					measureTooltipElement.innerHTML = output;
+					 //设置测量提示信息的位置坐标
+					measureTooltip.setPosition(tooltipCoord);
+				});
+			}, this);
+
+			//双击
+			draw.on('drawend', function (evt) {
+				verifyCoords = coords;
+				measureTooltipElement.className = 'tooltip tooltip-static';
+				measureTooltip.setOffset([0, -7]); //设置偏移量
+				sketch = null;//清空绘制要素
+				measureTooltipElement = null; //清空测量提示要素
+				createMeasureTooltip(); //创建测量提示框
+				ol.Observable.unByKey(listener);//移除事件监听
+			}, this);
+	}
+	//创建帮助提示框
+	function createHelpTooltip() {
+			//如果已经存在帮助提示框则移除
+			if (helpTooltipElement) {
+						 helpTooltipElement.parentNode.removeChild(helpTooltipElement);
+			}
+			//创建帮助提示要素的div
+			helpTooltipElement = document.createElement('div');
+			//设置帮助提示要素的样式
+			helpTooltipElement.className = 'tooltip hidden';
+			helpTooltipElement.style.color = 'black';
+			//创建一个帮助提示的覆盖标注
+			helpTooltip = new ol.Overlay({
+				 element: helpTooltipElement,
+				 offset: [5, 0],
+				 positioning: 'top-left'
+			});
+			map.addOverlay(helpTooltip);
+	}
+
+	//创建测量提示框
+	function createMeasureTooltip() {
+			if (measureTooltipElement) {
+					measureTooltipElement.parentNode.removeChild(measureTooltipElement);
+				}
+			measureTooltipElement = document.createElement('div');
+			measureTooltipElement.className = 'tooltip tooltip-measure';
+			measureTooltipElement.style.color = 'black';
+			measureTooltip = new ol.Overlay({
+				element: measureTooltipElement,
+				offset: [0, 10],
+				positioning: 'top-left'
+			});
+			map.addOverlay(measureTooltip);
+	}
+	map.addLayer(vector);
+	vector.setZIndex(101);//设置ZIndex防止测量后的结果图层无法显示
+	 $("#lineString").click(function () {
+			 map.removeInteraction(draw);
+			 addInteraction("LineString");
+	 });
+	 $("#polygon").click(function () {
+			 map.removeInteraction(draw);
+			 addInteraction("Polygon");
+	 });
+	 $("#clearDraw").click(function () {
+			verifyCoords = [];
+			vector.getSource().clear();
+			$(".ol-overlay-container").hide();
+			 map.removeInteraction(draw);
+	})
+	//测量 代码结束
+	 var styleCache = {};
+	 var verifyCoords = []; //双击完成绘制确定的绘制经纬度信息
+	//矿山数量点图层
+	var mineLayer = new ol.layer.Vector({//
+		title: "mineData",
+		style: function (feature) {
+			var size = feature.get('features').length;//得到的是feature所在的集群的feature数组的长度
+			var scaleArr = [1, 0.8, 0.5];
+			var style = null; //返回的样式
+
+			if (size == 1) {//该集群内只有一个矿山数据点时
+				var mineScale = feature.get('features')[0].H.mineScale; 
+				var imgName = '1-300';//1-300是单个矿山时显示的图片
+			
+
+				style = styleCache[size];
+				//styleCache是对象
+				//获取styleCache中的属性  其中size是变量
+				if (style == null) {
+					style = new ol.style.Style({
+						image: new ol.style.Icon({   //设置点图的图标样式
+							anchor: [0.5, 0.5],      //图标中心
+							scale: scaleArr[mineScale - 1],
+							src: "plug-in/mineLegend/" + imgName + ".png"
+						})
+					})
+				}
+			} else {//集群数量大于1
+				style = styleCache[size];
+				if (style == null) {
+					style = new ol.style.Style({
+						image: new ol.style.Icon({
+							anchor: [0.5, 0.5],
+							src: "plug-in/mineLegend/cluster/cluster0.png"
+						}),
+						text: new ol.style.Text({
+							text: size.toString(),//这里在图标上显示数量
+							fill: new ol.style.Fill({
+								color: '#fff'
+							})
+						})
+					});
+				}
+			}
+
+			styleCache[size] = style;
+			return style;
+		}
+	});
+	var container = document.getElementById("popover");
+	var content = document.getElementById("popover-content");
+	$("#popover-close").click(function () {
+			$("#popover").addClass("show");
+		})
+	var overlay = new ol.Overlay({
+			element: container,
+			autoPan: true
+	 });
+	function getMineNumberPointCluster(data) {
+	            $("#loadingToast").toggle();
+	            //清除已有数据
+	            map.removeLayer(mineLayer);//去掉矿山点图层
+	            map.removeLayer(vectorHeatmap); //去掉热力图图层
+	            //$("#mineList").empty(); //清空结果集   mineList是用来展示矿山结果的div
+	            $("#popover").addClass("show"); //去掉点
+	            //$("#mineList").parent().removeClass("showPaging");//隐藏矿山查询结果分页按钮
+	            var demo = [{"markerId":182382,"title":"扎赉特旗巴达尔胡苏木关世军石灰岩矿","longitude":122.184441,"latitude":46.811111,"mineScale":"3","mineralsVarietyName":"水泥用石灰岩"},
+	            	{"markerId":182384,"title":"扎赉特旗宝丰矿业有限公司巴达尔胡二砂场","longitude":122.27417,"latitude":46.786388,"mineralsVarietyName":"水泥用石灰岩"},
+	            	{"markerId":182412,"title":"扎赉特旗龙嘉灰石矿","longitude":122.373611,"latitude":46.988335,"mineralsVarietyName":"水泥用石灰岩"}
+	            ];
+	          
+				var data = demo;
+				var datalen = data.length;
+				
+				var features = new Array();//矿山点的集合
+				for (var i = 0; i < datalen; i++) {
+					if (data[i].longitude > 180 || data[i].latitude > 90)
+						continue;
+					var feature = new ol.Feature({
+						name: data[i].title,
+						mineSurveyId: data[i].markerId,
+						mineScale: data[i].mineScale,
+						mineralsVarietyName: data[i].mineralsVarietyName,
+						population: 4000,
+						rainfall: 500
+					});
+					feature.setGeometry(new ol.geom.Point(ol.proj.transform([parseFloat(data[i].longitude), parseFloat(data[i].latitude)], 'EPSG:4326', 'EPSG:3857')));
+					features.push(feature)
+					console.log(0,feature)
+				}
+
+				//地图点击事件  鼠标点击矿山聚合图标上时出现的效果
+				map.on('click', function (evt) {
+					//经纬度
+					var coodinate = evt.coordinate;
+					//在点击时获取像素区域
+					var pixel = map.getEventPixel(evt.originalEvent);//在事件触发时，返回对应的像素范围
+					map.forEachFeatureAtPixel(pixel, function (feature) {
+						 console.log(1,feature.values_)
+						if (feature.H.features != null) {
+							if (feature.H.features.length == 1) {//单个矿山 则在上面显示矿山名称
+								$("#popover").removeClass("show");
+								//coodinate存放了点击时的坐标信息
+								//设置弹出框内容，可以HTML自定义
+								content.innerHTML = "<a href='' title='查看矿山详情' target='_blank'>" + feature.values_.features[0].values_.name + "</a>";
+								var parentWidth = $('.arrow').parent().width();
+								$('.arrow').css({'right':parentWidth/2})
+								//设置overlay的显示位置
+								overlay.setPosition(coodinate);
+								//显示overlay
+								map.addOverlay(overlay);
+							} else {//聚合点    则放大缩放等级
+								var view = map.getView();
+								view.animate({  //对视图进行动画处理
+									center: coodinate,
+									zoom: view.getZoom() + 2,
+									duration: 500
+								});
+							}
+						}
+					});
+				});
+				 var initZoom = map.getView().getZoom();
+				//地图缩放事件
+				map.on("moveend", function (e) {  //当地图缩小后  去除弹出的信息框
+				var changeZoom = map.getView().getZoom();
+				if (changeZoom < initZoom) {
+					//隐藏弹出的信息框
+					$("#popover").addClass("show");
+				}
+					initZoom = changeZoom;
+				});
+
+				var source = new ol.source.Vector({
+					features: features
+				});
+				var clusterSource = new ol.source.Cluster({  //集群
+					source: source,
+					distance: 40
+				});
+
+
+				mineLayer.setSource(clusterSource);
+				mineLayer.setZIndex(1000);
+				map.addLayer(mineLayer);
+				var view = map.getView();
+				//使其居中显示
+
+
+				$("#loadingToast").toggle();
+	                
+	           
+	        }
+
+	//矿山数量点聚合代码结束
+
+	$('#model').click(function(){
+		console.log("点图加载");
+		var data="provinces=15&surveyYears=2017";
+		getMineNumberPointCluster(data);
+	})
+
+	 //热力图图层
+		var vectorHeatmap = new ol.layer.Heatmap({
+			title: "heatmap",
+			weight: function (e) { // 热力值
+				return parseFloat(e.weight == null ? 0.2 : e.weight);
+			},
+			blur: 5,// 模糊半径
+			radius: 8//半径
+		});
+
+	 //矿山数据量热力图
+		function getMineNumberHeatMap(data) {
+			$("#loadingToast").toggle();
+			//清除已有数据
+			map.removeLayer(mineLayer);
+			map.removeLayer(vectorHeatmap);
+			// $("#mineList").empty();
+			// $("#mineNumber").empty();
+			// $("#mineList").parent().removeClass("showPaging");//隐藏矿山查询结果分页按钮
+			// $("[href='#tab3']").click();
+			// if ($(".nav.nav_right .nav_btn_icon i").hasClass("fa-angle-double-left")) {
+			//     $(".nav.nav_right .nav_btn_icon").click();
+			// }
+			// $("#popover").removeClass("show");
+			$.ajax({
+				type: "post",
+				url: "rest/mgeids/mgeidsChinaUni/getMineNumberHeatMap",
+				data: data,
+				dataType: "json",
+				success: function (res) {
+					if (res.status && res.data.heatMap.features.length > 0) {
+						var featureObjects = (new ol.format.GeoJSON()).readFeatures(res.data.heatMap, {
+							dataProjection: 'EPSG:4326',
+							featureProjection: 'EPSG:3857'
+						})
+						for(var f = 0; f<featureObjects.length;f++){
+							var fea = featureObjects[f];
+							if(fea){
+								fea.weight = res.data.weights[f];
+							}
+						}
+						var sourceHeatmap = new ol.source.Vector({
+							features: featureObjects
+						})
+						vectorHeatmap.setSource(sourceHeatmap);
+						vectorHeatmap.setZIndex(999);
+						map.addLayer(vectorHeatmap);
+						var view = map.getView();
+						view.setZoom(4);
+					}
+					//layer.msg("共查询到"+ res.data.heatMap.features.length +"条矿山数据！");
+					$("#loadingToast").toggle();
+				}
+			});
+		}
+
+	 $('#model2').click(function(){
+		  console.log("热力图加载");
+		  var data="provinces=15&weightType=2&surveyYears=2017";
+		  getMineNumberHeatMap(data);
+	  })
+
+	$('#test').click(function(){
+		  var data="provinces=15&surveyYears=2017";
+			  $.ajax({
+				  url:'/rest/nmmine/NmmineGraphicsLoad/PointCluster',
+				  type:'POST',
+				  data:data,
+				  dataType:'html',
+				  success:function(data){
+					 console.log(data);
+				  },
+				  error : function() {
+					  alert("error")
+				  }
+			  })
+	})
+
+</script>
+
+</body>
+</html>
