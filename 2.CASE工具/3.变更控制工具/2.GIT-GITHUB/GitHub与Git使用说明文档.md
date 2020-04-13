@@ -143,7 +143,7 @@ github是通过Git进行版本控制的软件源代码托管服务平台。githu
 
 1. .新建/连接主存储库。
 
-2. 输入 $ ssh-keygen -t rsa -C "[email@example.com](mailto:"13963639551@163.com")" 生成公钥，在C:\Users\Administrator\.ssh下找到id_rsa.pub文件，记事本打开复制公钥。或则
+2. 输入 $ ssh-keygen -t rsa -C "[email@example.com](mailto:"13963639551@163.com")" 按三次回车生成公钥，在C:\Users\Administrator\.ssh下找到id_rsa.pub文件，记事本打开复制公钥。或则
 
    ![image-20200317164409192](GitHub与Git使用说明文档.assets/image-20200317164409192.png)
 
