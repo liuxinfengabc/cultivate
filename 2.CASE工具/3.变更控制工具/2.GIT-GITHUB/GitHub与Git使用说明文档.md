@@ -365,7 +365,7 @@ github-develop](https://github.com/github-develop) wants to merge 1 commit into 
 
 3. git fetch upstream  # 获取远程主程序仓库（upstream)代码
 
-4. git checked master   #切换到本地Master
+4. git checkout master   #切换到本地Master
 
 5. git merge upstream/master  #合并远程分支  
 
