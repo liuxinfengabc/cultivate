@@ -143,7 +143,7 @@ github是通过Git进行版本控制的软件源代码托管服务平台。githu
 
 1. .新建/连接主存储库。
 
-2. 输入 $ ssh-keygen -t rsa -C "[email@example.com](mailto:"13963639551@163.com")" 生成公钥，在C:\Users\Administrator\.ssh下找到id_rsa.pub文件，记事本打开复制公钥。或则
+2. 输入 $ ssh-keygen -t rsa -C "[email@example.com](mailto:"13963639551@163.com")" 按三次回车生成公钥，在C:\Users\Administrator\.ssh下找到id_rsa.pub文件，记事本打开复制公钥。或则
 
    ![image-20200317164409192](GitHub与Git使用说明文档.assets/image-20200317164409192.png)
 
@@ -266,6 +266,30 @@ github是通过Git进行版本控制的软件源代码托管服务平台。githu
 - git push  #从本地仓库推送到远程仓库
 
 **这时候只是在自己的GitHub仓库，还没有到主程序员的GitHub仓库**
+
+**解决git push代码到github上一直提示输入用户名及密码的问题**
+
+在github系统上克隆代码的地址默认采用的是http的方式，我们一般这样clone代码：
+git clone https://github.com/yychuyu/linux-system-programming.git
+而如果采用ssh方式的话，是这样clone代码的：
+git clone git@github.com:yychuyu/linux-system-programming.git
+
+解决办法很简单，将http方式改为ssh方式即可。
+
+1 先查看当前方式：
+git remote -v
+
+2 把http方式改为ssh方式。先移除旧的http的origin：
+git remote rm origin
+
+3 再添加新的ssh方式的origin：
+git remote add origin git@github.com:yychuyu/linux-system-programming.git
+
+4 检查一下有没改变成功：
+git remote -v
+
+5 改动完之后直接执行git push是无法推送代码的，需要设置一下上游要跟踪的分支，与此同时会自动执行一次git push命令，此时已经不用要求输入用户名及密码啦！
+git push --set-upstream origin master
 
 ##### 3.2.2 开发者GitHub仓库-->主程序员GitHub仓库
 
