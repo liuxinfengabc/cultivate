@@ -337,7 +337,7 @@ github-develop](https://github.com/github-develop) wants to merge 1 commit into 
 1. git remote -v：查看origin和upstream源
 2. git remote add origin/upstream git地址：添加origin/upstream源
 3. git fetch upstream
-4. git checked master
+4. git checkout master
 5. git merge upstream/master
 6. git push
 
@@ -365,7 +365,7 @@ github-develop](https://github.com/github-develop) wants to merge 1 commit into 
 
 3. git fetch upstream  # 获取远程主程序仓库（upstream)代码
 
-4. git checked master   #切换到本地Master
+4. git checkout master   #切换到本地Master
 
 5. git merge upstream/master  #合并远程分支  
 
