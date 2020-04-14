@@ -537,7 +537,7 @@ Alt +F12 打开命令窗口，进行命令操作,与在Git bash下使用一样�
 
 3. git fetch upstream
 
-4. git checked master
+4. git checkout master
 
 5. git merge upstream/master
 
