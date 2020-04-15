@@ -1,0 +1,66 @@
+@charset "utf-8";
+/*常用css*/
+.fl {
+  float: left;
+  _display: inline;
+}
+.fr {
+  float: right;
+  _display: inline;
+}
+/*常用字体*/
+.yh {
+  font-family: 'Microsoft YaHei';
+}
+.st {
+  font-family: 'SimSun';
+}
+.ar {
+  font-family: 'Arial';
+}
+.roman {
+  font-family: "Times New Roman";
+}
+.tn {
+  display: block;
+  font-size: 0;
+  text-indent: -99999em;
+  color: transparent;
+}
+.tt a:hover {
+  text-decoration: underline;
+}
+.xie {
+  font-style: italic;
+}
+.ddd {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+a {
+  color: #666;
+}
+a:hover {
+  text-decoration: none;
+  color: #10bf3e;
+}
+.btn {
+  cursor: pointer;
+}
+body {
+  font-size: 12px;
+  color: #666;
+  line-height: 24px;
+  min-width: 1200px;
+  font-family: 'Microsoft YaHei';
+}
+.l {
+  color: #10bf3e !important;
+}
+.w {
+  width: 1200px;
+  min-width: 1200px;
+  margin: 0 auto;
+}
+/*header*/
