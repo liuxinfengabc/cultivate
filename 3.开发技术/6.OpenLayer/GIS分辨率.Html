@@ -1,0 +1,48 @@
+
+<!Doctype html>
+<html xmlns=http://www.w3.org/1999/xhtml>
+<head>
+    <meta http-equiv=Content-Type content="text/html;charset=utf-8">
+    <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
+    <meta content=always name=referrer>
+    <title>OpenLayers 3地图示例</title>
+
+    <script  type="text/javascript" src="openlayer3/ol.js"></script>
+    <link rel="stylesheet" type="text/css"  href="openlayer3/ol.css">
+</head>
+<body>
+<div>
+    <span>当前层级：</span><span id="zoom"></span>
+    <span>分辨率：</span><span id="resolution"></span>
+</div>
+<div id="map" style="width: 100%"></div>
+
+    <script type="text/javascript">
+            var map = new ol.Map({
+                layers: [
+                  new ol.layer.Tile({
+                    source: new ol.source.OSM()
+                  })
+                ],
+                target: 'map',
+                view: new ol.View({
+                  center: ol.proj.transform(
+                      [104, 30], 'EPSG:4326', 'EPSG:3857'),
+                  zoom: 10
+                })
+            });
+
+            // 监听层级变化，输出当前层级和分辨率
+            map.getView().on('change:resolution', function(){
+                document.getElementById('zoom').innerHTML =  this.getZoom() + '，';
+                document.getElementById('resolution').innerHTML = this.getResolution();
+            })
+
+            document.getElementById('zoom').innerHTML = map.getView().getZoom() + '，';
+            document.getElementById('resolution').innerHTML = + map.getView().getResolution();
+        </script>
+
+
+</body>
+
+</html>
