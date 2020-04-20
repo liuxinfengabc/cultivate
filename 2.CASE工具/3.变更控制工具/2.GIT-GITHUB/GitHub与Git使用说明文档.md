@@ -466,7 +466,7 @@ tortoiseGit下载地址：https://download.tortoisegit.org/tgit/
 
 1. 设置git.exe路径
 
-File-->Settings-->Verdion Control-->Git/GitHub
+File-->Settings-->Version Control-->Git/GitHub
 
 ![image-20200222235204939](img/image-20200222235204939.png)
 
@@ -617,7 +617,7 @@ https下不用配置
 
 http://124.130.192.24:10015/liuxinfengabc/test.git
 
-##### 5.1.5clone代码
+##### 5.1.5Clone代码
 
 ![image-20200414101845959](img/image-20200414101845959.png)
 
