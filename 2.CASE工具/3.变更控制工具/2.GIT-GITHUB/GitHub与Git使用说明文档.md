@@ -258,9 +258,9 @@ github是通过Git进行版本控制的软件源代码托管服务平台。githu
 
 #### 3.2  向远程仓库添加文件
 
-开发者在本地修改内容后，需要进入要操作的文件夹内进行体骄傲
-2. git add .  #    .   表示当前文件夹
-2. git commit -m "注释信息
+开发者在本地修改内容后，需要进入要操作的文件夹内进行git操作
+1. git add .  # .   表示当前文件夹
+2. git commit -m "注释信息“
 3. git push  #推送到开发者仓库
 
 ##### 3.2.1 开发者工作区-->开发者远程仓库
@@ -345,10 +345,11 @@ github-develop](https://github.com/github-develop) wants to merge 1 commit into 
 
 1. git remote -v：查看origin和upstream源
 2. git remote add origin/upstream git地址：添加origin/upstream源
-3. git fetch upstream
-4. git checkout master
-5. git merge upstream/master
-6. git push
+3. git remote rm origin/upstream  #删除origin/upstream
+4. git fetch upstream
+5. git checkout master
+6. git merge upstream/master
+7. git push
 
 ##### 3.3.2 开发人员的仓库
 
@@ -686,3 +687,27 @@ ALT＋Ｆ１２显示终端
 ![image-20200417102022683](img/image-20200417102022683.png)
 
 #### 5.3 HBuilderX使用GitLab
+
+##### 5.2.1git插件安装
+
+1、打开工具--》插件安装
+
+![image-20200417112726651](img/image-20200417112726651.png)
+
+2、安装git
+
+![image-20200417114228788](img/image-20200417114228788.png)
+
+
+
+##### 5.2.2从gitlab加载项目
+
+1、选择文件--》新建--》项目
+
+![image-20200417114822339](img/image-20200417114822339.png)
+
+
+
+2、选择文件--》导入--》导入git项目--》输入地址--》导入即可
+
+![image-20200417115247082](img/image-20200417115247082.png)
