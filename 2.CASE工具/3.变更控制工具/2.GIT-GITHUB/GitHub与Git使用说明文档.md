@@ -422,7 +422,38 @@ github-develop](https://github.com/github-develop) wants to merge 1 commit into 
 - git push origin master
 - git push -f origin master
 
+#### 3.5 常见错误
 
+
+
+#### 3.5.1解决GitHub每次push时都提示输入用户名和密码的问题
+
+1. 原因
+
+   我们在建立远程仓库或者克隆项目时，使用的是HTTPS方式 ，HTTPS方式push不会保存用户名和密码。我们需要把HTTPS方式改成SSH的方式
+
+2. 查看远程连接方式 git remote -v
+
+```
+$ git remote -v
+origin  git@github.com:liuxinfengabc/https://github.com/liuxinfengabc/cultivate/cultivate.git (fetch)
+origin  git@github.com:liuxinfengabc/https://github.com/liuxinfengabc/cultivate/cultivate.git (push)
+```
+
+3. 删除origin
+
+```
+
+$ git remote rm origin
+```
+
+4.配置SSH方式
+
+![image-20200421113034366](img/image-20200421113034366.png)
+
+```
+$ git remote add origin git@github.com:liuxinfengabc/cultivate.git
+```
 
 ### 4. 开发环境中使用GitHub
 
