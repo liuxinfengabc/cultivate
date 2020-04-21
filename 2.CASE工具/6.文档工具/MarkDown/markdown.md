@@ -361,6 +361,7 @@ D-->>A: Dashed open arrow
 对应显示如下待办事宜 Todo 列表：
         
 - [ ] **Cmd Markdown 开发**
+    
     - [ ] 改进 Cmd 渲染算法，使用局部渲染技术提高渲染效率
     - [ ] 支持以 PDF 格式导出文稿
     - [x] 新增Todo列表功能 [语法参考](https://github.com/blog/1375-task-lists-in-gfm-issues-pulls-comments)
@@ -417,7 +418,11 @@ function _jsq_(treeid, pagename, newsid, owner)
 
 ![img](markdown.assets/DH4_V[BFFMZD022$@LDXBD5.png)
 
+设置图片存放路径
 
+
+
+![image-20200417104609635](img/image-20200417104609635.png)
 
 ## 3.4 使用MD画表格
 
