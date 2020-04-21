@@ -613,7 +613,111 @@ http://pan.baidu.com/s/1eRCzNr0
 
 
 
-# 3.地图发布
+# 3简单要素点线面的添加
+
+## 3.1、EPSG：4326与EPSG：3857坐标系
+
+### 3.1.1地理坐标系
+
+地理坐标系一般是指由经度、纬度和高度组成的坐标系，能够标示地球上的任何一个位置。不同地区可能会使用不同的参考椭球体，即使是使用相同的椭球体，也可能会为了让椭球体更好地吻合当地的大地水准面，而调整椭球体的方位，甚至大小。这就需要使用不同的大地测量系统（Geodetic datum）来标识。因此，对于地球上某一个位置来说，使用不同的测量系统，得到的坐标是不一样的
+
+### 3.1.2投影坐标系
+
+地理坐标系是三维的，我们要在地图或者屏幕上显示就需要转化为二维，这被称为[投影（Map projection）](https://en.wikipedia.org/wiki/Map_projection)。显而易见的是，从三维到二维的转化，必然会导致变形和失真，失真是不可避免的，但是不同投影下会有不同的失真，这让我们可以有得选择。常用的投影有[等矩矩形投影](https://en.wikipedia.org/wiki/Equirectangular_projection)（Platte Carre）和[墨卡托投影](https://en.wikipedia.org/wiki/Mercator_projection)（Mercator）
+
+### 3.1.3EPSG：4326与EPSG：3857
+
+EPSG：4326（又名WGS84，未投影）是一个地理坐标系。它的单位是十进制度。EPSG：4326无法在平面地图上以有意义的方式显示
+
+EPSG：3857（又名Pseudo-Mercator，球形墨卡托或Web墨卡托）是投影坐标系。这是Google Maps和几乎所有其他Web制图应用程序使用的坐标系。
+
+通常，数据存储在EPSG：4326中并显示在EPSG：3857中。当数据在平面进行展示时需要进行转换，openlayer就提供了ol.proj.transform方法进行坐标系转换。
+
+ol.proj.transform(coordinate,source,destination)将坐标从源投影转换为目标投影。这将返回一个新的坐标（并且不会修改原始坐标）。
+
+## 3.2Geometry和Feature类
+
+ Geometry类是feature对象的基本组成部分，Vector类采用Geometry类来存储一个要素的几何信息，Feature类是Vector类用来在地图上展示几何对象，是Vector图层类一个属性。这个属性是个要素数组。要素基类有两个部分，Geometry对象和attributes属性,attributes包含要素相关的数据。在OpenLayers中Vector图层对应着一个Feature.Vector类，该类除了继承了父类的Geometry和attributes属性之外，还添加了一个控制要素外观的style属性。
+
+feature（要素），即地图上的几何对象，包括点（Point），线（LineString）,多边形（Polygon）。
+
+### 3.2.1Feature加载点线面的方法
+
+ol.geom.Point方法专门用于设值几何图形为点，该方法需要一个参数，该参数是该点的坐标，是一个一维数组
+
+ol.geom.LineString方法专门用于设值几何图形为线，该方法需要一个参数，该参数是改线的两端坐标，是一个二维数组
+
+ol.geom.Polygon方法专门用于设值几何图形为多边形即面，该方法需要一个参数，该参数是该面的多个顶点坐标
+
+代码
+
+\1.   **var** labelCoords_org=[120,40];
+
+\2.   **var** labelCoords=ol.proj.transform(labelCoords_org,"EPSG:4326","EPSG:3857")
+
+\3.   **var** line_org=[[120,40],[122,51]];
+
+\4.   **var** geomPolyline=**new** ol.geom.LineString(line_org);
+
+\5.   geomPolyline.transform("EPSG:4326","EPSG:3857");
+
+\6.   
+
+\7.   **var** polygon_org=[[[120,40],[122,50],[111,45]]];
+
+\8.   **var** geomPolygon=**new** ol.geom.Polygon(polygon_org);
+
+\9.   geomPolygon.transform("EPSG:4326","EPSG:3857");
+
+\10.  
+
+\11. **var** feature=**new** ol.Feature({
+
+\12. geometry:**new** ol.geom.Point(labelCoords),
+
+\13. });
+
+\14.  
+
+\15. **var** featurepolyline=**new** ol.Feature({
+
+\16. geometry:geomPolyline,
+
+\17. name:'My Polyline'
+
+\18. });
+
+\19. **var** featurepolygon=**new** ol.Feature({
+
+\20. geometry:geomPolygon
+
+\21. });
+
+### 3.2.2几何要素添加到图层
+
+创建的几何要素如点、线、面这样的几何要素要添加到矢量图层Vector的source里，只有在矢量图层，才能显示对应的几何信息，矢量图层是用来渲染矢量数据的图层类型。
+
+一个矢量图层的包含一个数据（source）和一个样式（style），数据构成矢量图层的要素，样式规定要素显示的方式和外观。ol.source.Vector用来设置矢量图层的数据来源，该方法接收features参数，地理要素即定义的点线面几何地理信息。   
+
+如：var source=new ol.source.Vector({
+
+​                  features:feature
+
+​              });
+
+在这里设置的数据源是上面定义的点要素；在通过矢量图层的setSource可以将不同是矢量图层数据源设置到不同的矢量图层上，这样就实现了不同的点线面的加载。
+
+
+
+
+
+
+
+
+
+
+
+# 4.地图发布
 
 1. 地图坐标：现在客户要求统一使用的是2000系坐标，是否支持
 
