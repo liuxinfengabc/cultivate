@@ -1,8 +1,17 @@
+
+https://www.jianshu.com/p/25e5e07b2464  如果看不到图片，请参考
+
+### 1 GitHub工作流程与介绍
+
 github是通过Git进行版本控制的软件源代码托管服务平台。github除了Git代码仓库托管及基本的Web管理界面以外，它还提供了一些方便社会化共同软件开发的功能，即一般人口中的社群功能，包括允许用户追踪其他用户、组织、软件库的动态，对[软件代码](https://baike.sogou.com/lemma/ShowInnerLink.htm?lemmaId=4196027&ss_c=ssc.citiao.link)的改动和bug提出评论等。
+
+
+
+
 
 #### 1.1 工作流程
 
-![image-20200223111840767](img/GitHub与Git使用说明文档/image-20200223111840767.png)
+![image-20200223111840767](img/image-20200223111840767.png)
 
 上图展示了git的整体架构，以及和各部分相关的主要命令，其中涉及的各部分。
 
@@ -40,7 +49,7 @@ github是通过Git进行版本控制的软件源代码托管服务平台。githu
 
 #### 1.2 栏目介绍
 
-![image-20200222194828116](img/GitHub与Git使用说明文档/image-20200222194828116.png)
+![image-20200222194828116](img/image-20200222194828116.png)
 
 - code：代码所在地
 - issues：讨论、bug跟踪
@@ -55,21 +64,21 @@ github是通过Git进行版本控制的软件源代码托管服务平台。githu
 
 1. 创建主程序仓库helloworld，账户liuxinfengabc,属性为public
 
-![image-20200317182619515](GitHub与Git使用说明文档.assets/image-20200317182619515.png)
+![image-20200317182619515](img/image-20200317182619515.png)
 
 2. 仓库名字helloworld,属性public，任何人可见，初始化一个readme文件。
 
-   ![image-20200317183038029](GitHub与Git使用说明文档.assets/image-20200317183038029.png)
+   ![image-20200317183038029](img/image-20200317183038029.png)
 
 3. 创建成功 https://github.com/liuxinfengabc/helloworld
 
-   ![image-20200317184000460](GitHub与Git使用说明文档.assets/image-20200317184000460.png)
+   ![image-20200317184000460](img/image-20200317184000460.png)
 
-#### 1.4  Github 创建开发者仓库
+#### 1.4  GitHub 创建开发者仓库
 
 1. 创建开发人员账号  
 
-![image-20200317184258156](GitHub与Git使用说明文档.assets/image-20200317184258156.png)
+![image-20200317184258156](img/image-20200317184258156.png)
 
 2. 创建开发账户 ，申请新的QQ邮箱 1871418434@qq.com进行账户的创建。
 
@@ -77,15 +86,15 @@ github是通过Git进行版本控制的软件源代码托管服务平台。githu
 
 4. 前往 https://github.com/liuxinfengabc/helloworld，点击Fork，复制代码到自己的开发者仓库
 
-   ![image-20200317185838626](GitHub与Git使用说明文档.assets/image-20200317185838626.png)
+   ![image-20200317185838626](img/image-20200317185838626.png)
 
 5. Fork成功
 
-   ![image-20200317190840670](GitHub与Git使用说明文档.assets/image-20200317190840670.png)
+   ![image-20200317190840670](img/image-20200317190840670.png)
 
 6. 回到自己的界面github.com,看到自己Fork的代码
 
-![image-20200317191034972](GitHub与Git使用说明文档.assets/image-20200317191034972.png)
+![image-20200317191034972](img/image-20200317191034972.png)
 
 #### 1.5 GitHub中提交文件
 
@@ -93,7 +102,7 @@ github是通过Git进行版本控制的软件源代码托管服务平台。githu
 
 
 
-![image-20200317191347282](GitHub与Git使用说明文档.assets/image-20200317191347282.png)
+![image-20200317191347282](img/image-20200317191347282.png)
 
 
 
@@ -111,7 +120,7 @@ github是通过Git进行版本控制的软件源代码托管服务平台。githu
 2. 安装完成后打开根目录，找到Git文件夹，右键git-bash.exe可执行文件将其固定的工具栏，点击git-bash.exe运行。
 3. 输入指令 ls 查看文件目录。
 
-![image-20200222201309260](img/GitHub与Git使用说明文档/image-20200222201309260.png)
+![image-20200222201309260](img/image-20200222201309260.png)
 
 **正常安装完成！**
 
@@ -143,26 +152,26 @@ github是通过Git进行版本控制的软件源代码托管服务平台。githu
 
 1. .新建/连接主存储库。
 
-2. 输入 $ ssh-keygen -t rsa -C "[email@example.com](mailto:"13963639551@163.com")" 生成公钥，在C:\Users\Administrator\.ssh下找到id_rsa.pub文件，记事本打开复制公钥。或则
+2. 输入 $ ssh-keygen -t rsa -C "[email@example.com](mailto:"13963639551@163.com")" 按三次回车生成公钥，在C:\Users\Administrator\.ssh下找到id_rsa.pub文件，记事本打开复制公钥。或则
 
-   ![image-20200317164409192](GitHub与Git使用说明文档.assets/image-20200317164409192.png)
+   ![image-20200317164409192](img/image-20200317164409192.png)
 
 3. 在GitHub上新建密钥，自定义标题（title）将公钥粘贴保存。
 
    1. 选择设置
 
-      ![image-20200317182418527](GitHub与Git使用说明文档.assets/image-20200317182418527.png)
+      ![image-20200317182418527](img/image-20200317182418527.png)
 
    2. 知道到SSH and GPS keys 菜单，点击 New SSH key
 
    
 
-   ![image-20200317170729077](GitHub与Git使用说明文档.assets/image-20200317170729077.png)
+   ![image-20200317170729077](img/image-20200317170729077.png)
 
-   3. 复制生成的key![image-20200317170812465](GitHub与Git使用说明文档.assets/image-20200317170812465.png)
+   3. 复制生成的key![image-20200317170812465](img/image-20200317170812465.png)
    4. 收到邮件
 
-   ![image-20200317170928135](GitHub与Git使用说明文档.assets/image-20200317170928135.png)
+   ![image-20200317170928135](img/image-20200317170928135.png)
 
 
 
@@ -227,7 +236,7 @@ github是通过Git进行版本控制的软件源代码托管服务平台。githu
 
    https://github.com/github-develop/helloworld.git
 
-   ![image-20200402100120361](GitHub与Git使用说明文档.assets/image-20200402100120361.png)
+   ![image-20200402100120361](img/image-20200402100120361.png)
 
 
 
@@ -241,17 +250,17 @@ github是通过Git进行版本控制的软件源代码托管服务平台。githu
 
 	2. git clone https://github.com/github-develop/helloworld.git
 
-![image-20200402102435432](GitHub与Git使用说明文档.assets/image-20200402102435432.png)
+![image-20200402102435432](img/image-20200402102435432.png)
 
 3. 下载结果
 
-   ![image-20200402103110234](GitHub与Git使用说明文档.assets/image-20200402103110234.png)
+   ![image-20200402103110234](img/image-20200402103110234.png)
 
 #### 3.2  向远程仓库添加文件
 
-开发者在本地修改内容后，需要进入要操作的文件夹内进行体骄傲
-2. git add .  #    .   表示当前文件夹
-2. git commit -m "注释信息
+开发者在本地修改内容后，需要进入要操作的文件夹内进行git操作
+1. git add .  # .   表示当前文件夹
+2. git commit -m "注释信息“
 3. git push  #推送到开发者仓库
 
 ##### 3.2.1 开发者工作区-->开发者远程仓库
@@ -267,19 +276,43 @@ github是通过Git进行版本控制的软件源代码托管服务平台。githu
 
 **这时候只是在自己的GitHub仓库，还没有到主程序员的GitHub仓库**
 
+**解决git push代码到github上一直提示输入用户名及密码的问题**
+
+在github系统上克隆代码的地址默认采用的是http的方式，我们一般这样clone代码：
+git clone https://github.com/yychuyu/linux-system-programming.git
+而如果采用ssh方式的话，是这样clone代码的：
+git clone git@github.com:yychuyu/linux-system-programming.git
+
+解决办法很简单，将http方式改为ssh方式即可。
+
+1 先查看当前方式：
+git remote -v
+
+2 把http方式改为ssh方式。先移除旧的http的origin：
+git remote rm origin
+
+3 再添加新的ssh方式的origin：
+git remote add origin git@github.com:yychuyu/linux-system-programming.git
+
+4 检查一下有没改变成功：
+git remote -v
+
+5 改动完之后直接执行git push是无法推送代码的，需要设置一下上游要跟踪的分支，与此同时会自动执行一次git push命令，此时已经不用要求输入用户名及密码啦！
+git push --set-upstream origin master
+
 ##### 3.2.2 开发者GitHub仓库-->主程序员GitHub仓库
 
 1. 登录Github,进入项目，点击New pull request 命令，
 
-   ![image-20200402104035230](GitHub与Git使用说明文档.assets/image-20200402104035230.png)
+   ![image-20200402104035230](img/image-20200402104035230.png)
 
 2. 通过Create pull request 进行提交，**提交给主程序员了，通知审核**
 
-![image-20200402104419033](GitHub与Git使用说明文档.assets/image-20200402104419033.png)
+![image-20200402104419033](img/image-20200402104419033.png)
 
 
 
-![image-20200402104556523](GitHub与Git使用说明文档.assets/image-20200402104556523.png)
+![image-20200402104556523](img/image-20200402104556523.png)
 
 ```
 [
@@ -288,17 +321,17 @@ github-develop](https://github.com/github-develop) wants to merge 1 commit into 
 
 
 
-![image-20200402104616149](GitHub与Git使用说明文档.assets/image-20200402104616149.png)
+![image-20200402104616149](img/image-20200402104616149.png)
 
 ##### 3.2.3主程序员合并request
 
 1. 主程序员登录Github ，查看pull request 
 
-   ![image-20200402105008810](GitHub与Git使用说明文档.assets/image-20200402105008810.png)
+   ![image-20200402105008810](img/image-20200402105008810.png)
 
 2. 点击FileChanged 查看修改内容，进行审核，并进行合并
 
-![image-20200222222059393](img/GitHub与Git使用说明文档/image-20200222222059393.png)
+![image-20200222222059393](img/image-20200222222059393.png)
 
 
 
@@ -312,10 +345,11 @@ github-develop](https://github.com/github-develop) wants to merge 1 commit into 
 
 1. git remote -v：查看origin和upstream源
 2. git remote add origin/upstream git地址：添加origin/upstream源
-3. git fetch upstream
-4. git checked master
-5. git merge upstream/master
-6. git push
+3. git remote rm origin/upstream  #删除origin/upstream
+4. git fetch upstream
+5. git checkout master
+6. git merge upstream/master
+7. git push
 
 ##### 3.3.2 开发人员的仓库
 
@@ -341,7 +375,7 @@ github-develop](https://github.com/github-develop) wants to merge 1 commit into 
 
 3. git fetch upstream  # 获取远程主程序仓库（upstream)代码
 
-4. git checked master   #切换到本地Master
+4. git checkout master   #切换到本地Master
 
 5. git merge upstream/master  #合并远程分支  
 
@@ -349,9 +383,9 @@ github-develop](https://github.com/github-develop) wants to merge 1 commit into 
 
    **此时，开发人员本地库已经和主程序员的原仓库已经完全同步了。但是注意，此时只是你电脑上的本地库和远程的github原仓库同步了，你自己的github仓库还没有同步，此时需要使用“git push”命令把你本地的仓库提交到github中。**
 
-![image-20200222225834676](img/GitHub与Git使用说明文档/image-20200222225834676.png)
+![image-20200222225834676](img/image-20200222225834676.png)
 
-![image-20200222224752723](img/GitHub与Git使用说明文档/image-20200222224752723.png)
+![image-20200222224752723](img/image-20200222224752723.png)
 
 
 
@@ -369,15 +403,15 @@ github-develop](https://github.com/github-develop) wants to merge 1 commit into 
 
    
 
-![image-20200222231335512](img/GitHub与Git使用说明文档/image-20200222231335512.png)
+![image-20200222231335512](img/image-20200222231335512.png)
 
-![image-20200222231719188](img/GitHub与Git使用说明文档/image-20200222231719188.png)
+![image-20200222231719188](img/image-20200222231719188.png)
 
-![image-20200222231733144](img/GitHub与Git使用说明文档/image-20200222231733144.png)
+![image-20200222231733144](img/image-20200222231733144.png)
 
-![image-20200222232302058](img/GitHub与Git使用说明文档/image-20200222232302058.png)
+![image-20200222232302058](img/image-20200222232302058.png)
 
-![image-20200222232320868](img/GitHub与Git使用说明文档/image-20200222232320868.png)
+![image-20200222232320868](img/image-20200222232320868.png)
 
 **此时回退版本已经完毕**
 
@@ -388,9 +422,40 @@ github-develop](https://github.com/github-develop) wants to merge 1 commit into 
 - git push origin master
 - git push -f origin master
 
+#### 3.5 常见错误
 
 
-### 4. 开发环境中使用Git
+
+#### 3.5.1解决GitHub每次push时都提示输入用户名和密码的问题
+
+1. 原因
+
+   我们在建立远程仓库或者克隆项目时，使用的是HTTPS方式 ，HTTPS方式push不会保存用户名和密码。我们需要把HTTPS方式改成SSH的方式
+
+2. 查看远程连接方式 git remote -v
+
+```
+$ git remote -v
+origin  git@github.com:liuxinfengabc/https://github.com/liuxinfengabc/cultivate/cultivate.git (fetch)
+origin  git@github.com:liuxinfengabc/https://github.com/liuxinfengabc/cultivate/cultivate.git (push)
+```
+
+3. 删除origin
+
+```
+
+$ git remote rm origin
+```
+
+4.配置SSH方式
+
+![image-20200421113034366](img/image-20200421113034366.png)
+
+```
+$ git remote add origin git@github.com:liuxinfengabc/cultivate.git
+```
+
+### 4. 开发环境中使用GitHub
 
 #### 4.1 tortoiseGit(windows)简化操作
 
@@ -400,12 +465,12 @@ tortoiseGit下载地址：https://download.tortoisegit.org/tgit/
 
 1. git commit 操作。 修改了文件后，右键选择commit，输入Message后，点Commit提交到本地仓库。
 
-![img](img/GitHub与Git使用说明文档/wps3.png) 
+![img](img/wps3.png) 
 
 2. git pull 拉取服务器文件。在项目文件夹下右键菜单，选择TortoiseGit->Pull，点击OK.
 3. git push 提交代表到服务器，TortoiseGit-> git push
 
-![img](img/GitHub与Git使用说明文档/wps4.png) 
+![img](img/wps4.png) 
 
 如果文件出现感叹号则表示有冲突，必须先解决冲突：
 
@@ -433,13 +498,13 @@ tortoiseGit下载地址：https://download.tortoisegit.org/tgit/
 
 1. 设置git.exe路径
 
-File-->Settings-->Verdion Control-->Git/GitHub
+File-->Settings-->Version Control-->Git/GitHub
 
-![image-20200222235204939](img/GitHub与Git使用说明文档/image-20200222235204939.png)
+![image-20200222235204939](img/image-20200222235204939.png)
 
 2. 登录Github账户
 
-![image-20200222235239154](img/GitHub与Git使用说明文档/image-20200222235239154.png)
+![image-20200222235239154](img/image-20200222235239154.png)
 
 
 
@@ -447,15 +512,15 @@ File-->Settings-->Verdion Control-->Git/GitHub
 
 1. File ->New->Project from Version Control
 
-![image-20200222234926629](img/GitHub与Git使用说明文档/image-20200222234926629.png)
+![image-20200222234926629](img/image-20200222234926629.png)
 
 2. 设置GitHub地址以及存储路径
 
-![image-20200222235447325](img/GitHub与Git使用说明文档/image-20200222235447325.png)
+![image-20200222235447325](img/image-20200222235447325.png)
 
 3. 点击Clone
 
-![image-20200222235614107](img/GitHub与Git使用说明文档/image-20200222235614107.png)
+![image-20200222235614107](img/image-20200222235614107.png)
 
 **4. 克隆完毕**
 
@@ -465,23 +530,23 @@ File-->Settings-->Verdion Control-->Git/GitHub
 
 1. 添加新增文件(git add)
 
-![image-20200223000755898](GitHub与Git使用说明文档.assets/image-20200223000755898.png)
+![image-20200223000755898](img/image-20200223000755898.png)
 
 2. 提交文件按 VCS-->Git-->Commit Changes
 
-![image-20200223000919666](img/GitHub与Git使用说明文档/image-20200223000919666.png)
+![image-20200223000919666](img/image-20200223000919666.png)
 
-![image-20200223001043046](img/GitHub与Git使用说明文档/image-20200223001043046.png)
+![image-20200223001043046](img/image-20200223001043046.png)
 
-![image-20200223001108163](img/GitHub与Git使用说明文档/image-20200223001108163.png)
+![image-20200223001108163](img/image-20200223001108163.png)
 
-![image-20200223001158304](img/GitHub与Git使用说明文档/image-20200223001158304.png)
+![image-20200223001158304](img/image-20200223001158304.png)
 
-![image-20200223001227742](img/GitHub与Git使用说明文档/image-20200223001227742.png)
+![image-20200223001227742](img/image-20200223001227742.png)
 
 **看到这个说明已经push成功**
 
-![image-20200223001340225](img/GitHub与Git使用说明文档/image-20200223001340225.png)
+![image-20200223001340225](img/image-20200223001340225.png)
 
 **如果往主程序员的仓库更新，就参考前面讲的pull request**
 
@@ -489,31 +554,31 @@ File-->Settings-->Verdion Control-->Git/GitHub
 
 **若别人更新了仓库，在idea中怎么办呢？**
 
-![image-20200223001756484](img/GitHub与Git使用说明文档/image-20200223001756484.png)
+![image-20200223001756484](img/image-20200223001756484.png)
 
-![image-20200223001855840](img/GitHub与Git使用说明文档/image-20200223001855840.png)
+![image-20200223001855840](img/image-20200223001855840.png)
 
 **这三个地方都可以**
 
-![](img/GitHub与Git使用说明文档/image-20200223001948419.png)
+![](img/image-20200223001948419.png)
 
 ##### 4.2.5 在终端中使用Git命令
 
 **File-->Settings-->Tools-->Terminal-->Shell path**
 
-![image-20200223002248860](img/GitHub与Git使用说明文档/image-20200223002248860.png)
+![image-20200223002248860](img/image-20200223002248860.png)
 
 Alt +F12 打开命令窗口，进行命令操作,与在Git bash下使用一样的效果，可以执行以下命令。
 
 1. git remote -v：查看origin和upstream源
 
-   ![image-20200402110905149](GitHub与Git使用说明文档.assets/image-20200402110905149.png)
+   ![image-20200402110905149](img/image-20200402110905149.png)
 
 2. git remote add origin/upstream git地址：添加origin/upstream源
 
 3. git fetch upstream
 
-4. git checked master
+4. git checkout master
 
 5. git merge upstream/master
 
@@ -523,21 +588,21 @@ Alt +F12 打开命令窗口，进行命令操作,与在Git bash下使用一样�
 
 ##### 4.2.6 创建项目并上传github
 
-![image-20200222234240245](img/GitHub与Git使用说明文档/image-20200222234240245.png)
+![image-20200222234240245](img/image-20200222234240245.png)
 
-![image-20200222234341314](img/GitHub与Git使用说明文档/image-20200222234341314.png)
+![image-20200222234341314](img/image-20200222234341314.png)
 
 **点击Share**
 
-![image-20200222234527903](img/GitHub与Git使用说明文档/image-20200222234527903.png)
+![image-20200222234527903](img/image-20200222234527903.png)
 
 **点击Add，就可以将项目传到GitHub上了，不存在仓库就会创建一个名字为testJava的仓库**
 
-![image-20200222234621484](img/GitHub与Git使用说明文档/image-20200222234621484.png)
+![image-20200222234621484](img/image-20200222234621484.png)
 
 **看到Successfully，表示创建成功**
 
-![image-20200222234750674](img/GitHub与Git使用说明文档/image-20200222234750674.png)
+![image-20200222234750674](img/image-20200222234750674.png)
 
 #### 4.3 eclipse中使用Git/Github
 
@@ -557,3 +622,123 @@ Alt +F12 打开命令窗口，进行命令操作,与在Git bash下使用一样�
 4. 在Staged Changes中可以查看要提交的文件，在Commit Message中输入提交内容备注，以及作者相关，点击commit至本地
 5. Pull拉取服务器上更新文件
 6. 最后Push至服务器
+
+### 5.Gitlab使用
+
+#### 5.1 idea使用Gitlab
+
+##### 5.1.1下载Gitlab插件
+
+![image-20200414095107062](img/image-20200414095107062.png)
+
+##### 5.1.2登录Github查找token
+
+https下不用配置
+
+![image-20200414101245181](img/image-20200414101245181.png)
+
+
+
+##### 5.1.3idea设置gitlab
+
+![image-20200414101422198](img/image-20200414101422198.png)
+
+##### 5.1.4复制代码地址
+
+![image-20200414101740614](img/image-20200414101740614.png)
+
+http://124.130.192.24:10015/liuxinfengabc/test.git
+
+##### 5.1.5Clone代码
+
+![image-20200414101845959](img/image-20200414101845959.png)
+
+5.1.6 更新代码
+
+![image-20200414103447285](img/image-20200414103447285.png)
+
+
+
+出错：
+
+![image-20200414103515381](img/image-20200414103515381.png)
+
+
+
+但是命令行可以：
+
+![image-20200414103552308](img/image-20200414103552308.png)
+
+#### 5.2 pycharm使用Gitlab
+
+与idea基本相同
+
+##### 5.2.1下载gitlab插件
+
+![image-20200417102133554](img/image-20200417102133554.png)
+
+
+
+
+
+##### 5.2.2配置GitLab服务器
+
+![image-20200417102516613](img/image-20200417102516613.png)
+
+
+
+##### 5.2.3 Clone代码源
+
+1. 获取代码地址，首先需要注册账户，并且有代码权限![image-20200417102824947](img/image-20200417102824947.png)
+
+
+
+```
+http://git.iesnengyuan.com/jianda/gisofflinemapsystem
+```
+
+2. pyCharm执行Clone命令
+
+```
+打开VCS菜单-->Git--->Git Clone
+```
+
+![image-20200417103015025](img/image-20200417103015025.png)
+
+3.  输入用户名和密码
+
+   ![image-20200417103115853](img/image-20200417103115853.png)
+
+##### 5.2.4配置Terminal 执行git命令
+
+![image-20200417101821839](img/image-20200417101821839.png)
+
+ALT＋Ｆ１２显示终端
+
+![image-20200417102022683](img/image-20200417102022683.png)
+
+#### 5.3 HBuilderX使用GitLab
+
+##### 5.2.1git插件安装
+
+1、打开工具--》插件安装
+
+![image-20200417112726651](img/image-20200417112726651.png)
+
+2、安装git
+
+![image-20200417114228788](img/image-20200417114228788.png)
+
+
+
+##### 5.2.2从gitlab加载项目
+
+1、选择文件--》新建--》项目
+
+![image-20200417114822339](img/image-20200417114822339.png)
+
+
+
+2、选择文件--》导入--》导入git项目--》输入地址--》导入即可
+
+![image-20200417115247082](img/image-20200417115247082.png)

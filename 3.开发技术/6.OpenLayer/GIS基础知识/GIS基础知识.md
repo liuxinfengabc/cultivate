@@ -1,13 +1,26 @@
-#### 1.基础概念
+# 1.基础知识
 
-##### 1.1 坐标系
+## 1.基础概念
+
+
+
+```
+
+
+```
+
+
+
+
+
+### 1.1 坐标系
 
 GIS 中使用两种常用的坐标系类型：
 
 - 全局坐标系或球坐标系，例如经纬度。这些坐标系通常称为*地理坐标系。*
 - 基于横轴墨卡托、亚尔勃斯等积或罗宾森等地图投影的投影坐标系，这些地图投影（以及其他多种地图投影模型）提供了各种机制将地球球面的地图投影到二维笛卡尔坐标平面上。投影坐标系有时称为*地图投影*。
 
-###### 1.1.1地理坐标系
+#### 1.1.1地理坐标系
 
 1. 地理坐标系使用地球的三维模型（椭球体）来定义表面上的特定位置以创建网格。 当我们使用“经度”和“纬度”来引用位置时，使用的是地理坐标。
    另一方面，基准是基于特定椭球（因此是更具体的地理坐标系）的地理坐标系。基准只是标准参考点，它类似于你给某人指示你的房子时使用的出发点。
@@ -15,7 +28,7 @@ GIS 中使用两种常用的坐标系类型：
 2. 在美国，有两种类型的全国性基准：水平和垂直基准，并且它们通常彼此分开。水平基准使人们能够测量地球表面的距离和方向。
 3. 大多数水平基准面在赤道处定义零线，我们从中测量北极和南极。格林威治子午线也有一条零线，用于测量东西方。这些线一起为纬度和经度提供参考。
 
-###### 1.1.2 投影坐标系
+#### 1.1.2 投影坐标系
 
 投影坐标系定义了如何在二维平面上从三维模型中绘制地理位置。
 
@@ -35,7 +48,7 @@ Esri使用EPSG:54001。EPSG：3857（伪墨卡托）投影的Pseudo-Mercator坐�
 
 
 
-##### 1.2 EPSG
+### 1.2 EPSG
 
 EPSP的英文全称是European Petroleum Survey Group，中文名称为欧洲石油调查组织。这个组织成立于1986年，2005年并入IOGP(InternationalAssociation of Oil & Gas Producers)，中文名称为国际油气生产者协会。EPSG对世界的每一个地方都制定了地图，但是由于座标系不同，所以地图也各不相同。
 
@@ -68,17 +81,17 @@ EPSP的英文全称是European Petroleum Survey Group，中文名称为欧洲石
    4555	GCS_New_Beijing
    4610	GCS_Xian_1980
 
-##### 1.3 中国地理坐标系
+### 1.3 中国地理坐标系
 
-##### （1）北京54坐标系
+### （1）北京54坐标系
 
   中国成立以后，我国大地测量进入了全面发展时期，在全国范围内开展了正规的，全面的大地测量和测图工作，迫切需要建立一个参心大地坐标系。由于当时的"一边倒"政治趋向，故我国采用了前苏联的克拉索夫斯基椭球参数，并与前苏联1942年坐标系进行联测，通过计算建立了我国大地坐标系，定名为1954年北京坐标系。因此，1954年北京坐标系可以认为是前苏联1942年坐标系的延伸。**原点不在北京而是在前苏联的普尔科沃。**
 
-##### （2）西安80坐标系
+### （2）西安80坐标系
 
    自北京54坐标系统建立以来，在该坐标系内进行了许多地区的局部平差，其成果得到了广泛的应用。但是随着测绘新理论·新技术的不断发展，人们发现该坐标系存在很多缺点，为此，我国在1978年在西安召开了"全国天文大地网整体平差会议"，提出了建立属于我国自己的大地坐标系，即后来1980西安坐标系。1980年国家大地坐标系采用地球椭球基本参数为1975年国际大地测量与地球物理联合会第十六届大会推荐的数据，即IAG 75地球椭球体。该坐标系的大地原点设在我国中部的陕西省泾阳县永乐镇，位于西安市西北方向约60公里。
 
-##### （3）CGCS2000坐标系
+### （3）CGCS2000坐标系
 
   以地球质量中心为原点的地心大地坐标系，是21世纪空间时代全球通用的基本大地坐标系。以空间技术为基础的地心大地坐标系，是中国新一代大地坐标系的适宜选择。地心大地坐标系可以满足大地测量、地球物理、天文、导航和航天应用以及经济、社会发展的广泛需求。  2000中国大地坐标系(China Geodetic Coordinate System 2000，CGCS2000)，又称之为2000国家大地坐标系，是中国新一代大地坐标系，21世纪初已在中国正式实施。
 
@@ -94,9 +107,9 @@ https://blog.csdn.net/dzdffg/article/details/80599559?depth_1-utm_source=distrib
 
 
 
-##### 1.4坐标转换
+### 1.4坐标转换
 
-###### 1.4.1坐标转换原理
+#### 1.4.1坐标转换原理
 
 在坐标转换时最主要的是坐标系转换参数，因为不同坐标系统采用椭球体，基准面等等都不同，同时我们拿到的图层或数据又分为不同的投影方式后的数据。这些数据之间的转换需要有相应的转换参数才能准确的相互转换。
 
@@ -110,7 +123,7 @@ https://blog.csdn.net/dzdffg/article/details/80599559?depth_1-utm_source=distrib
 
 ![image-20200405221246565](GIS基础知识.assets/image-20200405221246565.png)
 
-###### 1.4.2 利用arcgis进行坐标转换
+#### 1.4.2 利用arcgis进行坐标转换
 
 我们以80坐标系的shp格式数据转换为2000坐标系为例演示。
 
@@ -128,7 +141,7 @@ https://blog.csdn.net/dzdffg/article/details/80599559?depth_1-utm_source=distrib
 
  
 
-#### 2 Openlayer坐标系
+## 2 Openlayer坐标系
 
 ```
 前台采用openlayers进行地图展示. Openlayers支持的坐标系为:地理坐标系统为WGS84（EPSG:4326）,投影坐标系统为Web墨卡托（EPSG:3857）.特点如下:
@@ -144,7 +157,7 @@ openlayer坐标系有几点注意：
 3. 离线地图若是高德地图，那么加载的点需要是高德坐标系对应的点。
 4. 地图如果是openstreetmap，那么加载的点需要是WGS84坐标系
 
-##### 2.1 OpenLayers对坐标系转换的支持
+### 2.1 OpenLayers对坐标系转换的支持
 
  OpenLayers默认只支持EPSG:4326和EPSG:3857，想让它支持CGCS2000坐标系该怎么办？需要自定义坐标系，借助proj4.js
 
@@ -165,9 +178,9 @@ openlayer坐标系有几点注意：
    
    1. ![在这里插入图片描述](GIS基础知识.assets/2019071114580265.png)
 
-##### 2.2openlayers加载图层
+### 2.2openlayers加载图层
 
-###### 2.2.1加载类型
+#### 2.2.1加载类型
 
 我们加载的图层来源分为三种:
 
@@ -177,7 +190,7 @@ openlayer坐标系有几点注意：
 
 3）行政区域轮廓图层采用geoJson格式的数据进行加载
 
-###### 2.2.2 openlayers加载图层实现
+#### 2.2.2 openlayers加载图层实现
 
 1）openlayers引用
 
@@ -209,9 +222,9 @@ openlayer坐标系有几点注意：
 
 
 
-##### 2.3如何获得geojson数据
+### 2.3如何获得geojson数据
 
-###### 2.3.1 什么是geojson格式数据
+#### 2.3.1 什么是geojson格式数据
 
 GeoJSON 是用 JSON 的语法表达和存储地理数据，可以说是 JSON 的子集。geojson将所有的地理要素分为Point、MultiPoint、LineString、MultiLineString、Polygon、MultiPolygon、GeometryCollection。首先是将这些要素封装到单个的geometry里，然后作为一个个的Feature（也就是要素）；要素放到一个要素集合里，从树状结构来理解FeatureCollection就是根节点，表示为：                               
 
@@ -229,7 +242,7 @@ GeoJSON 是用 JSON 的语法表达和存储地理数据，可以说是 JSON 的
 
 4）还有其他类型的格式，不再举例，可在网上进行查看。
 
-###### 2.3.2如何获得geojson格式的数据
+#### 2.3.2如何获得geojson格式的数据
 
 获取geojson格式的数据大体分为以下三种来源。
 
@@ -239,19 +252,23 @@ GeoJSON 是用 JSON 的语法表达和存储地理数据，可以说是 JSON 的
 
   自己手动编写geojson格式数据。如果有些经纬度坐标，可以按照geojson的格式要求自己编写。
 
-#### 3. 离线地图切片编号
+## 3. 离线地图切片编号
 
 ```
 标准的WMS请求中也涉及到行列号的换算，WMS请求中有一个Bbox的参数，而这个参数也与行列号的换算有关系。而标准的WMTS请求中，TILEMATRIX、TILEROW、TILECOL这三个参数代表的就是瓦片的级别、行、列号。
 由此可见，不管是针对哪种离线或在线的地图的瓦片请求中，得到瓦片的level、col、row是请求能够实现的核心。
 ```
 
-###### 2.2.1 google地图转换
+#### 2.2.1 google地图转换
 
-```
+
+
 谷歌地图层行列是以左上角为原点，瓦片编号是向右和向下，没有负数。
 谷歌是从左上角经纬度(-180,90)度开始计算瓦片，在第0级时谷歌将世界地图分为1块，第1级的时候分为4块。
 层zoom(z)，列col(x)，行row(y) 
+
+```
+
 
 /**
      * 谷歌下转换经纬度对应的层行列
@@ -343,7 +360,364 @@ Scale = 1 : (96 * 2 * Math.PI * 6378137 * resolution / 360 / 0.0254);
 
 
 
-#### 4.地图发布
+# **2.ArcGIS环境配置**
+## **2.1 ArcGIS Desktop 10.2安装与破解步骤**
+
+**第一步：下载安装包**
+
+请在以下地址分别下载原版安装光盘、破解文件和汉化包。
+
+ArcGIS_Desktop_102_134924原版安装光盘：
+
+http://pan.baidu.com/s/1nuB58DV
+
+ArcGIS_Desktop_102_134924 破解文件：
+
+http://pan.baidu.com/s/1boWOJP9
+
+ArcGIS_Desktop_102_134924 汉化包：
+
+http://pan.baidu.com/s/1eRCzNr0
+
+  **第二步：安装License Manager并破解**
+
+直接解压或用虚拟光驱软件打开ISO原版安装光盘文件（Win10中可以直接双击打开），然后双击“ESRI.exe”文件，如下图所示。
+
+ ![0.jpg](http://pic.rivermap.cn/upload/201706/26/201706261102180129.jpg) 
+
+进入ArcGIS安装界面之后，点击“Setup”安装ArcGIS License Manager项，如下图所示。
+
+
+
+![1.jpg](http://pic.rivermap.cn/upload/201706/26/201706261103018415.jpg)
+
+
+
+在弹出的安装向导中一直点击“Next”安钮进行ArcGIS License Manager安装，如下图所示。
+
+
+
+![2.jpg](http://pic.rivermap.cn/upload/201706/26/201706261103297794.jpg)
+
+
+
+安装完成之后，点击“Stop”停止运行许可服务，如下图所示。
+
+
+
+![4.jpg](http://pic.rivermap.cn/upload/201706/26/201706261104180300.jpg)
+
+
+
+复制破解文件中的“ARCGIS.exe”和“service.txt”文件，如下图所示。
+
+
+
+![5.jpg](http://pic.rivermap.cn/upload/201706/26/201706261104382646.jpg)
+
+
+
+将“ARCGIS.exe”和“service.txt”文件粘贴替换到ArcGIS安装目录的“License10.2\bin”路径下，如下图所示。
+
+
+
+![6.jpg](http://pic.rivermap.cn/upload/201706/26/201706261105053119.jpg)
+
+
+
+从菜单中点击“License Server Administrator”或双击安装目录中的“LSAdmin.exe”，如下图所示。
+
+
+
+![7.jpg](http://pic.rivermap.cn/upload/201706/26/201706261105214996.jpg)
+
+
+
+点击“启动”按钮重新启动刚才停止的许可服务，如下图所示。
+
+
+
+![8.jpg](http://pic.rivermap.cn/upload/201706/26/201706261105425623.jpg)
+
+
+
+点击“确定”按钮完成许可的安装与破解。
+
+ 第三步：安装 ArcGIS Desktop 10.2
+
+在安装界面中点击“Setup”安装ArcGIS for Desktop项，如下图所示。
+
+
+
+![9.jpg](http://pic.rivermap.cn/upload/201706/26/201706261106152190.jpg)
+
+
+
+
+
+在弹出的安装向导中一直点击“Next”安钮进行ArcGIS 10.2安装，如下图所示。
+
+
+
+![10.jpg](http://pic.rivermap.cn/upload/201706/26/201706261106326411.jpg)
+
+
+
+安装完成之后，在弹出的对话框中选择“Advanced (ArcInfo) Concurrent Use”项并点击“OK”按钮，如下图所示。
+
+
+
+![11.jpg](http://pic.rivermap.cn/upload/201706/26/201706261106472975.jpg)
+
+
+
+在弹出的对话框中点击“Change”按钮，然后将“Not_Set”改成“localhost”，如下图所示。
+
+
+
+![12.jpg](http://pic.rivermap.cn/upload/201706/26/201706261107326575.jpg)
+
+
+
+点击“Availability”可以看出软件已授权成功，如下图所示。
+
+
+
+![13.jpg](http://pic.rivermap.cn/upload/201706/26/201706261107526890.jpg)
+
+
+
+ 第四步：安装汉化包（可选）
+
+如果需要汉化ArcGIS10.2，请点击汉化包目录中的“DesktopChinese_CN.msi”安装汉化包，如下图所示。
+
+
+
+![14.jpg](http://pic.rivermap.cn/upload/201706/26/201706261108064548.jpg)
+
+
+
+安装完成之后，启动ArcMap软件即可正常使用，如下图所示。
+
+
+
+![15.jpg](http://pic.rivermap.cn/upload/201706/26/201706261108180331.jpg)
+
+
+
+至此，ArcGIS10.2的安装与破解已全部完成。
+
+
+
+
+
+## 2.2.ArcGIS Server 10.2 安装与破解图文教程
+
+一、所需文件
+
+ arcgis server下载地址：链接: https://pan.baidu.com/s/1iXol6v3RiqjU2MLvbnwNFA 提取码: 7fzf  
+
+1.Arcgis Server10.2 安装文件。
+
+2.Arcgis Server10.2授权文件。
+
+解压后，授权文件Arcgis_10.2.1.ecp也在其中。
+
+ 二、安装步骤 
+
+1、 下载解压文件之后，找到ESRI.exe然后双击开始安装。 
+
+ ![1.jpg](http://pic.rivermap.cn/upload/201708/08/201708081013434710.jpg) 
+
+2、 进入安装界面后，点击“Setup”安装ArcGIS for Server 开始安装。 
+
+ ![2.jpg](http://pic.rivermap.cn/upload/201708/08/201708081017160689.jpg) 
+
+3、 点击“Next”按钮，进入下一步安装界面。 
+
+ ![3.jpg](http://pic.rivermap.cn/upload/201708/08/201708081016570060.jpg) 
+
+4、 选择同接受许可协议后，点击“Next”按钮，进入下一步安装界面。 
+
+ ![4.jpg](http://pic.rivermap.cn/upload/201708/08/201708081018121481.jpg) 
+
+5、 点击“Next”按钮，进入下一步安装界面。 
+
+ ![5.jpg](http://pic.rivermap.cn/upload/201708/08/201708081019406966.jpg) 
+
+6、 点击“Next”按钮，进入下一步安装界面。 
+
+ ![6.jpg](http://pic.rivermap.cn/upload/201708/08/201708081020170723.jpg) 
+
+7、 设置一个能记住的帐户和密码，点击“Next”按钮，进入下一步安装界面。 
+
+ ![7.jpg](http://pic.rivermap.cn/upload/201708/08/201708081020447135.jpg) 
+
+8、 点击“Next”按钮，进入下一步安装界面。 
+
+ ![8.jpg](http://pic.rivermap.cn/upload/201708/08/201708081021047608.jpg) 
+
+9、 点击“Install”按钮，开始安装软件。 
+
+ ![9.jpg](http://pic.rivermap.cn/upload/201708/08/201708081021210892.jpg) 
+
+10、 正在安装软件，速度根据电脑运行效率不同而不现，一般大概需要几分钟左右。 
+
+ ![10.jpg](http://pic.rivermap.cn/upload/201708/08/201708081021325113.jpg) 
+
+11、 点击“Finish”按钮，完成安装。 
+
+ ![11.jpg](http://pic.rivermap.cn/upload/201708/08/201708081021503866.jpg) 
+
+ 12、选择立即用许可文件认片，然后点击“Browse...”按钮，选择解压后的授权文件Arcgis_10.2.1.ecp。 
+
+ ![12.jpg](http://pic.rivermap.cn/upload/201708/08/201708081022016681.jpg) 
+
+ 13、选择压缩包中的许可文件并点击“打开”按钮。 
+
+ ![13.jpg](http://pic.rivermap.cn/upload/201708/08/201708081022125902.jpg) 
+
+ 14、点击“下一步”按钮开始授权。 
+
+ ![14.jpg](http://pic.rivermap.cn/upload/201708/08/201708081023218571.jpg) 
+
+15、 授权成功之后，点击“完成”按钮。 
+
+ ![15.jpg](http://pic.rivermap.cn/upload/201708/08/201708081034405264.jpg) 
+
+ 16、安装完成后会自动打开一个Web页面，在该页面中可以创建一个站点，设置一个能记住的管理员帐户。 
+
+ ![16.jpg](http://pic.rivermap.cn/upload/201708/08/201708081035059332.jpg) 
+
+17、 点击“下一步”按钮进行站点配置。 
+
+ ![17.jpg](http://pic.rivermap.cn/upload/201708/08/201708081035179959.jpg) 
+
+18、 点击“完成”按钮，进行站点配置。 
+
+ ![18.jpg](http://pic.rivermap.cn/upload/201708/08/201708081035327618.jpg) 
+
+ 19、正在进行站点创建。 
+
+ ![19.jpg](http://pic.rivermap.cn/upload/201708/08/201708081035482152.jpg) 
+
+ 20、创建完成后，用设置的帐号登录。 
+
+ ![20.jpg](http://pic.rivermap.cn/upload/201708/08/201708081036143407.jpg) 
+
+21、 站点创建完成，安装工作完毕。 
+
+ ![21.jpg](http://pic.rivermap.cn/upload/201708/08/201708081036323879.jpg) 
+
+
+
+
+
+# 3简单要素点线面的添加
+
+## 3.1、EPSG：4326与EPSG：3857坐标系
+
+### 3.1.1地理坐标系
+
+地理坐标系一般是指由经度、纬度和高度组成的坐标系，能够标示地球上的任何一个位置。不同地区可能会使用不同的参考椭球体，即使是使用相同的椭球体，也可能会为了让椭球体更好地吻合当地的大地水准面，而调整椭球体的方位，甚至大小。这就需要使用不同的大地测量系统（Geodetic datum）来标识。因此，对于地球上某一个位置来说，使用不同的测量系统，得到的坐标是不一样的
+
+### 3.1.2投影坐标系
+
+地理坐标系是三维的，我们要在地图或者屏幕上显示就需要转化为二维，这被称为[投影（Map projection）](https://en.wikipedia.org/wiki/Map_projection)。显而易见的是，从三维到二维的转化，必然会导致变形和失真，失真是不可避免的，但是不同投影下会有不同的失真，这让我们可以有得选择。常用的投影有[等矩矩形投影](https://en.wikipedia.org/wiki/Equirectangular_projection)（Platte Carre）和[墨卡托投影](https://en.wikipedia.org/wiki/Mercator_projection)（Mercator）
+
+### 3.1.3EPSG：4326与EPSG：3857
+
+EPSG：4326（又名WGS84，未投影）是一个地理坐标系。它的单位是十进制度。EPSG：4326无法在平面地图上以有意义的方式显示
+
+EPSG：3857（又名Pseudo-Mercator，球形墨卡托或Web墨卡托）是投影坐标系。这是Google Maps和几乎所有其他Web制图应用程序使用的坐标系。
+
+通常，数据存储在EPSG：4326中并显示在EPSG：3857中。当数据在平面进行展示时需要进行转换，openlayer就提供了ol.proj.transform方法进行坐标系转换。
+
+ol.proj.transform(coordinate,source,destination)将坐标从源投影转换为目标投影。这将返回一个新的坐标（并且不会修改原始坐标）。
+
+## 3.2Geometry和Feature类
+
+ Geometry类是feature对象的基本组成部分，Vector类采用Geometry类来存储一个要素的几何信息，Feature类是Vector类用来在地图上展示几何对象，是Vector图层类一个属性。这个属性是个要素数组。要素基类有两个部分，Geometry对象和attributes属性,attributes包含要素相关的数据。在OpenLayers中Vector图层对应着一个Feature.Vector类，该类除了继承了父类的Geometry和attributes属性之外，还添加了一个控制要素外观的style属性。
+
+feature（要素），即地图上的几何对象，包括点（Point），线（LineString）,多边形（Polygon）。
+
+### 3.2.1Feature加载点线面的方法
+
+ol.geom.Point方法专门用于设值几何图形为点，该方法需要一个参数，该参数是该点的坐标，是一个一维数组
+
+ol.geom.LineString方法专门用于设值几何图形为线，该方法需要一个参数，该参数是改线的两端坐标，是一个二维数组
+
+ol.geom.Polygon方法专门用于设值几何图形为多边形即面，该方法需要一个参数，该参数是该面的多个顶点坐标
+
+代码
+
+\1.   **var** labelCoords_org=[120,40];
+
+\2.   **var** labelCoords=ol.proj.transform(labelCoords_org,"EPSG:4326","EPSG:3857")
+
+\3.   **var** line_org=[[120,40],[122,51]];
+
+\4.   **var** geomPolyline=**new** ol.geom.LineString(line_org);
+
+\5.   geomPolyline.transform("EPSG:4326","EPSG:3857");
+
+\6.   
+
+\7.   **var** polygon_org=[[[120,40],[122,50],[111,45]]];
+
+\8.   **var** geomPolygon=**new** ol.geom.Polygon(polygon_org);
+
+\9.   geomPolygon.transform("EPSG:4326","EPSG:3857");
+
+\10.  
+
+\11. **var** feature=**new** ol.Feature({
+
+\12. geometry:**new** ol.geom.Point(labelCoords),
+
+\13. });
+
+\14.  
+
+\15. **var** featurepolyline=**new** ol.Feature({
+
+\16. geometry:geomPolyline,
+
+\17. name:'My Polyline'
+
+\18. });
+
+\19. **var** featurepolygon=**new** ol.Feature({
+
+\20. geometry:geomPolygon
+
+\21. });
+
+### 3.2.2几何要素添加到图层
+
+创建的几何要素如点、线、面这样的几何要素要添加到矢量图层Vector的source里，只有在矢量图层，才能显示对应的几何信息，矢量图层是用来渲染矢量数据的图层类型。
+
+一个矢量图层的包含一个数据（source）和一个样式（style），数据构成矢量图层的要素，样式规定要素显示的方式和外观。ol.source.Vector用来设置矢量图层的数据来源，该方法接收features参数，地理要素即定义的点线面几何地理信息。   
+
+如：var source=new ol.source.Vector({
+
+​                  features:feature
+
+​              });
+
+在这里设置的数据源是上面定义的点要素；在通过矢量图层的setSource可以将不同是矢量图层数据源设置到不同的矢量图层上，这样就实现了不同的点线面的加载。
+
+
+
+
+
+
+
+
+
+
+
+# 4.地图发布
 
 1. 地图坐标：现在客户要求统一使用的是2000系坐标，是否支持
 
@@ -370,3 +744,36 @@ Scale = 1 : (96 * 2 * Math.PI * 6378137 * resolution / 360 / 0.0254);
 5、 客户方给我们提供的遥感解译文件都是shapefile，和影像数据img，我们基于这个情况进行图层的发布。批量发布前的图层处理属于图层发布的一部分应由我们处理，不应由客户自行解决。
 
 回复：可以，华信可以进行相关技术培训。参照2的解决方案。
+
+#### 研究方向
+
+
+
+1. GIS文件shapeFile读取与遍历		
+    python遍历shapefile文件，将数据数据入库（完成），需要编写上线部署文档。
+
+   
+
+2. Featureserver发布,取GIS数据与服务发布。
+
+   **● 基于Openlayer进行数据展示，工作需要细化。**
+   ● 加载img影像数据（类似0l） 是不是切片  两种模式的研究。 
+
+   - 为什么需要PostGre,Oracle ？
+
+3. Openlayer加载遥感影像，投放热点。根据属性，经纬度和轮廓，反投上去。
+
+4. 基于Openlayer加载静态图片（电站 img）
+
+5. 离线地图下载与Openlayer加载 
+
+6. 坐标系转换：80坐标系转换2000坐标系(arcgis  arcmap )
+
+7. 专题地图不同属性的提取与展示
+
+8. OGC标准研究
+
+9. GIS各种工具使用研究
+
+
+

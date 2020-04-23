@@ -74,12 +74,31 @@
 
 ### 3.开发工具
 
-1.   VS2008 /vs2017 开发C#  asp.net
-2.  idea  java web/js
-3.  webstorm  js/h5
-4.  pycharm python
-5.  hubilder  mui移动端的h5开发
-6.  docker的使用。
+1. VS2008 /vs2017 开发C#  asp.net
+
+   
+
+2. idea  java web/js
+
+3. webstorm  js/h5
+
+4. pycharm python
+
+5. hubilder  mui移动端的h5开发
+
+6. docker的使用。
+
+安装VS2008一定是企业版
+
+
+
+![image-20200408142403199](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20200408142403199.png)
+
+
+
+
+
+![image-20200408142252797](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20200408142252797.png)
 
 ### 4.vs2008/vs2017
 
@@ -692,3 +711,234 @@ protected void Page_Load(object sender, EventArgs e)
 ```
 
 ![image-20200303150607547](msweb学习.assets/image-20200303150607547.png)
+
+
+
+### 7. 服务器控件
+
+
+
+```
+标准控件
+数据控件
+导航控件
+登录控件
+WebParts控件
+AJAX控件
+报表控件
+```
+
+
+
+
+
+#### 7.1验证
+
+
+
+
+
+验证包括两种：前端验证、后端服务验证。
+
+前端验证保证用户体验。立刻让用户感知到错误。现成的控件。
+
+后端验证保证安全性，C# java 代码进行验证（字符长度，是否为空，逻辑正确性（天气温度 年龄  电压 电流）、字符串格式验证（邮箱 @   ,电话、身份证号）。
+
+1. bootstrap Validator
+
+![img](https://images2015.cnblogs.com/blog/776126/201605/776126-20160531175932586-1762914169.jpg)
+
+2. jquery validator
+
+3. asp.net 验证控件
+
+   ![image-20200408140632227](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20200408140632227.png)
+
+   
+
+   
+
+#### 7.2 服务控件
+
+```
+创建Web服务器控件的语法形式为：
+<asp:Webcontrol ID="Label1" runat="server">
+</asp:Webcontrol>
+或
+<asp:Webcontrol  ID="Label1" runat=" server" />  
+
+如，创建一个Web服务器控件Label控件的具体代码如下所示：
+<asp:Label ID="Label1" runat="server">
+</asp:Label>
+
+或
+
+<asp:Label ID="Label1" runat="server"/>
+
+```
+
+
+
+
+
+```
+ <asp:Label ID="Label1" runat="server" Text="Font子属性" Font-Bold="True“
+    Font-Italic="True"   
+    Font-Names="Bell MT“
+    Font-Underline= "True " 
+    Font-Size="20px">
+ </asp:Label>
+
+```
+
+
+
+
+
+
+
+7.3 控件分析
+
+1. 原始代码
+
+   ```
+   <%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default1.aspx.cs" Inherits="Default1" %>
+   
+   <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+   
+   <html xmlns="http://www.w3.org/1999/xhtml">
+   <head runat="server">
+       <title>无标题页</title>
+   </head>
+   <body>
+       <form id="form1" runat="server">
+           <div>
+               <asp:Label ID="Label1" runat="server" 
+                             Text="Font子属性" Font-Bold="True" Font-Italic="True" 
+                             Font-Names="Bell MT" Font-Underline="True" Font-Size="20px">
+               </asp:Label>
+           </div>
+       </form>
+   </body>
+   </html>
+   
+   ```
+
+   
+
+2. 发送到浏览器的内容
+
+```
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>
+	无标题页
+</title></head>
+<body>
+    <form name="form1" method="post" action="Default1.aspx" id="form1">
+<div>
+        <input type="hidden" 
+                name="__VIEWSTATE" id="__VIEWSTATE"			    value="/wEPDwUKMTEzMjY3MzQ0M2RkmTgR3qznD/bi0mXM/IfpAErS0+w=" />
+</div>
+
+<div>
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="4F401A0A" />
+</div>
+    <div>
+        <span id="Label1" style="font-family:Bell MT;font-size:20px;
+        	font-weight:bold;font-style:italic;text-decoration:underline;">
+        	Font子属性</span>
+    </div>
+    </form>
+</body>
+</html>
+
+```
+
+
+
+原始label标签代码：
+
+```
+
+<asp:Label ID="Label1" runat="server" 
+                          Text="Font子属性" Font-Bold="True" Font-Italic="True" 
+                          Font-Names="Bell MT" Font-Underline="True" Font-Size="20px">
+            </asp:Label>
+ 
+```
+
+服务器对代码进行解析，变成html，发送到浏览器。 发送到浏览器的代码：
+
+```
+  
+   <span id="Label1" style="font-family:Bell MT;font-size:20px;
+        	font-weight:bold;font-style:italic;text-decoration:underline;">
+        	Font子属性</span>
+            
+```
+
+**多了一些莫名奇妙的隐藏控件：**
+
+```
+      <input type="hidden" 
+                name="__VIEWSTATE" id="__VIEWSTATE"			    value="/wEPDwUKMTEzMjY3MzQ0M2RkmTgR3qznD/bi0mXM/IfpAErS0+w=" />
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="4F401A0A" />
+```
+
+
+
+段ViewState保存的页面代码，为了处理页面上复杂的功能，常常会加很多hidden，然后后台服务器端在通过id根据接收到的值来判断页面的状态。
+
+```
+
+类似这种就可以用ViewState方式实现。ViewState是一种比较好的保存数据方式。
+ViewState赋值：ViewState["id"] = '123';
+ViewState取值：string bbid = ViewState["id"].ToString();
+
+ViewState和session的不同之处
+
+(1) session值是保存在服务器内存上,那么,可以肯定,大量的使用session将导致服务器负担加重. 而viewstate由于只是将数据存入到页面隐藏控件里,不再占用服务器资源,因此, 我们可以将一些需要服务器"记住"的变量和对象保存到viewstate里面. 而sesson则只应该应用在需要跨页面且与每个访问用户相关的变量和对象存储上.
+
+(2) session在默认情况下20分钟就过期,而viewstate则永远不会过期.
+
+但viewstate并不是能存储所有的.net类型数据,它仅仅支持String、Integer、Boolean、Array、ArrayList、Hashtable 以及自定义的一些类型.
+
+ViewState的优点：存放在客户端会减轻服务器的负担。
+
+建议不要存放比较机密的信息，因为ViewState要保存在客户端，天生就有安全性的隐患。
+```
+
+
+
+
+
+如果你学习 asp.net 控件开发技术，就会了解这个其实是核心技术。
+
+asp.net 要给程序员提供一个类似 **winform** 的自动保持所有控件（包括内部子控件）的成千上万状态的机制，不需要程序员自己来开发（例如自己再胡乱写什么隐藏域来保存和提交）状态维系机制。当页面提交（回发）时，例如GridView上的所有数据行、每一行内的所有自定义模板中的子控件等等，你会看到状态都自动重新填好了（哪怕你修改了GridView中某一行的模板中的一个Label的ForeColor属性），这就是靠着网页的**ViewState**保存着所有控件的状态值。而当用户在浏览器端点击一些操作，例如点击GridView中的“编辑”按钮，页面并不仅仅触发这个Button_Click事件，还要触发Grid的一个Edit事件，等等这类事件，也需要从客户端传给服务器端。
+
+因此 PostData + Event 这两种机制和相关的数据，构成了 asp.net webform 的核心技术。而传统的 web 服务器上有数百个网站，所以asp.net 设计者不用 web 服务器来保存这些数据，而是在页面 html 文本中“夹带”这些信息，随着html的输出而输出，随着 <form /> 的提交而带回，把浏览器端页面当作这些数据的一个存储载体。
+
+
+
+```
+asp.net 在15年前初始设计时，这个应该算是非常“伟大的”架构。它是针对企业web应用而设计的。
+
+然而web编程到了2007年左右，web2.0已经开始成熟，重点到了 js 富客户端、结合 ajax 的技术开发上了。而 asp.net 没有把原有的所有控件都重构为纯 ajax 的，反而是放弃了这些东西。因此今天的 asp.net 跟 php甚至jsp相比，不到是更累赘（提供了至少两套互不兼容的开发机制），而且没有提供一点web前端框架的技术含量。
+
+企业web应用开发，已经无法去强调什么 asp.net 的半点技术优势了（只能强调说现在招聘程序员，学不了多少东西的那些人，大多只会asp.net）。只是维护10年前的一些国营企业和政府的OA还比较多。
+```
+
+
+
+优势：我们不用处理前后台数据的交互，都由viewstate代劳。
+
+劣势：夹带私货，内容不明。（hibernate  hsql).;除了错误，不知从何进行调试。
+
+```
+
+```
+
