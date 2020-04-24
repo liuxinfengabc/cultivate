@@ -258,9 +258,9 @@ github是通过Git进行版本控制的软件源代码托管服务平台。githu
 
 #### 3.2  向远程仓库添加文件
 
-开发者在本地修改内容后，需要进入要操作的文件夹内进行体骄傲
-2. git add .  #    .   表示当前文件夹
-2. git commit -m "注释信息
+开发者在本地修改内容后，需要进入要操作的文件夹内进行git操作
+1. git add .  # .   表示当前文件夹
+2. git commit -m "注释信息“
 3. git push  #推送到开发者仓库
 
 ##### 3.2.1 开发者工作区-->开发者远程仓库
@@ -345,10 +345,11 @@ github-develop](https://github.com/github-develop) wants to merge 1 commit into 
 
 1. git remote -v：查看origin和upstream源
 2. git remote add origin/upstream git地址：添加origin/upstream源
-3. git fetch upstream
-4. git checkout master
-5. git merge upstream/master
-6. git push
+3. git remote rm origin/upstream  #删除origin/upstream
+4. git fetch upstream
+5. git checkout master
+6. git merge upstream/master
+7. git push
 
 ##### 3.3.2 开发人员的仓库
 
@@ -421,7 +422,38 @@ github-develop](https://github.com/github-develop) wants to merge 1 commit into 
 - git push origin master
 - git push -f origin master
 
+#### 3.5 常见错误
 
+
+
+#### 3.5.1解决GitHub每次push时都提示输入用户名和密码的问题
+
+1. 原因
+
+   我们在建立远程仓库或者克隆项目时，使用的是HTTPS方式 ，HTTPS方式push不会保存用户名和密码。我们需要把HTTPS方式改成SSH的方式
+
+2. 查看远程连接方式 git remote -v
+
+```
+$ git remote -v
+origin  git@github.com:liuxinfengabc/https://github.com/liuxinfengabc/cultivate/cultivate.git (fetch)
+origin  git@github.com:liuxinfengabc/https://github.com/liuxinfengabc/cultivate/cultivate.git (push)
+```
+
+3. 删除origin
+
+```
+
+$ git remote rm origin
+```
+
+4.配置SSH方式
+
+![image-20200421113034366](img/image-20200421113034366.png)
+
+```
+$ git remote add origin git@github.com:liuxinfengabc/cultivate.git
+```
 
 ### 4. 开发环境中使用GitHub
 
@@ -466,7 +498,7 @@ tortoiseGit下载地址：https://download.tortoisegit.org/tgit/
 
 1. 设置git.exe路径
 
-File-->Settings-->Verdion Control-->Git/GitHub
+File-->Settings-->Version Control-->Git/GitHub
 
 ![image-20200222235204939](img/image-20200222235204939.png)
 
@@ -617,7 +649,7 @@ https下不用配置
 
 http://124.130.192.24:10015/liuxinfengabc/test.git
 
-##### 5.1.5clone代码
+##### 5.1.5Clone代码
 
 ![image-20200414101845959](img/image-20200414101845959.png)
 
