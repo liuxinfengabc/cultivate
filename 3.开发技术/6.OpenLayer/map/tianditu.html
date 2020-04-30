@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>加载天地图发布的WMTS影像服务数据</title>
+    <link rel="stylesheet" href="css/ol.css">
+</head>
+<body>
+    <div id="map" style="width: 100%; height: 100%;"></div>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/ol.js"></script>
+	<script src="./js/efgis.js"></script>
+ 
+    <script>
+        // 首先设置好WMTS瓦片地图的投影坐标系
+        let projection = ol.proj.get('EPSG:900913');          // 获取web墨卡托投影坐标系
+        let projectionExtent = projection.getExtent();      // web墨卡托投影坐标系的四至
+        let width = ol.extent.getWidth(projectionExtent);   // web墨卡托投影坐标系的水平宽度，单位米
+        let resolutions = [];                               // 瓦片分辨率
+        let matrixIds = [];
+        for(let z = 1; z < 18; z++){
+            resolutions[z] = width / (256 * Math.pow(2, z)); 
+            matrixIds[z] = z;
+        }
+        let wmtsTileGrid = new ol.tilegrid.WMTS({
+            origin: ol.extent.getTopLeft(projectionExtent), // 原点（左上角）
+            resolutions: resolutions,                       // 分辨率数组
+            matrixIds: matrixIds                            // 矩阵ID，就是瓦片坐标系z维度各个层级的标识
+        }); 
+        
+        // WMTS数据源与地图
+        let wmtsSource = new ol.source.WMTS({
+            url: "http://t0.tianditu.gov.cn/img_w/wmts?tk=3545d2b7403086dea93a01d05b1d82e4",  // 天地图key去官网很容易申请
+            layer: 'img',                  // 图层名
+            version: '1.0.0',                   // WMTS版本
+            // 投影坐标系矩阵集，一定要和WMTS capabilities文档中一致，否则会加载失败
+            matrixSet: 'w',          
+            format: 'tiles',                // 图片格式
+            projection: projection,             // 投影坐标系
+            requestEncoding: 'KVP',             // 请求的编码方式，默认就是'KVP'   
+            // 在WMTS capabilities文档中对应的样式名，一定要写，否则会加载失败  
+            style: 'default',                   
+            tileGrid: wmtsTileGrid              // 投影坐标系
+        });
+        let wmtsLayer = new ol.layer.Tile({
+            source: wmtsSource
+        });
+ 
+        let map = new ol.Map({
+            target: 'map',
+            layers: [
+                wmtsLayer
+            ],
+            view: new ol.View({
+                center: [0, 0],
+                zoom: 1
+            })
+        });
+    </script>
+</body>
+
