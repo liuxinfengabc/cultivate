@@ -1,4 +1,4 @@
-# IDEA---VCS
+# IDEA配置
 
 ## Maven
 
