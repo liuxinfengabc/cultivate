@@ -418,6 +418,133 @@ dependencyManagement>
 
 ![image-20200930163225170](img/image-20200930163225170.png)
 
+
+
+选择tb_user数据表，右键“mybatis generate tool”
+
+
+
+![image-20200930170245172](img/image-20200930170245172.png)
+
+
+
+自动生成的代码如图
+
+![image-20200930170630477](img/image-20200930170630477.png)
+
+
+
+
+
+④ applicatio.properties文件添加jdbc及mybatis相应配置项
+
+```go
+spring.datasource.driverClassName = com.mysql.jdbc.Driver
+spring.datasource.url = jdbc:mysql://192.168.1.1/test?useUnicode=true&characterEncoding=utf-8
+spring.datasource.username = test
+spring.datasource.password = 123456
+mybatis.mapper-locations = classpath:mybatis/*.xml
+mybatis.type-aliases-package = com.yibao.beta.dao.entity
+```
+
+⑤ DemoService通过@Autowired注解注入UserMapper，修改DemoService的test方法使之调用UserMapper的selectByPrimaryKey方法，最终如下所示
+
+```go
+package cn.edu.sdjzu.biz.service.impl;
+
+import cn.edu.sdjzu.TbUserDao;
+import cn.edu.sdjzu.biz.service.DemoService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public  class  DemoServiceImpl  implements DemoService {
+    @Autowired
+    private TbUserDao userMapper;
+    @Override
+    public  String  test()  {
+                    return  "this is biz module,hello";
+            }
+    }
+```
+
+⑥ 再次运行WebApplication类中的main方法启动项目，发现如下报错
+
+```go
+Action:
+Consider defining a bean of type 'cn.edu.sdjzu.TbUserDao' in your configuration.
+Process finished with exit code 1
+```
+
+原因是找不到TbUserDao类，此时需要在WebApplication入口类中增加dao层包扫描，添加@MapperScan注解并设置其值为com.yibao.beta.dao.mapper，最终如下所示
+
+```go
+package com.yibao.beta.web;
+
+import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication(scanBasePackages = "com.yibao.beta")
+@MapperScan(.dao.mapper")
+public class BetaWebApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(BetaWebApplication.class, args);
+    }
+}
+```
+
+设置完后重
+
+
+
+
+
+错误解析：
+
+1.
+
+```
+org.apache.ibatis.binding.BindingException: Invalid bound statement (not found)
+```
+
+Mapper接口开发需要遵循以下规范：
+
+```
+1. Mapper.xml文件中的namespace与mapper接口的类路径相同。
+2. Mapper接口方法名和Mapper.xml中定义的每个statement的id相同
+3. Mapper接口方法的输入参数类型和mapper.xml中定义的每个sql 的parameterType的类型相同
+4. Mapper接口方法的输出参数类型和mapper.xml中定义的每个sql的resultType的类型相同
+```
+
+resources 底下xml和mapper接口的路径不同，例如创建的包名是com.bwai.mapper，它在这里不是一级一级的创建文件夹而是创建了一个com.bwai.mapper名字的一个包，所以需要com/bwai/mapper 这样创建
+
+
+
+2. 
+
+```
+### The error may involve cn.edu.sdjzu.dao.TbUserDao.selectByPrimaryKey
+### The error occurred while executing a query
+### Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLException: The server time zone value '�й���׼ʱ��' is unrecognized or represents more than one time zone. You must configure either the server or JDBC driver (via the 'serverTimezone' configuration property) to use a more specifc time zone value if you want to utilize time zone support.] with root cause
+```
+
+报错提示很明确，JDBC driver 需要添加 serverTimezone 配置项。所以在配置 JDBC 连接时在 url 中添加参数即可：
+
+```
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/test?serverTimezone=GMT%2B8
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password:
+```
+
+在设置 serverTimezone 时也要注意，我们是在东八区，所以需要设置成 GMT%2B8 或 Asia/Shanghai，不要设置成 GMT 或 UTC 了
+
+
+
 ### 4.4  环境配置及部署
 
 #### 4.4.1 环境配置
@@ -777,7 +904,7 @@ https://www.cnblogs.com/toutou/p/9771386.html
 
 
 
-### 4.7 springboot 错误异常处理-陈宸
+### 4.6 springboot 错误异常处理-陈宸
 
 ```
 SpringBoot入门教程(六)SpringBoot2.0统一处理404,500等http错误跳转页
@@ -794,7 +921,9 @@ https://www.cnblogs.com/toutou/p/9802800.html
 
 
 
-### 4.8 springboot 过滤器和拦截器 -田玉超
+### 4.7 springboot 过滤器和拦截器 -田玉超
+
+#### 4.7.1 过滤与拦截
 
 ```
 [过滤器和拦截器](https://www.cnblogs.com/toutou/p/9831678.html)
@@ -802,40 +931,46 @@ https://www.cnblogs.com/toutou/p/9802800.html
 
 
 
-### 4.7 安全管理实现
+#### 4.7.2 SQL注入过滤器
 
 
 
-1. 账户登录
-
-   
-
-2. SQL注入过滤器
-
-   
-
-3. 日志记录
-
-   
+#### 4.7.2 日志记录
 
 
 
 
 
-### 4.10  Redis(程宏豪)
-
-
-
-缓存
-
-共享session
-
-基于websocket实时展示数据
-
-
+### 4.8 安全框架(程宏豪)
 
 ```
+https://blog.csdn.net/mxxrgxg/article/details/81358536?utm_medium=distribute.pc_relevant.none-task-blog-title-3&spm=1001.2101.3001.4242
+```
+
+
+
+Shiro是Apache下的一个顶级开源安全框架，适应于java SE和java EE环境，不依赖于容器管理。集认证、授权、加密、会话管理、与Web集成、缓存等。shiro功能强大、易于扩展，并且不是很难，容易学习。
+
+
+
+
+
+
+
+
+
+
+
+### 4.9  Redis(程宏豪)
+
 [SpringBoot进阶教程(五十二)整合Redis](https://www.cnblogs.com/toutou/p/spring_boot_redis.html)
+
+#### 4.9.1缓存
+
+#### 4.9.2共享session
+
+```
+
 ```
 
 ```
@@ -844,7 +979,7 @@ pringBoot进阶教程(五十四)整合Redis之共享Session](https://www.cnblogs
 
 
 
-#### Springboot WebSockt
+#### 4.9.3基于websocket实时展示数据
 
 
 
@@ -854,13 +989,13 @@ pringBoot进阶教程(五十四)整合Redis之共享Session](https://www.cnblogs
 
 
 
-### 4.11 整合Kafka消息队列
+### 4.10 整合Kafka消息队列
 
 
 
 
 
-### 4.4 ES检索与查询
+### 4.11 ES检索与查询
 
 ```
 https://blog.csdn.net/pyfysf/article/details/100810846
@@ -868,13 +1003,19 @@ https://blog.csdn.net/pyfysf/article/details/100810846
 
 
 
-### 4.8  业务服务实现
+### 4.12 文件服务器fastdfs
 
-1. 基于Srpingboot构建服务Service(流程引擎)
-   1. 消息队列
-   2. 计算服务
-   3. 通信服务(Netty)
-   4. 构建实时库
-2. 商务智能 BI
-3. 流程引擎workflow
-4. 权限体系Rbac
+
+
+### 4.13构建服务Service模块
+
+#### 4.13.1 计算服务
+
+#### 4.13.2 通信服务(Netty)
+
+
+
+
+
+
+
