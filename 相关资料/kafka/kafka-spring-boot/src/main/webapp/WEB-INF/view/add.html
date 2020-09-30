@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	  <h2>添加</h2>
+      <#if error??> 
+         ${error}
+       </#if>
+	   <form action="save" method='post'>
+           用户名:<input type="text" name="name"><p>
+            年龄:<input type="text" name="age"><p>
+            手机号:<input type="text" name="phone"><p>
+            <input type="submit" value="提交">
+        </form>
+</body>
+</html>
