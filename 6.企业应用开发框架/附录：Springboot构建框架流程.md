@@ -366,7 +366,27 @@ Itoo-base(pom.xml)
 
 ![image-20200928104311830](img/image-20200928104311830.png)
 
-### 4.3 集成Mybatis模块（宸）
+### 4.3 集成Mybatis模块
+
+
+
+#### 4.3.1 数据表创建：
+
+```
+create table test.tb_user
+(
+    usertype     varchar(20) null,
+    userid       varchar(20) not null comment '用户名'
+        primary key,
+    username     varchar(20) null comment '用户姓名',
+    userpwd      varchar(32) null comment '密码',
+    operator     varchar(20) null,
+    operatedtime datetime    null
+);
+
+```
+
+#### 4.3.2 添加依赖
 
 ① 父pom文件中声明mybatis-spring-boot-starter及lombok依赖
 
@@ -406,7 +426,9 @@ dependencyManagement>
 </dependencies>
 ```
 
-③ 在beta-dao层创建com.yibao.beta.dao包，通过mybatis-genertaor工具生成dao层相关文件（DO、Mapper、xml），存放目录如下
+#### 4.3.3 语句自动生成
+
+③ 在dao层创建cn.edu.sdzju.dao包，通过mybatis-genertaor工具生成dao层相关文件（DO、Mapper、xml），存放目录如下
 
 也可以通过IDEA的自动生成器进行生成。
 
@@ -479,29 +501,28 @@ Process finished with exit code 1
 原因是找不到TbUserDao类，此时需要在WebApplication入口类中增加dao层包扫描，添加@MapperScan注解并设置其值为com.yibao.beta.dao.mapper，最终如下所示
 
 ```go
-package com.yibao.beta.web;
-
+package cn.edu.sdjzu.web;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication(scanBasePackages = "com.yibao.beta")
-@MapperScan(.dao.mapper")
-public class BetaWebApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(BetaWebApplication.class, args);
+@SpringBootApplication(scanBasePackages = "cn.edu.sdjzu")
+@MapperScan("cn.edu.sdjzu.dao")
+public class frameWebApplication {
+
+    public static void main(String[] args){
+        
+        SpringApplication.run(frameWebApplication.class,args);
     }
 }
 ```
 
-设置完后重
 
 
 
 
-
-错误解析：
+#### 4.3.4 错误解析：
 
 1.
 
@@ -541,7 +562,7 @@ spring:
     password:
 ```
 
-在设置 serverTimezone 时也要注意，我们是在东八区，所以需要设置成 GMT%2B8 或 Asia/Shanghai，不要设置成 GMT 或 UTC 了
+在设置 serverTimezone 时也要注意，我们是在东八区，所以需要设置成 GMT%2B8 或 Asia/Shanghai，不要设置成 GMT 或 UTC 了。
 
 
 
