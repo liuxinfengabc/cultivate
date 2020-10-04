@@ -341,7 +341,7 @@ Client:
 
 
 
-##### 2.5 拉取镜像错误
+#### 2.6 拉取镜像错误
 
 \> docker pull mysql
 Unable to find image ‘mysql:latest’ locally
