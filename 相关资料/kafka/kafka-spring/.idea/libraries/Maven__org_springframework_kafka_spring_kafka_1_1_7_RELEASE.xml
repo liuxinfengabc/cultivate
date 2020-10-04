@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.springframework.kafka:spring-kafka:1.1.7.RELEASE">
+    <CLASSES>
+      <root url="jar://D:/Program Files/apache-maven-3.5.0/localRepo2/org/springframework/kafka/spring-kafka/1.1.7.RELEASE/spring-kafka-1.1.7.RELEASE.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://D:/Program Files/apache-maven-3.5.0/localRepo2/org/springframework/kafka/spring-kafka/1.1.7.RELEASE/spring-kafka-1.1.7.RELEASE-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://D:/Program Files/apache-maven-3.5.0/localRepo2/org/springframework/kafka/spring-kafka/1.1.7.RELEASE/spring-kafka-1.1.7.RELEASE-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

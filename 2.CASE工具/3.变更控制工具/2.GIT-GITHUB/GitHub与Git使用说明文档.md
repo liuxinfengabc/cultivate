@@ -1,4 +1,5 @@
 
+
 https://www.jianshu.com/p/25e5e07b2464  如果看不到图片，请参考
 
 ### 1 GitHub工作流程与介绍
@@ -340,6 +341,14 @@ github-develop](https://github.com/github-develop) wants to merge 1 commit into 
 #### 3.3 同步主程序员仓库中的更新
 
 **说明：开发人员仓库和主程序员的仓库是两个独立的仓库，主程序员仓库更新后不会自动更新到开发人员仓库中**。需要主动进行更新。
+
+可以通过GitHub界面直接操作，参见:
+
+```
+https://blog.csdn.net/qq1332479771/article/details/56087333?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.nonecase
+```
+
+也可以参见命令行：
 
 ##### 3.3.1 基本步骤
 

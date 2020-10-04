@@ -3,8 +3,14 @@
 1. docker  linux/windows上的一个应用软件,可以认为是一个VMware软件
 
    - docker desktop for windows
+
    - 要求win10 专业版、教育版，家庭版请安装docker toolbox.
+
+     ![image-20201002174726250](Docker在windows10的使用.assets\image-20201002174726250.png)
+
    - 下载地址 https://download.docker.com/win/stable/Docker%20for%20Windows%20Installer.exe
+
+     
 
 2. image镜像
 
@@ -210,9 +216,87 @@ C:\Users\Administrator>
 
 ![image-20200303101355036](Docker在windows10的使用.assets/image-20200303101355036.png)
 
-#### 2.4如何创建自己的镜像
+#### 2.4 Docker 创建Kafka
+
+参考
+
+```
+参考2：
+https://blog.csdn.net/lordwish/article/details/105800870
+
+参考2：
+https://blog.csdn.net/he3more/article/details/104696081?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-5.channel_param&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-5.channel_param
+```
+
+![image-20201002190758083](Docker在windows10的使用.assets/image-20201002190758083.png)
 
 
+
+```
+docker run -d --name zookeeper -p 2182:2181  wurstmeister/zookeeper
+```
+
+
+
+```
+docker run -d --name kafka -p 9092:9092 -e KAFKA_BROKER_ID=0 -e KAFKA_ZOOKEEPER_CONNECT=192.168.3.10:2181/kafka -e KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://192.168.3.10:9092 -e KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9092 wurstmeister/kafka
+```
+
+
+
+kafka启动参数说明：
+
+**–link** 用于容器直接的互通。
+**-e KAFKA_BROKER_ID=0** 一个 kafka节点 就是一个 broker。一个集群由多个 broker 组成。一个 broker可以容纳多个 topic
+**-e KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181** 配置zookeeper管理kafka的路径
+**-e KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://139.226.179.239:9092** 把kafka的地址端口注册给zookeeper，若远程访问要改成外网IP,千万注意是外网IP，很多文章只说是宿主机IP, 演示例子上写的是内网IP，很容易被误导
+**-e KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9092** 配置kafka的监听端口
+**-v /etc/localtime:/etc/localtime** 容器时间同步虚拟机的时间
+
+
+
+###### 1.1 补充-解决2181端口占用问题
+
+由于Hyper-V占用的2181端口，所以必须将Hyper-V停掉后把2181释放出来，但是没了Hyper-V，Dokcer就不能运行了，所以改完还要将Hyper-V启动。
+
+查看端口占用情况
+
+```
+netsh interface ipv4 show excludedportrange protocol=tcp
+
+```
+
+禁用Hyper-V服务
+
+```
+dism.exe /Online /Disable-Feature:Microsoft-Hyper-V
+
+```
+
+解除2181端口限制
+
+```
+netsh int ipv4 add excludedportrange protocol=tcp startport=2181 numberofports=1
+
+netsh int ipv4 del excludedportrange protocol=tcp startport=2181 numberofports=1
+
+```
+
+启用Hyper-V服务
+
+```
+dism.exe /Online /Enable-Feature:Microsoft-Hyper-V /All
+
+```
+
+检查确认端口占用情况
+
+```
+netsh interface ipv4 show excludedportrange protocol=tcp
+
+```
+
+问题解决，zookeeper容器顺利创建并启动
 
 #### 2.5 如何修改镜像源让你的下载如飞
 
@@ -224,6 +308,65 @@ https://blog.csdn.net/my__holiday/article/details/79111397?depth_1-utm_source=di
 
 https://blog.csdn.net/u013948858/article/details/80811986?depth_1-utm_source=distribute.pc_relevant_right.none-task&utm_source=distribute.pc_relevant_right.none-task
 
+
+
+![image-20201002183927092](Docker在windows10的使用.assets/image-20201002183927092.png)
+
+配置信息：
+
+```
+{
+  "registry-mirrors": [],
+  "insecure-registries": [],
+  "debug": true,
+  "experimental": false,
+  "graph": "D:\\AppData\\virtualHard\\images"
+
+}
+```
+
+查看配置信息
+
+```
+C:\Users\cherry>docker info
+Client:
+ Debug Mode: false
+ Images: 0
+ Server Version: 19.03.5
+..................
+ 
+ Docker Root Dir: D:\AppData\virtualHard\images
+
+```
+
+
+
+#### 2.6 拉取镜像错误
+
+\> docker pull mysql
+Unable to find image ‘mysql:latest’ locally
+latest: Pulling from library/mysql
+C:\Program Files\Docker\Docker\Resources\bin\docker.exe: no matching manifest for [windows](https://www.jiloc.com/tag/windows)/amd64 10.0.18362 in the manifest list entries
+
+![image-20201002185311087](Docker在windows10的使用.assets/image-20201002185311087.png)
+
+
+
+Docker镜像拉取错误码：
+
+```
+docker pull mysql
+```
+
+Pulling from library/mysql
+no matching manifest for unknown in the manifest list entries
+
+解决方法：
+
+将` experimental `设置为` true `即可.
+
+![image-20201002185224653](Docker在windows10的使用.assets/image-20201002185224653.png)
+
 ### 3.Docker 参考网站
 
 
@@ -232,7 +375,8 @@ https://blog.csdn.net/u013948858/article/details/80811986?depth_1-utm_source=dis
 2. https://www.cnblogs.com/gaogaoyanjiu/p/9392242.html
 3. https://www.cnblogs.com/stilldream/p/10700428.html
 4. dockerfile 创建镜像
-   -  https://www.cnblogs.com/gaogaoyanjiu/p/9390063.html
+
+   https://www.cnblogs.com/gaogaoyanjiu/p/9390063.html
 
 ### 4.Docker常用命令
 
@@ -288,7 +432,7 @@ CentOS、Ubuntu、Debian三个linux都是非常优秀的系统，开源的系统
 
 Debian也非常适合做服务器操作系统，与Ubuntu比较，它没有太多的花哨，稳定压倒一切，对于服务器系统来说是一条不变的真理，debian这个linux系统，底层非常稳定，内核和内存的占用都非常小，在小内存的VPS就可以流畅运行Debian，比如128m的内存，但debian的帮助文档和技术资料比较少。对于小内存，首选debian，对于非常熟悉linux系统的vps高手，首选debian。
 
-### 5.2vi编辑器使用
+#### 5.2vi编辑器使用
 
 
 

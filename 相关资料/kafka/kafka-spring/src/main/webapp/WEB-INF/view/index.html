@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+table {
+	border-collapse: collapse;
+	margin: 0 auto;
+}
+
+table, td, th {
+	border: 1px solid black;
+	padding: 15px;
+}
+</style>
+</head>
+<body>
+     <input type="button" value="添加" onclick="add();">
+	<table>
+		<thead>
+			<tr>
+				<th>用户名</th>
+				<th>年龄</th>
+				<th>电话</th>
+				<th>操作</th>
+			</tr>
+
+		</thead>
+		<tbody>
+			<#if users??> <#list users as user>
+			<tr>
+				<td>${user.name}</td>
+				<td>${user.age}</td>
+				<td>${user.phone}</td>
+				<td><a href="javascript:void(0)" onclick="edit('${user.id}')" >编辑</a>
+					<a href="javascript:void(0)" onclick="del('${user.id}')">删除</a>
+					<a href="javascript:void(0)" onclick="detail('${user.id}')">详情</a>
+					</td>
+			</tr>
+			</#list> </#if>
+
+		</tbody>
+	</table>
+	<script type="text/javascript">
+			function edit(id){
+				alert(id);
+			}
+			function del(id){
+	          var flag=confirm("你确定要删除此选项吗");
+	          if(flag==true){
+               window.location.href="delete/"+id;
+	          }
+			}
+			function detail(id){
+				window.location.href="detail/"+id;
+			}
+			function add(){
+				window.location.href="save";
+			}
+
+ </script>
+</body>
+</html>
