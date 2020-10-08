@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tule.dao.TbUserDao">
+  <resultMap id="BaseResultMap" type="com.tule.dao.TbUser">
+    <id column="userid" jdbcType="VARCHAR" property="userid" />
+    <result column="usertype" jdbcType="VARCHAR" property="usertype" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="userpwd" jdbcType="VARCHAR" property="userpwd" />
+    <result column="operator" jdbcType="VARCHAR" property="operator" />
+    <result column="operatedtime" jdbcType="TIMESTAMP" property="operatedtime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    userid, usertype, username, userpwd, `operator`, operatedtime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_user
+    where userid = #{userid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from tb_user
+    where userid = #{userid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" keyColumn="userid" keyProperty="userid" parameterType="com.tule.dao.TbUser" useGeneratedKeys="true">
+    insert into tb_user (usertype, username, userpwd, 
+      `operator`, operatedtime)
+    values (#{usertype,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{userpwd,jdbcType=VARCHAR}, 
+      #{operator,jdbcType=VARCHAR}, #{operatedtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="userid" keyProperty="userid" parameterType="com.tule.dao.TbUser" useGeneratedKeys="true">
+    insert into tb_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="usertype != null">
+        usertype,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="userpwd != null">
+        userpwd,
+      </if>
+      <if test="operator != null">
+        `operator`,
+      </if>
+      <if test="operatedtime != null">
+        operatedtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="usertype != null">
+        #{usertype,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="userpwd != null">
+        #{userpwd,jdbcType=VARCHAR},
+      </if>
+      <if test="operator != null">
+        #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="operatedtime != null">
+        #{operatedtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.tule.dao.TbUser">
+    update tb_user
+    <set>
+      <if test="usertype != null">
+        usertype = #{usertype,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="userpwd != null">
+        userpwd = #{userpwd,jdbcType=VARCHAR},
+      </if>
+      <if test="operator != null">
+        `operator` = #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="operatedtime != null">
+        operatedtime = #{operatedtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where userid = #{userid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.tule.dao.TbUser">
+    update tb_user
+    set usertype = #{usertype,jdbcType=VARCHAR},
+      username = #{username,jdbcType=VARCHAR},
+      userpwd = #{userpwd,jdbcType=VARCHAR},
+      `operator` = #{operator,jdbcType=VARCHAR},
+      operatedtime = #{operatedtime,jdbcType=TIMESTAMP}
+    where userid = #{userid,jdbcType=VARCHAR}
+  </update>
+</mapper>
