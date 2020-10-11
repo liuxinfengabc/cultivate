@@ -1,4 +1,4 @@
-## SpringBoot构建开发框架流程
+## 4. SpringBoot构建开发框架流程
 
 ```
  Spring Boot是由Pivotal团队提供的全新框架，其设计目的是用来简化新Spring应用的初始搭建以及开发过程。该框架使用了特定的方式来进行配置，从而使开发人员不再需要定义样板化的配置。通过这种方式，Spring Boot致力于在蓬勃发展的快速应用开发领域(rapid application development)成为领导者。从最根本上来讲，Spring Boot就是一些库的集合，它能够被任意项目的构建系统所使用。简便起见，该框架也提供了命令行界面，它可以用来运行和测试Boot应用。框架的发布版本，包括集成的CLI（命令行界面），可以在Spring仓库中手动下载和安装。 
@@ -566,9 +566,328 @@ spring:
 
 
 
-### 4.4  环境配置及部署
 
-#### 4.4.1 环境配置
+
+
+
+### 4.4 springboot 错误异常处理-陈宸
+
+```
+SpringBoot入门教程(六)SpringBoot2.0统一处理404,500等http错误跳转页
+
+https://www.cnblogs.com/toutou/p/9802800.html
+
+```
+
+
+
+```
+[SpringBoot入门教程(十九)@ControllerAdvice+@ExceptionHandler全局捕获Controller异常](https://www.cnblogs.com/toutou/p/9907401.html)
+```
+
+
+
+### 4.5 springboot 过滤器和拦截器 -田玉超
+
+#### 4.5.1 过滤与拦截
+
+```
+[过滤器和拦截器](https://www.cnblogs.com/toutou/p/9831678.html)
+```
+
+
+
+#### 4.5.2 SQL注入过滤器
+
+
+
+#### 4.5.3 日志记录
+
+
+
+
+
+### 4.6 安全框架(程宏豪)
+
+Shiro是Apache下的一个顶级开源安全框架，适应于java SE和java EE环境，不依赖于容器管理。集认证、授权、加密、会话管理、与Web集成、缓存等。shiro功能强大、易于扩展，并且不是很难，容易学习。
+
+```
+https://blog.csdn.net/mxxrgxg/article/details/81358536?utm_medium=distribute.pc_relevant.none-task-blog-title-3&spm=1001.2101.3001.4242
+```
+
+
+
+### 4.7  Redis(程宏豪)
+
+[SpringBoot进阶教程(五十二)整合Redis](https://www.cnblogs.com/toutou/p/spring_boot_redis.html)
+
+
+
+#### 4.9.1缓存
+
+#### 4.9.2共享session
+
+```
+
+```
+
+```
+pringBoot进阶教程(五十四)整合Redis之共享Session](https://www.cnblogs.com/toutou/p/redis_session.html)
+```
+
+
+
+#### 4.9.3基于websocket实时展示数据
+
+
+
+![img](https://img2020.cnblogs.com/blog/1721320/202003/1721320-20200319084859071-1530751486.png)
+
+
+
+### 4.8 springboot-附近的人-陈梦雅
+
+找附近的人
+
+```
+https://www.cnblogs.com/toutou/p/9771386.html      
+```
+
+做一遍，录制一个小视频（10分钟以内） FastStone
+
+### 4.9 整合Kafka消息队列
+
+
+
+
+
+
+
+### 4.10 ES检索与查询
+
+```
+https://blog.csdn.net/pyfysf/article/details/100810846
+```
+
+
+
+### 4.11 文件服务器fastdfs
+
+
+
+### 4.12 构建服务Service模块
+
+#### 4.13.1 计算服务
+
+#### 4.13.2 通信服务(Netty)
+
+
+
+
+
+
+
+## 5. 基于SpringbootPlus开源框架
+
+
+
+基于SpringBoot 2 的管理后台系统, 是一个使用简单，功能较为复杂的开源系统，已经数十家商业公司采用有数十个基于此的商业应用，包含了用户管理，组织机构管理，角色管理，功能点管理，菜单管理，权限分配，数据权限分配，代码生成等功能 相比其他开源的后台开发平台脚手架，SpringBoot-Plus 使用简单，可以轻易完成中型，大型系统开发。同时技术栈较为简单，基于Spring Boot2.1技术，前端采用了Layui2.4。数据库以MySQL/Oracle/Postgres/SQLServer为实例，理论上是跨数据库平台。
+
+```
+https://gitee.com/xiandafu/springboot-plus.git
+```
+
+如何判断一个开源开发平台适合自己
+
+- 要明白单体系统，系统拆分，微服务三个不同构建开发平台方式，plus支持单体和系统拆分，一般而言，后台管理系统适合单体和系统拆分。微服务并不适合系统管理，以我知道的互联网大厂，央企后台管理系统，还是以前俩个为多
+- 你需要的是技术框架还是开发平台，技术框架就是技术堆砌，开发平台必须具备一定复杂基础业务功能
+- 看权限模型，支持功能权限和数据权限。plus具备强大的功能权限和数据权限，且可以扩展n种数据权限
+- 看用户是否能属于多个部门，用户兼职情况很常见
+- 看数据字典是否支持级联，数据字典级联太常见了，平台需要提供数据和前端的支持。puls系统支持
+- 看代码生成是否支持预览，为什么要预览，因为生成会覆盖，预览可以修改已经生成的代码
+
+
+
+#### 5.1 系统运行步骤
+
+1. 创建数据库
+
+   查看amin-console 模块中的application.properties
+
+   ```
+   spring.datasource.baseDataSource.url=jdbc:mysql://127.0.0.1:3306/starter?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8&useSSL=false&useInformationSchema=true
+   spring.datasource.baseDataSource.username=root
+   spring.datasource.baseDataSource.password=123456
+   spring.datasource.baseDataSource.driver-class-name=com.mysql.cj.jdbc.Driver
+   ```
+
+   
+
+![image-20201011120943830](img/image-20201011120943830.png)
+
+
+
+2. 代码运行 admin-console模块中的ConsoleApplication
+
+
+
+![image-20201011121538005](img/image-20201011121538005.png)
+
+3. 运行结果
+
+   ![image-20201011121910620](img/image-20201011121910620.png)
+
+
+
+
+
+#### 5.2  系统访问流程
+
+admin ------------->  son of  -------->      admin_console ------>    depend---------->admin_core
+
+​    admin_core 在resources 目录下包括 login.html，index.html，help.html,error.html ,用于系统的登录、主页面、帮助、异常处理等。
+
+![image-20201011171049497](img/image-20201011171049497.png)
+
+
+
+
+
+![image-20201011164827056](img/image-20201011164827056.png)
+
+```
+  /*页面*/
+    
+    @GetMapping(MODEL + "/index.do")
+    @Function("trace")
+    public ModelAndView index() {
+		ModelAndView view = new ModelAndView("/admin/audit/index.html");
+		view.addObject("search", AuditQuery.class.getName());
+        return view;
+    }  
+    
+```
+
+前端页面 index.html
+
+```
+<!--#layout("/common/layout.html",{"jsBase":"/js/admin/audit/"}){ -->
+<layui:searchForm formId="auditSearchForm"  condition="${search}">
+
+</layui:searchForm>
+
+<table id="auditTable" lay-filter="auditTable"></table>
+<!--#} -->
+<script>
+
+layui.use(['index'], function(){
+  var index = layui.index
+  index.init();
+});
+</script>
+```
+
+
+
+#### 5.3 login.html
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spring Boot开发平台</title>
+    <link rel="stylesheet" href="${ctxPath}/plugins/layui/css/layui.css">
+    <script src="${ctxPath}/plugins/layui/layui.js"></script>
+  
+    <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+    <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style rel="stylesheet" type="text/css">
+        .layui-tab-title li:first-child > i {
+            display: none;
+        }
+    </style>
+</head>
+<body class="layui-layout-body">
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+  <legend>用户登录</legend>
+</fieldset>
+ 
+<form class="layui-form" action="${ctxPath}/login.do" method="post">
+  <div class="layui-form-item">
+    <label class="layui-form-label">用户名</label>
+    <div class="layui-input-block">
+      <input type="text" name="code" lay-verify="title" autocomplete="off" 
+      	placeholder="请输入用户名" class="layui-input"  value="admin">
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">密码</label>
+    <div class="layui-input-block">
+      <input type="password" name="password" lay-verify="required"  name="" placeholder="请输入密码" autocomplete="off"
+       class="layui-input" value="123456">
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <div class="layui-input-block">
+      <button class="layui-btn" lay-submit="" lay-filter="demo1">立即登录</button>
+    </div>
+  </div>
+  </form>
+</body>
+</html>
+```
+
+点击登录，进行跳转：
+
+```
+<form class="layui-form" action="${ctxPath}/login.do" method="post">
+```
+
+控制器：
+
+```
+	@PostMapping("/login.do")
+	public ModelAndView login(String code, String password) {
+		UserLoginInfo info = userService.login(code, password);
+		if (info == null) {
+			throw new PlatformException("用户名密码错");
+		}
+		CoreUser user = info.getUser();
+		CoreOrg currentOrg = info.getOrgs().get(0);
+		for (CoreOrg org : info.getOrgs()) {
+			if (org.getId() == user.getOrgId()) {
+				currentOrg = org;
+				break;
+			}
+		}
+
+		info.setCurrentOrg(currentOrg);
+		// 记录登录信息到session
+		this.platformService.setLoginUser(info.getUser(), info.getCurrentOrg(), info.getOrgs());
+		ModelAndView view = new ModelAndView("redirect:/index.do");
+		return view;
+	}
+```
+
+
+
+#### 前端框架
+
+```
+https://www.layui.com/demo/anim.html
+```
+
+
+
+
+
+## 6. 环境配置及部署
+
+#### 6.1 环境配置
 
 一、简单介绍
 在项目的开发中，有些配置文件在开发、测试或者生产等不同环境中可能是不同的，例如数据库连接、redis的配置等等。那我们如何在不同环境中自动实现配置的切换呢？Spring给我们提供了profiles机制，下面看看在Spring Boot中是如何使用Profiles功能的。
@@ -644,7 +963,7 @@ Tomcat started on port(s): 8083 (http) with context path ''
 
 
 
-#### 4.4.2 基于IDEA部署系统
+#### 6.2 基于IDEA部署系统
 
 IntelliJ IDEA自动部署如下：
 打开IntelliJ IDEA点击Tools/Deployment/Configuration（或者File-Settings-Build,Execution,Deployment-Deployment都行）,界面如下所示：
@@ -671,7 +990,7 @@ IntelliJ IDEA自动部署如下：
 
 
 
-#### 4.4.2 Docker部署（jar)
+#### 6.3 Docker部署（jar)
 
 ```
 https://spring.io/guides/gs/spring-boot-docker/
@@ -913,130 +1232,4 @@ Redirecting to /bin/systemctl start docker.service
 
 ![img](https:////upload-images.jianshu.io/upload_images/15536448-a42bfc6b886d4ae2.png?imageMogr2/auto-orient/strip|imageView2/2/w/783/format/webp)
 
-### 4.5 springboot-附近的人-陈梦雅
-
-找附近的人
-
-```
-https://www.cnblogs.com/toutou/p/9771386.html      
-```
-
-做一遍，录制一个小视频（10分钟以内） FastStone
-
-
-
-### 4.6 springboot 错误异常处理-陈宸
-
-```
-SpringBoot入门教程(六)SpringBoot2.0统一处理404,500等http错误跳转页
-
-https://www.cnblogs.com/toutou/p/9802800.html
-
-```
-
-
-
-```
-[SpringBoot入门教程(十九)@ControllerAdvice+@ExceptionHandler全局捕获Controller异常](https://www.cnblogs.com/toutou/p/9907401.html)
-```
-
-
-
-### 4.7 springboot 过滤器和拦截器 -田玉超
-
-#### 4.7.1 过滤与拦截
-
-```
-[过滤器和拦截器](https://www.cnblogs.com/toutou/p/9831678.html)
-```
-
-
-
-#### 4.7.2 SQL注入过滤器
-
-
-
-#### 4.7.2 日志记录
-
-
-
-
-
-### 4.8 安全框架(程宏豪)
-
-```
-https://blog.csdn.net/mxxrgxg/article/details/81358536?utm_medium=distribute.pc_relevant.none-task-blog-title-3&spm=1001.2101.3001.4242
-```
-
-
-
-Shiro是Apache下的一个顶级开源安全框架，适应于java SE和java EE环境，不依赖于容器管理。集认证、授权、加密、会话管理、与Web集成、缓存等。shiro功能强大、易于扩展，并且不是很难，容易学习。
-
-
-
-
-
-
-
-
-
-
-
-### 4.9  Redis(程宏豪)
-
-[SpringBoot进阶教程(五十二)整合Redis](https://www.cnblogs.com/toutou/p/spring_boot_redis.html)
-
-#### 4.9.1缓存
-
-#### 4.9.2共享session
-
-```
-
-```
-
-```
-pringBoot进阶教程(五十四)整合Redis之共享Session](https://www.cnblogs.com/toutou/p/redis_session.html)
-```
-
-
-
-#### 4.9.3基于websocket实时展示数据
-
-
-
-![img](https://img2020.cnblogs.com/blog/1721320/202003/1721320-20200319084859071-1530751486.png)
-
-
-
-
-
-### 4.10 整合Kafka消息队列
-
-
-
-
-
-### 4.11 ES检索与查询
-
-```
-https://blog.csdn.net/pyfysf/article/details/100810846
-```
-
-
-
-### 4.12 文件服务器fastdfs
-
-
-
-### 4.13构建服务Service模块
-
-#### 4.13.1 计算服务
-
-#### 4.13.2 通信服务(Netty)
-
-
-
-
-
-
-
+### 
