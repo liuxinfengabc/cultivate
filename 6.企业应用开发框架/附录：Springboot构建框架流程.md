@@ -140,7 +140,9 @@ demo.iml：包含了项目依赖的所有jar包
 [SpringBoot入门教程(十六)@Autowired、@Inject、@Resource](https://www.cnblogs.com/toutou/p/9907381.html)
 ```
 
-
+1. @Autowired 注释:自动导入依赖的bean
+2. @Inject: 等价于默认的@Autowired，只是没有required属性；
+3. @Resource :  @Resource(name=”name”,type=”type”)：没有括号内内容的话，默认byName。与@Autowired干类似的事。
 
 
 
@@ -148,7 +150,10 @@ demo.iml：包含了项目依赖的所有jar包
 [SpringBoot入门教程(十七)@Service、@Controller、@Repository、@Component](https://www.cnblogs.com/toutou/p/9907392.html)
 ```
 
-
+1. @Service:  一般用于修饰service层的组件
+2. @Controller:用于定义控制器类，在spring项目中由控制器负责将用户发来的URL请求转发到对应的服务接口（service层），一般这个注解在类中，通常方法需要配合注解@RequestMapping。
+3. @Repository: 使用@Repository注解可以确保DAO或者repositories提供异常转译，这个注解修饰的DAO或者repositories类会被ComponetScan发现并配置，同时也不需要为它们提供XML配置项。
+4. @Component: 泛指组件，当组件不好归类的时候，我们可以使用这个注解进行标注。
 
 
 
@@ -156,7 +161,10 @@ demo.iml：包含了项目依赖的所有jar包
 [SpringBoot入门教程(十八)@value、@Import、@ImportResource、@PropertySource](https://www.cnblogs.com/toutou/p/9907753.html)
 ```
 
-
+1. @value:注入Spring boot application.properties配置的属性的值
+2. @Import: 用来导入其他配置类。
+3. @ImportResource:  用来加载xml配置文件
+4. @PropertySource: 加载指定的配置文件(@Value和@ConfigurationProperties都可以用于获取配置文件的属性值，不过有个细节容易被忽略，那就是，这两个注解在Springboot项目中都是获取默认配置文件的属性值，也就是application.yml或者application.properties的属性值。但是使用@propertysource可以加载指定的配置文件。)
 
 
 
@@ -577,6 +585,57 @@ SpringBoot入门教程(六)SpringBoot2.0统一处理404,500等http错误跳转�
 
 https://www.cnblogs.com/toutou/p/9802800.html
 
+```
+
+继承 ErrorController + @ControllerAdvice + @ExceptionHandle 处理一切异常。已知@ControllerAdvice + @ExceptionHandle可以处理 除 404 以外的 运行异常，那么，捕获不到的异常就是404了。采用这种方式自定义方法，想返回什么就返回什么，无论是HTML还是json。
+
+404异常处理：
+
+```
+@Controller
+public class HttpErrorController implements ErrorController {
+//    private static final String ERROR_PATH = "/error";
+//
+//    @RequestMapping(value = ERROR_PATH)
+//    public String handleERror(){
+//        return "errorpage/404";
+//    }
+//
+//    @Override
+//    public String getErrorPath(){
+//        return ERROR_PATH;
+//    }
+    @Override
+    public String getErrorPath(){
+        return "/error";
+    }
+    @RequestMapping(value = {"/error"})
+    @ResponseBody
+    public Object error(HttpServletRequest request){
+        Map<String , Object> body = new HashMap<>();
+        body.put("error","not found");
+        body.put("错误类型","404");
+        return body;
+    }
+}
+```
+
+500异常处理：
+
+```
+@ControllerAdvice
+public class ExceptionController {
+ 
+    @ExceptionHandler(value = {Exception.class})
+    @ResponseBody
+    public Object error(Exception ex){
+ 
+        Map<String,String> map = new HashMap<>();
+        map.put("error", ex.getMessage());
+        map.put("code", "500");
+        return map;
+    }
+}
 ```
 
 
