@@ -776,7 +776,7 @@ https://gitee.com/xiandafu/springboot-plus.git
    ```
    spring.datasource.baseDataSource.url=jdbc:mysql://127.0.0.1:3306/starter?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8&useSSL=false&useInformationSchema=true
    spring.datasource.baseDataSource.username=root
-   spring.datasource.baseDataSource.password=12345678
+   spring.datasource.baseDataSource.password=123456
    spring.datasource.baseDataSource.driver-class-name=com.mysql.cj.jdbc.Driver
    ```
 
@@ -795,6 +795,150 @@ https://gitee.com/xiandafu/springboot-plus.git
 3. 运行结果
 
    ![image-20201011121910620](img/image-20201011121910620.png)
+
+
+
+
+
+#### 5.2  系统访问流程
+
+admin ------------->  son of  -------->      admin_console ------>    depend---------->admin_core
+
+​    admin_core 在resources 目录下包括 login.html，index.html，help.html,error.html ,用于系统的登录、主页面、帮助、异常处理等。
+
+![image-20201011171049497](img/image-20201011171049497.png)
+
+
+
+
+
+![image-20201011164827056](img/image-20201011164827056.png)
+
+```
+  /*页面*/
+    
+    @GetMapping(MODEL + "/index.do")
+    @Function("trace")
+    public ModelAndView index() {
+		ModelAndView view = new ModelAndView("/admin/audit/index.html");
+		view.addObject("search", AuditQuery.class.getName());
+        return view;
+    }  
+    
+```
+
+前端页面 index.html
+
+```
+<!--#layout("/common/layout.html",{"jsBase":"/js/admin/audit/"}){ -->
+<layui:searchForm formId="auditSearchForm"  condition="${search}">
+
+</layui:searchForm>
+
+<table id="auditTable" lay-filter="auditTable"></table>
+<!--#} -->
+<script>
+
+layui.use(['index'], function(){
+  var index = layui.index
+  index.init();
+});
+</script>
+```
+
+
+
+#### 5.3 login.html
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spring Boot开发平台</title>
+    <link rel="stylesheet" href="${ctxPath}/plugins/layui/css/layui.css">
+    <script src="${ctxPath}/plugins/layui/layui.js"></script>
+  
+    <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+    <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style rel="stylesheet" type="text/css">
+        .layui-tab-title li:first-child > i {
+            display: none;
+        }
+    </style>
+</head>
+<body class="layui-layout-body">
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+  <legend>用户登录</legend>
+</fieldset>
+ 
+<form class="layui-form" action="${ctxPath}/login.do" method="post">
+  <div class="layui-form-item">
+    <label class="layui-form-label">用户名</label>
+    <div class="layui-input-block">
+      <input type="text" name="code" lay-verify="title" autocomplete="off" 
+      	placeholder="请输入用户名" class="layui-input"  value="admin">
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">密码</label>
+    <div class="layui-input-block">
+      <input type="password" name="password" lay-verify="required"  name="" placeholder="请输入密码" autocomplete="off"
+       class="layui-input" value="123456">
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <div class="layui-input-block">
+      <button class="layui-btn" lay-submit="" lay-filter="demo1">立即登录</button>
+    </div>
+  </div>
+  </form>
+</body>
+</html>
+```
+
+点击登录，进行跳转：
+
+```
+<form class="layui-form" action="${ctxPath}/login.do" method="post">
+```
+
+控制器：
+
+```
+	@PostMapping("/login.do")
+	public ModelAndView login(String code, String password) {
+		UserLoginInfo info = userService.login(code, password);
+		if (info == null) {
+			throw new PlatformException("用户名密码错");
+		}
+		CoreUser user = info.getUser();
+		CoreOrg currentOrg = info.getOrgs().get(0);
+		for (CoreOrg org : info.getOrgs()) {
+			if (org.getId() == user.getOrgId()) {
+				currentOrg = org;
+				break;
+			}
+		}
+
+		info.setCurrentOrg(currentOrg);
+		// 记录登录信息到session
+		this.platformService.setLoginUser(info.getUser(), info.getCurrentOrg(), info.getOrgs());
+		ModelAndView view = new ModelAndView("redirect:/index.do");
+		return view;
+	}
+```
+
+
+
+#### 前端框架
+
+```
+https://www.layui.com/demo/anim.html
+```
 
 
 
