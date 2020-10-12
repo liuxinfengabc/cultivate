@@ -250,7 +250,7 @@ github是通过Git进行版本控制的软件源代码托管服务平台。githu
    
    git status
    
-   ![image-20201007112531563](C:\Users\HP\AppData\Roaming\Typora\typora-user-images\image-20201007112531563.png)
+   ![image-20201007112531563](image-20201007112531563.png)
    
    5.提交
    
@@ -375,7 +375,7 @@ github是通过Git进行版本控制的软件源代码托管服务平台。githu
 
 1. 登录Github，进入项目，点击Pull requests。
 
-   ![image-20201007170644446](C:\Users\HP\AppData\Roaming\Typora\typora-user-images\image-20201007170644446.png)
+   ![image-20201007170644446](image-20201007170644446.png)
 
 2. 通过Create pull request 进行提交，**提交给主程序员了，通知审核**
 
