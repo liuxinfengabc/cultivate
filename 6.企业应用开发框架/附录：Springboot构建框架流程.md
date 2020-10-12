@@ -51,7 +51,7 @@ https://blog.csdn.net/mxxrgxg/article/details/81134057
 
 第二种：访问http://start.spring.io/，这是spring官方提供的快速生成方式。进入页面后，选择maven构建工具，java开发语言，springBoot版本选择当前最新的稳定版。
 
-![image-20200924150550681](D:/git-student/cultivate/6.企业应用开发框架/img/image-20200924150550681.png)
+![image-20200924150550681](./img/image-20200924150550681.png)
 
 
 
@@ -578,7 +578,7 @@ spring:
 
 
 
-### 4.4 springboot 错误异常处理-陈宸
+### 4.4 springboot 错误异常处理-陈宸/王安轼
 
 ```
 SpringBoot入门教程(六)SpringBoot2.0统一处理404,500等http错误跳转页
@@ -646,7 +646,7 @@ public class ExceptionController {
 
 
 
-### 4.5 springboot 过滤器和拦截器 -田玉超
+### 4.5 springboot 过滤器和拦截器 -田玉超/刘佳慧
 
 #### 4.5.1 过滤与拦截
 
@@ -666,7 +666,7 @@ public class ExceptionController {
 
 
 
-### 4.6 安全框架(程宏豪)
+### 4.6 安全框架(包晨/韩春港)
 
 Shiro是Apache下的一个顶级开源安全框架，适应于java SE和java EE环境，不依赖于容器管理。集认证、授权、加密、会话管理、与Web集成、缓存等。shiro功能强大、易于扩展，并且不是很难，容易学习。
 
@@ -676,7 +676,7 @@ https://blog.csdn.net/mxxrgxg/article/details/81358536?utm_medium=distribute.pc_
 
 
 
-### 4.7  Redis(程宏豪)
+### 4.7  Redis()
 
 [SpringBoot进阶教程(五十二)整合Redis](https://www.cnblogs.com/toutou/p/spring_boot_redis.html)
 
@@ -704,7 +704,7 @@ pringBoot进阶教程(五十四)整合Redis之共享Session](https://www.cnblogs
 
 
 
-### 4.8 springboot-附近的人-陈梦雅
+### 4.8 springboot-附近的人-陈梦雅/刘行
 
 找附近的人
 
