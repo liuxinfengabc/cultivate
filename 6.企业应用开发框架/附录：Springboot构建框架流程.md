@@ -710,7 +710,7 @@ https://www.cnblogs.com/toutou/p/9771386.html
 
 
 
-### 4.10 ES检索与查询
+### 4.10 ES检索与查询应用
 
 
 
@@ -720,11 +720,27 @@ https://blog.csdn.net/pyfysf/article/details/100810846
 
 
 
-### 4.11 文件服务器fastdfs
+### 4.11可视化工具应用
 
 
 
-### 4.12 构建服务Service模块
+1. grafana
+
+```
+docker run -d -p 8085:3000 --name=grafana -v /home/data/grafana/data:/var/lib/grafana -v /home/data/grafana/conf:/usr/share/grafana/conf grafana/grafana
+```
+
+选择挂载数据文件(/var/lib/grafana)和配置文件(/usr/share/grafana/conf)。前者存放panels、datasoure、页面等数据，后者为配置文件，挂载后可以直接在宿主机器上修改，重启容器后生效
+
+2. 另一个工具：kibana
+
+
+
+### 4.13 文件服务器fastdfs应用
+
+
+
+### 4.14 构建服务Service模块
 
 #### 4.13.1 计算服务
 
