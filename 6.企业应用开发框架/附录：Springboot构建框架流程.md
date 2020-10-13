@@ -676,31 +676,19 @@ https://blog.csdn.net/mxxrgxg/article/details/81358536?utm_medium=distribute.pc_
 
 
 
-### 4.7  Redis()
+### 4.7  Redis配置(吕鹏飞)
 
 [SpringBoot进阶教程(五十二)整合Redis](https://www.cnblogs.com/toutou/p/spring_boot_redis.html)
 
+#### 4.7.1 redis安装与配置
 
+#### 4.7.2 redis访问
 
-#### 4.9.1缓存
-
-#### 4.9.2共享session
-
-```
-
-```
+#### 4.7.3 共享session
 
 ```
 pringBoot进阶教程(五十四)整合Redis之共享Session](https://www.cnblogs.com/toutou/p/redis_session.html)
 ```
-
-
-
-#### 4.9.3基于websocket实时展示数据
-
-
-
-![img](https://img2020.cnblogs.com/blog/1721320/202003/1721320-20200319084859071-1530751486.png)
 
 
 
@@ -723,6 +711,8 @@ https://www.cnblogs.com/toutou/p/9771386.html
 
 
 ### 4.10 ES检索与查询
+
+
 
 ```
 https://blog.csdn.net/pyfysf/article/details/100810846
@@ -848,7 +838,7 @@ layui.use(['index'], function(){
 
 
 
-#### 5.3 login.html
+#### 5.3 login.html解析
 
 ```
 <!DOCTYPE html>
@@ -934,7 +924,7 @@ layui.use(['index'], function(){
 
 
 
-#### 前端框架
+#### 5.4 前端框架LayUI学习
 
 ```
 https://www.layui.com/demo/anim.html
@@ -944,7 +934,7 @@ https://www.layui.com/demo/anim.html
 
 
 
-## 6. 基于JavaWeb开源框架
+## 6. 基于JavaWeb开源框架（韩春港/陈宸）
 
 ```
 https://gitee.com/javaweb520/JavaWeb
@@ -956,6 +946,8 @@ https://gitee.com/javaweb520/JavaWeb
 
 JavaWeb专业版,企业级开发框架SpringBoot+Layui+Thymeleaf+MybatisPlus开发权限(RBAC)及内容管理框架，框架中集成了权限管理、模块管理,数据库管理、富文本编辑器(已集成ueditor,kindeditor)，后台支持多主题切换、布局管理、广告管理、配置管理、字典管理、切图管理、CMS内容管理等常用功能模块，以方便开发者快速构建自己的应用。框架专注于为中小企业提供最佳的行业基础后台框架解决方案，执行效率、扩展性、稳定性值得信赖，操作体验流畅，使用非常优化，欢迎大家使用及进行二次开发。
 
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200817145712147.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3pvbmdqaW5sb25n,size_16,color_FFFFFF,t_70#pic_center)
+
 #### 6.2 项目介绍
 
 1、模块化：全新的架构和模块化的开发机制，便于灵活扩展和二次开发。
@@ -965,6 +957,34 @@ JavaWeb专业版,企业级开发框架SpringBoot+Layui+Thymeleaf+MybatisPlus开�
 5、Shiro权限认证，操作权限控制精密细致，对所有管理链接都进行权限验证，可控制到导航菜单、功能按钮。提高开发效率及质量。
 6、常用类封装，日志、缓存、验证、字典、文件（本地、七牛云）。等等，目前兼容浏览器（Chrome、Firefox、360浏览器等）
 7、适用范围：可以开发OA、ERP、BPM、CRM、WMS、TMS、MIS、BI、电商平台后台、物流管理系统、快递管理系统、教务管理系统等各类管理软件。
+
+#### 6.3 框架解析
+
+##### 6.3.1模块划分 
+
+​     模块划分的原则
+
+##### 6.3.2 数据库设计
+
+
+
+##### 6.3.3 system模块分析
+
+
+
+##### 6.3.4 common模块分析
+
+
+
+##### 6.3.5 admin模块分析
+
+
+
+
+
+
+
+
 
 
 
