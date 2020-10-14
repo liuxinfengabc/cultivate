@@ -51,7 +51,7 @@ https://blog.csdn.net/mxxrgxg/article/details/81134057
 
 第二种：访问http://start.spring.io/，这是spring官方提供的快速生成方式。进入页面后，选择maven构建工具，java开发语言，springBoot版本选择当前最新的稳定版。
 
-![image-20200924150550681](D:/git-student/cultivate/6.企业应用开发框架/img/image-20200924150550681.png)
+![image-20200924150550681](./img/image-20200924150550681.png)
 
 
 
@@ -578,7 +578,7 @@ spring:
 
 
 
-### 4.4 springboot 错误异常处理-陈宸
+### 4.4 springboot 错误异常处理-陈宸/王安轼
 
 ```
 SpringBoot入门教程(六)SpringBoot2.0统一处理404,500等http错误跳转页
@@ -646,7 +646,7 @@ public class ExceptionController {
 
 
 
-### 4.5 springboot 过滤器和拦截器 -田玉超
+### 4.5 springboot 过滤器和拦截器 -田玉超/刘佳慧
 
 #### 4.5.1 过滤与拦截
 
@@ -666,7 +666,7 @@ public class ExceptionController {
 
 
 
-### 4.6 安全框架(程宏豪)
+### 4.6 安全框架(包晨/韩春港)
 
 Shiro是Apache下的一个顶级开源安全框架，适应于java SE和java EE环境，不依赖于容器管理。集认证、授权、加密、会话管理、与Web集成、缓存等。shiro功能强大、易于扩展，并且不是很难，容易学习。
 
@@ -676,19 +676,15 @@ https://blog.csdn.net/mxxrgxg/article/details/81358536?utm_medium=distribute.pc_
 
 
 
-### 4.7  Redis(程宏豪)
+### 4.7  Redis配置(吕鹏飞)
 
 [SpringBoot进阶教程(五十二)整合Redis](https://www.cnblogs.com/toutou/p/spring_boot_redis.html)
 
+#### 4.7.1 redis安装与配置
 
+#### 4.7.2 redis访问
 
-#### 4.9.1缓存
-
-#### 4.9.2共享session
-
-```
-
-```
+#### 4.7.3 共享session
 
 ```
 pringBoot进阶教程(五十四)整合Redis之共享Session](https://www.cnblogs.com/toutou/p/redis_session.html)
@@ -696,15 +692,7 @@ pringBoot进阶教程(五十四)整合Redis之共享Session](https://www.cnblogs
 
 
 
-#### 4.9.3基于websocket实时展示数据
-
-
-
-![img](https://img2020.cnblogs.com/blog/1721320/202003/1721320-20200319084859071-1530751486.png)
-
-
-
-### 4.8 springboot-附近的人-陈梦雅
+### 4.8 springboot-附近的人-陈梦雅/刘行
 
 找附近的人
 
@@ -722,7 +710,9 @@ https://www.cnblogs.com/toutou/p/9771386.html
 
 
 
-### 4.10 ES检索与查询
+### 4.10 ES检索与查询应用
+
+
 
 ```
 https://blog.csdn.net/pyfysf/article/details/100810846
@@ -730,11 +720,27 @@ https://blog.csdn.net/pyfysf/article/details/100810846
 
 
 
-### 4.11 文件服务器fastdfs
+### 4.11可视化工具应用
 
 
 
-### 4.12 构建服务Service模块
+1. grafana
+
+```
+docker run -d -p 8085:3000 --name=grafana -v /home/data/grafana/data:/var/lib/grafana -v /home/data/grafana/conf:/usr/share/grafana/conf grafana/grafana
+```
+
+选择挂载数据文件(/var/lib/grafana)和配置文件(/usr/share/grafana/conf)。前者存放panels、datasoure、页面等数据，后者为配置文件，挂载后可以直接在宿主机器上修改，重启容器后生效
+
+2. 另一个工具：kibana
+
+
+
+### 4.13 文件服务器fastdfs应用
+
+
+
+### 4.14 构建服务Service模块
 
 #### 4.13.1 计算服务
 
@@ -848,7 +854,7 @@ layui.use(['index'], function(){
 
 
 
-#### 5.3 login.html
+#### 5.3 login.html解析
 
 ```
 <!DOCTYPE html>
@@ -934,7 +940,7 @@ layui.use(['index'], function(){
 
 
 
-#### 前端框架
+#### 5.4 前端框架LayUI学习
 
 ```
 https://www.layui.com/demo/anim.html
@@ -944,7 +950,79 @@ https://www.layui.com/demo/anim.html
 
 
 
-## 6. 环境配置及部署
+## 6. 基于JavaWeb开源框架（韩春港/陈宸）
+
+```
+https://gitee.com/javaweb520/JavaWeb
+```
+
+
+
+#### 6.1 系统简介
+
+JavaWeb专业版,企业级开发框架SpringBoot+Layui+Thymeleaf+MybatisPlus开发权限(RBAC)及内容管理框架，框架中集成了权限管理、模块管理,数据库管理、富文本编辑器(已集成ueditor,kindeditor)，后台支持多主题切换、布局管理、广告管理、配置管理、字典管理、切图管理、CMS内容管理等常用功能模块，以方便开发者快速构建自己的应用。框架专注于为中小企业提供最佳的行业基础后台框架解决方案，执行效率、扩展性、稳定性值得信赖，操作体验流畅，使用非常优化，欢迎大家使用及进行二次开发。
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200817145712147.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3pvbmdqaW5sb25n,size_16,color_FFFFFF,t_70#pic_center)
+
+#### 6.2 项目介绍
+
+1、模块化：全新的架构和模块化的开发机制，便于灵活扩展和二次开发。
+2、模型/栏目/分类信息体系：通过栏目和模型绑定，以及不同的模型类型，不同栏目可以实现差异化的功能，轻松实现诸如资讯、下载、讨论和图片等功能。通过分类信息和栏目绑定，可以自动建立索引表，轻松实现复杂的信息检索。
+3、JavaWeb企业级开发框架是一套基于SpringBoot2 + Layui开发出来的框架。
+4、支持SQLServer、MySQL、Oracle、PostgreSQL、SQLite等多数据库类型。模块化设计，层次结构清晰。
+5、Shiro权限认证，操作权限控制精密细致，对所有管理链接都进行权限验证，可控制到导航菜单、功能按钮。提高开发效率及质量。
+6、常用类封装，日志、缓存、验证、字典、文件（本地、七牛云）。等等，目前兼容浏览器（Chrome、Firefox、360浏览器等）
+7、适用范围：可以开发OA、ERP、BPM、CRM、WMS、TMS、MIS、BI、电商平台后台、物流管理系统、快递管理系统、教务管理系统等各类管理软件。
+
+#### 6.3 框架解析
+
+##### 6.3.1模块划分 
+
+​     模块划分：
+
+ 主模块为javaweb模块。
+
+```
+<modules>
+    <module>javaweb-common</module>
+    <module>javaweb-generator</module>
+    <module>javaweb-system</module>
+    <module>javaweb-admin</module>
+    <module>javaweb-quartz</module>
+</modules>
+```
+
+
+
+
+
+
+
+##### 6.3.2 数据库设计
+
+
+
+##### 6.3.3 system模块分析
+
+
+
+##### 6.3.4 common模块分析
+
+
+
+##### 6.3.5 admin模块分析
+
+
+
+
+
+
+
+
+
+
+
+## 7.环境配置及部署
 
 #### 6.1 环境配置
 
@@ -1009,10 +1087,6 @@ java -jar target/spring-boot-helloworld-0.0.1.jar --spring.profiles.active=prod
 Tomcat started on port(s): 8083 (http) with context path ''
 
 若是使用IDEA进行开发的话，还可以修改启动配置：
-
-
-
-
 
 之后执行Main方法，依然激活了dev的配置。
 
