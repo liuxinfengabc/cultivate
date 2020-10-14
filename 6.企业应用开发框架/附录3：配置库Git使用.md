@@ -415,7 +415,9 @@ github是通过Git进行版本控制的软件源代码托管服务平台。githu
 https://blog.csdn.net/qq1332479771/article/details/56087333?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.nonecase
 ```
 
-也可以参见命令行：
+也可以参见命令行（在IDEA中ALT+F12打开命令行），命令行的配置：
+
+![image-20201014144608026](img/image-20201014144608026.png)
 
 ##### 4.5.1 基本步骤
 
