@@ -978,7 +978,25 @@ JavaWeb专业版,企业级开发框架SpringBoot+Layui+Thymeleaf+MybatisPlus开�
 
 ##### 6.3.1模块划分 
 
-​     模块划分的原则
+​     模块划分：
+
+ 主模块为javaweb模块。
+
+```
+<modules>
+    <module>javaweb-common</module>
+    <module>javaweb-generator</module>
+    <module>javaweb-system</module>
+    <module>javaweb-admin</module>
+    <module>javaweb-quartz</module>
+</modules>
+```
+
+
+
+
+
+
 
 ##### 6.3.2 数据库设计
 
@@ -1069,10 +1087,6 @@ java -jar target/spring-boot-helloworld-0.0.1.jar --spring.profiles.active=prod
 Tomcat started on port(s): 8083 (http) with context path ''
 
 若是使用IDEA进行开发的话，还可以修改启动配置：
-
-
-
-
 
 之后执行Main方法，依然激活了dev的配置。
 
