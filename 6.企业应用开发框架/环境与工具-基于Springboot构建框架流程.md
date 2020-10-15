@@ -1022,7 +1022,17 @@ JavaWeb专业版,企业级开发框架SpringBoot+Layui+Thymeleaf+MybatisPlus开�
 
 
 
-## 7.环境配置及部署
+## 7. 基于vue+springboot的开源框架
+
+
+
+```
+https://github.com/lenve/vhr
+```
+
+
+
+## 8.环境配置及部署
 
 #### 6.1 环境配置
 
