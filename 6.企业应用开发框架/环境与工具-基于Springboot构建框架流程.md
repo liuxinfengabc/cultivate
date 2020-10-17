@@ -664,6 +664,16 @@ public class ExceptionController {
 
 
 
+### 4.6 springboot-附近的人-陈梦雅/刘行
+
+找附近的人
+
+```
+https://www.cnblogs.com/toutou/p/9771386.html      
+```
+
+做一遍，录制一个小视频（10分钟以内） FastStone
+
 
 
 ### 4.6 安全框架(包晨/韩春港)
@@ -680,6 +690,10 @@ https://blog.csdn.net/mxxrgxg/article/details/81358536?utm_medium=distribute.pc_
 
 [SpringBoot进阶教程(五十二)整合Redis](https://www.cnblogs.com/toutou/p/spring_boot_redis.html)
 
+
+
+
+
 #### 4.7.1 redis安装与配置
 
 #### 4.7.2 redis访问
@@ -692,21 +706,19 @@ pringBoot进阶教程(五十四)整合Redis之共享Session](https://www.cnblogs
 
 
 
-### 4.8 springboot-附近的人-陈梦雅/刘行
+第十七章: 介绍SpringBoot Cache功能，并重点介绍了Redis作为分布式缓存的实现。在此基础上，改进了Redis分布式缓存，通过较少的代码实现了一个具备一二级缓存的技术。
 
-找附近的人
 
-```
-https://www.cnblogs.com/toutou/p/9771386.html      
-```
 
-做一遍，录制一个小视频（10分钟以内） FastStone
-
-### 4.9 整合Kafka消息队列
+### 4.8 整合Kafka消息队列
 
 
 
 
+
+### 4.9 Springboot监控功能
+
+Spring Boot提供了内置监控功能，使得用户通过HTTP请求就能知晓服务器健康状态，如数据源是否可用，NOSQL服务是否可用，最近的HTTP访问的内容等监控信息。本章讲述了线程栈，内存，在线日志，HTTP访问，Request Mapping等常用监控功能。其中讲述通过dump线程栈和内存来解决SpringBoot应用中的一些性能故障。
 
 
 
@@ -717,6 +729,8 @@ https://www.cnblogs.com/toutou/p/9771386.html
 ```
 https://blog.csdn.net/pyfysf/article/details/100810846
 ```
+
+ElasticSearch是一个即具有全文搜索功能，也具备NOSQL的功能。通过REST和Spring Data 俩中方式访问Elastc Search. 
 
 
 
@@ -1022,12 +1036,28 @@ JavaWeb专业版,企业级开发框架SpringBoot+Layui+Thymeleaf+MybatisPlus开�
 
 
 
-## 7. 基于vue+springboot的开源框架
+## 7. 基于vue+springboot的开源框架（程宏豪）
 
 
 
 ```
 https://github.com/lenve/vhr
+```
+
+微人事是一个前后端分离的人力资源管理系统，项目采用 SpringBoot + Vue 开发。权限管理相关的模块主要有两个，分别是 [系统管理->基础信息设置->权限组] 可以管理角色和资源的关系， [系统管理->操作员管理] 可以管理用户和角色的关系。另外，本项目也在不断的更新中，小伙伴们可以通过下方的更新记录查看最新完成的功能。
+
+**项目演示：**
+
+![img](https://mmbiz.qpic.cn/mmbiz_png/UtWdDgynLdZGDBBQR46nVORn2sXu5PgxaX2oonic6iae3tZ8lW2HIZz1hiaUtUeMuqiawRvzdbLW4TIojAEpQbIYGw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+
+
+
+
+`mall`项目致力于打造一个完整的电商系统，采用现阶段流行技术实现。
+
+```
+https://github.com/macrozheng/mall
 ```
 
 
