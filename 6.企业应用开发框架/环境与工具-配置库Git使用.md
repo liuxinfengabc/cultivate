@@ -548,7 +548,7 @@ $ git remote add origin git@github.com:liuxinfengabc/cultivate.git
 
    git push --set-upstream origin master
 
-#### 5. 开发环境中使用GitHub
+### 5. 开发环境中使用GitHub
 
 #### 5.1 tortoiseGit(windows)简化操作
 
