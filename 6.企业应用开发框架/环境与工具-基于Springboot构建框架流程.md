@@ -730,7 +730,7 @@ Spring Boot提供了内置监控功能，使得用户通过HTTP请求就能知�
 https://blog.csdn.net/pyfysf/article/details/100810846
 ```
 
-ElasticSearch是一个即具有全文搜索功能，也具备NOSQL的功能。通过REST和Spring Data 俩中方式访问Elastc Search. 
+ElasticSearch是一个即具有全文搜索功能，也具备NOSQL的功能。通过REST和Spring Data 俩中方式访问ElastcSearch. 
 
 
 
@@ -1032,7 +1032,27 @@ JavaWeb专业版,企业级开发框架SpringBoot+Layui+Thymeleaf+MybatisPlus开�
 
 
 
+## 7. 农业系统开源框架（郑晖大神）
 
+
+
+```
+https://github.com/8042965/agriculture.git
+```
+
+
+
+https://8042965.github.io/#/zh-cn/
+
+
+
+1. 前端访问后台地址配置
+
+   js/public.js
+
+2. ```
+   ServerIP="http://127.0.0.1:8080" //后台服务器的IP地址
+   ```
 
 
 
