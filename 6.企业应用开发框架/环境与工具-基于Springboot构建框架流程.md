@@ -1,3 +1,5 @@
+
+
 ## 4. SpringBoot构建开发框架流程
 
 ```
@@ -157,6 +159,16 @@ demo.iml：包含了项目依赖的所有jar包
 
 
 
+@RestController   <==> @ResponseBody  +@Controller
+
+@Controller<==>@Component ==@Bean== @Repository  ===  @Service
+
+```==
+@GetMapping==@RequestMapping(   Method="Get")
+```
+
+
+
 ```
 [SpringBoot入门教程(十八)@value、@Import、@ImportResource、@PropertySource](https://www.cnblogs.com/toutou/p/9907753.html)
 ```
@@ -311,7 +323,7 @@ Itoo-base-parent(pom.xml)
       <dependencies>  
            <dependency>  
                <groupId>org.eclipse.persistence</groupId>  
-               <artifactId>org.eclipse.persistence.jpa</artifactId>              	<version>${jpa.version}</version> 
+               <artifactId>org.eclipse.persistence.jpa</artifactId>              						<version>${jpa.version}</version> 
             </dependency>                
             <dependency>  
                 <groupId>javax</groupId>  
@@ -362,8 +374,6 @@ Itoo-base(pom.xml)
 
 2. 创建project后，一定要删除iml文件，否则会出现错误。
 
-
-
 2. IDEA想创建package,却只有directory 
 
 解决办法这是因为java是普通的文件夹,不是源文件的根目录，要设置为*source* *root*  。右键点击java文件夹进行设计
@@ -374,7 +384,40 @@ Itoo-base(pom.xml)
 
 ![image-20200928104311830](img/image-20200928104311830.png)
 
-### 4.3 集成Mybatis模块
+### 4.3 页面添加
+
+访问对应的页面，出错。
+
+![image-20201030181411980](img/image-20201030181411980.png) 
+
+[springboot访问templates下的html页面]
+
+springboot项目默认是**不允许直接访问templates下的文件**的，是受保护的。
+
+如果要访问templates下的文件，推荐使用**thymeleaf。注：使用thymeleaf这一点要牢牢记住！
+
+**如何使用：**
+
+1、pom依赖
+
+```
+<!--thymeleaf 模板依赖-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+```
+
+2、配置文件
+
+```
+#模板热部署、禁用 thymeleaf 缓存
+spring.thymeleaf.cache=false
+```
+
+### 
+
+### 4.4 集成Mybatis模块
 
 
 
@@ -654,11 +697,15 @@ public class ExceptionController {
 [过滤器和拦截器](https://www.cnblogs.com/toutou/p/9831678.html)
 ```
 
+在做web开发的时候，[过滤器（Filter）](https://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/Filter.html)和[拦截器（Interceptor）](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/HandlerInterceptor.html)很常见，通俗的讲，过滤器可以简单理解为“取你所想取”，忽视掉那些你不想要的东西；拦截器可以简单理解为“拒你所想拒”，关心你想要拒绝掉哪些东西，比如一个BBS论坛上拦截掉敏感词汇。
+
+过滤器依赖于servlet容器,是JavaEE标准,是在请求进入容器之后，还未进入Servlet之前进行预处理，并且在请求结束返回给前端这之间进行后期处理。在实现上基于函数回调，可以对几乎所有请求进行过滤，但是缺点是一个过滤器实例只能在容器初始化时调用一次。使用过滤器的目的是用来做一些过滤操作，获取我们想要获取的数据，比如：在过滤器中修改字符编码；在过滤器中修改HttpServletRequest的一些参数，包括：过滤低俗文字、危险字符等
+
+java里的拦截器是动态拦截Action调用的对象。它提供了一种机制可以使开发者可以定义在一个action执行的前后执行的代码，也可以在一个action执行前阻止其执行，同时也提供了一种可以提取action中可重用部分的方式。在AOP（Aspect-Oriented Programming）中拦截器用于在某个方法或字段被访问之前，进行拦截然后在之前或之后加入某些操作。
+
 
 
 #### 4.5.2 SQL注入过滤器
-
-
 
 #### 4.5.3 日志记录
 
@@ -674,15 +721,19 @@ https://www.cnblogs.com/toutou/p/9771386.html
 
 做一遍，录制一个小视频（10分钟以内） FastStone
 
-
-
-### 4.6 安全框架(包晨/韩春港)
+### 4.6 安全框架
 
 Shiro是Apache下的一个顶级开源安全框架，适应于java SE和java EE环境，不依赖于容器管理。集认证、授权、加密、会话管理、与Web集成、缓存等。shiro功能强大、易于扩展，并且不是很难，容易学习。
 
 ```
 https://blog.csdn.net/mxxrgxg/article/details/81358536?utm_medium=distribute.pc_relevant.none-task-blog-title-3&spm=1001.2101.3001.4242
 ```
+
+1. 创建Springboot框架
+
+![image-20201030150822975](img/image-20201030150822975.png)
+
+2. 
 
 
 
@@ -748,6 +799,8 @@ docker run -d -p 8085:3000 --name=grafana -v /home/data/grafana/data:/var/lib/gr
 
 2. 另一个工具：kibana
 
+   
+
 
 
 ### 4.13 文件服务器fastdfs应用
@@ -762,11 +815,9 @@ docker run -d -p 8085:3000 --name=grafana -v /home/data/grafana/data:/var/lib/gr
 
 
 
+## 5. 开源框架学习
 
-
-
-
-## 5. 基于SpringbootPlus开源框架
+### 5.1基于SpringbootPlus开源框架
 
 
 
@@ -954,85 +1005,109 @@ layui.use(['index'], function(){
 
 
 
-#### 5.4 前端框架LayUI学习
+### 5.2 SpringBoot+layui实现后台管理平台
 
 ```
-https://www.layui.com/demo/anim.html
+
+https://www.cnblogs.com/javatiandi/p/12759897.html
+代码：
+https://gitee.com/cailun-hx/cboot
+ 
 ```
 
+ Layui 作为一款优秀的开源前端库现在被敏捷开发团队用的越来越多。丰富的插件让开发不再从头造轮子。https://www.layui.com/（LayUI官网）
 
+![img](https://img2020.cnblogs.com/blog/934515/202004/934515-20200423120003303-919796965.png)。
 
+1. 后台使用SpringBoot 2.1.7 集成了 shiro做权限管理，使用JsonWebToken 做接口鉴权。
 
+2. 数据库是MYSQL.数据层使用了MyBatis。
+3. 代码简略。
 
-## 6. 基于JavaWeb开源框架（韩春港/陈宸）
-
-```
-https://gitee.com/javaweb520/JavaWeb
-```
-
-
+![img](https://img2020.cnblogs.com/blog/934515/202004/934515-20200423114340140-1708773368.png)
 
 #### 6.1 系统简介
 
 JavaWeb专业版,企业级开发框架SpringBoot+Layui+Thymeleaf+MybatisPlus开发权限(RBAC)及内容管理框架，框架中集成了权限管理、模块管理,数据库管理、富文本编辑器(已集成ueditor,kindeditor)，后台支持多主题切换、布局管理、广告管理、配置管理、字典管理、切图管理、CMS内容管理等常用功能模块，以方便开发者快速构建自己的应用。框架专注于为中小企业提供最佳的行业基础后台框架解决方案，执行效率、扩展性、稳定性值得信赖，操作体验流畅，使用非常优化，欢迎大家使用及进行二次开发。
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200817145712147.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3pvbmdqaW5sb25n,size_16,color_FFFFFF,t_70#pic_center)
 
-#### 6.2 项目介绍
 
-1、模块化：全新的架构和模块化的开发机制，便于灵活扩展和二次开发。
-2、模型/栏目/分类信息体系：通过栏目和模型绑定，以及不同的模型类型，不同栏目可以实现差异化的功能，轻松实现诸如资讯、下载、讨论和图片等功能。通过分类信息和栏目绑定，可以自动建立索引表，轻松实现复杂的信息检索。
-3、JavaWeb企业级开发框架是一套基于SpringBoot2 + Layui开发出来的框架。
-4、支持SQLServer、MySQL、Oracle、PostgreSQL、SQLite等多数据库类型。模块化设计，层次结构清晰。
-5、Shiro权限认证，操作权限控制精密细致，对所有管理链接都进行权限验证，可控制到导航菜单、功能按钮。提高开发效率及质量。
-6、常用类封装，日志、缓存、验证、字典、文件（本地、七牛云）。等等，目前兼容浏览器（Chrome、Firefox、360浏览器等）
-7、适用范围：可以开发OA、ERP、BPM、CRM、WMS、TMS、MIS、BI、电商平台后台、物流管理系统、快递管理系统、教务管理系统等各类管理软件。
-
-#### 6.3 框架解析
-
-##### 6.3.1模块划分 
-
-​     模块划分：
-
- 主模块为javaweb模块。
-
-```
-<modules>
-    <module>javaweb-common</module>
-    <module>javaweb-generator</module>
-    <module>javaweb-system</module>
-    <module>javaweb-admin</module>
-    <module>javaweb-quartz</module>
-</modules>
-```
+### 5.3layui开源学习框架
 
 
 
+#### 5.3.1数据库设计
+
+表 1 permission（权限）
+
+| 名          | 类型    | 长度 | 小数点 | 不是null | 是否主键 | 注释                      |
+| ----------- | ------- | ---- | ------ | -------- | -------- | ------------------------- |
+| id          | int     | 11   | 0      | 是       | 是       | id                        |
+| pid         | int     | 1    | 0      | 否       | 否       | 父id，上级菜单            |
+| name        | varchar | 50   | 0      | 是       | 否       | 权限名称                  |
+| permcode    | varchar | 255  | 0      | 否       | 否       |                           |
+| type        | int     | 1    | 0      | 是       | 否       | 权限类型：1：菜单 0：功能 |
+| sort        | int     | 10   | 0      | 否       | 否       | 展示列表的顺序            |
+| url         | varchar | 255  | 0      | 否       | 否       | 菜单的url地址             |
+| description | varchar | 255  | 0      | 否       | 否       | 描述                      |
 
 
 
+ 
 
-##### 6.3.2 数据库设计
+表 2 role表（角色）
 
+| 名          | 类型    | 长度 | 小数点 | 不是null | 是否主键 | 注释     |
+| ----------- | ------- | ---- | ------ | -------- | -------- | -------- |
+| id          | int     | 11   | 0      | 是       | 是       | id       |
+| name        | varchar | 20   | 0      | 是       | 否       | 角色名   |
+| rolecode    | varchar | 20   | 0      | 是       | 否       | 角色编码 |
+| description | varchar | 0    | 0      | 否       | 否       | 描述     |
+| sort        | int     | 11   | 0      | 否       | 否       | 排序     |
 
+ 
 
-##### 6.3.3 system模块分析
+表 3 rolepermission（角色权限）
 
+| 名          | 类型 | 长度 | 小数点 | 不是null | 是否主键 | 注释   |
+| ----------- | ---- | ---- | ------ | -------- | -------- | ------ |
+| id          | int  | 11   | 0      | 是       | 是       | id     |
+| roleid      | int  | 11   | 0      | 是       | 否       | 角色ID |
+| permisionid | int  | 11   | 0      | 是       | 否       | 权限ID |
 
+ 
 
-##### 6.3.4 common模块分析
+表 4 user（用户）
 
+| 名           | 类型     | 长度 | 小数点 | 不是null | 是否主键 | 注释     |
+| ------------ | -------- | ---- | ------ | -------- | -------- | -------- |
+| id           | int      | 11   | 0      | 是       | 是       | id       |
+| username     | varchar  | 30   | 0      | 否       | 否       | 登录账号 |
+| name         | varchar  | 100  | 0      | 否       | 否       | 真实姓名 |
+| password     | varchar  | 100  | 0      | 否       | 否       | 密码     |
+| salt         | varchar  | 30   | 0      | 否       | 否       | 加密salt |
+| address      | varchar  | 255  | 0      | 否       | 否       | 地址     |
+| phone        | varchar  | 100  | 0      | 否       | 否       | 电话     |
+| email        | varchar  | 100  | 0      | 否       | 否       | 邮箱     |
+| sex          | varchar  | 3    | 0      | 否       | 否       | 性别     |
+| adddate      | datetime | 0    | 0      | 否       | 否       | 创建日期 |
+| enabled      | decimal  | 65   | 30     | 否       | 否       | 是否启用 |
+| remark       | varchar  | 400  | 0      | 否       | 否       | 备注     |
+| headportrait | varchar  | 255  | 0      | 否       | 否       | 头像地址 |
 
+ 
 
-##### 6.3.5 admin模块分析
+表 5 userrole（用户角色）
 
+| 名     | 类型 | 长度 | 小数点 | 不是null | 是否主键 | 注释   |
+| ------ | ---- | ---- | ------ | -------- | -------- | ------ |
+| id     | int  | 11   | 0      | 是       | 是       | id     |
+| userid | int  | 11   | 0      | 是       | 否       | 用户id |
+| roleid | int  | 11   | 0      | 是       | 否       | 角色ID |
 
+  
 
-
-
-
-
-## 7. 农业系统开源框架（郑晖大神）
+### 5.4农业系统开源框架
 
 
 
@@ -1056,7 +1131,7 @@ https://8042965.github.io/#/zh-cn/
 
 
 
-## 7. 基于vue+springboot的开源框架（程宏豪）
+### 5.5 基于vue+springboot的开源框架（程宏豪）
 
 
 
@@ -1082,7 +1157,17 @@ https://github.com/macrozheng/mall
 
 
 
-## 8.环境配置及部署
+### 5.6 前端框架LayUI学习
+
+```
+https://www.layui.com/demo/anim.html
+
+https://www.layui.com/admin/std/dist/views/
+```
+
+
+
+## 6.环境配置及部署
 
 #### 6.1 环境配置
 
