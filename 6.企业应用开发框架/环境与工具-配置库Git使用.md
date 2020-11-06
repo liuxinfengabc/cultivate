@@ -8,6 +8,14 @@ https://www.jianshu.com/p/25e5e07b2464  如果看不到图片，请参考
 
 github是通过Git进行版本控制的软件源代码托管服务平台。github除了Git代码仓库托管及基本的Web管理界面以外，它还提供了一些方便社会化共同软件开发的功能，即一般人口中的社群功能，包括允许用户追踪其他用户、组织、软件库的动态，对[软件代码](https://baike.sogou.com/lemma/ShowInnerLink.htm?lemmaId=4196027&ss_c=ssc.citiao.link)的改动和bug提出评论等。
 
+对应视频资料参见腾讯课堂：
+
+```
+https://ke.qq.com/course/1645555?from=qqchat&taid=10549268609309683&tuin=25363a4e&ADUIN=624310862&ADSESSION=1603690863&ADTAG=CLIENT.QQ.5767_.0&ADPUBNO=27052
+```
+
+
+
 #### 1.1 工作流程
 
 ![image-20200223111840767](./img/image-20200223111840767.png)
@@ -548,7 +556,7 @@ $ git remote add origin git@github.com:liuxinfengabc/cultivate.git
 
    git push --set-upstream origin master
 
-#### 5. 开发环境中使用GitHub
+### 5. 开发环境中使用GitHub
 
 #### 5.1 tortoiseGit(windows)简化操作
 
