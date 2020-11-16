@@ -1,0 +1,124 @@
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>layui</title>
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+
+<link rel="stylesheet" type="text/css" href="/simditor/css/styles/simditor.css" />
+<script type="text/javascript" src="/simditor/js/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/simditor/js/scripts/module.js"></script>
+<script type="text/javascript" src="/simditor/js/scripts/hotkeys.js"></script>
+<script type="text/javascript" src="/simditor/js/scripts/uploader.js"></script>
+<script type="text/javascript" src="/simditor/js/scripts/simditor.js"></script>
+
+<link rel="stylesheet" th:href="@{/alllayui/layui/css/layui.css}" media="all">
+
+
+<style>
+
+
+</style>
+
+
+<div class="layui-form"  >
+	
+	<input type="hidden" name='replyCount' id="replyCount"  value="0"  >
+	<div style="padding-left: 10%;padding-right: 10%;padding-top: 20px;">
+		<textarea id="editor" style="width:600px;" placeholder="" autofocus></textarea>
+		<button type="button" id="commentButton"  class="layui-btn"   >发表</button>
+	</div>
+</div>
+
+<script>
+	var tools = [
+		'bold', 'italic', 'underline', 'color', 'link', 'image'
+	];
+
+
+	var editor = new Simditor({
+		textarea: $('#editor'),
+		toolbar: tools,
+		toolbarFloat: true,
+		toolbarFloatOffset: 0,
+		toolbarHidden: false,
+		upload: {
+			url: '/simditor/uploadPic',
+			params: null,
+			fileKey: 'editorPic',
+			connectionCount: 1,
+			leaveConfirm: '正在上传, 你确定要离开吗?'
+		}
+	});
+</script>
+
+
+<script>
+	layui.use(['jquery', 'form'], function() { 
+		var  layer = layui.layer,
+			$ = layui.$;
+ 
+		$("#commentButton").click(function(){
+			if(editor.getValue().length<12){
+				layer.msg('评论字数太少', {
+					icon: 1,
+					time: 2000
+				}); 
+				return ;
+			}
+			if(editor.getValue().length>507){
+				layer.msg('评论字数太多', {
+					icon: 1,
+					time: 2000
+				}); 
+				return ;
+			}
+			
+			
+			
+			var replyCount = $("#replyCount").val(); 
+			if(replyCount>2){
+				layer.msg('这回您已经评论过'+replyCount+'次了', {
+					icon: 1,
+					time: 2000
+				}); 
+			}else{ 				
+				var data2Send = {};
+				data2Send['newsId'] = $("#newsId").val(); 
+				data2Send['ncomment'] = editor.getValue(); 
+				$.post("/orgcomment/add", data2Send, function(res) {
+					replyCount++;
+					$("#replyCount").val(replyCount);
+					var msg = "";
+					if (res.message == 'SUCCESS') {
+						msg = '已评论!';
+						layer.msg(msg, {
+							icon: 1,
+							time: 2000
+						});
+						 editor.setValue("");
+						 try{
+							 $(".layui-laypage-btn").click();
+						 }catch(e){}
+						
+					} else {
+						msg = '评论失败!' + res.message;
+						layer.msg(msg, {
+							icon: 1,
+							time: 2000
+						});
+						 editor.setValue("");
+						 try{
+							 $(".layui-laypage-btn").click();
+						 }catch(e){}
+					}
+				
+				}, "json");
+				
+			}
+	 
+		});
+		
+		
+	});
+</script>

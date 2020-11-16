@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>layui</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" th:href="@{/alllayui/layui/css/layui.css}"  media="all">
+    <script th:src="@{/alllayui/layui/layui.js}" charset="utf-8"></script>
+    <script th:src="@{/system/js/jquery.min.js}" charset="utf-8"></script>
+    <style type="text/css">
+    		.hotNewsList div:hover{
+    			background-color: orange; 
+    		}
+    		.hotNewsList div{
+    		   font-size: large;
+    		}
+    </style>
+	</head>
+	
+ <body>
+    
+ 
+		<div class="layui-container" style="padding: 20px;">  
+		  		  
+		  
+		  <div class="layui-row">
+			<div class="layui-col-md4"   >
+			 <div class="layui-row"><a class="list" href="javascript:void(0);" style="font-size: 16px;"><i class="layui-icon layui-icon-list" style="color: #1E9FFF;"></i>  我是新闻，标题最好不超过15字</a></div>
+			 <div class="layui-row"><a class="list" href="javascript:void(0);" style="font-size: 16px;"><i class="layui-icon layui-icon-list" style="color: #1E9FFF;"></i>  我是新闻，标题最好不超过15字</a></div>
+			 <div class="layui-row"><a class="list" href="javascript:void(0);" style="font-size: 16px;"><i class="layui-icon layui-icon-list" style="color: #1E9FFF;"></i>  我是新闻，标题最好不超过15字</a></div>
+			 <div class="layui-row"><a class="list" href="javascript:void(0);" style="font-size: 16px;"><i class="layui-icon layui-icon-list" style="color: #1E9FFF;"></i>  我是新闻，标题最好不超过15字</a></div>
+			 <div class="layui-row"><a class="list" href="javascript:void(0);" style="font-size: 16px;"><i class="layui-icon layui-icon-list" style="color: #1E9FFF;"></i>  我是新闻，标题最好不超过15字</a></div>
+			 <div class="layui-row"><a class="list" href="javascript:void(0);" style="font-size: 16px;"><i class="layui-icon layui-icon-list" style="color: #1E9FFF;"></i>  我是新闻，标题最好不超过15字</a></div>
+			 <div class="layui-row"><a class="list" href="javascript:void(0);" style="font-size: 16px;"><i class="layui-icon layui-icon-list" style="color: #1E9FFF;"></i>  我是新闻，标题最好不超过15字</a></div>
+			 <div class="layui-row"><a class="list" href="javascript:void(0);" style="font-size: 16px;"><i class="layui-icon layui-icon-list" style="color: #1E9FFF;"></i>  我是新闻，标题最好不超过15字</a></div>
+			 <div class="layui-row"><a class="list" href="javascript:void(0);" style="font-size: 16px;"><i class="layui-icon layui-icon-list" style="color: #1E9FFF;"></i>  我是新闻，标题最好不超过15字</a></div>
+			 <div class="layui-row"><a class="list" href="javascript:void(0);" style="font-size: 16px;"><i class="layui-icon layui-icon-list" style="color: #1E9FFF;"></i>  我是新闻，标题最好不超过15字</a></div>
+			 <div class="layui-row"><a class="list" href="javascript:void(0);" style="font-size: 16px;"><i class="layui-icon layui-icon-list" style="color: #1E9FFF;"></i>  我是新闻，标题最好不超过15字</a></div>
+			 <div class="layui-row"><a class="list" href="javascript:void(0);" style="font-size: 16px;"><i class="layui-icon layui-icon-list" style="color: #1E9FFF;"></i>  我是新闻，标题最好不超过15字</a></div>
+             <div><a style="color: #990000;" href="javascript:void(0);" moduleName="list"     class="edit delEdit"  >&nbsp;&nbsp;&nbsp;编辑</a></div>
+			</div>
+			<div class="layui-col-md8">
+			   <div class="layui-row">
+				<div class="layui-carousel" id="test1">
+				  <div id="picItems"  carousel-item>
+					<div><img style="width:100%;height:100%;" src="/system/images/company_1.jpg"></div>
+					<div><img style="width:100%;height:100%;" src="/system/images/company_2.jpg"></div>
+					<div><img style="width:100%;height:100%;" src="/system/images/company_3.jpg"></div>
+					<div><img style="width:100%;height:100%;" src="/system/images/company_4.jpg"></div> 
+					<div><img style="width:100%;height:100%;" src="/system/images/company_1.jpg"></div> 
+					<div><img style="width:100%;height:100%;" src="/system/images/company_1.jpg"></div> 
+				  </div>
+				</div>
+				<!-- 条目中可以是任意内容，如：<img src=""> -->
+				</div>
+	
+			</div>
+	   </div>
+		   
+		   <div class="layui-row"  >
+			   <div class="layui-col-md4" style="text-align: center;">
+				  
+			   </div>
+			   <div class="layui-col-md8  layui-col-md-offset4"> 
+				    <div class="layui-col-md6" style="text-align: center;height: 40px;background: #0099CC;padding: 8px;" ><a class="picLeft" href="javascript:void(0);" style="font-size: 16px;">我是新闻，标题最好不超过15字</a> <a  style="color: #990000;" href="javascript:void(0);" moduleName="picLeft"  class="edit delEdit"  >&nbsp;&nbsp;&nbsp;编辑</a></div>
+					<div class="layui-col-md6" style="text-align: center;height: 40px;background: #0099CC;padding: 8px;" ><a class="picRight" href="javascript:void(0);" style="font-size: 16px;">我是新闻，标题最好不超过15字</a><a style="color: #990000;" href="javascript:void(0);" moduleName="picRight"  class="edit delEdit"  >&nbsp;&nbsp;&nbsp;编辑</a><a style="color: #990000;" href="javascript:void(0);" moduleName="picture"  class="picEdit delEdit"  >&nbsp;&nbsp;&nbsp;编辑图片</a></div> 
+			   </div>
+		   	
+		   </div>
+		<hr class="layui-bg-gray">
+		
+		<div class="layui-row">
+			<div class="layui-row" style="padding: 10px;"><font style="font-size: 20px;font-weight: 500;">热搜新闻</font><a style="color: #990000;"  href="javascript:void(0);" moduleName="hotNews_editBtn" id="hotNews_editBtn"  class="edit delEdit"  >&nbsp;&nbsp;&nbsp;编辑</a></div>
+				
+
+			<div class="layui-row" >
+				<div class="layui-col-md3" style="padding: 2px;"   >
+					<div class="hotNewsList" style="height: 100px;width:100%;background: #007DDB;display:table;"> <div class="edit" moduleName="hotNews" style="display:table-cell; vertical-align:middle; text-align: center;"><a href="javascript:void(0);" style="font-size: 16px;">我是新闻，标题最好不超过15字</a></div></div>
+				</div>
+				<div class="layui-col-md3" style="padding: 2px;"   >
+					<div class="hotNewsList" style="height: 100px;width:100%;background: #007DDB;display:table;"> <div class="edit" moduleName="hotNews" style="display:table-cell; vertical-align:middle; text-align: center;"><a href="javascript:void(0);" style="font-size: 16px;">我是新闻，标题最好不超过15字</a></div></div>
+				</div>
+				<div class="layui-col-md3" style="padding: 2px;"   >
+					<div class="hotNewsList" style="height: 100px;width:100%;background: #007DDB;display:table;"> <div class="edit" moduleName="hotNews" style="display:table-cell; vertical-align:middle; text-align: center;"><a href="javascript:void(0);" style="font-size: 16px;">我是新闻，标题最好不超过15字</a></div></div>
+				</div>
+				<div class="layui-col-md3" style="padding: 2px;"   >
+					<div class="hotNewsList" style="height: 100px;width:100%;background: #007DDB;display:table;"> <div class="edit" moduleName="hotNews" style="display:table-cell; vertical-align:middle; text-align: center;"><a href="javascript:void(0);" style="font-size: 16px;">我是新闻，标题最好不超过15字</a></div></div>
+				</div>
+			 
+				 
+			</div>
+			<div class="layui-row">
+				<div class="layui-col-md4" style="padding: 2px;"   >
+					<div class="hotNewsList" style="height: 100px;width:100%;background: #007DDB;display:table;"> <div class="edit" moduleName="hotNews" style="display:table-cell; vertical-align:middle; text-align: center;"><a href="javascript:void(0);" style="font-size: 16px;">我是新闻，标题最好不超过15字</a></div></div>
+				</div>
+				<div class="layui-col-md4" style="padding: 2px;"   >
+					<div class="hotNewsList" style="height: 100px;width:100%;background: #007DDB;display:table;"> <div class="edit" moduleName="hotNews" style="display:table-cell; vertical-align:middle; text-align: center;"><a href="javascript:void(0);" style="font-size: 16px;">我是新闻，标题最好不超过15字</a></div></div>
+				</div>
+				<div class="layui-col-md4" style="padding: 2px;"   >
+					<div class="hotNewsList" style="height: 100px;width:100%;background: #007DDB;display:table;"> <div class="edit" moduleName="hotNews" style="display:table-cell; vertical-align:middle; text-align: center;"><a href="javascript:void(0);" style="font-size: 16px;">我是新闻，标题最好不超过15字</a></div></div>
+				</div> 
+			</div>
+		</div>
+		
+		  <div class="layui-row">
+		     <hr class="layui-bg-gray">
+		     <div class="layui-btn-container">
+		        <button class="layui-btn layui-btn-sm" id="saveBtn">保存</button>
+		        <button class="layui-btn layui-btn-sm" lay-event="confirmSelect">发布</button>
+		    </div>
+		  </div>
+					
+			</div>		
+	</body>
+	
+	<script type="text/javascript">
+	   var orgnewsAry = [];
+	   var moduleName = "";
+	   var clickHotNewsObj = null;
+	   var uploadPicArr = [];
+	   function setUploadPicArr(arr){
+		   uploadPicArr = arr;
+		   console.log(uploadPicArr);
+		 
+		   var imgs = $('#picItems').find('img');
+		   for(var i=0;i<uploadPicArr.length;i++){
+			   var src =  uploadPicArr[i];
+			   if(i<imgs.length){
+				   $(imgs[i]).attr('src',src);
+			   }
+			 
+		   } 
+	   }
+	   
+	   function setOrgnewsAry(arr){
+		    orgnewsAry = arr; 
+		   
+		    if(moduleName == 'list'){
+		    	  $('.list').each(function(index,element){
+		         		if(index<orgnewsAry.length){
+		         			var article = orgnewsAry[index]; 
+		         			$(element).attr("newsId",article.id);
+		         			$(element).attr('href',article.newsPath);
+		         			$(element).attr('target','_blank');
+		         			var titleStr = article.ntitle;
+		         			if( article.ntitle.length>15){
+		         				titleStr =  article.ntitle.substr(0,15);
+		         			} 
+		         			$(element).html('<i class="layui-icon layui-icon-list" style="color: #1E9FFF;"></i>' +  titleStr );
+		         		}
+		         	});
+	        }
+	        if(moduleName == 'picLeft'){
+	        	$('.picLeft').each(function(index,element){
+	         		if(index<orgnewsAry.length){
+	         			var article = orgnewsAry[index];
+	         			$(element).attr("newsId",article.id);
+	         			$(element).attr('href',article.newsPath);
+	         			$(element).attr('target','_blank');
+	         			var titleStr = article.ntitle;
+	         			if( article.ntitle.length>15){
+	         				titleStr =  article.ntitle.substr(0,15);
+	         			} 
+	         			$(element).text(titleStr);
+	         		}
+	         	});
+	        }
+	        if(moduleName == 'picRight'){
+	        	$('.picRight').each(function(index,element){
+	         		if(index<orgnewsAry.length){
+	         			var article = orgnewsAry[index]; 
+	         			$(element).attr("newsId",article.id);
+	         			$(element).attr('href',article.newsPath);
+	         			$(element).attr('target','_blank');
+	         			var titleStr = article.ntitle;
+	         			if( article.ntitle.length>15){
+	         				titleStr =  article.ntitle.substr(0,15);
+	         			} 
+	         			$(element).text(titleStr);
+	         		}
+	         	});
+	        }
+	       
+	        if(moduleName == 'hotNews'){
+	        	 $(clickHotNewsObj).find('a').each(function(index,element){
+	          		if(index<orgnewsAry.length){
+	          			var article = orgnewsAry[index]; 
+	          			$(element).attr("newsId",article.id);
+	          			$(element).attr('href',article.newsPath);
+	          			$(element).attr('target','_blank');
+	          			var titleStr = article.ntitle;
+	          			if( article.ntitle.length>15){
+	          				titleStr =  article.ntitle.substr(0,15);
+	          			} 
+	          			$(element).text(titleStr);
+	          		}
+	          	});
+	        }
+		  
+		 
+	   }
+	   
+	</script>
+	
+	
+	<script>
+layui.use([ 'jquery','carousel','layer'], function(){ 
+    var  layer = layui.layer;
+    var  $ = layui.$ ;
+    
+    
+    var selectList = function(moduleName){
+    	 //iframe层-父子操作
+        if(moduleName!=""){
+            layer.open({
+                type: 2,
+                area: ['1000px', '450px'],
+                title:'编辑动态消息页面',
+                fixed: false, //不固定
+                maxmin: true,
+                content: '/orgnews/editOrgnewsInit?moduleName=' +  moduleName
+            }); 
+        }
+    }
+    
+    var uploadPic = function(moduleName){
+    	//上传之后返回链接
+    	 //iframe层-父子操作
+        if(moduleName!=""){
+            layer.open({
+                type: 2,
+                area: ['1000px', '450px'],
+                title:'上传图片页面',
+                fixed: false, //不固定
+                maxmin: true,
+                content: '/orgnews/editOrgnewsInit?moduleName=' +  moduleName
+            }); 
+        }
+    	
+    }
+    
+    //picEdit
+    $('.picEdit').click(function(){
+    	  moduleName = $(this).attr("moduleName");  
+    	  if(moduleName == 'picture'){
+         	 uploadPic(moduleName);
+         }
+    });
+	
+    //同时绑定多个
+    $('.edit').click(function(){
+        moduleName = $(this).attr("moduleName");  
+        if(moduleName=="hotNews_editBtn"){ 
+        	layer.tips('请点击下列项编辑', '#hotNews_editBtn', {
+        		  tips: [1, '#3595CC'],
+        		  time: 2000
+        		});
+        	moduleName = "";
+        	return ;
+        } 
+        
+        if(moduleName == 'list'){
+        	 selectList(moduleName);
+        }
+        if(moduleName == 'picLeft'){
+        	 selectList(moduleName);
+        }
+        if(moduleName == 'picRight'){
+        	 selectList(moduleName);
+        }
+        if(moduleName == 'hotNews'){
+        	 selectList(moduleName); 
+        	 clickHotNewsObj  = this; 	
+        }
+      
+         
+    });
+	
+   $(function(){
+	   $("#saveBtn").click(function(){
+	    	 
+	    	$('.delEdit').remove();
+	    	//解绑.edit 事件；
+	    	$('.edit').off('click');
+	    });
+   });
+   
+    
+    
+  var carousel = layui.carousel;
+  //建造实例
+  carousel.render({
+    elem: '#test1'
+    ,width: '100%' //设置容器宽度
+    ,arrow: 'always' //始终显示箭头
+    //,anim: 'updown' //切换动画方式
+  });
+ 
+});
+</script>
+	
+	</html>

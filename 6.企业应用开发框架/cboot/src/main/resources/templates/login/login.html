@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>login</title>
+    <link rel="stylesheet" th:href="@{/alllayui/layui/css/layui.css}">
+    <link rel="stylesheet" th:href="@{/system/login/login.css}">
+</head>
+<body>
+<div class="main" >
+    <div class="login">
+        <div class="loginHeader" >
+            <h2>欢迎登录</h2>
+            <p th:text="${systemName}">xxx后台管理模板系统</p>
+        </div>
+        <form  class="layui-form layui-form-pane" method="post" th:action="@{/login}" >
+            <div class="layui-form-item">
+                <label class="layui-form-label"><i class="layui-icon layui-icon-username "></i>  </label>
+                <div class="layui-input-block">
+                    <input type="text" name="userName" autocomplete="off" placeholder="请输入用户名" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label"><i class="layui-icon layui-icon-auz"></i> </label>
+                <div class="layui-input-block">
+                    <input type="password" name="password" autocomplete="off" placeholder="请输入密码" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item submit">
+                <button type="submit" class="layui-btn layui-btn-normal">提交</button>
+                <button type="reset"  class="layui-btn layui-btn-danger">取消</button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+<script th:src="@{/alllayui/layui/layui.js}"></script>
+</html>

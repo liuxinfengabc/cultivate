@@ -1,0 +1,1 @@
+2020-04-12 15:13:07.814 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sysConstant': Invocation of init method failed; nested exception is java.lang.NullPointerException

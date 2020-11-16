@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>layui</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" th:href="@{/alllayui/layui/css/layui.css}"  media="all">
+    <script th:src="@{/alllayui/layui/layui.js}" charset="utf-8"></script>
+    <script th:src="@{/system/js/jquery.min.js}" charset="utf-8"></script>
+    <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+</head>
+<body>
+
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+    <legend>修改Fkeys</legend>
+</fieldset>
+
+<form class="layui-form" action="">
+                <input type="hidden" name="id" th:value='${fkeys.id}'  >
+                <div class="layui-form-item">
+                    <label class="layui-form-label">外键名称</label>
+                    <div class="layui-input-block">
+                                <input type="text" name='fkName'  th:value='${fkeys.fkName}' lay-verify="required" lay-reqtext="外键名称为必填项" placeholder="请输入外键名称" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">主表名</label>
+                    <div class="layui-input-block">
+                                <input type="text" name='mTableName'  th:value='${fkeys.mTableName}' lay-verify="required" lay-reqtext="主表名为必填项" placeholder="请输入主表名" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">主表关联列名</label>
+                    <div class="layui-input-block">
+                                <input type="text" name='mColumnName'  th:value='${fkeys.mColumnName}' lay-verify="required" lay-reqtext="主表关联列名为必填项" placeholder="请输入主表关联列名" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">从表名</label>
+                    <div class="layui-input-block">
+                                <input type="text" name='rTableName'  th:value='${fkeys.rTableName}' lay-verify="required" lay-reqtext="从表名为必填项" placeholder="请输入从表名" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">从表关联列名</label>
+                    <div class="layui-input-block">
+                                <input type="text" name='rColumnName'  th:value='${fkeys.rColumnName}' lay-verify="required" lay-reqtext="从表关联列名为必填项" placeholder="请输入从表关联列名" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">关联查询类型</label>
+                    <div class="layui-input-block">
+                                                <select name='rType'  lay-verify="required">
+                                                    <option value="">请选择</option>
+                                                        <option value="0"  th:selected='${ fkeys.rType == 0 }'   >一对一</option>
+                                                        <option value="1"  th:selected='${ fkeys.rType == 1 }'   >列表</option>
+                                                        <option value="2"  th:selected='${ fkeys.rType == 2 }'   >树</option>
+                                                </select>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">关联查询语句</label>
+                    <div class="layui-input-block">
+                                <input type="text" name='rSql'  th:value='${fkeys.rSql}' lay-verify="required" lay-reqtext="关联查询语句为必填项" placeholder="请输入关联查询语句" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">主表取值查询视图的列对应</label>
+                    <div class="layui-input-block">
+                                <input type="text" name='coverOtherValueColumn'  th:value='${fkeys.coverOtherValueColumn}' lay-verify="required" lay-reqtext="主表取值查询视图的列对应为必填项" placeholder="请输入主表取值查询视图的列对应" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button type="submit" class="layui-btn" lay-submit="" lay-filter="subBtn">提交</button>
+        </div>
+    </div>
+</form>
+<script>
+    layui.use(['jquery','form','laydate'], function(){
+        var thisIndex = parent.layer.getFrameIndex(window.name);
+        var form = layui.form
+            ,layer = layui.layer
+            ,$ = layui.$ ;
+
+        var laydate = layui.laydate;
+
+        //同时绑定多个
+        lay('.datePicker').each(function(){
+            laydate.render({
+                elem: this
+                ,trigger: 'click'
+            });
+        });
+
+        //同时绑定多个
+        $(document).on('click','.foreignKey',function(){
+            let fkAttr = $(this).attr("fkAttr");
+            //iframe层-父子操作
+            if(fkAttr!=""){
+                layer.open({
+                    type: 2,
+                    area: ['700px', '450px'],
+                    fixed: false, //不固定
+                    maxmin: true,
+                    content: '/fkeys/choosePage?fkName=' +  fkAttr
+                });
+            }
+        });
+
+        var parentLayer = parent.layer;
+        var pWindow = parent ;
+        form.on('submit(subBtn)', function(data){
+            let data2Send = data.field;
+            $.post("/fkeys/update",data2Send,function (res) {
+                var msg = "";
+                if(res.message == 'SUCCESS'){
+                    msg = '修改成功!窗口关闭';
+                } else {
+                    msg = '修改失败!窗口关闭'
+                }
+                parentLayer.msg(msg, {
+                    icon: 1,
+                    time: 2000
+                }, function(){
+                    parentLayer.close(thisIndex);
+                    pWindow.document.getElementById('searchBtn').click();
+                });
+            },"json");
+        });
+    });
+
+    function coverValue(coverValueColumn,chooseInfo) {
+        //console.log("父页面");
+        //console.log(coverValueColumn);
+        //console.log(chooseInfo);
+        let parse = JSON.parse(coverValueColumn);
+        var valObj  ;
+        if(chooseInfo){
+            valObj = chooseInfo[0];
+        }
+        //console.log(valObj);
+        for(let i=0;i<parse.length;i++){
+            var coverObj = parse[i];
+            setFormValue(coverObj.mTable,valObj[coverObj.rSql]);
+        }
+    }
+
+    function setFormValue(componentId,val) {
+        document.getElementsByName(componentId)[0].value = val;
+    }
+
+</script>
+
+</body>

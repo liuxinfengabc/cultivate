@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lz.ht.dao.UserMapper">
+
+    <resultMap id="baseResultMap" type="com.lz.ht.model.User"></resultMap>
+
+    <insert id="add" parameterType="com.lz.ht.model.User" >
+        insert into t_user <trim prefix="(" suffix=")" suffixOverrides= ",">
+                    <if test= "id != null">id,</if>
+                    <if test= "userName != null">userName,</if>
+                    <if test= "password != null">password,</if>
+                    <if test= "enable != null">enable,</if>
+                    <if test= "phoneNo != null">phoneNo,</if>
+                    <if test= "mail != null">mail,</if>
+                    <if test= "addTime != null">addTime,</if>
+                    <if test= "deptId != null">deptId,</if>
+                    <if test= "deptName != null">deptName,</if>
+                    <if test= "sex != null">sex,</if>
+                    <if test= "info != null">info,</if>
+        </trim>
+        values <trim prefix="(" suffix=")" suffixOverrides= ",">
+                    <if test= "id != null">#{id},</if>
+                    <if test= "userName != null">#{userName},</if>
+                    <if test= "password != null">#{password},</if>
+                    <if test= "enable != null">#{enable},</if>
+                    <if test= "phoneNo != null">#{phoneNo},</if>
+                    <if test= "mail != null">#{mail},</if>
+                    <if test= "addTime != null">#{addTime},</if>
+                    <if test= "deptId != null">#{deptId},</if>
+                    <if test= "deptName != null">#{deptName},</if>
+                    <if test= "sex != null">#{sex},</if>
+                    <if test= "info != null">#{info},</if>
+        </trim>
+    </insert>
+    <update id="updateById" parameterType="com.lz.ht.model.User" >
+        UPDATE t_user
+        <set>
+                    <if test= "id != null">id = #{id},</if>
+                    <if test= "userName != null">userName = #{userName},</if>
+                    <if test= "password != null">password = #{password},</if>
+                    <if test= "enable != null">enable = #{enable},</if>
+                    <if test= "phoneNo != null">phoneNo = #{phoneNo},</if>
+                    <if test= "mail != null">mail = #{mail},</if>
+                    <if test= "addTime != null">addTime = #{addTime},</if>
+                    <if test= "deptId != null">deptId = #{deptId},</if>
+                    <if test= "deptName != null">deptName = #{deptName},</if>
+                    <if test= "sex != null">sex = #{sex},</if>
+                    <if test= "info != null">info = #{info},</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <delete id="deleteById" parameterType="com.lz.ht.model.User" >
+        delete from t_user where id = #{id}
+    </delete>
+
+    <select id="findById"   resultMap="baseResultMap"  parameterType="java.lang.Long" >
+        select * from  t_user t  WHERE id = #{id,jdbcType=BIGINT}
+    </select>
+
+    <select id="findAll"   resultMap="baseResultMap">
+        select * from  t_user t
+    </select>
+
+
+    <select id="findList"  parameterType="com.lz.ht.model.User" resultMap="baseResultMap">
+        select * from  t_user t where 1=1
+                <if test= "id != null"> and id = #{id}</if>
+                <if test= "userName != null"> and userName = #{userName}</if>
+                <if test= "password != null"> and password = #{password}</if>
+                <if test= "enable != null"> and enable = #{enable}</if>
+                <if test= "phoneNo != null"> and phoneNo = #{phoneNo}</if>
+                <if test= "mail != null"> and mail = #{mail}</if>
+                <if test= "addTime != null"> and addTime = #{addTime}</if>
+                <if test= "deptId != null"> and deptId = #{deptId}</if>
+                <if test= "deptName != null"> and deptName = #{deptName}</if>
+                <if test= "sex != null"> and sex = #{sex}</if>
+                <if test= "info != null"> and info = #{info}</if>
+    </select>
+
+    <select id="findCount" parameterType="com.lz.ht.model.User"  resultType="java.lang.Long">
+        select count(*)  from t_user where 1=1
+                    <if test= "id != null"> and id = #{id}</if>
+                    <if test= "userName != null"> and userName = #{userName}</if>
+                    <if test= "password != null"> and password = #{password}</if>
+                    <if test= "enable != null"> and enable = #{enable}</if>
+                    <if test= "phoneNo != null"> and phoneNo = #{phoneNo}</if>
+                    <if test= "mail != null"> and mail = #{mail}</if>
+                    <if test= "addTime != null"> and addTime = #{addTime}</if>
+                    <if test= "deptId != null"> and deptId = #{deptId}</if>
+                    <if test= "deptName != null"> and deptName = #{deptName}</if>
+                    <if test= "sex != null"> and sex = #{sex}</if>
+                    <if test= "info != null"> and info = #{info}</if>
+    </select>
+
+    <select id="findCountByMap" parameterType="java.util.HashMap"   resultType="java.lang.Long" >
+        select count(*) from t_user where 1=1
+                <if test= "id != null">  and id = #{id} </if>
+                <if test= "userName != null">  and userName = #{userName} </if>
+                <if test= "password != null">  and password = #{password} </if>
+                <if test= "enable != null">  and enable = #{enable} </if>
+                <if test= "phoneNo != null">  and phoneNo = #{phoneNo} </if>
+                <if test= "mail != null">  and mail = #{mail} </if>
+                <if test= "addTime != null">  and addTime = #{addTime} </if>
+                <if test= "deptId != null">  and deptId = #{deptId} </if>
+                <if test= "deptName != null">  and deptName = #{deptName} </if>
+                <if test= "sex != null">  and sex = #{sex} </if>
+                <if test= "info != null">  and info = #{info} </if>
+    </select>
+
+    <select id="findListByMapLimit" parameterType="java.util.HashMap"   resultType="com.lz.ht.model.User" >
+        select * from t_user where 1=1
+                <if test= "id != null">  and id = #{id}</if>
+                <if test= "userName != null">  and userName = #{userName}</if>
+                <if test= "password != null">  and password = #{password}</if>
+                <if test= "enable != null">  and enable = #{enable}</if>
+                <if test= "phoneNo != null">  and phoneNo = #{phoneNo}</if>
+                <if test= "mail != null">  and mail = #{mail}</if>
+                <if test= "addTime != null">  and addTime = #{addTime}</if>
+                <if test= "deptId != null">  and deptId = #{deptId}</if>
+                <if test= "deptName != null">  and deptName = #{deptName}</if>
+                <if test= "sex != null">  and sex = #{sex}</if>
+                <if test= "info != null">  and info = #{info}</if>
+        order by id desc limit  #{msFirst},#{msLast}
+    </select>
+
+</mapper>

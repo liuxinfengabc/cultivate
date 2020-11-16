@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>tree</title>
+    <!--引入zTree的css-->
+    <link rel="stylesheet" th:href="@{/system/js/zTree_v3//css/zTreeStyle/zTreeStyle.css}" type="text/css">
+</head>
+<body>
+<div class="content_wrap"  >
+    <div class="zTreeDemoBackground left">
+        <ul id="treeDemo" class="ztree"></ul>
+    </div>
+    <button onclick="closeLayer();">关闭layer</button>
+</div>
+<!--<button onclick="openLayer();">弹出layer</button>-->
+</body>
+</html>
+<!--引入layer之前需要引入jquery-->
+<script th:src="@{/system/js/jquery.min.js}" charset="utf-8"></script>
+<script th:src="@{/alllayui/layui/layui.js}" charset="utf-8"></script>
+<!--引入layer-->
+<!--引入zTree-->
+<script type="text/javascript" th:src="@{/system/js/zTree_v3/js/jquery.ztree.core.js}"></script>
+<script type="text/javascript" th:src="@{/system/js/zTree_v3/js/jquery.ztree.excheck.js}"></script>
+<script  th:inline="javascript" >
+    /*
+    * 更详细的zTree属性配置可以去zTree官网查看
+    * 地址：http://www.treejs.cn/v3/faq.php#_206
+    */
+    var setting = {
+        check: {
+            enable: true,
+            chkStyle: "radio",
+            radioType: "level"
+        },
+        data: {
+            simpleData: {
+                enable: true
+            }
+        }
+    };
+    var treeJsonStr =  [[${treeNodes}]];
+    var zNodes = JSON.parse(treeJsonStr);
+    console.log(zNodes);
+    /*将数据拼接成如下格式*/
+    // var zNodes =[
+    //     { id:1, pId:0, name:"can check 1", open:true},
+    //     { id:11, pId:1, name:"can check 1-1", open:true},
+    //     { id:111, pId:11, name:"no radio 1-1-1", nocheck:true},
+    //     { id:112, pId:11, name:"can check 1-1-2"},
+    //     { id:12, pId:1, name:"no radio 1-2", nocheck:true, open:true},
+    //     { id:121, pId:12, name:"no radio 1-2-1"},
+    //     { id:122, pId:12, name:"no radio 1-2-2"},
+    //     { id:2, pId:0, name:"can check 2", checked:true, open:true},
+    //     { id:21, pId:2, name:"can check 2-1"},
+    //     { id:22, pId:2, name:"can check 2-2", open:true},
+    //     { id:221, pId:22, name:"can check 2-2-1", checked:true},
+    //     { id:222, pId:22, name:"can check 2-2-2"},
+    //     { id:23, pId:2, name:"can check 2-3"}
+    // ];
+    // var index;  // 命名layer弹出层
+    // openLayer = function () {
+    //     index = layer.open({
+    //         type: 1,
+    //         area: ['600px', '360px'],
+    //         shadeClose: true, //点击遮罩关闭
+    //         content: $('.content_wrap')
+    //     });
+    // }
+    closeLayer = function () {
+        // 关闭layer弹出层
+        layer.close(index)
+    }
+    /*初始化zTree*/
+    $(document).ready(function(){
+        $.fn.zTree.init($("#treeDemo"), setting, zNodes);
+    });
+</script>

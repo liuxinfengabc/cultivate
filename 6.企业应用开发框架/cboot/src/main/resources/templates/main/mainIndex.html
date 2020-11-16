@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro" >
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>layout 后台大布局 - Layui</title>
+    <link rel="stylesheet" th:href="@{/alllayui/layui/css/layui.css}">
+    <link rel="stylesheet" th:href="@{/alllayui/icons/iconfont.css}">
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header">
+        <div class="layui-logo" th:text="${systemName}"></div>
+        <!-- 头部区域（可配合layui已有的水平导航） -->
+        <ul class="layui-nav layui-layout-left">
+            <li class="layui-nav-item"><a href="#">控制台</a></li>
+            <li class="layui-nav-item"><a href="#">控制台</a></li>
+            <li class="layui-nav-item"><a href="#">控制台</a></li>
+            <!--<li class="layui-nav-item"><a href="">系统管理</a></li> -->
+            <!--<li class="layui-nav-item">-->
+                <!--<a href="javascript:;">系统管理</a>-->
+                <!--<dl class="layui-nav-child">-->
+                    <!--<dd><a href="">用户管理</a></dd>-->
+                    <!--<dd><a href="">角色管理</a></dd>-->
+                    <!--<dd><a href="">菜单管理</a></dd>-->
+                <!--</dl>-->
+            <!--</li>-->
+            <!--<li class="layui-nav-item">-->
+                <!--<a href="javascript:;">其它系统</a>-->
+                <!--<dl class="layui-nav-child">-->
+                    <!--<dd><a href="">邮件管理</a></dd>-->
+                    <!--<dd><a href="">消息管理</a></dd>-->
+                    <!--<dd><a href="">授权管理</a></dd>-->
+                <!--</dl>-->
+            <!--</li>-->
+        </ul>
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item">
+                <a href="javascript:;" >
+                    <img th:src="${( userExt.userPic != null && !#strings.isEmpty(userExt.userPic)) ? userExt.userPic : '@{/system/images/defalutUserPic.jpg}'}"  class="layui-nav-img">
+                    <i th:text="${loginUser.userName}"></i> 
+                </a>
+                <dl class="layui-nav-child">
+                    <dd><a th:href="@{/user/userInfo}">基本资料</a></dd>
+                    <dd><a th:href="@{/user/security}">安全设置</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item"><a href=""><img th:src="@{/system/images/exit.png}" class="layui-nav-img"></a></li>
+        </ul>
+    </div>
+
+    <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+            <ul class="layui-nav layui-nav-tree"  lay-filter="test" th:each="module : ${modulesList}"  >
+             <!--   <li class="layui-nav-item">
+                    <a class="" href="javascript:;">插件设置</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;">打印插件</a></dd>
+                        <dd><a href="javascript:;">COM插件</a></dd>
+                        <dd><a href="javascript:;">插件三</a></dd>
+                        <dd><a href="">超链接</a></dd>
+                    </dl>
+                </li>-->
+                <!-- 添加  layui-nav-itemed 就会默认展开 -->
+                <li  class="layui-nav-item"   >
+                    <shiro:hasPermission name="${module['resUrl']}">
+	                    <a href="javascript:;"  th:utext="|<i class='Hui-iconfont'>${module['resIcon']}</i>  ${module['name']}|" >常用功能</a> 
+	                    <dl class="layui-nav-child" th:each="sub,subStat : ${module['subMenu']}"  >
+	                    	<shiro:hasPermission name="${sub['resUrl']}">
+	                            <dd><a href="javascript:;"  class="subMenu"   th:attr="data-id=${sub['id']},data-title=${sub['name']},data-url=${'/'+sub['resUrl']}"     data-type="tabAdd"  th:utext="|<i class='Hui-iconfont'>${sub['resIcon']}</i>  ${sub['name']}|" >功能1</a></dd>
+	                    	</shiro:hasPermission>
+	                    </dl>
+                    </shiro:hasPermission>
+                </li>
+                <!--<li class="layui-nav-item"><a href="">云市场</a></li>-->
+                <!--<li class="layui-nav-item"><a href="">发布商品</a></li>-->
+            </ul>
+        </div>
+    </div>
+
+    <div class="layui-body">
+        <!-- 内容主体区域 -->
+            <div style="padding: 2px;" class="layui-tab" lay-filter="demo" lay-allowclose="true">
+                <ul class="layui-tab-title">
+                </ul>
+                <div class="layui-tab-content">
+                </div>
+            </div>
+    </div>
+    <div class="layui-footer" th:text="${'©www.jyJava.com 版权所有：' + systemName }">
+        <!-- 底部固定区域 -->
+        
+    </div>
+</div>
+<script th:src="@{/alllayui/layui/layui.js}"></script>
+<script th:src="@{/system/index/index.js}" ></script>
+</body>
+</html>
