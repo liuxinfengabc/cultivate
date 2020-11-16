@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lz.ht.dao.UserRoleMapper">
+
+    <resultMap id="baseResultMap" type="com.lz.ht.model.UserRole"></resultMap>
+
+    <insert id="add" parameterType="com.lz.ht.model.UserRole" >
+        insert into t_user_role <trim prefix="(" suffix=")" suffixOverrides= ",">
+                    <if test= "id != null">id,</if>
+                    <if test= "userId != null">userId,</if>
+                    <if test= "roleKey != null">roleKey,</if>
+        </trim>
+        values <trim prefix="(" suffix=")" suffixOverrides= ",">
+                    <if test= "id != null">#{id},</if>
+                    <if test= "userId != null">#{userId},</if>
+                    <if test= "roleKey != null">#{roleKey},</if>
+        </trim>
+    </insert>
+    <update id="updateById" parameterType="com.lz.ht.model.UserRole" >
+        UPDATE t_user_role
+        <set>
+                    <if test= "id != null">id = #{id},</if>
+                    <if test= "userId != null">userId = #{userId},</if>
+                    <if test= "roleKey != null">roleKey = #{roleKey},</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <delete id="deleteById" parameterType="com.lz.ht.model.UserRole" >
+        delete from t_user_role where id = #{id}
+    </delete>
+
+    <select id="findById"   resultMap="baseResultMap"  parameterType="java.lang.Long" >
+        select * from  t_user_role t  WHERE id = #{id,jdbcType=BIGINT}
+    </select>
+
+    <select id="findAll"   resultMap="baseResultMap">
+        select * from  t_user_role t
+    </select>
+
+
+    <select id="findList"  parameterType="com.lz.ht.model.UserRole" resultMap="baseResultMap">
+        select * from  t_user_role t where 1=1
+                <if test= "id != null"> and id = #{id}</if>
+                <if test= "userId != null"> and userId = #{userId}</if>
+                <if test= "roleKey != null"> and roleKey = #{roleKey}</if>
+    </select>
+
+    <select id="findCount" parameterType="com.lz.ht.model.UserRole"  resultType="java.lang.Long">
+        select count(*)  from t_user_role where 1=1
+                    <if test= "id != null"> and id = #{id}</if>
+                    <if test= "userId != null"> and userId = #{userId}</if>
+                    <if test= "roleKey != null"> and roleKey = #{roleKey}</if>
+    </select>
+
+    <select id="findCountByMap" parameterType="java.util.HashMap"   resultType="java.lang.Long" >
+        select count(*) from t_user_role where 1=1
+                <if test= "id != null">  and id = #{id} </if>
+                <if test= "userId != null">  and userId = #{userId} </if>
+                <if test= "roleKey != null">  and roleKey = #{roleKey} </if>
+    </select>
+
+    <select id="findListByMapLimit" parameterType="java.util.HashMap"   resultType="com.lz.ht.model.UserRole" >
+        select * from t_user_role where 1=1
+                <if test= "id != null">  and id = #{id}</if>
+                <if test= "userId != null">  and userId = #{userId}</if>
+                <if test= "roleKey != null">  and roleKey = #{roleKey}</if>
+        order by id desc limit  #{msFirst},#{msLast}
+    </select>
+
+</mapper>

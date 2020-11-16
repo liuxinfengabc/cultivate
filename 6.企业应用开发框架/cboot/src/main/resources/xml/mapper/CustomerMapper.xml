@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lz.ht.dao.CustomerMapper">
+
+    <resultMap id="baseResultMap" type="com.lz.ht.model.Customer"></resultMap>
+
+    <insert id="add" parameterType="com.lz.ht.model.Customer" >
+        insert into t_customer <trim prefix="(" suffix=")" suffixOverrides= ",">
+                    <if test= "id != null">id,</if>
+                    <if test= "custName != null">custName,</if>
+                    <if test= "cPhoneNum != null">cPhoneNum,</if>
+                    <if test= "cEmail != null">cEmail,</if>
+                    <if test= "cAddress != null">cAddress,</if>
+                    <if test= "cRemark != null">cRemark,</if>
+                    <if test= "addTime != null">addTime,</if>
+                    <if test= "cStatus != null">cStatus,</if>
+        </trim>
+        values <trim prefix="(" suffix=")" suffixOverrides= ",">
+                    <if test= "id != null">#{id},</if>
+                    <if test= "custName != null">#{custName},</if>
+                    <if test= "cPhoneNum != null">#{cPhoneNum},</if>
+                    <if test= "cEmail != null">#{cEmail},</if>
+                    <if test= "cAddress != null">#{cAddress},</if>
+                    <if test= "cRemark != null">#{cRemark},</if>
+                    <if test= "addTime != null">#{addTime},</if>
+                    <if test= "cStatus != null">#{cStatus},</if>
+        </trim>
+    </insert>
+    <update id="updateById" parameterType="com.lz.ht.model.Customer" >
+        UPDATE t_customer
+        <set>
+                    <if test= "id != null">id = #{id},</if>
+                    <if test= "custName != null">custName = #{custName},</if>
+                    <if test= "cPhoneNum != null">cPhoneNum = #{cPhoneNum},</if>
+                    <if test= "cEmail != null">cEmail = #{cEmail},</if>
+                    <if test= "cAddress != null">cAddress = #{cAddress},</if>
+                    <if test= "cRemark != null">cRemark = #{cRemark},</if>
+                    <if test= "addTime != null">addTime = #{addTime},</if>
+                    <if test= "cStatus != null">cStatus = #{cStatus},</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <delete id="deleteById" parameterType="com.lz.ht.model.Customer" >
+        delete from t_customer where id = #{id}
+    </delete>
+
+    <select id="findById"   resultMap="baseResultMap"  parameterType="java.lang.Long" >
+        select * from  t_customer t  WHERE id = #{id,jdbcType=BIGINT}
+    </select>
+
+    <select id="findAll"   resultMap="baseResultMap">
+        select * from  t_customer t
+    </select>
+
+
+    <select id="findList"  parameterType="com.lz.ht.model.Customer" resultMap="baseResultMap">
+        select * from  t_customer t where 1=1
+                <if test= "id != null"> and id = #{id}</if>
+                <if test= "custName != null"> and custName = #{custName}</if>
+                <if test= "cPhoneNum != null"> and cPhoneNum = #{cPhoneNum}</if>
+                <if test= "cEmail != null"> and cEmail = #{cEmail}</if>
+                <if test= "cAddress != null"> and cAddress = #{cAddress}</if>
+                <if test= "cRemark != null"> and cRemark = #{cRemark}</if>
+                <if test= "addTime != null"> and addTime = #{addTime}</if>
+                <if test= "cStatus != null"> and cStatus = #{cStatus}</if>
+    </select>
+
+    <select id="findCount" parameterType="com.lz.ht.model.Customer"  resultType="java.lang.Long">
+        select count(*)  from t_customer where 1=1
+                    <if test= "id != null"> and id = #{id}</if>
+                    <if test= "custName != null"> and custName = #{custName}</if>
+                    <if test= "cPhoneNum != null"> and cPhoneNum = #{cPhoneNum}</if>
+                    <if test= "cEmail != null"> and cEmail = #{cEmail}</if>
+                    <if test= "cAddress != null"> and cAddress = #{cAddress}</if>
+                    <if test= "cRemark != null"> and cRemark = #{cRemark}</if>
+                    <if test= "addTime != null"> and addTime = #{addTime}</if>
+                    <if test= "cStatus != null"> and cStatus = #{cStatus}</if>
+    </select>
+
+    <select id="findCountByMap" parameterType="java.util.HashMap"   resultType="java.lang.Long" >
+        select count(*) from t_customer where 1=1
+                <if test= "id != null">  and id = #{id} </if>
+                <if test= "custName != null">  and custName = #{custName} </if>
+                <if test= "cPhoneNum != null">  and cPhoneNum = #{cPhoneNum} </if>
+                <if test= "cEmail != null">  and cEmail = #{cEmail} </if>
+                <if test= "cAddress != null">  and cAddress = #{cAddress} </if>
+                <if test= "cRemark != null">  and cRemark = #{cRemark} </if>
+                <if test= "addTime != null">  and addTime = #{addTime} </if>
+                <if test= "cStatus != null">  and cStatus = #{cStatus} </if>
+    </select>
+
+    <select id="findListByMapLimit" parameterType="java.util.HashMap"   resultType="com.lz.ht.model.Customer" >
+        select * from t_customer where 1=1
+                <if test= "id != null">  and id = #{id}</if>
+                <if test= "custName != null">  and custName = #{custName}</if>
+                <if test= "cPhoneNum != null">  and cPhoneNum = #{cPhoneNum}</if>
+                <if test= "cEmail != null">  and cEmail = #{cEmail}</if>
+                <if test= "cAddress != null">  and cAddress = #{cAddress}</if>
+                <if test= "cRemark != null">  and cRemark = #{cRemark}</if>
+                <if test= "addTime != null">  and addTime = #{addTime}</if>
+                <if test= "cStatus != null">  and cStatus = #{cStatus}</if>
+        order by id desc limit  #{msFirst},#{msLast}
+    </select>
+
+</mapper>

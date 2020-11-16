@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>layui</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" th:href="@{/alllayui/layui/css/layui.css}"  media="all">
+    <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+</head>
+<body>
+<div class="searchTable">
+    值：
+    <div class="layui-inline">
+        <input class="layui-input" name="value" id="value" autocomplete="off">
+    </div>
+    <button id="searchBtn" class="layui-btn" data-type="reload">搜索</button>
+</div>
+<table class="layui-hide" id="SysConfig" lay-filter="SysConfig"></table>
+
+<script type="text/html" id="toolbarDemo">
+    <div class="layui-btn-container">
+      <shiro:hasPermission name="sysConfig/add">
+        <button class="layui-btn layui-btn-sm" lay-event="add">新增</button>
+      </shiro:hasPermission>
+      <shiro:hasPermission name="sysConfig/icons">
+        <button class="layui-btn layui-btn-sm" lay-event="systemIcons">系统图标</button>
+      </shiro:hasPermission>
+    </div> 
+</script>
+
+<script type="text/html" id="barDemo">
+  <shiro:hasPermission name="sysConfig/update">
+    <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+  </shiro:hasPermission>
+  <shiro:hasPermission name="sysConfig/delete">
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+  </shiro:hasPermission>
+</script>
+
+
+<script th:src="@{/alllayui/layui/layui.js}" charset="utf-8"></script>
+<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+<script type="text/javascript">
+    var btnCls = ['layui-btn-warm','layui-btn-danger','layui-btn-disabled','layui-btn-normal'];
+	function dict(rowD,str){ 
+		var ret = "";
+		var btnIndex = 0;
+		if(str=="delStatus"){
+			if(rowD.delStatus==0){
+				btnIndex = 0;
+				ret = "启用";
+			} 
+			if(rowD.delStatus==1){
+				btnIndex = 1;
+				ret = "禁用";
+			} 
+		}
+		 
+		var btn = "<a class=\"layui-btn layui-btn-xs layui-btn-radius "+ btnCls[btnIndex]+ "\">"+ ret +"</a>"; 
+		return btn;
+	}
+</script>
+<script>
+    layui.use(['jquery','table'], function(){
+        var table = layui.table;
+
+        table.render({
+            elem: '#SysConfig'
+            ,url:'/sysConfig/list'
+            ,method: 'post'
+            ,toolbar: '#toolbarDemo' //开启头部工具栏，并为其绑定左侧模板
+            ,defaultToolbar: ['filter', 'exports', 'print', { //自定义头部工具栏右侧图标。如无需自定义，去除该参数即可
+                title: '提示'
+                ,layEvent: 'LAYTABLE_TIPS'
+                ,icon: 'layui-icon-tips'
+            }]
+            ,title: 'SysConfig'
+            ,cols: [
+                [
+                {type: 'checkbox', fixed: 'left'}
+              ,{field: 'id', title:'ID',  align:'center' }
+              ,{field: 'name', title:'名称',  align:'center' }
+              ,{field: 'value', title:'值',  align:'center' }
+              ,{field: 'sysConfigIndex', title:'配置索引',  align:'center' }
+              ,{field: 'delStatus', title:'配置状态',  align:'center', templet: function(d){return dict(d,'delStatus');} }
+              ,{fixed: 'right', title:'操作', toolbar: '#barDemo'}
+            ]
+            ]
+            ,page: true
+            ,request: {
+                pageName: 'currentPageNum' //页码的参数名称，默认：page
+                ,limitName: 'pageSize' //每页数据量的参数名，默认：limit
+            }
+            ,parseData: function(res){ //res 即为原始返回的数据
+                return {
+                    "code": 0, //解析接口状态
+                    "msg": "", //解析提示文本
+                    "count": res.totalRecords, //解析数据长度
+                    "data": res.recordList //解析数据列表
+                };
+            }
+
+        });
+
+
+
+        var $ = layui.$, active = {
+            reload: function(){
+                var value$_ = $('#value');
+                var queryWhere = {};
+                if(value$_.val()!=""){
+                   queryWhere['value'] = value$_.val();
+                } 
+                //执行重载
+                table.reload('SysConfig', {
+                    page: {
+                        curr: 1 //重新从第 1 页开始
+                    }
+                    ,method:'POST'
+                    ,where: queryWhere
+                    ,done: function(){
+                    	this.where = {};
+                    }
+                }, 'data');
+            }
+        };
+
+        $('.searchTable .layui-btn').on('click', function(){
+            var type = $(this).data('type');
+            active[type] ? active[type].call(this) : '';
+        });
+
+        //头工具栏事件
+        table.on('toolbar(SysConfig)', function(obj){
+            var checkStatus = table.checkStatus(obj.config.id);
+            switch(obj.event){
+                //自定义头工具栏右侧图标 - 提示
+                case 'add':
+                    //iframe层-父子操作
+                {
+                   var addIndex = layer.open({
+                        type: 2,
+                        area: ['700px', '450px'],
+                        fixed: false, //不固定
+                        maxmin: true,
+                        content: '/sysConfig/add'
+                    });
+                    layer.full(addIndex);
+                }
+                   break;     
+                case 'systemIcons': 
+                {
+                   var iconsIndex = layer.open({
+                        type: 2,
+                        area: ['700px', '450px'],
+                        fixed: false, //不固定
+                        maxmin: true,
+                        content: '/sysConfig/icons'
+                    });
+                    layer.full(iconsIndex);
+                }
+                    break;     
+                case 'LAYTABLE_TIPS':
+                    layer.alert('这是工具栏右侧自定义的一个图标按钮');
+                    break;
+            };
+        });
+
+        //监听行工具事件
+        table.on('tool(SysConfig)', function(obj){
+            var data = obj.data;
+            //console.log(obj)
+            if(obj.event === 'del'){
+                layer.confirm('真的删除行么', function(index){
+                    obj.del();
+                    $.post("/sysConfig/delete",{"id":data.id},function (data) {
+                        layer.msg(data);
+                    },"json");
+                    layer.close(index);
+                });
+            } else if(obj.event === 'edit'){
+                //iframe层-父子操作
+               var updateIndex = layer.open({
+                    type: 2,
+                    area: ['700px', '450px'],
+                    fixed: false, //不固定
+                    maxmin: true,
+                    content: '/sysConfig/update?id=' + data.id
+                });
+               layer.full(updateIndex);
+            }
+        });
+
+    });
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lz.ht.dao.FkeysMapper">
+
+    <resultMap id="baseResultMap" type="com.lz.ht.model.Fkeys"></resultMap>
+
+    <insert id="add" parameterType="com.lz.ht.model.Fkeys" >
+        insert into t_fkeys <trim prefix="(" suffix=")" suffixOverrides= ",">
+                    <if test= "id != null">id,</if>
+                    <if test= "fkName != null">fkName,</if>
+                    <if test= "mTableName != null">mTableName,</if>
+                    <if test= "mColumnName != null">mColumnName,</if>
+                    <if test= "rTableName != null">rTableName,</if>
+                    <if test= "rColumnName != null">rColumnName,</if>
+                    <if test= "rType != null">rType,</if>
+                    <if test= "rSql != null">rSql,</if>
+                    <if test= "coverOtherValueColumn != null">coverOtherValueColumn,</if>
+        </trim>
+        values <trim prefix="(" suffix=")" suffixOverrides= ",">
+                    <if test= "id != null">#{id},</if>
+                    <if test= "fkName != null">#{fkName},</if>
+                    <if test= "mTableName != null">#{mTableName},</if>
+                    <if test= "mColumnName != null">#{mColumnName},</if>
+                    <if test= "rTableName != null">#{rTableName},</if>
+                    <if test= "rColumnName != null">#{rColumnName},</if>
+                    <if test= "rType != null">#{rType},</if>
+                    <if test= "rSql != null">#{rSql},</if>
+                    <if test= "coverOtherValueColumn != null">#{coverOtherValueColumn},</if>
+        </trim>
+    </insert>
+    <update id="updateById" parameterType="com.lz.ht.model.Fkeys" >
+        UPDATE t_fkeys
+        <set>
+                    <if test= "id != null">id = #{id},</if>
+                    <if test= "fkName != null">fkName = #{fkName},</if>
+                    <if test= "mTableName != null">mTableName = #{mTableName},</if>
+                    <if test= "mColumnName != null">mColumnName = #{mColumnName},</if>
+                    <if test= "rTableName != null">rTableName = #{rTableName},</if>
+                    <if test= "rColumnName != null">rColumnName = #{rColumnName},</if>
+                    <if test= "rType != null">rType = #{rType},</if>
+                    <if test= "rSql != null">rSql = #{rSql},</if>
+                    <if test= "coverOtherValueColumn != null">coverOtherValueColumn = #{coverOtherValueColumn},</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <delete id="deleteById" parameterType="com.lz.ht.model.Fkeys" >
+        delete from t_fkeys where id = #{id}
+    </delete>
+
+    <select id="findById"   resultMap="baseResultMap"  parameterType="java.lang.Long" >
+        select * from  t_fkeys t  WHERE id = #{id,jdbcType=BIGINT}
+    </select>
+
+    <select id="findAll"   resultMap="baseResultMap">
+        select * from  t_fkeys t
+    </select>
+
+
+    <select id="findList"  parameterType="com.lz.ht.model.Fkeys" resultMap="baseResultMap">
+        select * from  t_fkeys t where 1=1
+                <if test= "id != null"> and id = #{id}</if>
+                <if test= "fkName != null"> and fkName = #{fkName}</if>
+                <if test= "mTableName != null"> and mTableName = #{mTableName}</if>
+                <if test= "mColumnName != null"> and mColumnName = #{mColumnName}</if>
+                <if test= "rTableName != null"> and rTableName = #{rTableName}</if>
+                <if test= "rColumnName != null"> and rColumnName = #{rColumnName}</if>
+                <if test= "rType != null"> and rType = #{rType}</if>
+                <if test= "rSql != null"> and rSql = #{rSql}</if>
+                <if test= "coverOtherValueColumn != null"> and coverOtherValueColumn = #{coverOtherValueColumn}</if>
+    </select>
+
+    <select id="findCount" parameterType="com.lz.ht.model.Fkeys"  resultType="java.lang.Long">
+        select count(*)  from t_fkeys where 1=1
+                    <if test= "id != null"> and id = #{id}</if>
+                    <if test= "fkName != null"> and fkName = #{fkName}</if>
+                    <if test= "mTableName != null"> and mTableName = #{mTableName}</if>
+                    <if test= "mColumnName != null"> and mColumnName = #{mColumnName}</if>
+                    <if test= "rTableName != null"> and rTableName = #{rTableName}</if>
+                    <if test= "rColumnName != null"> and rColumnName = #{rColumnName}</if>
+                    <if test= "rType != null"> and rType = #{rType}</if>
+                    <if test= "rSql != null"> and rSql = #{rSql}</if>
+                    <if test= "coverOtherValueColumn != null"> and coverOtherValueColumn = #{coverOtherValueColumn}</if>
+    </select>
+
+    <select id="findCountByMap" parameterType="java.util.HashMap"   resultType="java.lang.Long" >
+        select count(*) from t_fkeys where 1=1
+                <if test= "id != null">  and id = #{id} </if>
+                <if test= "fkName != null">  and fkName = #{fkName} </if>
+                <if test= "mTableName != null">  and mTableName = #{mTableName} </if>
+                <if test= "mColumnName != null">  and mColumnName = #{mColumnName} </if>
+                <if test= "rTableName != null">  and rTableName = #{rTableName} </if>
+                <if test= "rColumnName != null">  and rColumnName = #{rColumnName} </if>
+                <if test= "rType != null">  and rType = #{rType} </if>
+                <if test= "rSql != null">  and rSql = #{rSql} </if>
+                <if test= "coverOtherValueColumn != null">  and coverOtherValueColumn = #{coverOtherValueColumn} </if>
+    </select>
+
+    <select id="findListByMapLimit" parameterType="java.util.HashMap"   resultType="com.lz.ht.model.Fkeys" >
+        select * from t_fkeys where 1=1
+                <if test= "id != null">  and id = #{id}</if>
+                <if test= "fkName != null">  and fkName = #{fkName}</if>
+                <if test= "mTableName != null">  and mTableName = #{mTableName}</if>
+                <if test= "mColumnName != null">  and mColumnName = #{mColumnName}</if>
+                <if test= "rTableName != null">  and rTableName = #{rTableName}</if>
+                <if test= "rColumnName != null">  and rColumnName = #{rColumnName}</if>
+                <if test= "rType != null">  and rType = #{rType}</if>
+                <if test= "rSql != null">  and rSql = #{rSql}</if>
+                <if test= "coverOtherValueColumn != null">  and coverOtherValueColumn = #{coverOtherValueColumn}</if>
+        order by id desc limit  #{msFirst},#{msLast}
+    </select>
+
+</mapper>

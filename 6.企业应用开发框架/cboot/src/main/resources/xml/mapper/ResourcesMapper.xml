@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lz.ht.dao.ResourcesMapper">
+
+    <resultMap id="baseResultMap" type="com.lz.ht.model.Resources"></resultMap>
+
+    <insert id="add" parameterType="com.lz.ht.model.Resources" >
+        insert into t_resources <trim prefix="(" suffix=")" suffixOverrides= ",">
+                    <if test= "id != null">id,</if>
+                    <if test= "name != null">name,</if>
+                    <if test= "resKey != null">resKey,</if>
+                    <if test= "resUrl != null">resUrl,</if>
+                    <if test= "presKey != null">presKey,</if>
+                    <if test= "pName != null">pName,</if>
+                    <if test= "sort != null">sort,</if>
+                    <if test= "type != null">type,</if>
+        </trim>
+        values <trim prefix="(" suffix=")" suffixOverrides= ",">
+                    <if test= "id != null">#{id},</if>
+                    <if test= "name != null">#{name},</if>
+                    <if test= "resKey != null">#{resKey},</if>
+                    <if test= "resUrl != null">#{resUrl},</if>
+                    <if test= "presKey != null">#{presKey},</if>
+                    <if test= "pName != null">#{pName},</if>
+                    <if test= "sort != null">#{sort},</if>
+                    <if test= "type != null">#{type},</if>
+        </trim>
+    </insert>
+    <update id="updateById" parameterType="com.lz.ht.model.Resources" >
+        UPDATE t_resources
+        <set>
+                    <if test= "id != null">id = #{id},</if>
+                    <if test= "name != null">name = #{name},</if>
+                    <if test= "resKey != null">resKey = #{resKey},</if>
+                    <if test= "resUrl != null">resUrl = #{resUrl},</if>
+                    <if test= "presKey != null">presKey = #{presKey},</if>
+                    <if test= "pName != null">pName = #{pName},</if>
+                    <if test= "sort != null">sort = #{sort},</if>
+                    <if test= "type != null">type = #{type},</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <delete id="deleteById" parameterType="com.lz.ht.model.Resources" >
+        delete from t_resources where id = #{id}
+    </delete>
+
+    <select id="findById"   resultMap="baseResultMap"  parameterType="java.lang.Long" >
+        select * from  t_resources t  WHERE id = #{id,jdbcType=BIGINT}
+    </select>
+
+    <select id="findAll"   resultMap="baseResultMap">
+        select * from  t_resources t
+    </select>
+
+
+    <select id="findList"  parameterType="com.lz.ht.model.Resources" resultMap="baseResultMap">
+        select * from  t_resources t where 1=1
+                <if test= "id != null"> and id = #{id}</if>
+                <if test= "name != null"> and name = #{name}</if>
+                <if test= "resKey != null"> and resKey = #{resKey}</if>
+                <if test= "resUrl != null"> and resUrl = #{resUrl}</if>
+                <if test= "presKey != null"> and presKey = #{presKey}</if>
+                <if test= "pName != null"> and pName = #{pName}</if>
+                <if test= "sort != null"> and sort = #{sort}</if>
+                <if test= "type != null"> and type = #{type}</if>
+    </select>
+
+    <select id="findCount" parameterType="com.lz.ht.model.Resources"  resultType="java.lang.Long">
+        select count(*)  from t_resources where 1=1
+                    <if test= "id != null"> and id = #{id}</if>
+                    <if test= "name != null"> and name = #{name}</if>
+                    <if test= "resKey != null"> and resKey = #{resKey}</if>
+                    <if test= "resUrl != null"> and resUrl = #{resUrl}</if>
+                    <if test= "presKey != null"> and presKey = #{presKey}</if>
+                    <if test= "pName != null"> and pName = #{pName}</if>
+                    <if test= "sort != null"> and sort = #{sort}</if>
+                    <if test= "type != null"> and type = #{type}</if>
+    </select>
+
+    <select id="findCountByMap" parameterType="java.util.HashMap"   resultType="java.lang.Long" >
+        select count(*) from t_resources where 1=1
+                <if test= "id != null">  and id = #{id} </if>
+                <if test= "name != null">  and name = #{name} </if>
+                <if test= "resKey != null">  and resKey = #{resKey} </if>
+                <if test= "resUrl != null">  and resUrl = #{resUrl} </if>
+                <if test= "presKey != null">  and presKey = #{presKey} </if>
+                <if test= "pName != null">  and pName = #{pName} </if>
+                <if test= "sort != null">  and sort = #{sort} </if>
+                <if test= "type != null">  and type = #{type} </if>
+    </select>
+
+    <select id="findListByMapLimit" parameterType="java.util.HashMap"   resultType="com.lz.ht.model.Resources" >
+        select * from t_resources where 1=1
+                <if test= "id != null">  and id = #{id}</if>
+                <if test= "name != null">  and name = #{name}</if>
+                <if test= "resKey != null">  and resKey = #{resKey}</if>
+                <if test= "resUrl != null">  and resUrl = #{resUrl}</if>
+                <if test= "presKey != null">  and presKey = #{presKey}</if>
+                <if test= "pName != null">  and pName = #{pName}</if>
+                <if test= "sort != null">  and sort = #{sort}</if>
+                <if test= "type != null">  and type = #{type}</if>
+        order by id desc limit  #{msFirst},#{msLast}
+    </select>
+
+</mapper>
