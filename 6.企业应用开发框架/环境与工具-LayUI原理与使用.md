@@ -8,7 +8,9 @@ https://www.layui.com/demo/grid.html
 
 
 
-## 2.栅格系统与布局
+## 2. Layui使用
+
+
 
 layui 的栅格系统采用业界比较常见的 12 等分规则，内置移动设备、平板、桌面中等和大型屏幕的多终端适配处理，最低能支持到ie8。而你应当更欣喜的是，layui 终于开放了它经典的后台布局方案，快速搭建一个属于你的后台系统将变得十分轻松自如
 
@@ -208,7 +210,7 @@ layui.use(['laypage', 'layedit'], function(laypage, layedit){
 
 
 
-### 2.2界面布局
+### 2.3界面布局
 
 ```
 https://blog.csdn.net/weixin_42855542/article/details/83476597?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param
@@ -273,9 +275,122 @@ https://blog.csdn.net/weixin_42855542/article/details/83476597?utm_medium=distri
 </html>
 ```
 
+### 2.4 表单验证
+
+1. layui表单元素的校验只需在元素上加入lay-verify
+
+```
+<input type="text" id="a" name="a" placeholder="A" lay-verify="required|number" class="layui-input">
+```
+
+layui提供了以下值:
+
+```
+required（必填项）
+phone（手机号）
+email（邮箱）
+url（网址）
+number（数字）
+date（日期）
+identity（身份证）
+自定义值
+```
+
+　　
+
+2. 同时支持多条规则的验证，格式：lay-verify=”验证1|验证1” ,如：lay-verify=”required|phone|number”
+   自定义校验
+
+```
+form.verify({
+  a1: function(value, item){
+  }
+  ,a2: []
+});
+<input type="text" lay-verify="a1" placeholder="请输入">
+<input type="text" lay-verify="a2" placeholder="请输入">
+```
+
+ 3. 自定义验证　
+
+    
+
+```
+<input id="costmoney" type="text" name="costmoney"
+lay-verify="validateMoney" //layui表单验证
+                maxlength="9"  //可输入最大长度
+                autocomplete="off"//设置是否自动完成
+class="layui-input">
+
+
+<script type="text/javascript">
+　　layui.use('form', function () {
+　　var form = layui.form;
+　　//自定义表单验证（金额）
+　　form.verify({
+　　　　validateMoney: [
+　　　　　　/^[+]{0,1}(\d+)$/  //正则表达式
+　　　　　　,'金额只能为正整数'  //提示信息
+　　　　]
+　　});
+
+//自定义表单验证（地址链接）
+form.verify({
+address: [
+/^((ht|f)tps?):\/\/[\w\-]+(\.[\w\-]+)+([\w\-\.,@?^=%&:\/~\+#]*[\w\-\@?^=%&\/~\+#])?$/
+,'请输入正确的地址链接，如：https://www.jd.com/'
+]
+});
+
+</script>
+```
 
 
 
+4. 例子
+
+   
+
+   在要进行验证的标签中，加入 layui-verify=“自定义”（自定义为自己填写内容）
+
+   在js中书写form.verify()方法对自定义的标签值进行校验 
+
+   ```
+   <input 
+           type="text" name="ownerName" maxlength="200" 
+           lay-verify="required|ownerName" placeholder="请输入" 
+           autocomplete="off" class="layui-input" 
+   />
+   
+   
+   ```
+
+   验证：
+
+   ```
+     form.verify({
+         ownerName: function(value){ //自定义lay-verify的昵称，value：表单的值
+           if(value.length<2)
+               {
+                   return "姓名需输入两个字以上！";
+               }
+         }
+     });
+   ```
+
+当然也可以用正则表达式进行验证，
+
+```
+form.verify({
+      ownerName: function(value){ //自定义lay-verify的昵称，value：表单的值
+        var reg = var reg = new RegExp("^[\u4e00-\u9fa5]{2,}$"); //至少2 个汉字
+        if(!reg.test(value))
+            {
+                return "姓名需输入两个字以上！";
+            }
+      }
+});
+```
 
 
 
@@ -627,6 +742,33 @@ https://blog.csdn.net/qq_28057577/article/details/73480164
 ```
 
 ![img](https://img-blog.csdn.net/20170620091843741)
+
+
+
+```
+ 	    layer: "modules/layer",
+        laydate: "modules/laydate",
+        laypage: "modules/laypage",
+        laytpl: "modules/laytpl",
+        layim: "modules/layim",
+        layedit: "modules/layedit",
+        form: "modules/form",
+        upload: "modules/upload",
+        transfer: "modules/transfer",
+        tree: "modules/tree",
+        table: "modules/table",
+        element: "modules/element",
+        rate: "modules/rate",
+        colorpicker: "modules/colorpicker",
+        slider: "modules/slider",
+        carousel: "modules/carousel",
+        flow: "modules/flow",
+        util: "modules/util",
+        code: "modules/code",
+        jquery: "modules/jquery",
+        mobile: "modules/mobile",
+        "layui.all": "../layui.all"
+```
 
 
 

@@ -33,14 +33,6 @@
 
 6. UI LayUI/VUE/MUI
 
-
-
-```
-
-```
-
-
-
 ### 4.1Spingboot初步（IDEA) 
 
 #### 4.1.1 项目搭建
@@ -136,7 +128,7 @@ demo.iml：包含了项目依赖的所有jar包
 
 
 
-#### 4.1.4 springboot常用注解（宸）
+#### 4.1.4 springboot常用注解
 
 ```
 [SpringBoot入门教程(十六)@Autowired、@Inject、@Resource](https://www.cnblogs.com/toutou/p/9907381.html)
@@ -689,7 +681,7 @@ public class ExceptionController {
 
 
 
-### 4.5 springboot 过滤器和拦截器 -田玉超/刘佳慧
+### 4.5 springboot 过滤器和拦截器 
 
 #### 4.5.1 过滤与拦截
 
@@ -711,7 +703,7 @@ java里的拦截器是动态拦截Action调用的对象。它提供了一种机�
 
 
 
-### 4.6 springboot-附近的人-陈梦雅/刘行
+### 4.6 springboot-附近的人
 
 找附近的人
 
@@ -732,8 +724,6 @@ https://blog.csdn.net/mxxrgxg/article/details/81358536?utm_medium=distribute.pc_
 1. 创建Springboot框架
 
 ![image-20201030150822975](img/image-20201030150822975.png)
-
-2. 
 
 
 
@@ -761,7 +751,7 @@ pringBoot进阶教程(五十四)整合Redis之共享Session](https://www.cnblogs
 
 
 
-### 4.8 整合Kafka消息队列
+### 4.8 Kafka和Flink的应用
 
 
 
@@ -789,7 +779,7 @@ ElasticSearch是一个即具有全文搜索功能，也具备NOSQL的功能。�
 
 
 
-1. grafana
+#### 4.11.1  grafana
 
 ```
 docker run -d -p 8085:3000 --name=grafana -v /home/data/grafana/data:/var/lib/grafana -v /home/data/grafana/conf:/usr/share/grafana/conf grafana/grafana
@@ -797,9 +787,9 @@ docker run -d -p 8085:3000 --name=grafana -v /home/data/grafana/data:/var/lib/gr
 
 选择挂载数据文件(/var/lib/grafana)和配置文件(/usr/share/grafana/conf)。前者存放panels、datasoure、页面等数据，后者为配置文件，挂载后可以直接在宿主机器上修改，重启容器后生效
 
-2. 另一个工具：kibana
+#### 4.11.2 基于GIS的可视化
 
-   
+
 
 
 
@@ -807,11 +797,7 @@ docker run -d -p 8085:3000 --name=grafana -v /home/data/grafana/data:/var/lib/gr
 
 
 
-### 4.14 构建服务Service模块
 
-#### 4.13.1 计算服务
-
-#### 4.13.2 通信服务(Netty)
 
 
 

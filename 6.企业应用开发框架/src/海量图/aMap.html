@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>高德地图</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+    <script src="./jquery-3.2.0.min.js"></script>
+    <link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css"/>
+    <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.15&key=bb728955845400927a76992ac35b73d7&plugin=AMap.DistrictSearch,AMap.MarkerClusterer"></script>
+    <script type="text/javascript"
+            src="https://a.amap.com/jsapi_demos/static/demo-center/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript"
+            src="https://a.amap.com/jsapi_demos/static/demo-center/js/underscore-min.js"></script>
+    <script type="text/javascript" src="https://a.amap.com/jsapi_demos/static/demo-center/js/backbone-min.js"></script>
+    <script type="text/javascript" src='https://a.amap.com/jsapi_demos/static/demo-center/js/prety-json.js'></script>
+    <script src="//a.amap.com/jsapi_demos/static/china.js"></script>
+    <script type="text/javascript" src="https://webapi.amap.com/demos/js/liteToolbar.js"></script>
+    <script src="https://a.amap.com/jsapi_demos/static/demo-center/js/demoutils.js"></script>
+    <script src="//webapi.amap.com/ui/1.0/main.js?v=1.0.11"></script>
+    <style>
+        html, body, #container {
+            margin: 0;
+            height: 100%;
+        }
+
+        .input-item-text {
+            width: 7rem;
+        }
+    </style>
+</head>
+<body>
+<div id="container"></div>
+<div class="input-card">
+    <div class="input-item">
+        <div class="input-item-prepend">
+            <span class="input-item-text">名称</span>
+        </div>
+        <input id='district' type="text" value='中国'>
+    </div>
+    <input id="draw" type="button" class="btn" value="边界查询"/>
+    <input id='city-name' placeholder="北京市" type="text" style="margin-right:1rem;">
+    <button class="btn" id="query">去指定城市</button>
+    <div class="info">
+        <p>缩放级别：<span id="map-zoom"></span></p>
+        <p>中心点：<span id="map-center"></span></p>
+        <p>鼠标位置：<span id="mouse-position"></span></p>
+        <h4>当前所在行政区信息</h4>
+        <p><span id="map-city"></span></p>
+    </div>
+    <div>
+        <select id="pointStyle" onchange="changePointStyle()">
+            <option value="0">点图</option>
+            <option value="1">海量图</option>
+        </select>
+        <div id="hlt" style="display:none;">
+            <h4>海量图效果切换</h4>
+            <div class="input-item">
+                <input type="button" class="btn" value="默认样式" id="add0" onclick='addCluster(0)'/>
+                <input type="button" class="btn" value="自定义图标" id="add1" onclick='addCluster(1)'/>
+                <input type="button" class="btn" value="完全自定义" id="add2" onclick='addCluster(2)'/>
+            </div>
+        </div>
+    </div>
+    <button class="btn" id="resetPosition" onclick="resetPosition()">复位</button>
+</div>
+
+<script>
+    // 长度和面积的计算、清除画的线等
+    // 热力图
+    var map = new AMap.Map('container', {
+        layers: [new AMap.TileLayer.Satellite()],// 图层：遥感图，注释掉为普通图
+        zoom: 4, //地图显示的级别
+        center: [112.850953, 32.871318],//地图中心点
+        zoomEnable: true,//地图是否可缩放，默认值为true。此属性可被setStatus/getStatus 方法控制
+        keyboardEnable: false,//地图是否可通过键盘控制
+        dragEnable: true,//地图是否可通过鼠标拖拽平移
+        showLabel: true,//不显示地图文字标记
+        lang: "zh_cn",// 英文en，中英zh_en, 中文zh_cn
+        showIndoorMap: false, //关闭室内地图
+        resizeEnable: true// 监控地图容器尺寸变化
+    });
+
+    // 省份边界线绘制
+    AMapUI.loadUI(['geo/DistrictExplorer'], function (DistrictExplorer) {
+        //创建一个实例
+        var districtExplorer = new DistrictExplorer({
+            map: map
+        });
+        var adcode = 100000;
+        districtExplorer.loadAreaNode(adcode, function (error, areaNode) {
+            //清除已有的绘制内容
+            districtExplorer.clearFeaturePolygons();
+            //绘制子区域
+            districtExplorer.renderSubFeatures(areaNode, function (feature, i) {
+                return {
+                    bubble: true,
+                    strokeColor: "#003399", //线颜色
+                    strokeOpacity: 1, //线透明度
+                    strokeWeight: 2, //线宽
+                    fillColor: "", //填充色
+                    fillOpacity: 0.35 //填充透明度
+                };
+            });
+        });
+    });
+
+    AMap.plugin([
+        'AMap.ToolBar',
+        'AMap.Scale',
+        'AMap.OverView',
+        'AMap.MapType',
+        'AMap.Geolocation'
+    ], function () {
+        /**
+         * 位置
+         * lt, left top, 左上角
+         * lm，left middle, 左侧中部
+         * lb，left bottom, 左下角
+         * ct，center top, 中上
+         * cb，center bottom, 中下
+         * rt，right top, 右上角
+         * rm，right middle, 右侧中部
+         * rb，right bottom 右下角
+         */
+        // // 在图面添加工具条控件，工具条控件集成了缩放、平移、定位等功能按钮在内的组合控件
+        // map.addControl(new AMap.ToolBar());
+        // 在图面添加比例尺控件，展示地图在当前层级和纬度下的比例尺
+        map.addControl(new AMap.Scale());
+        // // 在图面添加鹰眼控件，在地图右下角显示地图的缩略图
+        // map.addControl(new AMap.OverView());
+        // // 在图面添加类别切换控件，实现默认图层与卫星图、实施交通图层之间切换的控制
+        // map.addControl(new AMap.MapType());
+        // // 在图面添加定位控件，用来获取和展示用户主机所在的经纬度位置
+        // map.addControl(new AMap.Geolocation());
+    });
+
+    var district = null;
+    var polygons = [];
+
+    //行政区查询
+    function drawBounds() {
+        //加载行政区划插件
+        if (!district) {
+            //实例化DistrictSearch
+            var opts = {
+                subdistrict: 0,   //获取边界不需要返回下级行政区
+                extensions: 'all'  //返回行政区边界坐标组等具体信息
+                // level: 'district'  //查询行政级别为 市
+            };
+            district = new AMap.DistrictSearch(opts);
+        }
+        // district.setLevel(document.getElementById('level').value);
+        district.search(document.getElementById('district').value, function (status, result) {
+            map.remove(polygons);//清除上次结果
+            polygons = [];
+            var bounds = result.districtList[0].boundaries;
+            if (bounds) {
+                for (var i = 0, l = bounds.length; i < l; i++) {
+                    // 生成行政区划polygon
+                    var polygon = new AMap.Polygon({
+                        strokeWeight: 1,
+                        path: bounds[i],
+                        fillOpacity: 0.4,
+                        fillColor: '#000000',
+                        strokeColor: '#FF0000'
+                    });
+                    polygons.push(polygon);
+                }
+            }
+            map.add(polygons)
+            map.setFitView(polygons);//视口自适应
+        });
+    }
+
+    document.getElementById('draw').onclick = drawBounds;
+    document.getElementById('district').onkeydown = function (e) {
+        if (e.keyCode === 13) {
+            drawBounds();
+            return false;
+        }
+        return true;
+    };
+
+    function resetPosition() {
+        map.setZoom(4);
+        map.setCenter([112.850953, 32.871318]);
+    }
+
+    // 中心点以及鼠标所在经纬度
+    function getZoomAndCenter() {
+        var zoom = map.getZoom(); //获取当前地图级别
+        var center = map.getCenter(); //获取当前地图中心位置
+        document.querySelector("#map-zoom").innerText = zoom;
+        document.querySelector("#map-center").innerText = center.toString();
+    }
+
+    map.on('moveend', getZoomAndCenter);
+    map.on('zoomend', getZoomAndCenter);
+    map.on('mousemove', function (e) {
+        document.getElementById("mouse-position").innerText = e.lnglat.getLng() + ',' + e.lnglat.getLat()
+    });
+
+    // 画拐点
+    var lineArr = [
+        [95, 41],
+        [84, 29],
+        [123, 39],
+        [120, 46],
+        [95, 41]
+    ];
+    drawInflectionPoint(lineArr);
+
+    function drawInflectionPoint(lineArr) {
+        var polyline = new AMap.Polyline({
+            path: lineArr,
+            strokeColor: '#FF33FF',
+            strokeOpacity: 1,
+            strokeWeight: 1,
+            strokeStyle: 'solid',
+            strokeDasharray: [10, 5],
+            geodesic: true
+        });
+        polyline.setMap(map);
+    }
+
+    // 到地图某位置
+    function gotoCity() {
+        var val = document.querySelector('#city-name').value; //可以是cityname、adcode、citycode
+        if (!val) {
+            val = "北京市";
+        }
+        map.setCity(val);
+    }
+
+    document.querySelector('#query').onclick = gotoCity;
+    document.querySelector('#city-name').onkeydown = function (e) {
+        if (e.keyCode === 13) {
+            gotoCity();
+            return false;
+        }
+        return true;
+    };
+
+    // 展示当前城市信息
+    function logMapinfo() {
+        map.getCity(function (info) {
+            new PrettyJSON.view.Node({
+                el: document.querySelector("#map-city"),
+                data: info
+            });
+        });
+    }
+
+    logMapinfo();
+    map.on('moveend', logMapinfo);
+
+    var marker;
+    var pointArray = [];
+
+    function changePointStyle() {
+        var pointStyle = $("#pointStyle").val();
+        if (pointStyle === "0") {
+            // 清除海量图
+            if (cluster) {
+                cluster.setMap(null);
+            }
+            // 隐藏海量图样式
+            document.getElementById("hlt").style.display = "none";
+            // 显示点图
+            addMarker([116.406315, 39.908775]);
+            addMarker([99, 34]);
+        } else {
+            // 清除点图
+            if (pointArray.length > 0) {
+                var num = 0;
+                for (var i = 0; i < pointArray.length; i++) {
+                    pointArray[i].setMap(null);
+                    pointArray[i] = null;
+                    num = num + 1;
+                }
+                points = [];
+            }
+            // 显示海量图样式
+            document.getElementById("hlt").style.display = "";
+            // 添加海量图
+            addCluster(0);
+        }
+    }
+
+    // 点图
+    function addMarker(position) {
+        marker = new AMap.Marker({
+            // icon: "//a.amap.com/jsapi_demos/static/demo-center/icons/poi-marker-default.png",
+            icon: new AMap.Icon({// 自定义点图标
+                image: "plug-in/fund/images/img-fly.png",
+                size: new AMap.Size(52, 52),  //图标大小
+                imageSize: new AMap.Size(15, 15)
+            }),
+            position: position,
+            offset: new AMap.Pixel(0, 0)
+        });
+        marker.setMap(map);
+        pointArray.push(marker);
+    }
+
+    // 海量图
+    var cluster, markers = [];
+    for (var i = 0; i < points.length; i += 1) {
+        markers.push(new AMap.Marker({
+            position: points[i]['lnglat'],
+            content: '<div style="background-color: hsla(180, 100%, 50%, 0.7); height: 24px; width: 24px; border: 1px solid hsl(180, 100%, 40%); border-radius: 12px; box-shadow: hsl(180, 100%, 50%) 0px 0px 1px;"></div>',
+            offset: new AMap.Pixel(-15, -15)
+        }))
+    }
+    var count = markers.length;
+    var _renderClusterMarker = function (context) {
+        var factor = Math.pow(context.count / count, 1 / 18);
+        var div = document.createElement('div');
+        var Hue = 180 - factor * 180;
+        var bgColor = 'hsla(' + Hue + ',100%,50%,0.7)';
+        var fontColor = 'hsla(' + Hue + ',100%,20%,1)';
+        var borderColor = 'hsla(' + Hue + ',100%,40%,1)';
+        var shadowColor = 'hsla(' + Hue + ',100%,50%,1)';
+        div.style.backgroundColor = bgColor;
+        var size = Math.round(30 + Math.pow(context.count / count, 1 / 5) * 20);
+        div.style.width = div.style.height = size + 'px';
+        div.style.border = 'solid 1px ' + borderColor;
+        div.style.borderRadius = size / 2 + 'px';
+        div.style.boxShadow = '0 0 1px ' + shadowColor;
+        div.innerHTML = context.count;
+        div.style.lineHeight = size + 'px';
+        div.style.color = fontColor;
+        div.style.fontSize = '14px';
+        div.style.textAlign = 'center';
+        context.marker.setOffset(new AMap.Pixel(-size / 2, -size / 2));
+        context.marker.setContent(div)
+    };
+    changePointStyle();
+
+    function addCluster(tag) {
+        if (cluster) {
+            cluster.setMap(null);
+        }
+        if (tag == 2) {//完全自定义
+            cluster = new AMap.MarkerClusterer(map, markers, {
+                gridSize: 80,
+                renderClusterMarker: _renderClusterMarker
+            });
+        } else if (tag == 1) {//自定义图标
+            var sts = [{
+                url: "https://a.amap.com/jsapi_demos/static/images/blue.png",
+                size: new AMap.Size(32, 32),
+                offset: new AMap.Pixel(-16, -16)
+            }, {
+                url: "https://a.amap.com/jsapi_demos/static/images/green.png",
+                size: new AMap.Size(32, 32),
+                offset: new AMap.Pixel(-16, -16)
+            }, {
+                url: "https://a.amap.com/jsapi_demos/static/images/orange.png",
+                size: new AMap.Size(36, 36),
+                offset: new AMap.Pixel(-18, -18)
+            }, {
+                url: "https://a.amap.com/jsapi_demos/static/images/red.png",
+                size: new AMap.Size(48, 48),
+                offset: new AMap.Pixel(-24, -24)
+            }, {
+                url: "https://a.amap.com/jsapi_demos/static/images/darkRed.png",
+                size: new AMap.Size(48, 48),
+                offset: new AMap.Pixel(-24, -24)
+            }];
+            cluster = new AMap.MarkerClusterer(map, markers, {
+                styles: sts,
+                gridSize: 80
+            });
+        } else {//默认样式
+            cluster = new AMap.MarkerClusterer(map, markers, {gridSize: 80});
+        }
+    }
+
+    // 数组维数
+    function arrs(arr) {
+        let j = 1
+        for (let i in arr) {
+            if (arr[i] instanceof Array) {
+                if (1 + arrs(arr[i]) > j) {
+                    j = j + arrs(arr[i])
+                }
+            }
+        }
+        return j
+    }
+</script>
+</body>
+</html>
