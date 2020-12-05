@@ -8,8 +8,42 @@
 5. 视频提交，md文档提交到github.com/liuxinfengabc/cultivate相应文件夹（按照readme要求 
 6. 为了不影响大家工作时间，培训19:30-20:30,请各位讲者提前做好准备（电脑硬件，开发环境，录屏软件，讲解工具），控制好时间。
 
+### 培训规划
 
-### 一、 系统环境   
+#### 1.系统开发类
+
+1. 开发环境的安装，idea，python
+2. 项目管理工具的使用，EA，Axure，ERStudio
+3. Java语言的学习
+4. layui，VUE的学习
+5. Spring MVC的学习
+6. Springboot的学习
+7. 搭建一个小型系统 gi te e.com/liuxinfengnabc/cboot
+8. 尝试开发
+
+#### 2. 大数据可视化
+
+1. python学习，
+2. 爬虫学习
+3. 数据仓库概念与知识
+4. ECharts学习、地理信息GIS学习
+5. CBoard学习/Grafana学习
+
+#### 3. 人工智能类 
+
+1. 开发环境的搭建 python pycharm
+2. python基本概念
+3. 线性回归以及代码的学习
+4. 感知器以及代码学习
+5. BP神经网络以及代码学习
+6. 卷积神经网络以及代码学习
+7. LSTM学习
+
+
+
+
+
+### 一、系统环境   
 
 1. 数据总线     
    + Kafka   
@@ -121,7 +155,7 @@ CASE工具设置的软件应用程序。这使用为自动的SDLC活动。 CASE�
    + 通信服务CCMService
    + 数据处理 ADMService
    + 数据持久化ArchiveService
-    
+   
 ### 五、 机器学习
 1. 数据清洗技术
 
@@ -139,7 +173,7 @@ CASE工具设置的软件应用程序。这使用为自动的SDLC活动。 CASE�
    + 贝叶斯网络
    + 卷积神经网
 + 长短神经网
-   
+  
 5. 数据清洗
 
 
