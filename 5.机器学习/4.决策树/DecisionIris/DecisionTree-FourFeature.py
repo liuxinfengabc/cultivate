@@ -10,7 +10,7 @@ def iris_type(s):
 # 花萼长度、花萼宽度，花瓣长度，花瓣宽度
 iris_feature = 'sepal length', 'sepal width', 'petal length', 'petalwidth'
 
-path = u'iris.data'  # 数据文件路径
+path = u'../iris.data'  # 数据文件路径
 # 路径，浮点型数据，逗号分隔，第4 列使用函数iris_type 单独处理
 data = np.loadtxt(path, dtype=float, delimiter=',', converters={4:iris_type})
 
