@@ -1,0 +1,32 @@
+network unknown {
+}
+variable SolarElevation {
+  type discrete [ 3 ] { E1, E2, E3 };
+}
+variable Shade {
+  type discrete [ 2 ] { True, False };
+}
+variable DipersionRatio {
+  type discrete [ 3 ] { R1, R2, R3 };
+}
+variable GenerateLevel {
+  type discrete [ 3 ] { L1, L2, L3 };
+}
+
+probability ( SolarElevation ) {
+  table 0.4, 0.4, 0.2;
+}
+probability ( Shade | SolarElevation) {
+  (E1)0.25, 0.75;
+  (E2)0.12, 0.88;
+  (E3)0.06, 0.94;
+}
+probability ( DipersionRatio | Shade) {
+  (False)0.8, 0.15, 0.05;
+  (True)0.1, 0.4, 0.5;
+}
+probability ( GenerateLevel | Shade) {
+  (False)0.2, 0.5, 0.3;
+  (True)0.5, 0.45, 0.05;
+}
+
