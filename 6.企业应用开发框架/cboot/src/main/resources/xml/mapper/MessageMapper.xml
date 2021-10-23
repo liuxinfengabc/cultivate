@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lz.ht.dao.MessageMapper">
+
+    <resultMap id="baseResultMap" type="com.lz.ht.model.Message"></resultMap>
+
+    <insert id="add" parameterType="com.lz.ht.model.Message" >
+        insert into t_message <trim prefix="(" suffix=")" suffixOverrides= ",">
+                    <if test= "id != null">id,</if>
+                    <if test= "fromUserId != null">fromUserId,</if>
+                    <if test= "toUserId != null">toUserId,</if>
+                    <if test= "msgContent != null">msgContent,</if>
+                    <if test= "status != null">status,</if>
+                    <if test= "addTime != null">addTime,</if>
+                    <if test= "readTime != null">readTime,</if>
+                    <if test= "conversationId != null">conversationId,</if>
+                    <if test= "corder != null">corder,</if>
+        </trim>
+        values <trim prefix="(" suffix=")" suffixOverrides= ",">
+                    <if test= "id != null">#{id},</if>
+                    <if test= "fromUserId != null">#{fromUserId},</if>
+                    <if test= "toUserId != null">#{toUserId},</if>
+                    <if test= "msgContent != null">#{msgContent},</if>
+                    <if test= "status != null">#{status},</if>
+                    <if test= "addTime != null">#{addTime},</if>
+                    <if test= "readTime != null">#{readTime},</if>
+                    <if test= "conversationId != null">#{conversationId},</if>
+                    <if test= "corder != null">#{corder},</if>
+        </trim>
+    </insert>
+    <update id="updateById" parameterType="com.lz.ht.model.Message" >
+        UPDATE t_message
+        <set>
+                    <if test= "id != null">id = #{id},</if>
+                    <if test= "fromUserId != null">fromUserId = #{fromUserId},</if>
+                    <if test= "toUserId != null">toUserId = #{toUserId},</if>
+                    <if test= "msgContent != null">msgContent = #{msgContent},</if>
+                    <if test= "status != null">status = #{status},</if>
+                    <if test= "addTime != null">addTime = #{addTime},</if>
+                    <if test= "readTime != null">readTime = #{readTime},</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <delete id="deleteById" parameterType="com.lz.ht.model.Message" >
+        delete from t_message where id = #{id}
+    </delete>
+
+    <select id="findById"   resultMap="baseResultMap"  parameterType="java.lang.Long" >
+        select * from  t_message t  WHERE id = #{id,jdbcType=BIGINT}
+    </select>
+
+    <select id="findAll"   resultMap="baseResultMap">
+        select * from  t_message t
+    </select>
+
+
+    <select id="findList"  parameterType="com.lz.ht.model.Message" resultMap="baseResultMap">
+        select * from  t_message t where 1=1
+                <if test= "id != null"> and id = #{id}</if>
+                <if test= "fromUserId != null"> and fromUserId = #{fromUserId}</if>
+                <if test= "toUserId != null"> and toUserId = #{toUserId}</if>
+                <if test= "msgContent != null"> and msgContent = #{msgContent}</if>
+                <if test= "status != null"> and status = #{status}</if>
+                <if test= "addTime != null"> and addTime = #{addTime}</if>
+                <if test= "readTime != null"> and readTime = #{readTime}</if>
+    </select>
+
+    <select id="findCount" parameterType="com.lz.ht.model.Message"  resultType="java.lang.Long">
+        select count(*)  from t_message where 1=1
+                    <if test= "id != null"> and id = #{id}</if>
+                    <if test= "fromUserId != null"> and fromUserId = #{fromUserId}</if>
+                    <if test= "toUserId != null"> and toUserId = #{toUserId}</if>
+                    <if test= "msgContent != null"> and msgContent = #{msgContent}</if>
+                    <if test= "status != null"> and status = #{status}</if>
+                    <if test= "addTime != null"> and addTime = #{addTime}</if>
+                    <if test= "readTime != null"> and readTime = #{readTime}</if>
+    </select>
+
+    <select id="findCountByMap" parameterType="java.util.HashMap"   resultType="java.lang.Long" >
+        select count(*) from t_message where 1=1
+                <if test= "id != null">  and id = #{id} </if>
+                <if test= "fromUserId != null">  and fromUserId = #{fromUserId} </if>
+                <if test= "toUserId != null">  and toUserId = #{toUserId} </if>
+                <if test= "msgContent != null">  and msgContent = #{msgContent} </if>
+                <if test= "status != null">  and status = #{status} </if>
+                <if test= "addTime != null">  and addTime = #{addTime} </if>
+                <if test= "readTime != null">  and readTime = #{readTime} </if>
+    </select>
+
+    <select id="findListByMapLimit" parameterType="java.util.HashMap"   resultType="com.lz.ht.model.Message" >
+        select * from t_message where 1=1
+                <if test= "id != null">  and id = #{id}</if>
+                <if test= "fromUserId != null">  and fromUserId = #{fromUserId}</if>
+                <if test= "toUserId != null">  and toUserId = #{toUserId}</if>
+                <if test= "msgContent != null">  and msgContent = #{msgContent}</if>
+                <if test= "status != null">  and status = #{status}</if>
+                <if test= "addTime != null">  and addTime = #{addTime}</if>
+                <if test= "readTime != null">  and readTime = #{readTime}</if>
+        order by id desc limit  #{msFirst},#{msLast}
+    </select>
+ 
+
+    <select id="findListByMapLimitDto" parameterType="java.util.HashMap"   resultType="com.lz.ht.dto.MessageDto" >
+         <if test= "msgType == 0"> <!--  0 我发送给别人 1 别人发送给我的 -->
+             select m.*  
+                  , #{fromUserPic}    fromUserPic
+             	  , #{fromUserName}     fromUserName
+             	  , #{fromUserDeptName}   fromUserDeptName 
+             	  , u2.userPic  toUserPic
+             	  , u1.userName toUserName
+                  , u1.deptName  toUserDeptName
+                 from t_message m , t_user u1, t_user_ext u2 where 1=1 
+                <if test= "toUserId != null">  and m.toUserId = #{toUserId}</if>
+            and  m.corder =0  and m.toUserId = u1.id and m.toUserId = u2.userId  and m.fromUserId = #{fromUserId}
+         </if> 
+         <if test= "msgType == 1"> 
+             select m.* 
+                  , u2.userPic  fromUserPic
+                  , u1.userName fromUserName
+                  , u1.deptName fromUserDeptName 
+             	  , #{toUserName}   toUserName  
+             	  , #{toUserDeptName}   toUserDeptName
+                 from t_message m , t_user u1, t_user_ext u2 where 1=1 
+                <if test= "fromUserId != null">  and m.fromUserId = #{fromUserId}</if>
+              and  m.corder =0  and m.fromUserId = u1.id and m.fromUserId = u2.userId  and m.toUserId = #{toUserId}
+         </if> 
+         order by m.id desc limit  #{msFirst},#{msLast}  
+    </select>
+
+   <select id="findCountDto" parameterType="java.util.HashMap"  resultType="java.lang.Long">
+         <if test= "msgType == 0"> 
+              select count(*)  from t_message m , t_user u1, t_user_ext u2 where 1=1 
+              <if test= "toUserId != null">  and m.toUserId = #{toUserId}</if>
+             and  m.corder =0  and m.toUserId = u1.id and m.toUserId = u2.userId  and m.fromUserId = #{fromUserId}
+         </if> 
+         <if test= "msgType == 1"> 
+              select count(*)   from t_message m , t_user u1, t_user_ext u2 where 1=1 
+              <if test= "fromUserId != null">  and m.fromUserId = #{fromUserId}</if>
+             and  m.corder =0  and m.fromUserId = u1.id and m.fromUserId = u2.userId  and m.toUserId = #{toUserId}
+         </if> 
+  </select>
+ 
+   <select id="findSubListByDto" parameterType="java.util.HashMap"   resultType="com.lz.ht.dto.MessageDto" >
+          select m.*  
+                  , (select u2.userPic from t_user_ext u2 where u2.userId = m.fromUserId)    fromUserPic
+             	  , (select u1.userName from t_user u1 where u1.id = m.fromUserId)     fromUserName
+             	  , (select u1.deptName from t_user u1 where u1.id = m.fromUserId)   fromUserDeptName  
+             	  , (select u2.userPic from t_user_ext u2 where u2.userId = m.toUserId)  toUserPic
+             	  , (select u1.userName from t_user u1 where u1.id = m.toUserId) toUserName
+                  , (select u1.deptName from t_user u1 where u1.id = m.toUserId)  toUserDeptName  
+                 from t_message m  where  conversationId = #{conversationId}  and  m.corder >0  
+                 order by m.id asc  
+    </select>
+
+	<select id="findSubListNumberByCid"  parameterType="java.lang.String"  resultType="java.lang.Long"  >
+		select count(*) from t_message  where conversationId = #{conversationId} and corder >0
+	</select>
+
+ 
+	<select id="findToUserByCid"  parameterType="java.lang.String"  resultType="java.lang.Long"  >
+		select toUserId from t_message  where conversationId = #{conversationId} and corder = 0
+	</select>
+ 
+	<select id="findConversationByCid"  parameterType="java.lang.String"  resultType="com.lz.ht.dto.MessageDto"  >
+		SELECT m.*  ,( SELECT  MAX(t.corder) FROM t_message t WHERE t.conversationId = m.conversationId ) currMaxCorder FROM t_message m  
+        WHERE m.conversationId =  #{conversationId} AND m.corder = 0
+	</select>
+
+</mapper>

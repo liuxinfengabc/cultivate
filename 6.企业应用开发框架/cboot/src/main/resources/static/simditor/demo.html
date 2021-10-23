@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		
+<link rel="stylesheet" type="text/css" href="css/styles/simditor.css" />
+<script type="text/javascript" src="js/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="js/scripts/module.js"></script>
+<script type="text/javascript" src="js/scripts/hotkeys.js"></script>
+<script type="text/javascript" src="js/scripts/uploader.js"></script>
+<script type="text/javascript" src="js/scripts/simditor.js"></script>
+	</head>
+	<body>
+		<textarea id="editor" placeholder="" autofocus></textarea>
+		
+		
+	</body>
+	
+	<script>
+		
+		
+		var tools =[
+  'title'
+ , 'bold'
+  ,'italic'
+ , 'underline'
+ , 'strikethrough'
+ , 'fontScale'
+ , 'color'
+ , 'ol'             
+ , 'ul'             
+ , 'blockquote'
+ , 'code'            
+ , 'table'
+ , 'link'
+ , 'image'
+ , 'hr'             
+ , 'indent'
+ , 'outdent'
+ , 'alignment'
+];
+
+
+var editor = new Simditor({
+    textarea: $('#editor'),
+    toolbar:tools,
+    toolbarFloat: true,
+    toolbarFloatOffset: 0,
+    toolbarHidden: false,
+    upload:{
+        url: '/admin/edit/uploadPhoto',
+        params: null,
+        fileKey: 'file',
+        connectionCount: 1,
+        leaveConfirm: '正在上传, 你确定要离开吗?'
+    }
+	});
+
+	</script>
+	
+</html>

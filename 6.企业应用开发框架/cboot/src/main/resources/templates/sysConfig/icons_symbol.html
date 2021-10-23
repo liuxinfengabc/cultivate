@@ -1,0 +1,2591 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>IconFont</title>
+    <link rel="stylesheet" th:href="@{/alllayui/icons/iconList.css}">
+    <script th:src="@{/alllayui/icons/iconfont.js}"></script>
+
+    <style type="text/css">
+        .icon {
+          /* 通过设置 font-size 来改变图标大小 */
+          width: 1em; height: 1em;
+          /* 图标和文字相邻时，垂直对齐 */
+          vertical-align: -0.15em;
+          /* 通过设置 color 来改变 SVG 的颜色/fill */
+          fill: currentColor;
+          /* path 和 stroke 溢出 viewBox 部分在 IE 下会显示
+             normalize.css 中也包含这行 */
+          overflow: hidden;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="main markdown">
+        <h1>IconFont 图标</h1>
+        <ul class="icon_lists clear">
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-gotop"></use>
+                    </svg>
+                    <div class="name">上传</div>
+                    <div class="fontclass">#Hui-iconfont-gotop</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-music"></use>
+                    </svg>
+                    <div class="name">音乐</div>
+                    <div class="fontclass">#Hui-iconfont-music</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-tags"></use>
+                    </svg>
+                    <div class="name">标签</div>
+                    <div class="fontclass">#Hui-iconfont-tags</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-jieri"></use>
+                    </svg>
+                    <div class="name">节日</div>
+                    <div class="fontclass">#Hui-iconfont-jieri</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-jishiqi"></use>
+                    </svg>
+                    <div class="name">计时器</div>
+                    <div class="fontclass">#Hui-iconfont-jishiqi</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-pad"></use>
+                    </svg>
+                    <div class="name">平板电脑</div>
+                    <div class="fontclass">#Hui-iconfont-pad</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-lunzi"></use>
+                    </svg>
+                    <div class="name">轮胎</div>
+                    <div class="fontclass">#Hui-iconfont-lunzi</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-jiandao"></use>
+                    </svg>
+                    <div class="name">剪刀</div>
+                    <div class="fontclass">#Hui-iconfont-jiandao</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-xianshiqi"></use>
+                    </svg>
+                    <div class="name">显示器</div>
+                    <div class="fontclass">#Hui-iconfont-xianshiqi</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-zhaoxiangji"></use>
+                    </svg>
+                    <div class="name">照相机</div>
+                    <div class="fontclass">#Hui-iconfont-zhaoxiangji</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-danfanxiangji"></use>
+                    </svg>
+                    <div class="name">单反相机</div>
+                    <div class="fontclass">#Hui-iconfont-danfanxiangji</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-dayinji"></use>
+                    </svg>
+                    <div class="name">打印机</div>
+                    <div class="fontclass">#Hui-iconfont-dayinji</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-user-zhanzhang"></use>
+                    </svg>
+                    <div class="name">网站主</div>
+                    <div class="fontclass">#Hui-iconfont-user-zhanzhang</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-chajian"></use>
+                    </svg>
+                    <div class="name">插件</div>
+                    <div class="fontclass">#Hui-iconfont-chajian</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-arrow1-bottom"></use>
+                    </svg>
+                    <div class="name">排序</div>
+                    <div class="fontclass">#Hui-iconfont-arrow1-bottom</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-arrow1-left"></use>
+                    </svg>
+                    <div class="name">向左</div>
+                    <div class="fontclass">#Hui-iconfont-arrow1-left</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-arrow1-top"></use>
+                    </svg>
+                    <div class="name">向上</div>
+                    <div class="fontclass">#Hui-iconfont-arrow1-top</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-arrow1-right"></use>
+                    </svg>
+                    <div class="name">向右</div>
+                    <div class="fontclass">#Hui-iconfont-arrow1-right</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-jieri1"></use>
+                    </svg>
+                    <div class="name">节日</div>
+                    <div class="fontclass">#Hui-iconfont-jieri1</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-face-weixiao"></use>
+                    </svg>
+                    <div class="name">微笑</div>
+                    <div class="fontclass">#Hui-iconfont-face-weixiao</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-face-chijing"></use>
+                    </svg>
+                    <div class="name">吃惊</div>
+                    <div class="fontclass">#Hui-iconfont-face-chijing</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-face-dai"></use>
+                    </svg>
+                    <div class="name">呆</div>
+                    <div class="fontclass">#Hui-iconfont-face-dai</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-face-shuaku"></use>
+                    </svg>
+                    <div class="name">耍酷</div>
+                    <div class="fontclass">#Hui-iconfont-face-shuaku</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-face-mogui"></use>
+                    </svg>
+                    <div class="name">魔鬼</div>
+                    <div class="fontclass">#Hui-iconfont-face-mogui</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-face-ganga"></use>
+                    </svg>
+                    <div class="name">尴尬</div>
+                    <div class="fontclass">#Hui-iconfont-face-ganga</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-face-qin"></use>
+                    </svg>
+                    <div class="name">亲</div>
+                    <div class="fontclass">#Hui-iconfont-face-qin</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-face-nu"></use>
+                    </svg>
+                    <div class="name">怒</div>
+                    <div class="fontclass">#Hui-iconfont-face-nu</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-face-zhayan"></use>
+                    </svg>
+                    <div class="name">眨眼</div>
+                    <div class="fontclass">#Hui-iconfont-face-zhayan</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-face-shengqi"></use>
+                    </svg>
+                    <div class="name">生气</div>
+                    <div class="fontclass">#Hui-iconfont-face-shengqi</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-face-ma"></use>
+                    </svg>
+                    <div class="name">骂</div>
+                    <div class="fontclass">#Hui-iconfont-face-ma</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-face-bishi"></use>
+                    </svg>
+                    <div class="name">鄙视</div>
+                    <div class="fontclass">#Hui-iconfont-face-bishi</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-face-maimeng"></use>
+                    </svg>
+                    <div class="name">卖萌</div>
+                    <div class="fontclass">#Hui-iconfont-face-maimeng</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-face-jingdai"></use>
+                    </svg>
+                    <div class="name">惊呆</div>
+                    <div class="fontclass">#Hui-iconfont-face-jingdai</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-face-yun"></use>
+                    </svg>
+                    <div class="name">晕</div>
+                    <div class="fontclass">#Hui-iconfont-face-yun</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-home2"></use>
+                    </svg>
+                    <div class="name">首页</div>
+                    <div class="fontclass">#Hui-iconfont-home2</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-search2"></use>
+                    </svg>
+                    <div class="name">搜索</div>
+                    <div class="fontclass">#Hui-iconfont-search2</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-share2"></use>
+                    </svg>
+                    <div class="name">分享</div>
+                    <div class="fontclass">#Hui-iconfont-share2</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-face"></use>
+                    </svg>
+                    <div class="name">表情</div>
+                    <div class="fontclass">#Hui-iconfont-face</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-wuliu"></use>
+                    </svg>
+                    <div class="name">物流</div>
+                    <div class="fontclass">#Hui-iconfont-wuliu</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-dianpu"></use>
+                    </svg>
+                    <div class="name">店铺</div>
+                    <div class="fontclass">#Hui-iconfont-dianpu</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-chexiao"></use>
+                    </svg>
+                    <div class="name">撤销</div>
+                    <div class="fontclass">#Hui-iconfont-chexiao</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-zhongzuo"></use>
+                    </svg>
+                    <div class="name">重做</div>
+                    <div class="fontclass">#Hui-iconfont-zhongzuo</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-zan"></use>
+                    </svg>
+                    <div class="name">赞扬</div>
+                    <div class="fontclass">#Hui-iconfont-zan</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-cai"></use>
+                    </svg>
+                    <div class="name">批评</div>
+                    <div class="fontclass">#Hui-iconfont-cai</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-yuyin3"></use>
+                    </svg>
+                    <div class="name">语音</div>
+                    <div class="fontclass">#Hui-iconfont-yuyin3</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-cart2-selected"></use>
+                    </svg>
+                    <div class="name">购物车</div>
+                    <div class="fontclass">#Hui-iconfont-cart2-selected</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-weizhi"></use>
+                    </svg>
+                    <div class="name">位置</div>
+                    <div class="fontclass">#Hui-iconfont-weizhi</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-face-ku"></use>
+                    </svg>
+                    <div class="name">哭脸</div>
+                    <div class="fontclass">#Hui-iconfont-face-ku</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-down"></use>
+                    </svg>
+                    <div class="name">下载</div>
+                    <div class="fontclass">#Hui-iconfont-down</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-cart2-man"></use>
+                    </svg>
+                    <div class="name">购物车满</div>
+                    <div class="fontclass">#Hui-iconfont-cart2-man</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-card2-kong"></use>
+                    </svg>
+                    <div class="name">购物车空</div>
+                    <div class="fontclass">#Hui-iconfont-card2-kong</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-luyin"></use>
+                    </svg>
+                    <div class="name">录音</div>
+                    <div class="fontclass">#Hui-iconfont-luyin</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-html"></use>
+                    </svg>
+                    <div class="name">html</div>
+                    <div class="fontclass">#Hui-iconfont-html</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-css"></use>
+                    </svg>
+                    <div class="name">css</div>
+                    <div class="fontclass">#Hui-iconfont-css</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-android"></use>
+                    </svg>
+                    <div class="name">安卓</div>
+                    <div class="fontclass">#Hui-iconfont-android</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-github"></use>
+                    </svg>
+                    <div class="name">github</div>
+                    <div class="fontclass">#Hui-iconfont-github</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-html5"></use>
+                    </svg>
+                    <div class="name">html5</div>
+                    <div class="fontclass">#Hui-iconfont-html5</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-huangguan"></use>
+                    </svg>
+                    <div class="name">皇冠</div>
+                    <div class="fontclass">#Hui-iconfont-huangguan</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-news"></use>
+                    </svg>
+                    <div class="name">cmstop新闻</div>
+                    <div class="fontclass">#Hui-iconfont-news</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-slider-right"></use>
+                    </svg>
+                    <div class="name">切换器右</div>
+                    <div class="fontclass">#Hui-iconfont-slider-right</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-slider-left"></use>
+                    </svg>
+                    <div class="name">切换器左</div>
+                    <div class="fontclass">#Hui-iconfont-slider-left</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-tuku"></use>
+                    </svg>
+                    <div class="name">图片</div>
+                    <div class="fontclass">#Hui-iconfont-tuku</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-shuru"></use>
+                    </svg>
+                    <div class="name">输入</div>
+                    <div class="fontclass">#Hui-iconfont-shuru</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-sanjiao"></use>
+                    </svg>
+                    <div class="name">电梯联系客服向右</div>
+                    <div class="fontclass">#Hui-iconfont-sanjiao</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-share-renren"></use>
+                    </svg>
+                    <div class="name">人人网</div>
+                    <div class="fontclass">#Hui-iconfont-share-renren</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-share-tweibo"></use>
+                    </svg>
+                    <div class="name">腾讯微博</div>
+                    <div class="fontclass">#Hui-iconfont-share-tweibo</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-arrow2-left"></use>
+                    </svg>
+                    <div class="name">返回</div>
+                    <div class="fontclass">#Hui-iconfont-arrow2-left</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-paixu"></use>
+                    </svg>
+                    <div class="name">排序</div>
+                    <div class="fontclass">#Hui-iconfont-paixu</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-niming"></use>
+                    </svg>
+                    <div class="name">匿名</div>
+                    <div class="fontclass">#Hui-iconfont-niming</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-add"></use>
+                    </svg>
+                    <div class="name">添加</div>
+                    <div class="fontclass">#Hui-iconfont-add</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-root"></use>
+                    </svg>
+                    <div class="name">管理员</div>
+                    <div class="fontclass">#Hui-iconfont-root</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-xuanzhong"></use>
+                    </svg>
+                    <div class="name">选中</div>
+                    <div class="fontclass">#Hui-iconfont-xuanzhong</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-weixuanzhong"></use>
+                    </svg>
+                    <div class="name">未选中</div>
+                    <div class="fontclass">#Hui-iconfont-weixuanzhong</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-arrow2-bottom"></use>
+                    </svg>
+                    <div class="name">向下</div>
+                    <div class="fontclass">#Hui-iconfont-arrow2-bottom</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-arrow2-top"></use>
+                    </svg>
+                    <div class="name">向上</div>
+                    <div class="fontclass">#Hui-iconfont-arrow2-top</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-like2"></use>
+                    </svg>
+                    <div class="name">喜欢</div>
+                    <div class="fontclass">#Hui-iconfont-like2</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-arrow2-right"></use>
+                    </svg>
+                    <div class="name">向右</div>
+                    <div class="fontclass">#Hui-iconfont-arrow2-right</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-shangyishou"></use>
+                    </svg>
+                    <div class="name">上一首</div>
+                    <div class="fontclass">#Hui-iconfont-shangyishou</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-xiayishou"></use>
+                    </svg>
+                    <div class="name">下一首</div>
+                    <div class="fontclass">#Hui-iconfont-xiayishou</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-share-weixin"></use>
+                    </svg>
+                    <div class="name">微信</div>
+                    <div class="fontclass">#Hui-iconfont-share-weixin</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-shenhe-tingyong"></use>
+                    </svg>
+                    <div class="name">停用</div>
+                    <div class="fontclass">#Hui-iconfont-shenhe-tingyong</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-gouxuan2"></use>
+                    </svg>
+                    <div class="name">启用</div>
+                    <div class="fontclass">#Hui-iconfont-gouxuan2</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-selected"></use>
+                    </svg>
+                    <div class="name">选择商品对勾</div>
+                    <div class="fontclass">#Hui-iconfont-selected</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-jianhao"></use>
+                    </svg>
+                    <div class="name">减号</div>
+                    <div class="fontclass">#Hui-iconfont-jianhao</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-user-group"></use>
+                    </svg>
+                    <div class="name">user</div>
+                    <div class="fontclass">#Hui-iconfont-user-group</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-yiguanzhu"></use>
+                    </svg>
+                    <div class="name">已关注</div>
+                    <div class="fontclass">#Hui-iconfont-yiguanzhu</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-gengduo3"></use>
+                    </svg>
+                    <div class="name">更多</div>
+                    <div class="fontclass">#Hui-iconfont-gengduo3</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-comment"></use>
+                    </svg>
+                    <div class="name">评论</div>
+                    <div class="fontclass">#Hui-iconfont-comment</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-tongji-zhu"></use>
+                    </svg>
+                    <div class="name">柱状统计</div>
+                    <div class="fontclass">#Hui-iconfont-tongji-zhu</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-like"></use>
+                    </svg>
+                    <div class="name">喜欢</div>
+                    <div class="fontclass">#Hui-iconfont-like</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-shangjia"></use>
+                    </svg>
+                    <div class="name">bbg_上架</div>
+                    <div class="fontclass">#Hui-iconfont-shangjia</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-save"></use>
+                    </svg>
+                    <div class="name">保存</div>
+                    <div class="fontclass">#Hui-iconfont-save</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-gongsi"></use>
+                    </svg>
+                    <div class="name">公司</div>
+                    <div class="fontclass">#Hui-iconfont-gongsi</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-system"></use>
+                    </svg>
+                    <div class="name">系统管理</div>
+                    <div class="fontclass">#Hui-iconfont-system</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-pifu"></use>
+                    </svg>
+                    <div class="name">衣服</div>
+                    <div class="fontclass">#Hui-iconfont-pifu</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-menu"></use>
+                    </svg>
+                    <div class="name">列表</div>
+                    <div class="fontclass">#Hui-iconfont-menu</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-msg"></use>
+                    </svg>
+                    <div class="name">通知管理</div>
+                    <div class="fontclass">#Hui-iconfont-msg</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-huangguan1"></use>
+                    </svg>
+                    <div class="name">皇冠</div>
+                    <div class="fontclass">#Hui-iconfont-huangguan1</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-userid"></use>
+                    </svg>
+                    <div class="name">用户ID</div>
+                    <div class="fontclass">#Hui-iconfont-userid</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-cang-selected"></use>
+                    </svg>
+                    <div class="name">QC管理</div>
+                    <div class="fontclass">#Hui-iconfont-cang-selected</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-yundown"></use>
+                    </svg>
+                    <div class="name">下载</div>
+                    <div class="fontclass">#Hui-iconfont-yundown</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-help"></use>
+                    </svg>
+                    <div class="name">问题管理</div>
+                    <div class="fontclass">#Hui-iconfont-help</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-chuku"></use>
+                    </svg>
+                    <div class="name">出库管理</div>
+                    <div class="fontclass">#Hui-iconfont-chuku</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-picture"></use>
+                    </svg>
+                    <div class="name">图片</div>
+                    <div class="fontclass">#Hui-iconfont-picture</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-wenzhouyinxing"></use>
+                    </svg>
+                    <div class="name">温州银行</div>
+                    <div class="fontclass">#Hui-iconfont-wenzhouyinxing</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-ad"></use>
+                    </svg>
+                    <div class="name">统计管理</div>
+                    <div class="fontclass">#Hui-iconfont-ad</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-fenlei"></use>
+                    </svg>
+                    <div class="name">分类</div>
+                    <div class="fontclass">#Hui-iconfont-fenlei</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-saoyisao"></use>
+                    </svg>
+                    <div class="name">扫一扫，猫客</div>
+                    <div class="fontclass">#Hui-iconfont-saoyisao</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-search"></use>
+                    </svg>
+                    <div class="name">搜索，猫客</div>
+                    <div class="fontclass">#Hui-iconfont-search</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-tuwenxiangqing"></use>
+                    </svg>
+                    <div class="name">图文详情</div>
+                    <div class="fontclass">#Hui-iconfont-tuwenxiangqing</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-leijipingjia"></use>
+                    </svg>
+                    <div class="name">累计评价</div>
+                    <div class="fontclass">#Hui-iconfont-leijipingjia</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-hetong"></use>
+                    </svg>
+                    <div class="name">合同管理</div>
+                    <div class="fontclass">#Hui-iconfont-hetong</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-tongji"></use>
+                    </svg>
+                    <div class="name">项目统计</div>
+                    <div class="fontclass">#Hui-iconfont-tongji</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-quanbudingdan"></use>
+                    </svg>
+                    <div class="name">全部订单</div>
+                    <div class="fontclass">#Hui-iconfont-quanbudingdan</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-cang"></use>
+                    </svg>
+                    <div class="name">收藏商品</div>
+                    <div class="fontclass">#Hui-iconfont-cang</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-xiaoxi"></use>
+                    </svg>
+                    <div class="name">消息</div>
+                    <div class="fontclass">#Hui-iconfont-xiaoxi</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-renwu"></use>
+                    </svg>
+                    <div class="name">任务管理</div>
+                    <div class="fontclass">#Hui-iconfont-renwu</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-more"></use>
+                    </svg>
+                    <div class="name">关注-更多操作</div>
+                    <div class="fontclass">#Hui-iconfont-more</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-zhizhao"></use>
+                    </svg>
+                    <div class="name">证照管理</div>
+                    <div class="fontclass">#Hui-iconfont-zhizhao</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-fabu"></use>
+                    </svg>
+                    <div class="name">发布</div>
+                    <div class="fontclass">#Hui-iconfont-fabu</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-shenhe-butongguo2"></use>
+                    </svg>
+                    <div class="name">审核不通过</div>
+                    <div class="fontclass">#Hui-iconfont-shenhe-butongguo2</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-share-qq"></use>
+                    </svg>
+                    <div class="name">qq</div>
+                    <div class="fontclass">#Hui-iconfont-share-qq</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-upload"></use>
+                    </svg>
+                    <div class="name">上传</div>
+                    <div class="fontclass">#Hui-iconfont-upload</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-add2"></use>
+                    </svg>
+                    <div class="name">添加</div>
+                    <div class="fontclass">#Hui-iconfont-add2</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-jiesuo"></use>
+                    </svg>
+                    <div class="name">解锁</div>
+                    <div class="fontclass">#Hui-iconfont-jiesuo</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-zhongtumoshi"></use>
+                    </svg>
+                    <div class="name">中图模式</div>
+                    <div class="fontclass">#Hui-iconfont-zhongtumoshi</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-datumoshi"></use>
+                    </svg>
+                    <div class="name">大图模式</div>
+                    <div class="fontclass">#Hui-iconfont-datumoshi</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-face2"></use>
+                    </svg>
+                    <div class="name">表情</div>
+                    <div class="fontclass">#Hui-iconfont-face2</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-huanyipi"></use>
+                    </svg>
+                    <div class="name">换一批</div>
+                    <div class="fontclass">#Hui-iconfont-huanyipi</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-shijian"></use>
+                    </svg>
+                    <div class="name">时间</div>
+                    <div class="fontclass">#Hui-iconfont-shijian</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-feedback"></use>
+                    </svg>
+                    <div class="name">问题反馈</div>
+                    <div class="fontclass">#Hui-iconfont-feedback</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-feedback2"></use>
+                    </svg>
+                    <div class="name">修改or意见</div>
+                    <div class="fontclass">#Hui-iconfont-feedback2</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-share-pengyouquan"></use>
+                    </svg>
+                    <div class="name">朋友圈</div>
+                    <div class="fontclass">#Hui-iconfont-share-pengyouquan</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-zan2"></use>
+                    </svg>
+                    <div class="name">点赞</div>
+                    <div class="fontclass">#Hui-iconfont-zan2</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-arrow3-bottom"></use>
+                    </svg>
+                    <div class="name">返回8</div>
+                    <div class="fontclass">#Hui-iconfont-arrow3-bottom</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-arrow3-top"></use>
+                    </svg>
+                    <div class="name">返回7</div>
+                    <div class="fontclass">#Hui-iconfont-arrow3-top</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-arrow3-right"></use>
+                    </svg>
+                    <div class="name">返回6</div>
+                    <div class="fontclass">#Hui-iconfont-arrow3-right</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-arrow3-left"></use>
+                    </svg>
+                    <div class="name">返回5</div>
+                    <div class="fontclass">#Hui-iconfont-arrow3-left</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-more2"></use>
+                    </svg>
+                    <div class="name">更多</div>
+                    <div class="fontclass">#Hui-iconfont-more2</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-cang2-selected"></use>
+                    </svg>
+                    <div class="name">收藏-选中</div>
+                    <div class="fontclass">#Hui-iconfont-cang2-selected</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-cang2"></use>
+                    </svg>
+                    <div class="name">收藏</div>
+                    <div class="fontclass">#Hui-iconfont-cang2</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-dangan"></use>
+                    </svg>
+                    <div class="name">合同管理</div>
+                    <div class="fontclass">#Hui-iconfont-dangan</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-money"></use>
+                    </svg>
+                    <div class="name">资金管理</div>
+                    <div class="fontclass">#Hui-iconfont-money</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-share-weibo"></use>
+                    </svg>
+                    <div class="name">微博</div>
+                    <div class="fontclass">#Hui-iconfont-share-weibo</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-email"></use>
+                    </svg>
+                    <div class="name">消息管理</div>
+                    <div class="fontclass">#Hui-iconfont-email</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-tongji-xian"></use>
+                    </svg>
+                    <div class="name">icon统计</div>
+                    <div class="fontclass">#Hui-iconfont-tongji-xian</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-bank"></use>
+                    </svg>
+                    <div class="name">信用卡还款</div>
+                    <div class="fontclass">#Hui-iconfont-bank</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-home"></use>
+                    </svg>
+                    <div class="name">home</div>
+                    <div class="fontclass">#Hui-iconfont-home</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-user"></use>
+                    </svg>
+                    <div class="name">user</div>
+                    <div class="fontclass">#Hui-iconfont-user</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-log"></use>
+                    </svg>
+                    <div class="name">日志</div>
+                    <div class="fontclass">#Hui-iconfont-log</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-pages"></use>
+                    </svg>
+                    <div class="name">列表页面</div>
+                    <div class="fontclass">#Hui-iconfont-pages</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-sim"></use>
+                    </svg>
+                    <div class="name">SIM卡</div>
+                    <div class="fontclass">#Hui-iconfont-sim</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-tingzhi"></use>
+                    </svg>
+                    <div class="name">停止</div>
+                    <div class="fontclass">#Hui-iconfont-tingzhi</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-dengdai"></use>
+                    </svg>
+                    <div class="name">未预约</div>
+                    <div class="fontclass">#Hui-iconfont-dengdai</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-user-add"></use>
+                    </svg>
+                    <div class="name">添加用户</div>
+                    <div class="fontclass">#Hui-iconfont-user-add</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-copy"></use>
+                    </svg>
+                    <div class="name">copy</div>
+                    <div class="fontclass">#Hui-iconfont-copy</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-file"></use>
+                    </svg>
+                    <div class="name">file</div>
+                    <div class="fontclass">#Hui-iconfont-file</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-share-douban"></use>
+                    </svg>
+                    <div class="name">豆瓣</div>
+                    <div class="fontclass">#Hui-iconfont-share-douban</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-share-zhihu"></use>
+                    </svg>
+                    <div class="name">CN_zhihu</div>
+                    <div class="fontclass">#Hui-iconfont-share-zhihu</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-daochu"></use>
+                    </svg>
+                    <div class="name">导出</div>
+                    <div class="fontclass">#Hui-iconfont-daochu</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-daoru"></use>
+                    </svg>
+                    <div class="name">导入</div>
+                    <div class="fontclass">#Hui-iconfont-daoru</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-weigouxuan2"></use>
+                    </svg>
+                    <div class="name">未选</div>
+                    <div class="fontclass">#Hui-iconfont-weigouxuan2</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-phone"></use>
+                    </svg>
+                    <div class="name">电话</div>
+                    <div class="fontclass">#Hui-iconfont-phone</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-bold"></use>
+                    </svg>
+                    <div class="name">bold</div>
+                    <div class="fontclass">#Hui-iconfont-bold</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-manage2"></use>
+                    </svg>
+                    <div class="name">物流管理</div>
+                    <div class="fontclass">#Hui-iconfont-manage2</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-edit"></use>
+                    </svg>
+                    <div class="name">编辑</div>
+                    <div class="fontclass">#Hui-iconfont-edit</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-del2"></use>
+                    </svg>
+                    <div class="name">删除</div>
+                    <div class="fontclass">#Hui-iconfont-del2</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-duigou"></use>
+                    </svg>
+                    <div class="name">对勾</div>
+                    <div class="fontclass">#Hui-iconfont-duigou</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-chongqi"></use>
+                    </svg>
+                    <div class="name">重启</div>
+                    <div class="fontclass">#Hui-iconfont-chongqi</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-avatar"></use>
+                    </svg>
+                    <div class="name">用户头像</div>
+                    <div class="fontclass">#Hui-iconfont-avatar</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-del"></use>
+                    </svg>
+                    <div class="name">删除</div>
+                    <div class="fontclass">#Hui-iconfont-del</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-edit2"></use>
+                    </svg>
+                    <div class="name">编辑</div>
+                    <div class="fontclass">#Hui-iconfont-edit2</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-zanting"></use>
+                    </svg>
+                    <div class="name">暂停</div>
+                    <div class="fontclass">#Hui-iconfont-zanting</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-apple"></use>
+                    </svg>
+                    <div class="name">苹果</div>
+                    <div class="fontclass">#Hui-iconfont-apple</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-guangdayinxing"></use>
+                    </svg>
+                    <div class="name">光大银行</div>
+                    <div class="fontclass">#Hui-iconfont-guangdayinxing</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-minshengyinxing"></use>
+                    </svg>
+                    <div class="name">民生银行</div>
+                    <div class="fontclass">#Hui-iconfont-minshengyinxing</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-xiajia"></use>
+                    </svg>
+                    <div class="name">iconfont-下架</div>
+                    <div class="fontclass">#Hui-iconfont-xiajia</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-manage"></use>
+                    </svg>
+                    <div class="name">管理</div>
+                    <div class="fontclass">#Hui-iconfont-manage</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-user2"></use>
+                    </svg>
+                    <div class="name">用户2</div>
+                    <div class="fontclass">#Hui-iconfont-user2</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-code"></use>
+                    </svg>
+                    <div class="name">code</div>
+                    <div class="fontclass">#Hui-iconfont-code</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-cut"></use>
+                    </svg>
+                    <div class="name">cut</div>
+                    <div class="fontclass">#Hui-iconfont-cut</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-link"></use>
+                    </svg>
+                    <div class="name">link</div>
+                    <div class="fontclass">#Hui-iconfont-link</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-new"></use>
+                    </svg>
+                    <div class="name">new</div>
+                    <div class="fontclass">#Hui-iconfont-new</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-ordered-list"></use>
+                    </svg>
+                    <div class="name">ordered-list</div>
+                    <div class="fontclass">#Hui-iconfont-ordered-list</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-unordered-list"></use>
+                    </svg>
+                    <div class="name">unordered-list</div>
+                    <div class="fontclass">#Hui-iconfont-unordered-list</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-share-qzone"></use>
+                    </svg>
+                    <div class="name">QQ空间</div>
+                    <div class="fontclass">#Hui-iconfont-share-qzone</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-suoding"></use>
+                    </svg>
+                    <div class="name">锁定</div>
+                    <div class="fontclass">#Hui-iconfont-suoding</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-tel2"></use>
+                    </svg>
+                    <div class="name">电话</div>
+                    <div class="fontclass">#Hui-iconfont-tel2</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-order"></use>
+                    </svg>
+                    <div class="name">订单</div>
+                    <div class="fontclass">#Hui-iconfont-order</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-shujutongji"></use>
+                    </svg>
+                    <div class="name">数据统计</div>
+                    <div class="fontclass">#Hui-iconfont-shujutongji</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-del3"></use>
+                    </svg>
+                    <div class="name">删除</div>
+                    <div class="fontclass">#Hui-iconfont-del3</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-add3"></use>
+                    </svg>
+                    <div class="name">添加</div>
+                    <div class="fontclass">#Hui-iconfont-add3</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-add4"></use>
+                    </svg>
+                    <div class="name">旅游资讯-更多</div>
+                    <div class="fontclass">#Hui-iconfont-add4</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-xiangpicha"></use>
+                    </svg>
+                    <div class="name">图标2_橡皮擦</div>
+                    <div class="fontclass">#Hui-iconfont-xiangpicha</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-key"></use>
+                    </svg>
+                    <div class="name">密码 钥匙</div>
+                    <div class="fontclass">#Hui-iconfont-key</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-yuyin2"></use>
+                    </svg>
+                    <div class="name">3.1语音-选中</div>
+                    <div class="fontclass">#Hui-iconfont-yuyin2</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-yuyin"></use>
+                    </svg>
+                    <div class="name">3.1语音</div>
+                    <div class="fontclass">#Hui-iconfont-yuyin</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-close"></use>
+                    </svg>
+                    <div class="name">3.1关闭</div>
+                    <div class="fontclass">#Hui-iconfont-close</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-xuanze"></use>
+                    </svg>
+                    <div class="name">3.1选择</div>
+                    <div class="fontclass">#Hui-iconfont-xuanze</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-xuanzhong1"></use>
+                    </svg>
+                    <div class="name">3.1选中</div>
+                    <div class="fontclass">#Hui-iconfont-xuanzhong1</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-yiguanzhu1"></use>
+                    </svg>
+                    <div class="name">3.1已关注店铺</div>
+                    <div class="fontclass">#Hui-iconfont-yiguanzhu1</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-share"></use>
+                    </svg>
+                    <div class="name">3.1分享</div>
+                    <div class="fontclass">#Hui-iconfont-share</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-zhuanfa"></use>
+                    </svg>
+                    <div class="name">3.1转发</div>
+                    <div class="fontclass">#Hui-iconfont-zhuanfa</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-tianqi-duoyun"></use>
+                    </svg>
+                    <div class="name">3.1多云</div>
+                    <div class="fontclass">#Hui-iconfont-tianqi-duoyun</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-tianqi-mai"></use>
+                    </svg>
+                    <div class="name">3.1霾</div>
+                    <div class="fontclass">#Hui-iconfont-tianqi-mai</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-tianqi-qing"></use>
+                    </svg>
+                    <div class="name">3.1晴</div>
+                    <div class="fontclass">#Hui-iconfont-tianqi-qing</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-tianqi-wu"></use>
+                    </svg>
+                    <div class="name">3.1雾</div>
+                    <div class="fontclass">#Hui-iconfont-tianqi-wu</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-tianqi-xue"></use>
+                    </svg>
+                    <div class="name">3.1雪</div>
+                    <div class="fontclass">#Hui-iconfont-tianqi-xue</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-tianqi-yin"></use>
+                    </svg>
+                    <div class="name">3.1阴</div>
+                    <div class="fontclass">#Hui-iconfont-tianqi-yin</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-tianqi-yu"></use>
+                    </svg>
+                    <div class="name">3.1雨</div>
+                    <div class="fontclass">#Hui-iconfont-tianqi-yu</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-daipingjia"></use>
+                    </svg>
+                    <div class="name">3.1待评价</div>
+                    <div class="fontclass">#Hui-iconfont-daipingjia</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-vip-card2"></use>
+                    </svg>
+                    <div class="name">3.1会员卡</div>
+                    <div class="fontclass">#Hui-iconfont-vip-card2</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-jifen"></use>
+                    </svg>
+                    <div class="name">3.1积分</div>
+                    <div class="fontclass">#Hui-iconfont-jifen</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-youhuiquan"></use>
+                    </svg>
+                    <div class="name">3.1优惠券</div>
+                    <div class="fontclass">#Hui-iconfont-youhuiquan</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-hongbao"></use>
+                    </svg>
+                    <div class="name">3.1红包</div>
+                    <div class="fontclass">#Hui-iconfont-hongbao</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-cart-selected"></use>
+                    </svg>
+                    <div class="name">3.1购物车-选中</div>
+                    <div class="fontclass">#Hui-iconfont-cart-selected</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-cart-kong"></use>
+                    </svg>
+                    <div class="name">3.1购物车</div>
+                    <div class="fontclass">#Hui-iconfont-cart-kong</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-jiangjia"></use>
+                    </svg>
+                    <div class="name">3.1-降价</div>
+                    <div class="fontclass">#Hui-iconfont-jiangjia</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-liwu"></use>
+                    </svg>
+                    <div class="name">礼物 活动</div>
+                    <div class="fontclass">#Hui-iconfont-liwu</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-caiqie"></use>
+                    </svg>
+                    <div class="name">3.1-剪裁</div>
+                    <div class="fontclass">#Hui-iconfont-caiqie</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-xuanzhuan"></use>
+                    </svg>
+                    <div class="name">3.1-旋转</div>
+                    <div class="fontclass">#Hui-iconfont-xuanzhuan</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-bigpic"></use>
+                    </svg>
+                    <div class="name">大图模式</div>
+                    <div class="fontclass">#Hui-iconfont-bigpic</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-list"></use>
+                    </svg>
+                    <div class="name">列表模式</div>
+                    <div class="fontclass">#Hui-iconfont-list</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-middle"></use>
+                    </svg>
+                    <div class="name">中图模式</div>
+                    <div class="fontclass">#Hui-iconfont-middle</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-hot"></use>
+                    </svg>
+                    <div class="name">火热</div>
+                    <div class="fontclass">#Hui-iconfont-hot</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-paishe"></use>
+                    </svg>
+                    <div class="name">3.1拍摄</div>
+                    <div class="fontclass">#Hui-iconfont-paishe</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-hot1"></use>
+                    </svg>
+                    <div class="name">3.1-热销</div>
+                    <div class="fontclass">#Hui-iconfont-hot1</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-new1"></use>
+                    </svg>
+                    <div class="name">3.1-上新</div>
+                    <div class="fontclass">#Hui-iconfont-new1</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-xiaoxi1"></use>
+                    </svg>
+                    <div class="name">3.1-消息</div>
+                    <div class="fontclass">#Hui-iconfont-xiaoxi1</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-canshu"></use>
+                    </svg>
+                    <div class="name">3.1产品参数</div>
+                    <div class="fontclass">#Hui-iconfont-canshu</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-tel"></use>
+                    </svg>
+                    <div class="name">3.1电话</div>
+                    <div class="fontclass">#Hui-iconfont-tel</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-dingwei"></use>
+                    </svg>
+                    <div class="name">3.1定位</div>
+                    <div class="fontclass">#Hui-iconfont-dingwei</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-hongbao2"></use>
+                    </svg>
+                    <div class="name">3.1优惠券</div>
+                    <div class="fontclass">#Hui-iconfont-hongbao2</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-2code"></use>
+                    </svg>
+                    <div class="name">3.1 二维码</div>
+                    <div class="fontclass">#Hui-iconfont-2code</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-vip"></use>
+                    </svg>
+                    <div class="name">3.1 会员</div>
+                    <div class="fontclass">#Hui-iconfont-vip</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-tishi"></use>
+                    </svg>
+                    <div class="name">3.1提示</div>
+                    <div class="fontclass">#Hui-iconfont-tishi</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-dingyue"></use>
+                    </svg>
+                    <div class="name">3.1-订阅</div>
+                    <div class="fontclass">#Hui-iconfont-dingyue</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-italic"></use>
+                    </svg>
+                    <div class="name">italic</div>
+                    <div class="fontclass">#Hui-iconfont-italic</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-yulan"></use>
+                    </svg>
+                    <div class="name">预览</div>
+                    <div class="fontclass">#Hui-iconfont-yulan</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-usergroup2"></use>
+                    </svg>
+                    <div class="name">客户管理</div>
+                    <div class="fontclass">#Hui-iconfont-usergroup2</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-goods"></use>
+                    </svg>
+                    <div class="name">所有商品</div>
+                    <div class="fontclass">#Hui-iconfont-goods</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-paixingbang"></use>
+                    </svg>
+                    <div class="name">3.1-排行榜</div>
+                    <div class="fontclass">#Hui-iconfont-paixingbang</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-qingdaoyinxing"></use>
+                    </svg>
+                    <div class="name">青岛银行</div>
+                    <div class="fontclass">#Hui-iconfont-qingdaoyinxing</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-kefu"></use>
+                    </svg>
+                    <div class="name">3.1-客服</div>
+                    <div class="fontclass">#Hui-iconfont-kefu</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-picture1"></use>
+                    </svg>
+                    <div class="name">背景管理</div>
+                    <div class="fontclass">#Hui-iconfont-picture1</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-weigouxuan"></use>
+                    </svg>
+                    <div class="name">未勾选</div>
+                    <div class="fontclass">#Hui-iconfont-weigouxuan</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-fanqiang"></use>
+                    </svg>
+                    <div class="name">高挡墙</div>
+                    <div class="fontclass">#Hui-iconfont-fanqiang</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-shenhe-weitongguo"></use>
+                    </svg>
+                    <div class="name">审核不通过</div>
+                    <div class="fontclass">#Hui-iconfont-shenhe-weitongguo</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-shenhe-tongguo"></use>
+                    </svg>
+                    <div class="name">审核通过</div>
+                    <div class="fontclass">#Hui-iconfont-shenhe-tongguo</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-tongji-bing"></use>
+                    </svg>
+                    <div class="name">数据统计</div>
+                    <div class="fontclass">#Hui-iconfont-tongji-bing</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-gouxuan"></use>
+                    </svg>
+                    <div class="name">启用</div>
+                    <div class="fontclass">#Hui-iconfont-gouxuan</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-jiansheyinxing"></use>
+                    </svg>
+                    <div class="name">建设银行</div>
+                    <div class="fontclass">#Hui-iconfont-jiansheyinxing</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-moban"></use>
+                    </svg>
+                    <div class="name">随你后台-网站</div>
+                    <div class="fontclass">#Hui-iconfont-moban</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-pay-weixin-1"></use>
+                    </svg>
+                    <div class="name">微信支付</div>
+                    <div class="fontclass">#Hui-iconfont-pay-weixin-1</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-pay-alipay-2"></use>
+                    </svg>
+                    <div class="name">支付宝支付</div>
+                    <div class="fontclass">#Hui-iconfont-pay-alipay-2</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-beijingyinxing"></use>
+                    </svg>
+                    <div class="name">北京银行</div>
+                    <div class="fontclass">#Hui-iconfont-beijingyinxing</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-guangdongfazhanyinxing"></use>
+                    </svg>
+                    <div class="name">广东发展银行</div>
+                    <div class="fontclass">#Hui-iconfont-guangdongfazhanyinxing</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-zhaoshangyinxing"></use>
+                    </svg>
+                    <div class="name">招商银行</div>
+                    <div class="fontclass">#Hui-iconfont-zhaoshangyinxing</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-zheshangyinxing"></use>
+                    </svg>
+                    <div class="name">浙商银行</div>
+                    <div class="fontclass">#Hui-iconfont-zheshangyinxing</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-zhongguonongyeyinxing"></use>
+                    </svg>
+                    <div class="name">中国农业银行</div>
+                    <div class="fontclass">#Hui-iconfont-zhongguonongyeyinxing</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-cdbank"></use>
+                    </svg>
+                    <div class="name">成都银行</div>
+                    <div class="fontclass">#Hui-iconfont-cdbank</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-gengduo2"></use>
+                    </svg>
+                    <div class="name">更多</div>
+                    <div class="fontclass">#Hui-iconfont-gengduo2</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-bofang"></use>
+                    </svg>
+                    <div class="name">播放</div>
+                    <div class="fontclass">#Hui-iconfont-bofang</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-gengduo4"></use>
+                    </svg>
+                    <div class="name">更多</div>
+                    <div class="fontclass">#Hui-iconfont-gengduo4</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-text-height"></use>
+                    </svg>
+                    <div class="name">text-height</div>
+                    <div class="fontclass">#Hui-iconfont-text-height</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-text-width"></use>
+                    </svg>
+                    <div class="name">text-width</div>
+                    <div class="fontclass">#Hui-iconfont-text-width</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-underline"></use>
+                    </svg>
+                    <div class="name">underline</div>
+                    <div class="fontclass">#Hui-iconfont-underline</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-star"></use>
+                    </svg>
+                    <div class="name">star</div>
+                    <div class="fontclass">#Hui-iconfont-star</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-star-half"></use>
+                    </svg>
+                    <div class="name">star-half</div>
+                    <div class="fontclass">#Hui-iconfont-star-half</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-star-halfempty"></use>
+                    </svg>
+                    <div class="name">star-half-empty</div>
+                    <div class="fontclass">#Hui-iconfont-star-halfempty</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-star-o"></use>
+                    </svg>
+                    <div class="name">star-o</div>
+                    <div class="fontclass">#Hui-iconfont-star-o</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-font"></use>
+                    </svg>
+                    <div class="name">font</div>
+                    <div class="fontclass">#Hui-iconfont-font</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-hangzhouyinxing"></use>
+                    </svg>
+                    <div class="name">杭州银行</div>
+                    <div class="fontclass">#Hui-iconfont-hangzhouyinxing</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-jiaotongyinxing"></use>
+                    </svg>
+                    <div class="name">交通银行</div>
+                    <div class="fontclass">#Hui-iconfont-jiaotongyinxing</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-gengduo"></use>
+                    </svg>
+                    <div class="name">更多</div>
+                    <div class="fontclass">#Hui-iconfont-gengduo</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-avatar2"></use>
+                    </svg>
+                    <div class="name">个人中心</div>
+                    <div class="fontclass">#Hui-iconfont-avatar2</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-close2"></use>
+                    </svg>
+                    <div class="name">关闭</div>
+                    <div class="fontclass">#Hui-iconfont-close2</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-about"></use>
+                    </svg>
+                    <div class="name">关于</div>
+                    <div class="fontclass">#Hui-iconfont-about</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-phone-android"></use>
+                    </svg>
+                    <div class="name">手机版</div>
+                    <div class="fontclass">#Hui-iconfont-phone-android</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-search1"></use>
+                    </svg>
+                    <div class="name">搜索</div>
+                    <div class="fontclass">#Hui-iconfont-search1</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-comment1"></use>
+                    </svg>
+                    <div class="name">我的评价</div>
+                    <div class="fontclass">#Hui-iconfont-comment1</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-read"></use>
+                    </svg>
+                    <div class="name">已读</div>
+                    <div class="fontclass">#Hui-iconfont-read</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-feedback1"></use>
+                    </svg>
+                    <div class="name">用户反馈</div>
+                    <div class="fontclass">#Hui-iconfont-feedback1</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-practice"></use>
+                    </svg>
+                    <div class="name">执业证</div>
+                    <div class="fontclass">#Hui-iconfont-practice</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-align-center"></use>
+                    </svg>
+                    <div class="name">align-center</div>
+                    <div class="fontclass">#Hui-iconfont-align-center</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-align-justify"></use>
+                    </svg>
+                    <div class="name">align-justify</div>
+                    <div class="fontclass">#Hui-iconfont-align-justify</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-align-left"></use>
+                    </svg>
+                    <div class="name">align-left</div>
+                    <div class="fontclass">#Hui-iconfont-align-left</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-align-right"></use>
+                    </svg>
+                    <div class="name">align-right</div>
+                    <div class="fontclass">#Hui-iconfont-align-right</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-paste"></use>
+                    </svg>
+                    <div class="name">paste</div>
+                    <div class="fontclass">#Hui-iconfont-paste</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-pay-alipay-1"></use>
+                    </svg>
+                    <div class="name">支付宝支付</div>
+                    <div class="fontclass">#Hui-iconfont-pay-alipay-1</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-pufayinxing"></use>
+                    </svg>
+                    <div class="name">浦发银行</div>
+                    <div class="fontclass">#Hui-iconfont-pufayinxing</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-gongshangyinxing"></use>
+                    </svg>
+                    <div class="name">工商银行</div>
+                    <div class="fontclass">#Hui-iconfont-gongshangyinxing</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-huaxiayinxing"></use>
+                    </svg>
+                    <div class="name">华夏银行</div>
+                    <div class="fontclass">#Hui-iconfont-huaxiayinxing</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-youzhengyinxing"></use>
+                    </svg>
+                    <div class="name">邮政银行</div>
+                    <div class="fontclass">#Hui-iconfont-youzhengyinxing</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-zhongguoyinxing"></use>
+                    </svg>
+                    <div class="name">中国银行</div>
+                    <div class="fontclass">#Hui-iconfont-zhongguoyinxing</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-zhongxinyinxing"></use>
+                    </svg>
+                    <div class="name">中信银行</div>
+                    <div class="fontclass">#Hui-iconfont-zhongxinyinxing</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-shanghaiyinxing"></use>
+                    </svg>
+                    <div class="name">上海银行</div>
+                    <div class="fontclass">#Hui-iconfont-shanghaiyinxing</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-banzhu"></use>
+                    </svg>
+                    <div class="name">版主</div>
+                    <div class="fontclass">#Hui-iconfont-banzhu</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-yuedu"></use>
+                    </svg>
+                    <div class="name">阅读</div>
+                    <div class="fontclass">#Hui-iconfont-yuedu</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-yanjing"></use>
+                    </svg>
+                    <div class="name">阅读</div>
+                    <div class="fontclass">#Hui-iconfont-yanjing</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-power"></use>
+                    </svg>
+                    <div class="name">电源</div>
+                    <div class="fontclass">#Hui-iconfont-power</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-moban-2"></use>
+                    </svg>
+                    <div class="name">模版</div>
+                    <div class="fontclass">#Hui-iconfont-moban-2</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-qq-gray"></use>
+                    </svg>
+                    <div class="name">qq</div>
+                    <div class="fontclass">#Hui-iconfont-qq-gray</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-qianbao-1"></use>
+                    </svg>
+                    <div class="name">钱包</div>
+                    <div class="fontclass">#Hui-iconfont-qianbao-1</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-piping"></use>
+                    </svg>
+                    <div class="name">批评</div>
+                    <div class="fontclass">#Hui-iconfont-piping</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-qianbao-2"></use>
+                    </svg>
+                    <div class="name">钱包</div>
+                    <div class="fontclass">#Hui-iconfont-qianbao-2</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-pay-alipay-3"></use>
+                    </svg>
+                    <div class="name">支付宝支付</div>
+                    <div class="fontclass">#Hui-iconfont-pay-alipay-3</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-clock"></use>
+                    </svg>
+                    <div class="name">clock</div>
+                    <div class="fontclass">#Hui-iconfont-clock</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-jingjia"></use>
+                    </svg>
+                    <div class="name">竞价</div>
+                    <div class="fontclass">#Hui-iconfont-jingjia</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-weixin-fang"></use>
+                    </svg>
+                    <div class="name">微信</div>
+                    <div class="fontclass">#Hui-iconfont-weixin-fang</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-pay-alipay-4"></use>
+                    </svg>
+                    <div class="name">支付宝支付</div>
+                    <div class="fontclass">#Hui-iconfont-pay-alipay-4</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-pay-weixin-2"></use>
+                    </svg>
+                    <div class="name">微信 支付</div>
+                    <div class="fontclass">#Hui-iconfont-pay-weixin-2</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-QQ"></use>
+                    </svg>
+                    <div class="name">QQ</div>
+                    <div class="fontclass">#Hui-iconfont-QQ</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-qianbao-3"></use>
+                    </svg>
+                    <div class="name">钱包</div>
+                    <div class="fontclass">#Hui-iconfont-qianbao-3</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-weixin"></use>
+                    </svg>
+                    <div class="name">微信</div>
+                    <div class="fontclass">#Hui-iconfont-weixin</div>
+                </li>
+            
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#Hui-iconfont-pay-alipay-5"></use>
+                    </svg>
+                    <div class="name">支付宝支付</div>
+                    <div class="fontclass">#Hui-iconfont-pay-alipay-5</div>
+                </li>
+            
+        </ul>
+
+
+        <h2 id="symbol-">symbol引用</h2>
+        <hr>
+
+        <p>这是一种全新的使用方式，应该说这才是未来的主流，也是平台目前推荐的用法。相关介绍可以参考这篇<a href="">文章</a>
+        这种用法其实是做了一个svg的集合，与另外两种相比具有如下特点：</p>
+        <ul>
+          <li>支持多色图标了，不再受单色限制。</li>
+          <li>通过一些技巧，支持像字体那样，通过<code>font-size</code>,<code>color</code>来调整样式。</li>
+          <li>兼容性较差，支持 ie9+,及现代浏览器。</li>
+          <li>浏览器渲染svg的性能一般，还不如png。</li>
+        </ul>
+        <p>使用步骤如下：</p>
+        <h3 id="-symbol-">第一步：引入项目下面生成的symbol代码：</h3>
+        <pre><code class="lang-js hljs javascript"><span class="hljs-comment">&lt;script src="./iconfont.js"&gt;&lt;/script&gt;</span></code></pre>
+        <h3 id="-css-">第二步：加入通用css代码（引入一次就行）：</h3>
+        <pre><code class="lang-js hljs javascript">&lt;style type=<span class="hljs-string">"text/css"</span>&gt;
+.icon {
+   width: <span class="hljs-number">1</span>em; height: <span class="hljs-number">1</span>em;
+   vertical-align: <span class="hljs-number">-0.15</span>em;
+   fill: currentColor;
+   overflow: hidden;
+}
+&lt;<span class="hljs-regexp">/style&gt;</span></code></pre>
+        <h3 id="-">第三步：挑选相应图标并获取类名，应用于页面：</h3>
+        <pre><code class="lang-js hljs javascript">&lt;svg <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"icon"</span> aria-hidden=<span class="hljs-string">"true"</span>&gt;<span class="xml"><span class="hljs-tag">
+  &lt;<span class="hljs-name">use</span> <span class="hljs-attr">xlink:href</span>=<span class="hljs-string">"#Hui-iconfont-xxx"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">use</span>&gt;</span>
+</span>&lt;<span class="hljs-regexp">/svg&gt;
+        </span></code></pre>
+    </div>
+</body>
+</html>

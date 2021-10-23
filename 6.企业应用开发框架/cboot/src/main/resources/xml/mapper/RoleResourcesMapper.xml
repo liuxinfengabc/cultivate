@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lz.ht.dao.RoleResourcesMapper">
+
+    <resultMap id="baseResultMap" type="com.lz.ht.model.RoleResources"></resultMap>
+
+    <insert id="add" parameterType="com.lz.ht.model.RoleResources" >
+        insert into t_role_resources <trim prefix="(" suffix=")" suffixOverrides= ",">
+                    <if test= "id != null">id,</if>
+                    <if test= "roleKey != null">roleKey,</if>
+                    <if test= "resKey != null">resKey,</if>
+        </trim>
+        values <trim prefix="(" suffix=")" suffixOverrides= ",">
+                    <if test= "id != null">#{id},</if>
+                    <if test= "roleKey != null">#{roleKey},</if>
+                    <if test= "resKey != null">#{resKey},</if>
+        </trim>
+    </insert>
+    <update id="updateById" parameterType="com.lz.ht.model.RoleResources" >
+        UPDATE t_role_resources
+        <set>
+                    <if test= "id != null">id = #{id},</if>
+                    <if test= "roleKey != null">roleKey = #{roleKey},</if>
+                    <if test= "resKey != null">resKey = #{resKey},</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <delete id="deleteById" parameterType="com.lz.ht.model.RoleResources" >
+        delete from t_role_resources where id = #{id}
+    </delete>
+
+    <select id="findById"   resultMap="baseResultMap"  parameterType="java.lang.Long" >
+        select * from  t_role_resources t  WHERE id = #{id,jdbcType=BIGINT}
+    </select>
+
+    <select id="findAll"   resultMap="baseResultMap">
+        select * from  t_role_resources t
+    </select>
+
+
+    <select id="findList"  parameterType="com.lz.ht.model.RoleResources" resultMap="baseResultMap">
+        select * from  t_role_resources t where 1=1
+                <if test= "id != null"> and id = #{id}</if>
+                <if test= "roleKey != null"> and roleKey = #{roleKey}</if>
+                <if test= "resKey != null"> and resKey = #{resKey}</if>
+    </select>
+
+    <select id="findCount" parameterType="com.lz.ht.model.RoleResources"  resultType="java.lang.Long">
+        select count(*)  from t_role_resources where 1=1
+                    <if test= "id != null"> and id = #{id}</if>
+                    <if test= "roleKey != null"> and roleKey = #{roleKey}</if>
+                    <if test= "resKey != null"> and resKey = #{resKey}</if>
+    </select>
+
+    <select id="findCountByMap" parameterType="java.util.HashMap"   resultType="java.lang.Long" >
+        select count(*) from t_role_resources where 1=1
+                <if test= "id != null">  and id = #{id} </if>
+                <if test= "roleKey != null">  and roleKey = #{roleKey} </if>
+                <if test= "resKey != null">  and resKey = #{resKey} </if>
+    </select>
+
+    <select id="findListByMapLimit" parameterType="java.util.HashMap"   resultType="com.lz.ht.model.RoleResources" >
+        select * from t_role_resources where 1=1
+                <if test= "id != null">  and id = #{id}</if>
+                <if test= "roleKey != null">  and roleKey = #{roleKey}</if>
+                <if test= "resKey != null">  and resKey = #{resKey}</if>
+        order by id desc limit  #{msFirst},#{msLast}
+    </select>
+
+</mapper>

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>layui</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" th:href="@{/alllayui/layui/css/layui.css}"  media="all">
+    <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+</head>
+<body>
+ 
+
+
+
+<div class="layui-tab layui-tab-brief"   lay-filter="msgTab" >
+  <ul class="layui-tab-title">
+    <li class="layui-this" id="msgType0tab" >我@别人</li>
+    <li id="msgType1tab" >@我</li> 
+  </ul>
+  <div class="layui-tab-content">
+    <div class="layui-tab-item layui-show"   id="msgType0Container">
+    	 <div class="layui-container" id="msgType0_listContainer"></div>
+    	 <div id="msgType0_pageFile"  ></div>
+    </div>
+    <div class="layui-tab-item"   id="msgType1Container">
+    	 <div class="layui-container" id="msgType1_listContainer"></div>
+    	 <div id="msgType1_pageFile"  ></div>
+    </div>
+  </div>
+</div>
+
+
+ 
+ 
+
+
+
+ <!-- 我对别人说  我@别人 -->
+ <script id="conversationMainTemplate" type="text/html"> 
+           <div class="conversationMain">
+					  <div class="layui-row">  
+							<div class="layui-row">
+								<img  src="[fromUserPic]" style="width:46px;height: 46px;border-radius: 23px;" /><i style="color:#009688;" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@：</i>  <b>[toUserName]</b><i>&nbsp;&nbsp;&nbsp;[toUserDeptName]</i>. 
+							</div>   
+					  </div> 
+					  <div class="layui-row ">
+						<div class="layui-col-sm10">
+						       [msgContent]
+						</div> 
+					    <div class="layui-col-sm2">
+                            <div class="layui-row">  
+						       <i>&nbsp;&nbsp;&nbsp;[addTime]</i> 
+                            </div> 
+					       <div class="layui-row">
+						  		 <i style="color:#009688;" >&nbsp;&nbsp;&nbsp;<a href="javascript:void(0);" myAttr="[conversationId]"  id="[conversationId]sendMsg"  style="color:#009688;font-size: 12px;"  >@Ta</a>&nbsp;&nbsp;&nbsp;<a href="javascript:void(0);"     class="moreMessage"  myAttr="[conversationId]" id="[conversationId]" style="color:#009688;"></a></i> 
+                           </div> 
+						</div> 
+					  </div>
+					 <hr />
+		  </div>  
+		  <div id="[conversationId]SubListContainer" ></div>
+ </script>
+ 
+ 
+ 
+ <script id="subConversationTemplate" type="text/html"> 
+ 		<div class="conversationSub"      >
+			      <div class="layui-row  layui-col-md-offset1">  
+			      	<div class="layui-row">
+			      		 <img  src="[fromUserPic]" style="width:46px;height: 46px;border-radius: 23px;" />&nbsp;&nbsp;&nbsp;  <b>[fromUserName]</b> 
+			      	</div>   
+			      </div> 
+						 
+			      <div class="layui-row   layui-col-md-offset1">
+			      <div class="layui-col-sm10">
+			      		  [msgContent]
+			      </div> 
+			      <div class="layui-col-sm2">
+					 <div class="layui-row">  
+						 <i>[addTime]</i> 
+					 </div>  
+			      </div> 
+			      </div>
+			      <hr /> 
+						 
+          </div>
+</script>
+ 
+ 
+ <script id="sendMsgTemplate" type="text/html" >
+		<div class="sendMsg"  style="padding: 10px;"> 
+				<div class="layui-row">
+					@:<img  src="[pic]" style="width:46px;height: 46px;border-radius: 23px;" /><b>[name]</b><i>&nbsp;&nbsp;&nbsp;  [dept]</i>. 
+				</div>   
+			 <div class="layui-row">
+					<textarea class="layui-textarea"  cid="[cid]"      id="msgContentToSend" ></textarea>
+			 </div> 
+		</div>
+ </script>
+ 
+
+  
+
+<script th:src="@{/alllayui/layui/layui.js}" charset="utf-8"></script>
+<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+
+
+
+<script>
+layui.use(['laypage','form', 'element','layer'], function(){
+  var laypage = layui.laypage
+  ,layer = layui.layer;
+  var $ = layui.$; 
+  var element = layui.element;
+  
+ 
+
+
+  
+  
+  var reg = new RegExp("\\[([^\\[\\]]*?)\\]", 'igm'); //i g m是指分别用于指定区分大小写的匹配、全局匹配和多行匹配。
+  var subDataList = function(subDataList,subListContainerId){
+	  for(var i=0;i<subDataList.length;i++){ 
+		  
+		   var obj = subDataList[i];
+	       var html = document.getElementById("subConversationTemplate").innerHTML;
+		   var source = html.replace(reg, function (node, key) {  return obj[key];  });
+		   var subListContainer = "#"+ subListContainerId;
+		 
+		   $(subListContainer).append(source);
+	  }
+  }
+  var dataList = function(dataList,msgType) {
+	  var msgStr = "msgType"+msgType;
+	  $("#"+msgStr+"_listContainer").html("");
+	  for(var i=0;i<dataList.length;i++){ 
+		   var obj = dataList[i];
+	       var html = document.getElementById("conversationMainTemplate").innerHTML;
+		   var source = html.replace(reg, function (node, key) {  return obj[key];  });
+		  
+		   $("#"+msgStr+"_listContainer").append(source);
+		   //添加回复按钮
+		   $("#"+ obj.conversationId +"sendMsg").on('click',function(){
+                   
+				  var html = document.getElementById("sendMsgTemplate").innerHTML; 
+				  if(msgType==0){
+					obj['pic'] = obj.toUserPic;
+					obj['name'] = obj.toUserName;
+					obj['dept'] = obj.toUserDeptName;
+					
+				  }
+				  if(msgType==1){
+						obj['pic'] = obj.fromUserPic;
+						obj['name'] = obj.fromUserName;
+						obj['dept'] = obj.fromUserDeptName;
+				  }
+				  obj['cid'] = $(this).attr("myAttr");
+				  var source = html.replace(reg, function (node, key) {  return obj[key];  });
+					layer.open({ 
+						title: ['发消息', ''],  
+						shadeClose: true,
+						area: ['500px', '300px'],  
+						content: source,
+					    yes: function(index, layero){ 
+							  var textArea =  $(layero).find("#msgContentToSend");
+							  var cid = textArea.attr("cid");
+							 //如果设定了yes回调，需进行手工关闭
+							  $.post("/userCenter/sendMsg",{
+								   "conversationId": cid
+								  ,"msgContent": textArea.val()
+							  },function(ret){
+								  console.log(ret);
+								  layer.close(index); 
+							  },"json");
+							  
+						 }
+					});
+		   });
+		    
+		   //判断是否有more  subListNumber 
+		   if( obj.subListNumber>0){  
+			    $("#"+obj.conversationId).text("more");
+			    //绑定moreInfo click 事件
+			    $("#"+obj.conversationId).one("click",function(){ 
+			    	$(this).text(""); 
+			    	var converId = $(this).attr("myAttr");
+			    	
+			    	//获取ConversationId 对应的子对话
+			    	$.post("/userCenter/personalMsgSublist",{"conversationId":converId},function(data){
+			    		console.log(data);
+			    		var resList = data.data;
+			    		if(resList.length>0){
+			    			subDataList(resList,(converId+"SubListContainer"));
+			    		}
+			    	
+			    	},"json");
+			    	 
+			    }); 
+		   }   
+	  }
+  }  
+   
+  var queryData0={};
+  var queryData1={};
+  var query = function(pageConf,msgType){ 	  
+	  if(pageConf!=null){
+		      var queryWhere = {};
+		      if($("#userName").val()!=""){
+			      queryWhere['userName'] = $("#userName").val(); 
+		      }
+			  queryWhere['currentPageNum'] = pageConf.curr;
+		      queryWhere['pageSize'] = pageConf.limit;  
+		      queryWhere['msgType'] = msgType;
+		      $.post("/userCenter/personalMsg",queryWhere,function(data){ 
+		    	  if(msgType==0){
+		    		  queryData0 = data;
+			    	  dataList(data.recordList,msgType); 
+		    	  }else{
+			    	  queryData1 = data;
+			    	  dataList(data.recordList,msgType); 
+		    	  } 
+	          },"json");
+	  }else{ 
+		  var queryWhere = {};
+		  queryWhere['currentPageNum'] = 1;
+	      queryWhere['pageSize'] = 10;  
+	      queryWhere['msgType'] = 0;
+		  $.post("/userCenter/personalMsg",queryWhere,function(data){ 
+			  if(msgType==0){
+				  queryData0 = data;
+			  }else{
+				  queryData1 = data;
+			  }
+	      },"json");
+	  }
+  };
+  
+ 
+    query(null,0);
+    query(null,1);
+    
+	laypage.render({
+	     elem: 'msgType0_pageFile'
+	    ,count: queryData0.totalRecords
+	    ,layout: [ 'prev', 'page', 'next', 'limit', 'refresh', 'skip']
+	    ,jump: function(obj){ 
+	    	query(obj,0); 
+	    }
+	 }); 
+	 
+	laypage.render({
+	     elem: 'msgType1_pageFile'
+	    ,count: queryData1.totalRecords
+	    ,layout: [ 'prev', 'page', 'next', 'limit', 'refresh', 'skip']
+	    ,jump: function(obj){ 
+	    	query(obj,1); 
+	    }
+	 }); 
+
+	
+	element.on('tab(msgTab)', function(data){
+		  console.log(this); //当前Tab标题所在的原始DOM元素
+		  console.log(data.index); //得到当前Tab的所在下标
+		   
+   });
+  
+  
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>layui</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" th:href="@{/alllayui/layui/css/layui.css}"  media="all">
+    <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+</head>
+<body>
+<div style="margin-bottom: 5px;">
+    <div class="layui-form-item">
+        <label class="layui-form-label">表</label>
+        <div class="layui-input-block">
+            <select name="tableName" lay-verify="required">
+                <option th:each="t:${allTables}" th:value="${t}" th:text="${t}">
+            </select>
+        </div>
+    </div>
+</div>
+<script>
+
+</script>
+
+</body>
+</html>

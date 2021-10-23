@@ -1,0 +1,90 @@
+<div style="height: 30px;"></div>
+
+<div style="padding-left: 10%;padding-right: 10%;">
+   
+   <div id="list">
+   
+   </div>
+   
+   <div class="" style="text-align: center;" >
+     <div id="pageFile"></div>
+   </div>
+  
+</div>
+
+ <script  id="commentTemplate" type="text/html" >
+ <div class="cont"  style="padding-top:10px;padding-bottom:10px;">
+ <div class="layui-row">
+		<div class="layui-row">
+			<img src="[userPic]" style="width:46px;height: 46px;border-radius: 23px;" />&nbsp;&nbsp;&nbsp; <b>[userName]</b>
+		</div>
+	</div>
+
+	<div class="layui-row"  style="padding-top:15px;padding-bottom:15px;" >
+		<div class="layui-col-sm10"> 
+			[ncomment]
+		</div>
+		<div class="layui-col-sm2">
+			<div class="layui-row">
+				<i style="color:#ccc;" >[addTime]</i>
+			</div>
+		</div>
+	</div>
+	<hr class="layui-bg-gray">
+</div>
+ </script>
+ 
+
+<script>
+	layui.use(['laypage', 'form',  'layer'], function() {
+
+		var layer = layui.layer;
+		var $ = layui.$ ;
+		var laypage = layui.laypage; 
+		
+	    var reg = new RegExp("\\[([^\\[\\]]*?)\\]", 'igm'); //i g m是指分别用于指定区分大小写的匹配、全局匹配和多行匹配。
+	    var dataList = function(subDataList){
+	    	 $("#list").html(""); 
+	        for(var i=0;i<subDataList.length;i++){  
+			   var obj = subDataList[i];
+		       var html = document.getElementById("commentTemplate").innerHTML;
+			   var source = html.replace(reg, function (node, key) {  return obj[key];  }); 
+			   $("#list").append(source);
+		    }
+	    }
+	       
+	     
+		  //执行一个laypage实例 
+		  laypage.render({
+			     elem: 'pageFile'
+			    ,count:  1 
+			    ,layout: [ 'prev', 'page', 'next', 'limit', 'refresh', 'skip']
+			    ,jump: function(obj, first){  
+			    	 if(!first){  
+			    		 var queryWhere = {}; 
+						  queryWhere['currentPageNum'] = obj.curr;
+					      queryWhere['pageSize'] = obj.limit;  
+					      $.post("/orgcomment/list",queryWhere,function(data){  
+					    	  obj.count = data.totalRecords;
+					    	  dataList(data.recordList); 
+				          },"json"); 
+			    	 }else{ 
+			    		  var queryWhere = {};
+						  queryWhere['currentPageNum'] = 1;
+					      queryWhere['pageSize'] = 10;   
+						  $.post("/orgcomment/list",queryWhere,function(data){   
+							  obj.count =  data.totalRecords;
+							  dataList(data.recordList); 
+					      },"json"); 
+						  
+			    	 }
+			    }
+			 }); 
+		  
+		  $(function(){
+			  $(".layui-laypage-btn").click();
+		  });
+
+	});
+</script>
+</html>

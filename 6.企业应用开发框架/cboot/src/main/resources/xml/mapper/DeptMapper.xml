@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lz.ht.dao.DeptMapper">
+
+    <resultMap id="baseResultMap" type="com.lz.ht.model.Dept"></resultMap>
+
+    <insert id="add" parameterType="com.lz.ht.model.Dept" >
+        insert into t_dept <trim prefix="(" suffix=")" suffixOverrides= ",">
+                    <if test= "id != null">id,</if>
+                    <if test= "deptName != null">deptName,</if>
+                    <if test= "deptDesc != null">deptDesc,</if>
+                    <if test= "enable != null">enable,</if>
+                    <if test= "parentId != null">parentId,</if>
+                    <if test= "sort != null">sort,</if>
+                    <if test= "parentName != null">parentName,</if>
+        </trim>
+        values <trim prefix="(" suffix=")" suffixOverrides= ",">
+                    <if test= "id != null">#{id},</if>
+                    <if test= "deptName != null">#{deptName},</if>
+                    <if test= "deptDesc != null">#{deptDesc},</if>
+                    <if test= "enable != null">#{enable},</if>
+                    <if test= "parentId != null">#{parentId},</if>
+                    <if test= "sort != null">#{sort},</if>
+                    <if test= "parentName != null">#{parentName},</if>
+        </trim>
+    </insert>
+    <update id="updateById" parameterType="com.lz.ht.model.Dept" >
+        UPDATE t_dept
+        <set>
+                    <if test= "id != null">id = #{id},</if>
+                    <if test= "deptName != null">deptName = #{deptName},</if>
+                    <if test= "deptDesc != null">deptDesc = #{deptDesc},</if>
+                    <if test= "enable != null">enable = #{enable},</if>
+                    <if test= "parentId != null">parentId = #{parentId},</if>
+                    <if test= "sort != null">sort = #{sort},</if>
+                    <if test= "parentName != null">parentName = #{parentName},</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <delete id="deleteById" parameterType="com.lz.ht.model.Dept" >
+        delete from t_dept where id = #{id}
+    </delete>
+
+    <select id="findById"   resultMap="baseResultMap"  parameterType="java.lang.Long" >
+        select * from  t_dept t  WHERE id = #{id,jdbcType=BIGINT}
+    </select>
+
+    <select id="findAll"   resultMap="baseResultMap">
+        select * from  t_dept t
+    </select>
+
+
+    <select id="findList"  parameterType="com.lz.ht.model.Dept" resultMap="baseResultMap">
+        select * from  t_dept t where 1=1
+                <if test= "id != null"> and id = #{id}</if>
+                <if test= "deptName != null"> and deptName = #{deptName}</if>
+                <if test= "deptDesc != null"> and deptDesc = #{deptDesc}</if>
+                <if test= "enable != null"> and enable = #{enable}</if>
+                <if test= "parentId != null"> and parentId = #{parentId}</if>
+                <if test= "sort != null"> and sort = #{sort}</if>
+                <if test= "parentName != null"> and parentName = #{parentName}</if>
+    </select>
+
+    <select id="findCount" parameterType="com.lz.ht.model.Dept"  resultType="java.lang.Long">
+        select count(*)  from t_dept where 1=1
+                    <if test= "id != null"> and id = #{id}</if>
+                    <if test= "deptName != null"> and deptName = #{deptName}</if>
+                    <if test= "deptDesc != null"> and deptDesc = #{deptDesc}</if>
+                    <if test= "enable != null"> and enable = #{enable}</if>
+                    <if test= "parentId != null"> and parentId = #{parentId}</if>
+                    <if test= "sort != null"> and sort = #{sort}</if>
+                    <if test= "parentName != null"> and parentName = #{parentName}</if>
+    </select>
+
+    <select id="findCountByMap" parameterType="java.util.HashMap"   resultType="java.lang.Long" >
+        select count(*) from t_dept where 1=1
+                <if test= "id != null">  and id = #{id} </if>
+                <if test= "deptName != null">  and deptName = #{deptName} </if>
+                <if test= "deptDesc != null">  and deptDesc = #{deptDesc} </if>
+                <if test= "enable != null">  and enable = #{enable} </if>
+                <if test= "parentId != null">  and parentId = #{parentId} </if>
+                <if test= "sort != null">  and sort = #{sort} </if>
+                <if test= "parentName != null">  and parentName = #{parentName} </if>
+    </select>
+
+    <select id="findListByMapLimit" parameterType="java.util.HashMap"   resultType="com.lz.ht.model.Dept" >
+        select * from t_dept where 1=1
+                <if test= "id != null">  and id = #{id}</if>
+                <if test= "deptName != null">  and deptName = #{deptName}</if>
+                <if test= "deptDesc != null">  and deptDesc = #{deptDesc}</if>
+                <if test= "enable != null">  and enable = #{enable}</if>
+                <if test= "parentId != null">  and parentId = #{parentId}</if>
+                <if test= "sort != null">  and sort = #{sort}</if>
+                <if test= "parentName != null">  and parentName = #{parentName}</if>
+        order by id desc limit  #{msFirst},#{msLast}
+    </select>
+
+</mapper>

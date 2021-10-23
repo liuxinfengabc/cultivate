@@ -1,0 +1,25 @@
+.main{
+    width: 100%;
+}
+.login{
+    margin:10% auto;
+    width: 25%;
+    min-width: 200px;
+    padding: 5%;
+    background-color: #009688;
+}
+.loginHeader p{
+    font-size: 14px;
+    line-height: 60px;
+    color: #9F9F9F;
+    text-align: center;
+}
+.loginHeader h2{
+    font-size: 20px;
+    color: #0C0C0C;
+    text-align: center;
+    line-height: 30px;
+}
+.submit{
+    text-align: center;
+}

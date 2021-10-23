@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>tree</title>
+    <!--引入zTree的css-->
+    <link rel="stylesheet" th:href="@{/system/js/zTree_v3//css/zTreeStyle/zTreeStyle.css}" type="text/css">
+</head>
+<body>
+<div class="layui-form-item">
+    <div class="layui-input-block">
+        <button type="button" class="layui-btn" lay-submit=""  id="confirmBtn">确定</button>
+    </div>
+</div>
+<div class="content_wrap"  >
+    <div class="zTreeDemoBackground left">
+        <ul id="treeDemo" class="ztree"></ul>
+    </div>
+</div>
+</body>
+</html>
+<!--引入layer之前需要引入jquery-->
+<script th:src="@{/system/js/jquery.min.js}" charset="utf-8"></script>
+<script th:src="@{/alllayui/layui/layui.js}" charset="utf-8"></script>
+<!--引入layer-->
+<!--引入zTree-->
+<script type="text/javascript" th:src="@{/system/js/zTree_v3/js/jquery.ztree.core.js}"></script>
+<script type="text/javascript" th:src="@{/system/js/zTree_v3/js/jquery.ztree.excheck.js}"></script>
+<script  th:inline="javascript" >
+    var treeJsonStr =  [[${treeNodes}]];
+    var coverOtherColumnValueJson = [[${coverOtherValueColumn}]];
+    //console.log(coverOtherColumnValueJson);
+    var zNodes = JSON.parse(treeJsonStr);
+    //console.log(zNodes);
+    simpleChooseFun = function(e, treeId, treeNode){
+        var treeObj = $.fn.zTree.getZTreeObj("treeDemo");
+        var chooseNodes = treeObj.getCheckedNodes(true);
+        //获取所有选中的节点
+        for(var i = 0 ; i < chooseNodes.length ; i++){
+            //如果当前所有节点的id!=当前节点id
+            if(chooseNodes[i].id != treeNode.id){
+                chooseNodes[i].checked = false;
+                treeObj.updateNode(chooseNodes[i]);
+            }
+        }
+
+    }
+
+    multipleChooseFun = function () {
+        var treeObj = $.fn.zTree.getZTreeObj("treeDemo");
+        var chooseNodes = treeObj.getCheckedNodes(true);
+        //console.log(JSON.stringify(chooseNodes));
+        //console.log(chooseNodes[0].id +" : " +chooseNodes[0].name);
+    }
+
+    var setting = {
+        check: {
+            enable: true,
+            autoCheckTrigger: true,
+            chkboxType:{ "Y": "", "N": "" }
+        },
+        data: {
+            simpleData: {
+                enable: true
+            }
+        },
+        callback : {
+            onCheck : simpleChooseFun
+        }
+    };
+
+
+    var thisIndex = parent.layer.getFrameIndex(window.name);
+    var parentLayer = parent.layer;
+    var pWindow = parent ;
+    /*初始化zTree*/
+    $(document).ready(function(){
+        $.fn.zTree.init($("#treeDemo"), setting, zNodes);
+        $("#confirmBtn").click(function(){
+            var treeObj = $.fn.zTree.getZTreeObj("treeDemo");
+            var chooseNodes = treeObj.getCheckedNodes(true);
+            //console.log(chooseNodes[0].id +" : " +chooseNodes[0].name);
+            //console.log(chooseNodes[0]);
+            if(chooseNodes[0].id!=''){
+                parentLayer.close(thisIndex);
+                pWindow.coverValue(coverOtherColumnValueJson,chooseNodes);
+            }
+        });
+    });
+
+</script>

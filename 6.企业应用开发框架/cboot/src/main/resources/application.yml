@@ -1,0 +1,72 @@
+#redis
+#spring.redis.host=localhost
+#spring.redis.port=6379
+#spring.redis.lettuce.pool.max-active=5
+#spring.redis.lettuce.pool.max-idle=1
+#spring.redis.lettuce.pool.min-idle=1
+#spring.redis.lettuce.pool.max-wait=5000
+#spring.redis.timeout=30000
+server:
+  port: 8082
+  tomcat:
+    uri-encoding: utf-8
+  servlet:
+    session:
+      timeout: 30m
+
+spring:
+  #jdbc配置
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/cboot?useUnicode=true&characterEncoding=UTF-8&useSSL=true&useAffectedRows=true&tinyInt1isBit=false&serverTimezone=GMT%2B8
+    username: root
+    password: 123
+
+    type: com.alibaba.druid.pool.DruidDataSource
+      #   数据源其他配置
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    #   配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+    filters: stat,wall
+    maxPoolPreparedStatementPerConnectionSize: 20
+    useGlobalDataSourceStat: true
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+    
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML
+    encoding: UTF-8
+    cache: false
+    servlet:
+      content-type: text/html
+
+
+mybatis:
+  typeAliasesPackage: com.lz.ht.dao
+  mapperLocations: classpath:xml/mapper/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+systemConstant:
+  imageRootPath: E:/imageRootPath
+  staticHtmlPath: E:/staticHtmlPath
+  simditorImagePath: E:/simditorImagePath
+
+logging:
+  level:
+    root: debug
